@@ -1,0 +1,77 @@
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  color: #333333;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* For Login Page */
+.blinking-heart {
+  display: inline-block;
+  animation: 0.8s infinite beatHeart;
+  color: #eb5e28;
+}
+@keyframes beatHeart {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+::selection {
+  color: #fff;
+  background: #ffc5c5;
+  text-shadow: 1px 1px 2px #b04040;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: all 200ms;
+}
+.page-enter, .page-leave-active {
+  opacity: 0
+}
+
+
+section {
+  transition: all 200ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(100px, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-100px, 0);
+}
