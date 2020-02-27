@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "netlify": "netlify dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -28,6 +29,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@tailwindcss/custom-forms": "^0.2.1",
+    "node-fetch": "^2.6.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
@@ -47,6 +49,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.0",
     "lint-staged": "^10.0.8",
+    "netlify-cli": "^2.36.0",
     "prettier": "^1.19.1",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
