@@ -4,5 +4,11 @@ module.exports = {
   extends: 'stylelint-config-standard',
   rules: {
     'color-no-invalid-hex': true,
+    'property-no-unknown': [
+      true,
+      {
+        ignoreProperties: ['font-named-instance'],
+      },
+    ],
   },
 };

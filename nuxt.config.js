@@ -25,6 +25,7 @@ export default {
    */
   css: [
     { src: '~/assets/styles/fonts.css', lang: 'css' },
+    { src: '~/assets/styles/logo.css', lang: 'css' },
     { src: '~/assets/styles/global.css', lang: 'css' },
     { src: '~/assets/styles/themes.css', lang: 'css' },
   ],
