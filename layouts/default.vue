@@ -1,26 +1,21 @@
 <template>
   <main
-    class="flex items-center justify-center w-full h-full min-h-screen overflow-hidden antialiased font-thin transition transition-colors duration-200 ease-linear min-w-screen bg-background-primary text-foreground-primary"
+    class="w-full h-full min-h-screen overflow-hidden antialiased font-thin transition transition-colors duration-200 ease-linear min-w-screen bg-background-primary text-foreground-primary"
     :class="currentTheme"
   >
-    <div class="absolute top-0 left-0 ml-6 logo">
-      <svg class="fill-current logo">
-        <defs />
-        <text y="50" fill="currentColor" class="text-5xl">
-          V.
-        </text>
-      </svg>
-    </div>
-    <!-- Theme switcher -->
-    <theme-switcher
+    <!-- Header -->
+    <v-header
       :theme="currentTheme"
       @set-theme="(theme) => (currentTheme = theme)"
     />
-    <nuxt />
+    <!-- Body -->
+    <div
+      class="flex items-center justify-center w-full h-screen max-h-screen py-24"
+    >
+      <nuxt class="max-w-screen-xl" />
+    </div>
     <!-- Footer -->
-    <footer class="fixed bottom-0 p-4">
-      <v-footer />
-    </footer>
+    <v-footer />
   </main>
 </template>
 
@@ -28,13 +23,13 @@
   export default {
     name: 'DefaultLayout',
     components: {
+      VHeader: () =>
+        import(
+          /* webpackChunkName: "Header Component" */ '@/components/common/VHeader.vue'
+        ),
       VFooter: () =>
         import(
           /* webpackChunkName: "Footer Component" */ '@/components/common/VFooter.vue'
-        ),
-      ThemeSwitcher: () =>
-        import(
-          /* webpackChunkName: "Footer Component" */ '@/components/common/ThemeSwitcher.vue'
         ),
     },
     data() {
@@ -44,9 +39,3 @@
     },
   };
 </script>
-
-<style>
-  .logo {
-    font-family: 'Permanent Marker', -apple-system, Verdana, Tahoma, sans-serif;
-  }
-</style>

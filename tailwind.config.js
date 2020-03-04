@@ -25,6 +25,10 @@ module.exports = {
       black: '#000',
       white: '#fff',
 
+      twitter: '#1DA1F2',
+      linkedIn: '#2867B2',
+      github: '#333333',
+
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
