@@ -1,5 +1,4 @@
 <template>
-  <!-- Body -->
   <section
     class="p-6 m-12 rounded shadow bg-background-secondary hover:shadow-md lg:m-0 lg:p-12"
   >
