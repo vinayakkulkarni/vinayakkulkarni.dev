@@ -32,7 +32,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/vuescroll', mode: 'client' }],
   /*
    ** Nuxt.js dev-modules
    */
