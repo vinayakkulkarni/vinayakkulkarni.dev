@@ -1,7 +1,7 @@
 <template>
   <section class="w-full h-full overflow-hidden">
     <div class="grid grid-flow-col grid-cols-4 gap-4">
-      <div class="max-w-lg col-span-3">
+      <div class="col-span-3">
         <p class="text-3xl">Uses</p>
         <p>
           There are times where people ask me about what software or gear I am
@@ -11,7 +11,7 @@
       </div>
       <nuxt-link
         tag="div"
-        class="max-w-lg col-span-1 text-5xl text-right cursor-pointer"
+        class="col-span-1 text-5xl text-right cursor-pointer"
         :to="{ name: 'index' }"
       >
         &larr;

@@ -12,7 +12,7 @@
       <span class="text-gray-700">Name</span>
       <input
         v-model="form.name"
-        class="block w-full mt-1 form-input"
+        class="block w-full mt-1 text-gray-800 form-input"
         placeholder="Jane Doe"
       />
     </label>
