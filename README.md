@@ -1,5 +1,7 @@
 # vinayak.dev
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8fc552a8-ded0-4a31-84f3-a463f5488b7b/deploy-status)](https://app.netlify.com/sites/vinayak-dev/deploys)
+
 > Vinayak Portfolio using amazing Nuxt.js
 
 ## Build Setup
