@@ -27,22 +27,26 @@
     },
     watch: {
       toggleTheme(val, oldVal) {
-        if (val) {
-          localStorage.setItem('theme', 'dark');
-          this.$emit('set-theme', 'dark');
-        } else {
-          localStorage.setItem('theme', 'light');
-          this.$emit('set-theme', 'light');
+        if (process.client) {
+          if (val) {
+            localStorage.setItem('theme', 'dark');
+            this.$emit('set-theme', 'dark');
+          } else {
+            localStorage.setItem('theme', 'light');
+            this.$emit('set-theme', 'light');
+          }
         }
       },
     },
     created() {
-      if (
-        localStorage.getItem('theme') &&
-        localStorage.getItem('theme') === 'dark'
-      ) {
-        this.$emit('set-theme', 'dark');
-        this.toggleTheme = true;
+      if (process.client) {
+        if (
+          localStorage.getItem('theme') &&
+          localStorage.getItem('theme') === 'dark'
+        ) {
+          this.$emit('set-theme', 'dark');
+          this.toggleTheme = true;
+        }
       }
     },
   };
