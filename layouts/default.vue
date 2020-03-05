@@ -12,7 +12,7 @@
     <div
       class="flex items-center justify-center w-full h-screen max-h-screen py-24"
     >
-      <nuxt class="max-w-screen-xl" />
+      <nuxt class="px-4 md:max-w-screen-xl" />
     </div>
     <!-- Footer -->
     <v-footer />

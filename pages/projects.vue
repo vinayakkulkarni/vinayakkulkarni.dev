@@ -1,7 +1,7 @@
 <template>
   <section class="w-full h-full mx-12 my-4">
     <div class="grid grid-flow-col grid-cols-4 gap-4 mb-4">
-      <div class="max-w-lg col-span-3">
+      <div class="col-span-3">
         <p class="text-3xl">Projects</p>
         <p>
           This page will serve as a listing for all the side-projects, plugins,
@@ -10,7 +10,7 @@
       </div>
       <nuxt-link
         tag="div"
-        class="max-w-lg col-span-1 text-5xl text-right cursor-pointer"
+        class="col-span-1 text-5xl text-right cursor-pointer"
         :to="{ name: 'index' }"
       >
         &larr;
@@ -18,7 +18,7 @@
     </div>
     <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       <div
-        class="max-w-lg overflow-hidden rounded shadow-lg bg-background-secondary"
+        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">V-Offline</div>
@@ -28,7 +28,7 @@
         </div>
       </div>
       <div
-        class="max-w-lg overflow-hidden rounded shadow-lg bg-background-secondary"
+        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">V-Image</div>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div
-        class="max-w-lg overflow-hidden rounded shadow-lg bg-background-secondary"
+        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">Vue-Identify-Network</div>
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div
-        class="max-w-lg overflow-hidden rounded shadow-lg bg-background-secondary"
+        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">V-Offline</div>

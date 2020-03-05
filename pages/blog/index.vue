@@ -2,7 +2,7 @@
   <section class="w-full h-full overflow-hidden">
     <!-- Top Data -->
     <div class="grid grid-flow-col grid-cols-4 gap-4">
-      <div class="max-w-lg col-span-3">
+      <div class="col-span-3">
         <p class="text-3xl">Blog Posts</p>
         <p>
           This page will serve as a listing for all the TIL's, blog posts &
@@ -11,7 +11,7 @@
       </div>
       <nuxt-link
         tag="div"
-        class="max-w-lg col-span-1 text-5xl text-right cursor-pointer"
+        class="col-span-1 text-5xl text-right cursor-pointer"
         :to="{ name: 'index' }"
       >
         &larr;
