@@ -64,6 +64,12 @@ body {
   text-shadow: 1px 1px 2px #b04040;
 }
 
+section {
+  transition: all 200ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* purgecss start ignore */
+
 .page-enter-active,
 .page-leave-active {
   transition: all 200ms;
@@ -72,10 +78,6 @@ body {
 .page-enter,
 .page-leave-active {
   opacity: 0;
-}
-
-section {
-  transition: all 200ms cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 .slide-left-enter,
@@ -89,3 +91,5 @@ section {
   opacity: 0;
   transform: translate(-100px, 0);
 }
+
+/* purgecss end ignore */
