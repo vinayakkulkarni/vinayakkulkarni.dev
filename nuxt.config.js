@@ -30,12 +30,6 @@ export default {
     { src: '~/assets/styles/themes.css', lang: 'css' },
   ],
   /*
-   ** PurgeCSS classes
-   */
-  purgeCSS: {
-    whitelist: ['.slide-left', '.slide-right'],
-  },
-  /*
    ** Plugins to load before mounting the App
    */
   plugins: [{ src: '~/plugins/vuescroll', mode: 'client' }],
