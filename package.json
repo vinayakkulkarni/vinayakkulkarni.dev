@@ -30,7 +30,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@tailwindcss/custom-forms": "^0.2.1",
     "node-fetch": "^2.6.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.12.0",
     "vuescroll": "^4.15.0"
   },
   "devDependencies": {
