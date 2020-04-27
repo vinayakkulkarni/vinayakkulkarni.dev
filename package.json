@@ -28,7 +28,7 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.10.1",
+    "@nuxtjs/axios": "^5.10.2",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@tailwindcss/ui": "^0.2.2",
