@@ -26,20 +26,18 @@
           <!-- This needs to be dynamic -->
           <div
             v-for="post in posts"
-            :key="post.title"
+            :key="post.slug"
             class="max-w-lg overflow-hidden rounded shadow cursor-pointer bg-background-secondary hover:shadow-md"
             @click="
               $router.push({
-                name: 'blog-post',
-                params: { post: post.id },
+                path: post.path,
               })
             "
           >
             <div class="p-4">
-              <div class="mb-2 text-xl font-bold">{{ post.title }}</div>
-              <p class="text-base">
-                {{ post.description }}
-              </p>
+              <div class="mb-2 text-xl font-bold">
+                {{ post.slug.split('-').join(' ') }}
+              </div>
             </div>
           </div>
         </div>
@@ -51,6 +49,15 @@
 <script>
   export default {
     name: 'Blog',
+    transition(to, from) {
+      if (from && from.name === 'blog-post') {
+        return 'slide-right';
+      }
+      return 'slide-left';
+    },
+    async fetch() {
+      this.posts = await this.$content('blog').fetch();
+    },
     data() {
       return {
         scrollOps: {
@@ -76,14 +83,7 @@
             disable: false,
           },
         },
-        posts: [
-          {
-            id: 0,
-            title: 'Why Brotli is awesome!',
-            description:
-              'Learn how we integrated brotli and shaved off almost 25% off our bundle',
-          },
-        ],
+        posts: [],
       };
     },
   };
