@@ -13,8 +13,36 @@ export default {
         name: 'description',
         content: process.env.npm_package_description || '',
       },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'Vinayak Kulkarni - Portfolio',
+      },
+      { name: 'msapplication-TileColor', content: '#ffc40d' },
+      { name: 'theme-color', content: '#ffffff' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    noscript: [{ innerHTML: 'This application requires JavaScript.' }],
+    link: [
+      { rel: 'mask-icon', color: '#5bbad5', href: '/safari-pinned-tab.svg' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -66,6 +94,18 @@ export default {
    */
   axios: {
     baseURL: '/',
+  },
+  /**
+   * PWA module configuration
+   */
+  pwa: {
+    manifest: {
+      name: 'Vinayak Kulkarni',
+      short_name: 'VK',
+      description: "Vinayak Kulkarni's portfolio website",
+      theme_color: '#5bbad5',
+      background_color: '#FFFFFF',
+    },
   },
   /*
    ** Build configuration
