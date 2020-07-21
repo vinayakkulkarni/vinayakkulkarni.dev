@@ -8,31 +8,24 @@
     </h1>
     <!-- Info -->
     <div class="max-w-lg text-base break-words">
-      <div>
-        My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
-        Frontend Tech Lead @
-        <a
-          href="https://geospoc.com"
-          target="_blank"
-          rel="noopener nofollow"
-          class="hover:underline hover:text-foreground-secondary focus:text-green-500"
-          >GeoSpoc</a
-        >
-        & core team member of
-        <a
-          href="https://github.com/vuejs/vuepress/"
-          target="_blank"
-          rel="noopener nofollow"
-          class="hover:underline hover:text-foreground-secondary focus:text-green-500"
-          >VuePress</a
-        >
-      </div>
-      <div><span class="blinking-heart">💚</span> Vue &amp; Nuxt.js</div>
-      <div>
-        I love watching
-        <span class="font-semibold text-red-600">Arsenal FC</span>, gymming,
-        trekking & writing code
-      </div>
+      <article class="prose text-foreground-primary">
+        <div>
+          My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
+          Frontend Tech Lead @
+          <a
+            href="https://geospoc.com"
+            target="_blank"
+            rel="noopener nofollow"
+            class="focus:text-green-500"
+            >GeoSpoc</a
+          >
+          & open source contributor
+        </div>
+        <div><span class="blinking-heart">💚</span> Vue &amp; Nuxt.js</div>
+        <div>
+          I love watching Arsenal FC, gymming, trekking & writing code
+        </div>
+      </article>
     </div>
     <!-- Blog / Uses / Projects -->
     <div
