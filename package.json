@@ -1,5 +1,5 @@
 {
-  "name": "vinayak.dev",
+  "name": "vinayakkulkarni.dev",
   "version": "1.0.0",
   "description": "Vinayak Portfolio using amazing Nuxt.js",
   "author": "Vinayak Kulkarni",
@@ -32,6 +32,7 @@
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@tailwindcss/typography": "^0.2.0",
     "@tailwindcss/ui": "^0.4.0",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.13.3",
