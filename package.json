@@ -31,7 +31,7 @@
     "@nuxt/content": "^1.6.0",
     "@nuxtjs/axios": "^5.12.1",
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/pwa": "^3.0.1",
     "@tailwindcss/typography": "^0.2.0",
     "@tailwindcss/ui": "^0.5.0",
     "node-fetch": "^2.6.0",
