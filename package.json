@@ -46,7 +46,7 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^2.1.1",
-    "@vue/test-utils": "^1.0.3",
+    "@vue/test-utils": "^1.0.4",
     "ava": "^3.11.1",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
