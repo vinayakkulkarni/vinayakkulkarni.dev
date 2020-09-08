@@ -17,7 +17,7 @@
         &larr;
       </nuxt-link>
     </div>
-    <div style="height: calc(100% - 6rem);">
+    <div style="height: calc(100% - 6rem)">
       <vue-scroll :ops="scrollOps">
         <div class="py-4">
           <p class="text-xl font-bold border-b">Hardware</p>

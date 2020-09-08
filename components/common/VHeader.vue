@@ -9,9 +9,7 @@
         @click="$router.push({ name: 'index' })"
       >
         <defs />
-        <text y="30" fill="currentColor" class="text-5xl">
-          V.
-        </text>
+        <text y="30" fill="currentColor" class="text-5xl">V.</text>
       </svg>
     </div>
     <!-- Theme switcher -->
