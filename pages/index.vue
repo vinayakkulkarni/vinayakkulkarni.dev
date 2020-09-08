@@ -3,9 +3,7 @@
     class="p-6 m-12 rounded shadow bg-background-secondary hover:shadow-md lg:m-0 lg:p-12"
   >
     <!-- Hello -->
-    <h1 class="text-5xl">
-      Hello 👋
-    </h1>
+    <h1 class="text-5xl">Hello 👋</h1>
     <!-- Info -->
     <div class="max-w-lg text-base break-words">
       <article class="prose text-foreground-primary">
@@ -22,9 +20,7 @@
           & open source contributor
         </div>
         <div><span class="blinking-heart">💚</span> Vue &amp; Nuxt.js</div>
-        <div>
-          I love watching Arsenal FC, gymming, trekking & writing code
-        </div>
+        <div>I love watching Arsenal FC, gymming, trekking & writing code</div>
       </article>
     </div>
     <!-- Blog / Uses / Projects -->

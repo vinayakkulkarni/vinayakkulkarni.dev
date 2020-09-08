@@ -23,7 +23,7 @@
       Button
     </button>
     <p>Response: Hello {{ response }}</p>
-    <p v-if="error" style="color: red;">
+    <p v-if="error" style="color: red">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}

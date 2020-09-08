@@ -18,7 +18,7 @@
       </nuxt-link>
     </div>
     <!-- Actual Data -->
-    <div style="height: calc(100% - 6rem);">
+    <div style="height: calc(100% - 6rem)">
       <vue-scroll :ops="scrollOps">
         <div
           class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"

@@ -50,9 +50,7 @@
               </svg>
             </a>
           </div>
-          <p class="text-base">
-            Build Vue 3 apps in a breeze!
-          </p>
+          <p class="text-base">Build Vue 3 apps in a breeze!</p>
         </div>
       </div>
       <div
@@ -88,9 +86,7 @@
               </svg>
             </a>
           </div>
-          <p class="text-base">
-            Detect Offline & Online events
-          </p>
+          <p class="text-base">Detect Offline & Online events</p>
         </div>
       </div>
       <div
@@ -164,9 +160,7 @@
               </svg>
             </a>
           </div>
-          <p class="text-base">
-            Detect Offline & Online events
-          </p>
+          <p class="text-base">Detect Offline & Online events</p>
         </div>
       </div>
     </div>
