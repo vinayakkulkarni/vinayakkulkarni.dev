@@ -51,7 +51,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.3.0",
     "netlify-cli": "^2.63.2",
-    "prettier": "^2.1.1",
+    "prettier": "^2.1.2",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
     "require-extension-hooks-vue": "^3.0.0",
