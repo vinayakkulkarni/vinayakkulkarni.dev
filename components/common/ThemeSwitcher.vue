@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute top-0 right-0 m-4">
+  <div class="absolute top-0 right-0 visible m-4">
     <label class="px-6">
       <input v-model="toggleTheme" type="checkbox" class="w-0 h-0 opacity-0" />
       <span

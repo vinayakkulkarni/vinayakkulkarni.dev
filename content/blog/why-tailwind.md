@@ -1,3 +1,12 @@
+---
+title: 'Why Tailwind?'
+description: "Why using tailwind will blow your mind!"
+position: 2
+category: 'css'
+status: 'published'
+tags: ['tailwind', 'css']
+---
+
 <div class="py-4 text-2xl leading-relaxed tracking-wide">
   <ul>
     <li>Learned little bit of CSS</li>

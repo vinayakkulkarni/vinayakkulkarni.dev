@@ -1,5 +1,8 @@
 <template>
-  <footer class="fixed bottom-0 inline-flex h-24 min-w-full p-4">
+  <footer
+    class="fixed bottom-0 inline-flex min-w-full py-4"
+    :class="{ 'border-t border-cool-gray-500': $route.name !== 'index' }"
+  >
     <div class="flex items-center justify-center w-full">
       <!-- GitHub -->
       <a

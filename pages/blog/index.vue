@@ -26,17 +26,31 @@
           <!-- This needs to be dynamic -->
           <div
             v-for="post in posts"
-            :key="post.slug"
+            v-show="post.status !== 'draft'"
+            :key="post.position"
             class="max-w-lg overflow-hidden rounded shadow cursor-pointer bg-background-secondary hover:shadow-md"
-            @click="
-              $router.push({
-                path: post.path,
-              })
-            "
+            @click="$router.push({ path: post.path })"
           >
             <div class="p-4">
               <div class="mb-2 text-xl font-bold">
-                {{ post.slug.split('-').join(' ') }}
+                {{ post.title }}
+              </div>
+              <div class="flex items-center justify-start py-1 text-sm">
+                <div
+                  class="pr-2 border-r border-gray-500 text-foreground-secondary"
+                >
+                  {{ new Date(post.createdAt).toDateString() }}
+                </div>
+                <div
+                  v-for="(tag, index) in post.tags"
+                  :key="index"
+                  class="pl-2"
+                >
+                  {{ tag }}
+                </div>
+              </div>
+              <div class="pt-2">
+                {{ post.description }}
               </div>
             </div>
           </div>

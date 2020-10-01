@@ -1,5 +1,14 @@
 export default {
-  mode: 'universal',
+  /*
+   ** Nuxt rendering mode
+   ** See https://nuxtjs.org/guides/features/rendering-modes#spa
+   */
+  ssr: false,
+  /*
+   ** Nuxt target
+   ** See https://nuxtjs.org/api/configuration-target
+   */
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -105,6 +114,13 @@ export default {
       description: "Vinayak Kulkarni's portfolio website",
       theme_color: '#5bbad5',
       background_color: '#FFFFFF',
+    },
+  },
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-dark.css',
+      },
     },
   },
   /*

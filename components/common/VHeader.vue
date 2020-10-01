@@ -1,9 +1,9 @@
 <template>
-  <header class="fixed top-0 h-24 min-w-full p-4">
+  <header class="fixed top-0 invisible h-24 min-w-full p-4">
     <!-- Logo -->
     <div class="select-none">
       <svg
-        class="cursor-pointer fill-current v-logo"
+        class="visible cursor-pointer fill-current v-logo"
         width="30"
         height="30"
         @click="$router.push({ name: 'index' })"

@@ -1,6 +1,6 @@
 <template>
   <main
-    class="w-full h-full min-h-screen overflow-hidden antialiased font-thin transition transition-colors duration-200 ease-linear min-w-screen bg-background-primary text-foreground-primary"
+    class="w-full h-full min-h-screen overflow-hidden antialiased font-thin transition-colors duration-200 ease-linear min-w-screen bg-background-primary text-foreground-primary"
     :class="currentTheme"
   >
     <!-- Header -->
@@ -9,11 +9,11 @@
       @set-theme="(theme) => (currentTheme = theme)"
     />
     <!-- Body -->
-    <div
-      class="flex items-center justify-center w-full h-screen max-h-screen py-24"
+    <section
+      class="flex items-center justify-center w-full h-screen max-h-screen px-4 pb-4 pt-14 md:py-16 xl:py-12 xl:px-0"
     >
-      <nuxt class="px-4 md:max-w-screen-xl" />
-    </div>
+      <nuxt class="md:max-w-screen-xl" />
+    </section>
     <!-- Footer -->
     <v-footer />
   </main>
