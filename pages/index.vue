@@ -1,12 +1,12 @@
 <template>
   <section
-    class="p-6 m-12 rounded shadow bg-background-secondary hover:shadow-md lg:m-0 lg:p-12"
+    class="p-6 m-12 text-gray-100 rounded shadow bg-gradient-to-t from-cool-gray-700 to-cool-gray-600 hover:shadow-md lg:m-0 lg:p-12"
   >
     <!-- Hello -->
     <h1 class="text-5xl">Hello 👋</h1>
     <!-- Info -->
     <div class="max-w-lg text-base break-words">
-      <article class="prose text-foreground-primary">
+      <article class="py-2 prose text-gray-100">
         <div>
           My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
           Frontend Tech Lead @

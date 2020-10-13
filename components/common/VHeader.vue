@@ -1,9 +1,11 @@
 <template>
-  <header class="fixed top-0 invisible h-24 min-w-full p-4">
+  <header
+    class="fixed top-0 flex items-center justify-between invisible h-24 min-w-full p-4"
+  >
     <!-- Logo -->
     <div class="select-none">
       <svg
-        class="visible cursor-pointer fill-current v-logo"
+        class="visible text-gray-900 cursor-pointer v-logo dark:text-gray-100"
         width="30"
         height="30"
         @click="$router.push({ name: 'index' })"
@@ -13,34 +15,22 @@
       </svg>
     </div>
     <!-- Theme switcher -->
-    <theme-switcher
-      :theme="theme"
-      @set-theme="(theme) => $emit('set-theme', theme)"
-    />
+    <div>
+      <select
+        v-model="$colorMode.preference"
+        class="visible w-full h-8 px-2 text-base text-gray-300 border border-gray-700 rounded bg-cool-gray-900"
+      >
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
   </header>
 </template>
 
 <script>
   export default {
     name: 'Header',
-    components: {
-      ThemeSwitcher: () =>
-        import(
-          /* webpackChunkName: "Footer Component" */ '@/components/common/ThemeSwitcher.vue'
-        ),
-    },
-    props: {
-      theme: {
-        type: String,
-        default: 'light',
-        required: true,
-      },
-    },
-    data() {
-      return {
-        currentTheme: 'light',
-      };
-    },
   };
 </script>
 

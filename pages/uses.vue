@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full h-full overflow-hidden">
+  <section class="w-full h-full mt-12 overflow-hidden xl:mt-0">
     <div class="grid grid-flow-col grid-cols-4 gap-4">
       <div class="col-span-3">
         <p class="text-3xl">Uses</p>

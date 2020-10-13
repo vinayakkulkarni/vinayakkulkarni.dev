@@ -1,21 +1,19 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: [
-    // etc.
-  ],
+  experimental: {
+    darkModeVariant: true,
+  },
+  dark: 'class',
+  future: {
+    defaultLineHeights: true,
+    standardFontWeights: true,
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
   theme: {
     extend: {
       colors: {
-        background: {
-          primary: 'var(--background-primary)',
-          secondary: 'var(--background-secondary)',
-          tertiary: 'var(--background-tertiary)',
-        },
-        foreground: {
-          primary: 'var(--foreground-primary)',
-          secondary: 'var(--foreground-secondary)',
-        },
         twitter: '#1DA1F2',
         linkedIn: '#2867B2',
         github: '#333333',
@@ -30,6 +28,5 @@ module.exports = {
     require('@tailwindcss/ui'),
     require('@tailwindcss/custom-forms'),
     require('@tailwindcss/typography'),
-    // ...
   ],
 };

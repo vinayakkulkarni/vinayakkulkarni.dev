@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full h-full mx-12 my-4">
+  <section class="w-full h-full mt-12 overflow-hidden xl:mt-0">
     <div class="grid grid-flow-col grid-cols-4 gap-4 mb-4">
       <div class="col-span-3">
         <p class="text-3xl">Projects</p>
@@ -18,7 +18,7 @@
     </div>
     <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       <div
-        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
+        class="overflow-hidden text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">
@@ -26,9 +26,9 @@
               href="https://github.com/vinayakkulkarni/janak"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center text-foreground-secondary hover:text-foreground-primary"
+              class="flex items-center"
             >
-              <span class="text-foreground-primary">Janak</span>
+              <span>Janak</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div
-        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
+        class="overflow-hidden text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">
@@ -62,9 +62,9 @@
               href="https://github.com/vinayakkulkarni/v-offline"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center text-foreground-secondary hover:text-foreground-primary"
+              class="flex items-center"
             >
-              <span class="text-foreground-primary">v-offline</span>
+              <span>v-offline</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
@@ -90,7 +90,7 @@
         </div>
       </div>
       <div
-        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
+        class="overflow-hidden text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">
@@ -98,9 +98,9 @@
               href="https://github.com/vinayakkulkarni/v-image"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center text-foreground-secondary hover:text-foreground-primary"
+              class="flex items-center"
             >
-              <span class="text-foreground-primary">v-image</span>
+              <span>v-image</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
@@ -128,7 +128,7 @@
         </div>
       </div>
       <div
-        class="max-w-lg overflow-hidden rounded shadow hover:shadow-md bg-background-secondary"
+        class="overflow-hidden text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">
@@ -136,9 +136,9 @@
               href="https://github.com/vinayakkulkarni/vue-identify-network"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center text-foreground-secondary hover:text-foreground-primary"
+              class="flex items-center"
             >
-              <span class="text-foreground-primary">Vue Identify Network</span>
+              <span>Vue Identify Network</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"

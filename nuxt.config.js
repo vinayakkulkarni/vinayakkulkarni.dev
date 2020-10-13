@@ -64,7 +64,6 @@ export default {
     { src: '~/assets/styles/fonts.css', lang: 'css' },
     { src: '~/assets/styles/logo.css', lang: 'css' },
     { src: '~/assets/styles/global.css', lang: 'css' },
-    { src: '~/assets/styles/themes.css', lang: 'css' },
   ],
   /*
    ** Plugins to load before mounting the App
@@ -80,10 +79,18 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://color-mode.nuxtjs.org/#setup
+    '@nuxtjs/color-mode',
   ],
   tailwindcss: {
     cssPath: '~/assets/styles/tailwind.css',
-    exposeConfig: false,
+    configPath: 'tailwind.config.js',
+    exposeConfig: true,
+    config: {},
+  },
+  colorMode: {
+    // remove -mode suffix for Tailwind Dark mode support
+    classSuffix: '',
   },
   /*
    ** Nuxt.js modules
