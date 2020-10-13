@@ -1,7 +1,7 @@
 <template>
-  <section class="w-full h-full mt-12 overflow-hidden xl:mt-0">
+  <section class="w-full h-full mt-16 overflow-hidden xl:mt-0">
     <div class="grid grid-flow-col grid-cols-4 gap-4 mb-4">
-      <div class="col-span-3">
+      <div class="inline-flex flex-col self-center justify-end col-span-3">
         <p class="text-3xl">Projects</p>
         <p>
           This page will serve as a listing for all the side-projects, plugins,
@@ -10,7 +10,7 @@
       </div>
       <nuxt-link
         tag="div"
-        class="col-span-1 text-5xl text-right cursor-pointer"
+        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
         :to="{ name: 'index' }"
       >
         &larr;

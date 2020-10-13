@@ -1,12 +1,15 @@
 <template>
-  <div class="w-full h-full pb-24">
-    <div class="flex items-center justify-between">
-      <h1 class="tracking-wide text-md md:text-4xl">
-        {{ post.title }}
-      </h1>
+  <div class="w-full h-full pb-48 mt-16">
+    <div class="grid grid-flow-col grid-cols-4 gap-4">
+      <div class="col-span-3">
+        <p class="text-3xl">{{ post.title }}</p>
+        <p>
+          {{ post.description }}
+        </p>
+      </div>
       <nuxt-link
         tag="a"
-        class="col-span-1 cursor-pointer text-md md:text-5xl"
+        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
         :to="{ name: 'blog' }"
       >
         &larr;
@@ -20,7 +23,7 @@
       {{ tag }}
     </span>
     <vue-scroll :ops="scrollOps">
-      <article class="pt-2 prose prose-lg text-foreground-primary md:prose-xl">
+      <article class="pt-2 prose prose-lg dark:text-gray-100 md:prose-xl">
         <nuxt-content :document="post" />
       </article>
     </vue-scroll>
