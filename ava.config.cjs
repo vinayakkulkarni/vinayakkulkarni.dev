@@ -3,7 +3,7 @@ module.exports = () => {
     require: ['./test/ava.setup.js'],
     ignoredByWatcher: ['!**/*.{js,vue}'],
     babel: true,
-    tap: true,
+    tap: false,
     verbose: true,
     color: true,
   };
