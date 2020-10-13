@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full pb-48 mt-16">
+  <div class="w-full h-full pb-48 mt-16 xl:mt-0">
     <div class="grid grid-flow-col grid-cols-4 gap-4">
       <div class="col-span-3">
         <p class="text-3xl">{{ post.title }}</p>
