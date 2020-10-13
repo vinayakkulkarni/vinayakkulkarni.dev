@@ -24,9 +24,9 @@
           class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
         >
           <!-- This needs to be dynamic -->
-          <!-- v-show="post.status !== 'draft'" -->
           <div
             v-for="post in posts"
+            v-show="post.status !== 'draft'"
             :key="post.position"
             class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
             @click="$router.push({ path: post.path })"
