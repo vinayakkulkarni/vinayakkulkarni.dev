@@ -29,7 +29,7 @@
     "@tailwindcss/typography": "^0.2.0",
     "@tailwindcss/ui": "^0.6.2",
     "node-fetch": "^2.6.1",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.14.7",
     "prism-themes": "^1.4.1",
     "vuescroll": "^4.16.1"
   },
