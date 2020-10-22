@@ -52,6 +52,14 @@ export default {
         href: '/apple-touch-icon.png',
       },
     ],
+    script: [
+      {
+        hid: 'thesemetrics',
+        src: 'https://unpkg.com/thesemetrics@latest',
+        async: true,
+        type: 'text/javascript',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
