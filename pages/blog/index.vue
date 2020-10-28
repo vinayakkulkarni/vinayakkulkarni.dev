@@ -46,7 +46,11 @@
                   :key="index"
                   class="pl-2"
                 >
-                  {{ tag }}
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
+                  >
+                    {{ tag }}
+                  </span>
                 </div>
               </div>
               <div class="pt-2">
