@@ -1,0 +1,136 @@
+---
+title: 'Build & Publish Vue 3 Components using Rollup.js'
+description: "Let's build a reusable Vue 3 component using rollup"
+position: 1
+category: 'vue'
+status: 'published'
+tags: ['vue 3', 'rollup']
+---
+
+_Vue 3_
+
+Vue 3 got released few days ago & it's about time you found a full-proof guide for packaging & publishing your awesome components on npm for folks to use. <span class="blinking-heart">❤️</span> OSS
+
+Bundling Vue 2 apps was easy, well, bundling Vue 3 apps is easier. I'll be using <a href="https://github.com/vinayakkulkarni/v-pip" target="_blank">v-pip</a> package that I recently refactored from vue 2 to vue 3 🥳
+
+_Getting Started_
+
+```bash
+$ mkdir my-awesome-component
+$ cd my-awesome-component
+$ npm init
+```
+
+<h3 class="dark:text-gray-200">
+  Dependencies
+</h3>
+
+- [Vue (^3.0.1)](https://v3.vuejs.org/guide/introduction.html) - Le framework!
+- [@vue/compiler-sfc (^3.0.1)](https://www.npmjs.com/package/@vue/compiler-sfc) - Required for compiling the Vue SFCs
+
+Rollup dependencies
+
+- [Rollup (^2.32.0)](https://rollupjs.org/) - Our super-duper bundler
+- [rollup-plugin-vue (^6.0.0-beta.10)](https://github.com/vuejs/rollup-plugin-vue) - Required for bundling the Vue SFCs
+- [@rollup/plugin-alias (^3.1.1)](https://github.com/rollup/plugins/tree/master/packages/alias) - Used to define and resolve aliases, specially Vue build type for bundle dependencies
+- [@rollup/plugin-babel (^5.2.1)](https://github.com/rollup/plugins/tree/master/packages/babel) - Compiles our package with first-class Babel support
+- [@rollup/plugin-commonjs (^16.0.0)](https://github.com/rollup/plugins/tree/master/packages/babel) - Converts the CommonJS modules to ES6 <3
+- [@rollup/plugin-node-resolve (^10.0.0)](https://github.com/rollup/plugins/tree/master/packages/babel) - This plugin locates modules using the Node resolution algorithm, for using third party modules in node_modules
+
+
+Install these dependencies
+
+```bash
+$ npm i -D rollup rollup-plugin-vue vue@next @vue/compiler-sfc
+```
+
+Let's build our rollup configuration file:
+
+
+```js
+import alias from '@rollup/plugin-alias';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import vue from 'rollup-plugin-vue';
+import typescript from 'rollup-plugin-typescript2';
+
+const extensions = ['.js', '.ts', '.vue'];
+
+const plugins = [
+  resolve({ extensions, browser: true }),
+  commonjs(),
+  vue(),
+  alias({
+    entries: {
+      vue: 'vue/dist/vue.runtime.esm-browser.prod.js',
+    },
+  }),
+  babel({ babelHelpers: 'bundled', exclude: 'node_modules/**' }),
+  typescript({
+    include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
+    useTsconfigDeclarationDir: true,
+    clean: true,
+  }),
+];
+
+export default [
+  // ESM build to be used with webpack/rollup.
+  {
+    input: 'src/index.js',
+    output: {
+      format: 'es',
+      name: 'VPip',
+      exports: 'named',
+      file: 'dist/v-pip.esm.js',
+    },
+    plugins,
+  },
+  // CommonJS build
+  {
+    input: 'src/index.js',
+    output: {
+      format: 'cjs',
+      name: 'VPip',
+      file: 'dist/v-pip.cjs.js',
+    },
+    plugins,
+  },
+  // UMD build.
+  {
+    input: 'src/index.js',
+    output: {
+      format: 'umd',
+      name: 'VPip',
+      file: 'dist/v-pip.js',
+    },
+    plugins,
+  },
+];
+```
+
+Once we setup the above file in build/rollup.config.js, we can now update our npm scripts section to build the package using rollup!!!
+
+```json
+...
+scripts: {
+  "build": "rollup -c build/rollup.config.js",
+},
+...
+```
+
+Now, once you run the built npm script, your package is now successfully built in _dist_ directory of the repo!
+
+```bash
+> v-pip@2.0.0 bundle /Users/vinayak/Development/Personal/vue/v-pip
+> rollup -c build/rollup.conf.js
+
+src/index.js → dist/v-pip.esm.js...
+created dist/v-pip.esm.js in 3.8s
+
+src/index.js → dist/v-pip.cjs.js...
+created dist/v-pip.cjs.js in 974ms
+
+src/index.js → dist/v-pip.js...
+created dist/v-pip.js in 815ms
+```

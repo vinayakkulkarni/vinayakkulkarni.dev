@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full h-full pb-48 mt-16 xl:mt-0">
+  <div class="flex flex-col w-full h-full pb-20 mt-16 xl:mt-0 lg:pb-8">
+    <!-- Title & back button -->
     <div class="grid grid-flow-col grid-cols-4 gap-4">
       <div class="col-span-3">
         <p class="text-3xl">{{ post.title }}</p>
@@ -15,16 +16,21 @@
         &larr;
       </nuxt-link>
     </div>
-    <span
-      v-for="(tag, index) in post.tags"
-      :key="index"
-      class="inline-flex items-center px-2.5 py-0.5 mb-2 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
-    >
-      {{ tag }}
-    </span>
+    <!-- Tags -->
+    <div>
+      <span
+        v-for="(tag, index) in post.tags"
+        :key="index"
+        class="inline-flex items-center px-2.5 py-0.5 mb-2 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
+      >
+        {{ tag }}
+      </span>
+    </div>
     <vue-scroll :ops="scrollOps">
-      <article class="pt-2 prose prose-lg dark:text-gray-100 md:prose-xl">
-        <nuxt-content :document="post" />
+      <article
+        class="max-w-md pt-2 prose prose-lg break-words md:max-w-full dark:text-gray-100 md:prose-xl"
+      >
+        <nuxt-content :document="post" class="flex flex-col" />
       </article>
     </vue-scroll>
   </div>
