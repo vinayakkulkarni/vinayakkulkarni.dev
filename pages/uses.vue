@@ -274,6 +274,15 @@
     data() {
       return {
         scrollOps: {
+          scrollPanel: {
+            initialScrollY: false,
+            initialScrollX: false,
+            scrollingX: false,
+            scrollingY: true,
+            speed: 500,
+            easing: 'easeInQuad',
+            verticalNativeBarPos: 'right',
+          },
           rail: {
             background: '#01a99a',
             opacity: 0,
@@ -281,7 +290,7 @@
             specifyBorderRadius: false,
             gutterOfEnds: null,
             gutterOfSide: '2px',
-            keepShow: false,
+            keepShow: true,
           },
           bar: {
             showDelay: 5000,

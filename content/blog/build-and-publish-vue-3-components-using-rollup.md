@@ -21,9 +21,7 @@ $ cd my-awesome-component
 $ npm init
 ```
 
-<h3 class="dark:text-gray-200">
-  Dependencies
-</h3>
+### Dependencies
 
 - [Vue (^3.0.1)](https://v3.vuejs.org/guide/introduction.html) - Le framework!
 - [@vue/compiler-sfc (^3.0.1)](https://www.npmjs.com/package/@vue/compiler-sfc) - Required for compiling the Vue SFCs
@@ -41,7 +39,8 @@ Rollup dependencies
 Install these dependencies
 
 ```bash
-$ npm i -D rollup rollup-plugin-vue vue@next @vue/compiler-sfc
+$ npm i -D rollup rollup-plugin-vue @rollup/plugin-alias @rollup/plugin-babel @rollup/plugin-commonjs @rollup/plugin-node-resolve
+$ npm i -D vue@next @vue/compiler-sfc
 ```
 
 Let's build our rollup configuration file:
@@ -134,3 +133,11 @@ created dist/v-pip.cjs.js in 974ms
 src/index.js → dist/v-pip.js...
 created dist/v-pip.js in 815ms
 ```
+
+Once built, you can now publish it to your favourite registry!
+
+```bash
+$ npm publish
+```
+
+Viola! Your package should be on https://www.npmjs.com/

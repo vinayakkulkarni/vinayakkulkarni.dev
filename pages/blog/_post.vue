@@ -28,7 +28,7 @@
     </div>
     <vue-scroll :ops="scrollOps">
       <article
-        class="max-w-md pt-2 prose prose-lg break-words md:max-w-full dark:text-gray-100 md:prose-xl"
+        class="w-full pt-2 mb-4 prose break-words dark:prose-dark sm:max-w-full dark:text-gray-100"
       >
         <nuxt-content :document="post" class="flex flex-col" />
       </article>
@@ -52,6 +52,15 @@
     data() {
       return {
         scrollOps: {
+          scrollPanel: {
+            initialScrollY: false,
+            initialScrollX: false,
+            scrollingX: false,
+            scrollingY: true,
+            speed: 500,
+            easing: 'easeInQuad',
+            verticalNativeBarPos: 'right',
+          },
           rail: {
             background: '#01a99a',
             opacity: 0,
