@@ -29,6 +29,7 @@
           v-show="post.status !== 'draft'"
           :key="post.position"
           class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
+          :title="post.title"
           @click="$router.push({ path: post.path })"
         >
           <div class="p-4">
@@ -62,6 +63,7 @@
 <script lang="ts">
   import { defineComponent, reactive } from '@vue/composition-api';
   import { Post } from '@/types/blog';
+
   export default defineComponent({
     name: 'Blog',
     transition(_, from) {
@@ -113,8 +115,8 @@
       /**
        * API: GET Blog posts
        */
-      async function getPosts() {
-        state.posts = await root.$content('blog').fetch();
+      async function getPosts(): Promise<void> {
+        state.posts = await root.$content('blog').sortBy('createdAt').fetch();
       }
       return {
         state,

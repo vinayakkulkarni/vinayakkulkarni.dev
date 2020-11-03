@@ -7,4 +7,3 @@ status: 'draft'
 tags: ['vue 3', 'nuxt']
 ---
 
-Nuxt, as the docs say, is a progressive framework
