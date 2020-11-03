@@ -23,6 +23,19 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
+    // typography: (theme) => ({
+    //   dark: {
+    //     css: {
+    //       color: theme('colors.gray.50'),
+    //       a: {
+    //         color: theme('colors.blue.100'),
+    //         '&:hover': {
+    //           color: theme('colors.blue.100'),
+    //         },
+    //       },
+    //     },
+    //   },
+    // }),
   },
   plugins: [
     require('@tailwindcss/ui'),
