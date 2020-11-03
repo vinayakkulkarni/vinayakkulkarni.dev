@@ -39,7 +39,7 @@
 <script>
   export default {
     name: 'BlogPost',
-    transition(to, from) {
+    transition(_, from) {
       if (from && from.name === 'blog') {
         return 'slide-left';
       }

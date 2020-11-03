@@ -77,7 +77,7 @@
 <script>
   export default {
     name: 'Projects',
-    transition(to, from) {
+    transition(_, from) {
       if (from && from.name === 'index') {
         return 'slide-right';
       }

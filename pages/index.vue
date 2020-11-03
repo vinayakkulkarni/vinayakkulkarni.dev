@@ -52,7 +52,7 @@
 <script>
   export default {
     name: 'Homepage',
-    transition(to, from) {
+    transition(_, from) {
       if (!from) {
         return 'slide-right';
       }

@@ -5,7 +5,7 @@
 <script>
   export default {
     name: 'BlogLayout',
-    transition(to, from) {
+    transition(_, from) {
       if (from && from.name === 'index') {
         return 'slide-right';
       }
