@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <section class="flex flex-col w-full h-full pb-20 mt-16 xl:mt-0 lg:pb-8">
     <!-- Top Data -->
     <div class="grid grid-flow-col grid-cols-4 gap-4">
@@ -18,50 +18,44 @@
       </nuxt-link>
     </div>
     <!-- Actual Data -->
-    <div style="height: calc(100% - 6rem)">
-      <vue-scroll :ops="state.scrollOps">
+    <vue-scroll :ops="state.scrollOps">
+      <div
+        v-if="state.posts.length > 0"
+        class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+      >
+        <!-- This needs to be dynamic -->
         <div
-          v-if="state.posts.length > 0"
-          class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          v-for="post in state.posts"
+          v-show="post.status !== 'draft'"
+          :key="post.position"
+          class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
+          @click="$router.push({ path: post.path })"
         >
-          <!-- This needs to be dynamic -->
-          <!-- v-show="post.status !== 'draft'" -->
-          <div
-            v-for="post in state.posts"
-            :key="post.position"
-            class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
-            @click="$router.push({ path: post.path })"
-          >
-            <div class="p-4">
-              <div class="mb-2 text-xl font-bold">
-                {{ post.title }}
+          <div class="p-4">
+            <div class="mb-2 text-xl font-bold">
+              {{ post.title }}
+            </div>
+            <div class="flex items-center justify-start py-1 text-sm">
+              <div
+                class="pr-2 border-r border-gray-500 text-foreground-secondary"
+              >
+                {{ new Date(post.createdAt).toDateString() }}
               </div>
-              <div class="flex items-center justify-start py-1 text-sm">
-                <div
-                  class="pr-2 border-r border-gray-500 text-foreground-secondary"
+              <div v-for="(tag, index) in post.tags" :key="index" class="pl-2">
+                <span
+                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
                 >
-                  {{ new Date(post.createdAt).toDateString() }}
-                </div>
-                <div
-                  v-for="(tag, index) in post.tags"
-                  :key="index"
-                  class="pl-2"
-                >
-                  <span
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
+                  {{ tag }}
+                </span>
               </div>
-              <div class="pt-2">
-                {{ post.description }}
-              </div>
+            </div>
+            <div class="pt-2">
+              {{ post.description }}
             </div>
           </div>
         </div>
-      </vue-scroll>
-    </div>
+      </div>
+    </vue-scroll>
   </section>
 </template>
 
