@@ -1,7 +1,7 @@
 ---
 title: "What are git hooks & why you should use them?"
 description: "Leverage githooks to ensure you commit clean code"
-position: 2
+position: 6
 category: 'github'
 status: 'draft'
 tags: ['ci', 'github']
