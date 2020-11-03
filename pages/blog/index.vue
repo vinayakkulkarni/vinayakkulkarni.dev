@@ -1,5 +1,5 @@
-<template>
-  <section class="w-full h-full mt-16 overflow-hidden xl:mt-0">
+<template lang="html">
+  <section class="flex flex-col w-full h-full pb-20 mt-16 xl:mt-0 lg:pb-8">
     <!-- Top Data -->
     <div class="grid grid-flow-col grid-cols-4 gap-4">
       <div class="inline-flex flex-col self-center justify-end col-span-3">
@@ -19,14 +19,15 @@
     </div>
     <!-- Actual Data -->
     <div style="height: calc(100% - 6rem)">
-      <vue-scroll :ops="scrollOps">
+      <vue-scroll :ops="state.scrollOps">
         <div
+          v-if="state.posts.length > 0"
           class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
         >
           <!-- This needs to be dynamic -->
+          <!-- v-show="post.status !== 'draft'" -->
           <div
-            v-for="post in posts"
-            v-show="post.status !== 'draft'"
+            v-for="post in state.posts"
             :key="post.position"
             class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
             @click="$router.push({ path: post.path })"
@@ -64,20 +65,20 @@
   </section>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import { defineComponent, reactive } from '@vue/composition-api';
+  import { Post } from '@/types/blog';
+  export default defineComponent({
     name: 'Blog',
-    transition(to, from) {
+    transition(_, from) {
       if (from && from.name === 'blog-post') {
         return 'slide-right';
       }
       return 'slide-left';
     },
-    async fetch() {
-      this.posts = await this.$content('blog').fetch();
-    },
-    data() {
-      return {
+    setup(_, { root }) {
+      // component state
+      const state = reactive({
         scrollOps: {
           scrollPanel: {
             initialScrollY: false,
@@ -110,8 +111,20 @@
             disable: false,
           },
         },
-        posts: [],
+        posts: [] as Post[],
+      });
+      // triggered in created()
+      getPosts();
+      // methods
+      /**
+       * API: GET Blog posts
+       */
+      async function getPosts() {
+        state.posts = await root.$content('blog').fetch();
+      }
+      return {
+        state,
       };
     },
-  };
+  });
 </script>
