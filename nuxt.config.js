@@ -76,7 +76,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vuescroll', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/vuescroll', mode: 'client' },
+    { src: '~/plugins/composition-api', mode: 'client' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -89,6 +92,8 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://color-mode.nuxtjs.org/#setup
     '@nuxtjs/color-mode',
+    // https://typescript.nuxtjs.org/guide/setup.html#configuration
+    '@nuxt/typescript-build',
   ],
   tailwindcss: {
     cssPath: '~/assets/styles/tailwind.css',
@@ -137,15 +142,6 @@ export default {
         theme: 'prism-themes/themes/prism-material-dark.css',
       },
     },
-  },
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {},
   },
   /*
    ** Fallback for Netlify
