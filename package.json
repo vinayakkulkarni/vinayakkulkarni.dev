@@ -27,7 +27,7 @@
     "@nuxtjs/pwa": "^3.2.2",
     "@tailwindcss/typography": "^0.2.0",
     "@tailwindcss/ui": "^0.7.2",
-    "@vue/composition-api": "^1.0.0-beta.19",
+    "@vue/composition-api": "^1.0.0-beta.20",
     "node-fetch": "^2.6.1",
     "nuxt": "^2.14.7",
     "prism-themes": "^1.5.0",
