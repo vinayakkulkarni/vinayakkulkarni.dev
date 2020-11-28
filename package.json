@@ -20,7 +20,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "@nuxt/content": "^1.11.0",
+    "@nuxt/content": "^1.11.1",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
