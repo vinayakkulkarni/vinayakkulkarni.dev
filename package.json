@@ -29,7 +29,7 @@
     "@tailwindcss/ui": "^0.7.2",
     "@vue/composition-api": "^1.0.0-beta.20",
     "node-fetch": "^2.6.1",
-    "nuxt": "^2.14.8",
+    "nuxt": "^2.14.9",
     "prism-themes": "^1.5.0",
     "vuescroll": "^4.16.3"
   },
