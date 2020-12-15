@@ -46,7 +46,7 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^3.3.4",
     "@types/node": "^14.14.13",
-    "@typescript-eslint/parser": "^4.9.1",
+    "@typescript-eslint/parser": "^4.10.0",
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vue/test-utils": "^1.1.1",
     "ava": "^3.14.0",
