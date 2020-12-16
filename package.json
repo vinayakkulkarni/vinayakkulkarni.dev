@@ -50,7 +50,7 @@
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vue/test-utils": "^1.1.1",
     "ava": "^3.14.0",
-    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "browser-env": "^3.3.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
