@@ -31,7 +31,7 @@
     "node-fetch": "^2.6.1",
     "nuxt": "^2.14.11",
     "prism-themes": "^1.5.0",
-    "vuescroll": "^4.17.2"
+    "vuescroll": "^4.17.3"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
