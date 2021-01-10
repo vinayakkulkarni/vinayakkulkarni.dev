@@ -76,10 +76,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/vuescroll', mode: 'client' },
-    { src: '~/plugins/composition-api', mode: 'client' },
-  ],
+  plugins: [{ src: '~/plugins/vuescroll', mode: 'client' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -94,15 +91,17 @@ export default {
     '@nuxtjs/color-mode',
     // https://typescript.nuxtjs.org/guide/setup.html#configuration
     '@nuxt/typescript-build',
+    // https://typescript.nuxtjs.org/guide/setup.html#configuration
+    '@nuxtjs/composition-api',
   ],
   tailwindcss: {
     cssPath: '~/assets/styles/tailwind.css',
     configPath: 'tailwind.config.js',
     exposeConfig: true,
     config: {},
+    viewer: false,
   },
   colorMode: {
-    // remove -mode suffix for Tailwind Dark mode support
     classSuffix: '',
   },
   /*
