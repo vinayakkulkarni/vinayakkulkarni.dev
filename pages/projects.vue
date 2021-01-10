@@ -21,7 +21,7 @@
         <div
           v-for="(project, idx) in projects"
           :key="idx"
-          class="overflow-hidden text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
+          class="overflow-hidden text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-gray-700 to-gray-600 hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700"
         >
           <div class="p-4">
             <div class="mb-2 text-xl font-bold">

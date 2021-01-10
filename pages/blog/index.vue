@@ -28,7 +28,7 @@
           v-for="post in state.posts"
           v-show="post.status !== 'draft'"
           :key="post.position"
-          class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-cool-gray-700 to-cool-gray-600 hover:bg-gradient-to-bl hover:from-cool-gray-600 hover:to-cool-gray-700"
+          class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-gray-700 to-gray-600 hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700"
           :title="post.title"
           @click="$router.push({ path: post.path })"
         >
@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive } from '@vue/composition-api';
+  import { defineComponent, reactive } from '@nuxtjs/composition-api';
   import { Post } from '@/types/blog';
 
   export default defineComponent({
