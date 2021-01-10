@@ -1,6 +1,6 @@
 <template>
   <main
-    class="w-full h-full min-h-screen overflow-hidden antialiased font-light transition-colors duration-200 ease-linear text-cool-gray-800 bg-cool-gray-100 min-w-screen text-foreground-primary dark:bg-cool-gray-900 dark:text-cool-gray-100"
+    class="w-full h-full min-h-screen overflow-hidden antialiased font-light transition-colors duration-200 ease-linear text-gray-800 bg-gray-100 min-w-screen text-foreground-primary dark:bg-gray-900 dark:text-gray-100"
   >
     <!-- Header -->
     <v-header />
