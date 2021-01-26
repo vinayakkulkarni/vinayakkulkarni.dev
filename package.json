@@ -23,7 +23,7 @@
     "@nuxt/content": "^1.11.1",
     "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/composition-api": "^0.18.1",
+    "@nuxtjs/composition-api": "^0.19.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.4",
     "@tailwindcss/aspect-ratio": "^0.2.0",
