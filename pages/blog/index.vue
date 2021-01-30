@@ -62,6 +62,7 @@
 
 <script lang="ts">
   import { defineComponent, reactive } from '@nuxtjs/composition-api';
+  import { getRuntimeVM } from '@/utils/runtime';
   import { Post } from '@/types/blog';
 
   export default defineComponent({
@@ -72,7 +73,8 @@
       }
       return 'slide-left';
     },
-    setup(_, { root }) {
+    setup() {
+      const { $content } = getRuntimeVM();
       // component state
       const state = reactive({
         scrollOps: {
@@ -116,7 +118,7 @@
        * API: GET Blog posts
        */
       async function getPosts(): Promise<void> {
-        state.posts = await root.$content('blog').sortBy('createdAt').fetch();
+        state.posts = await $content('blog').sortBy('createdAt').fetch();
       }
       return {
         state,

@@ -1,5 +1,5 @@
 export interface Post {
-  body: object;
+  body: unknown;
   category: string;
   createdAt: string;
   description: string;

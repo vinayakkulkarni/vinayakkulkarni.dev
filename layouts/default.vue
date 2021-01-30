@@ -1,6 +1,6 @@
 <template>
   <main
-    class="w-full h-full min-h-screen overflow-hidden antialiased font-light transition-colors duration-200 ease-linear text-gray-800 bg-gray-100 min-w-screen text-foreground-primary dark:bg-gray-900 dark:text-gray-100"
+    class="w-full h-full min-h-screen overflow-hidden antialiased font-light text-gray-800 transition-colors duration-200 ease-linear bg-gray-100 min-w-screen text-foreground-primary dark:bg-gray-900 dark:text-gray-100"
   >
     <!-- Header -->
     <v-header />
@@ -15,8 +15,10 @@
   </main>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import { defineComponent } from '@nuxtjs/composition-api';
+
+  export default defineComponent({
     name: 'DefaultLayout',
     components: {
       VHeader: () =>
@@ -28,5 +30,5 @@
           /* webpackChunkName: "Footer Component" */ '@/components/common/VFooter.vue'
         ),
     },
-  };
+  });
 </script>
