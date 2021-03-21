@@ -109,7 +109,7 @@
             disable: false,
           },
         },
-        posts: [] as Post[],
+        posts: [] as Post[] | unknown,
       });
       // triggered in created()
       getPosts();

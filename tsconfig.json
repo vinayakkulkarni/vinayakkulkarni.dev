@@ -24,16 +24,31 @@
     },
     "types": [
       "@types/node",
+      "@types/tailwindcss",
       "@nuxt/types",
       "@nuxtjs/axios",
-      "@nuxt/content"
+      "@nuxt/content",
+      "vuescroll"
     ]
   },
-  "files": [
-    "shims/vue.d.ts",
+  "include": [
+    "shims/**/*.ts",
+    "hooks/**/*.ts",
+    "config/**/*.ts",
+    "pages/**/*.vue",
+    "components/**/*.vue",
+    "layouts/**/*.vue",
+    "plugins/**/*.js",
+    "nuxt.config.js",
+    // TypeScript
+    "plugins/**/*.ts",
+    "types/**/*.ts",
+    "nuxt.config.ts"
   ],
   "exclude": [
+    "node_modules",
+    ".nuxt",
     "dist",
-    "node_modules"
+    "static"
   ]
 }

@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  parser: 'vue-eslint-parser',
+  // parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
@@ -15,7 +15,6 @@ module.exports = {
     '@nuxtjs',
     '@nuxtjs/eslint-config-typescript',
     'prettier',
-    'prettier/@typescript-eslint',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended',

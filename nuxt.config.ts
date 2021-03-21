@@ -1,6 +1,9 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import { NuxtConfig } from '@nuxt/types';
+import { build, head } from './config';
+import { axios, content, pwa } from './config/modules';
+import { tailwindcss, colorMode } from './config/buildModules';
 
-export default {
+const config: NuxtConfig = {
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/guides/features/rendering-modes#spa
@@ -14,66 +17,25 @@ export default {
   /*
    ** Headers of the page
    */
-  head: {
-    title: process.env.npm_package_name || '',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || '',
-      },
-      {
-        hid: 'keywords',
-        name: 'keywords',
-        content: 'Vinayak Kulkarni - Portfolio',
-      },
-      { name: 'msapplication-TileColor', content: '#ffc40d' },
-      { name: 'theme-color', content: '#ffffff' },
-    ],
-    noscript: [{ innerHTML: 'This application requires JavaScript.' }],
-    link: [
-      { rel: 'mask-icon', color: '#5bbad5', href: '/safari-pinned-tab.svg' },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: '/favicon-16x16.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: '/favicon-32x32.png',
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/apple-touch-icon.png',
-      },
-    ],
-    script: [
-      {
-        hid: 'thesemetrics',
-        src: 'https://unpkg.com/thesemetrics@latest',
-        async: true,
-        type: 'text/javascript',
-      },
-    ],
-  },
+  head,
   /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
+
+  // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-loading-indicator/
+  loadingIndicator: {
+    name: 'pulse',
+    color: '#5bbad5',
+    background: '#041126',
+  },
   /*
    ** Global CSS
    */
   css: [
-    { src: '~/assets/styles/fonts.css', lang: 'css' },
-    { src: '~/assets/styles/logo.css', lang: 'css' },
-    { src: '~/assets/styles/global.css', lang: 'css' },
+    '~/assets/styles/fonts.css',
+    '~/assets/styles/logo.css',
+    '~/assets/styles/global.css',
   ],
   /*
    ** Plugins to load before mounting the App
@@ -88,227 +50,58 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    ['@nuxtjs/tailwindcss', tailwindcss],
     // https://color-mode.nuxtjs.org/#setup
-    '@nuxtjs/color-mode',
+    ['@nuxtjs/color-mode', colorMode],
     // https://typescript.nuxtjs.org/guide/setup.html#configuration
     '@nuxt/typescript-build',
     // https://typescript.nuxtjs.org/guide/setup.html#configuration
     '@nuxtjs/composition-api',
   ],
-  tailwindcss: {
-    cssPath: '~/assets/styles/tailwind.css',
-    configPath: 'tailwind.config.js',
-    exposeConfig: true,
-    config: {
-      darkMode: 'class',
-      prefix: '',
-      separator: ':',
-      purge: [
-        './components/**/*.{vue,js}',
-        './layouts/**/*.vue',
-        './pages/**/*.vue',
-        './plugins/**/*.{js,ts}',
-        './nuxt.config.{js,ts}',
-      ],
-      plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
-      ],
-      theme: {
-        extend: {
-          colors: {
-            twitter: '#1DA1F2',
-            linkedIn: '#2867B2',
-            github: '#333333',
-            ...defaultTheme.colors,
-          },
-          fontFamily: {
-            sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-          },
-          typography: (theme: (e: string) => void): unknown => ({
-            DEFAULT: {
-              css: {
-                color: theme('colors.gray.800'),
-                a: {
-                  color: theme('colors.blue.500'),
-                  'text-decoration': 'none',
-                  '&:hover, &.active': {
-                    color: 'white',
-                    'background-color': theme('colors.blue.500'),
-                    strong: {
-                      color: 'white',
-                    },
-                  },
-                },
-                strong: {
-                  color: theme('colors.blue.500'),
-                },
-                h1: {
-                  color: theme('colors.gray.800'),
-                  'margin-top': '0',
-                },
-                h2: {
-                  color: theme('colors.gray.800'),
-                  'margin-top': '0',
-                },
-                h3: {
-                  color: theme('colors.gray.800'),
-                  'margin-top': '0',
-                },
-                h4: {
-                  color: theme('colors.gray.800'),
-                  'margin-top': '0',
-                },
-                code: {
-                  color: 'white',
-                  'background-color': theme('colors.gray.800'),
-                  '&:before, &:after': {
-                    display: 'none',
-                  },
-                },
-                p: {
-                  color: theme('colors.gray.800'),
-                  'margin-top': '0',
-                  'margin-bottom': '1em',
-                },
-                img: {
-                  'margin-top': '0',
-                  'margin-bottom': '0',
-                  'box-shadow': '0px 2px 4px -2px rgba(0, 0, 0, 30%)',
-                },
-                'ul > li': {
-                  '&::before': {
-                    'background-color': theme('colors.gray.800'),
-                    'font-weight': 'bold',
-                  },
-                },
-                'ol > li': {
-                  '&::before': {
-                    color: theme('colors.gray.800'),
-                    'font-weight': 'bold',
-                  },
-                },
-              },
-            },
-
-            dark: {
-              css: {
-                color: 'white',
-                a: {
-                  color: theme('colors.blue.500'),
-                  'text-decoration': 'none',
-                  '&:hover, &.active': {
-                    color: 'white',
-                    'background-color': theme('colors.blue.500'),
-                  },
-                },
-                strong: {
-                  color: theme('colors.blue.500'),
-                },
-                h1: {
-                  color: 'white',
-                  'margin-top': '0',
-                },
-                h2: {
-                  color: 'white',
-                  'margin-top': '0',
-                },
-                h3: {
-                  color: 'white',
-                  'margin-top': '0',
-                },
-                h4: {
-                  color: 'white',
-                  'margin-top': '0',
-                },
-                code: {
-                  color: theme('colors.gray.100'),
-                  '&:before, &:after': {
-                    display: 'none',
-                  },
-                },
-                p: {
-                  color: 'white',
-                  'margin-top': '0',
-                  'margin-bottom': '1em',
-                },
-                img: {
-                  'margin-top': '0',
-                  'margin-bottom': '0',
-                  'box-shadow': '0px 2px 4px -2px rgba(255, 255, 255, 30%)',
-                },
-                'ul > li': {
-                  '&::before': {
-                    'background-color': 'white',
-                    'font-weight': 'bold',
-                  },
-                },
-                'ol > li': {
-                  '&::before': {
-                    color: 'white',
-                    'font-weight': 'bold',
-                  },
-                },
-              },
-            },
-          }),
-        },
-      },
-      variants: {
-        extend: {
-          typography: ['dark'],
-        },
-      },
-    },
-    viewer: false,
-  },
-  colorMode: {
-    classSuffix: '',
-  },
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    ['@nuxtjs/axios', axios],
+    // Doc: https://github.com/nuxt-community/pwa-module/#-pwa-module
+    ['@nuxtjs/pwa', pwa],
     // Doc: https://content.nuxtjs.org/
-    '@nuxt/content',
+    ['@nuxt/content', content],
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {
-    baseURL: '/',
-  },
-  /**
-   * PWA module configuration
-   */
-  pwa: {
-    manifest: {
-      name: 'Vinayak Kulkarni',
-      short_name: 'VK',
-      description: "Vinayak Kulkarni's portfolio website",
-      theme_color: '#5bbad5',
-      background_color: '#FFFFFF',
-    },
-  },
-  content: {
-    markdown: {
-      prism: {
-        theme: 'prism-themes/themes/prism-material-dark.css',
-      },
-    },
-  },
   /*
    ** Fallback for Netlify
    */
   generate: {
     fallback: true,
   },
+
+  // Read more: https://typescript.nuxtjs.org/guide/lint.html#runtime-lint
+  typescript: {
+    typeCheck: {
+      eslint: {
+        enabled: true,
+        files: [
+          // 'assets/**/*.{ts,js}',
+          'components/**/*.{ts,js,vue}',
+          'config/**/*.{ts,js}',
+          // 'hooks/**/*.{ts,js}',
+          'layouts/**/*.{ts,js,vue}',
+          'pages/**/*.{ts,js,vue}',
+          'plugins/**/*.{ts,js}',
+          'shims/**/*.{ts,js}',
+          'types/**/*.{ts,js}',
+          'utils/**/*.{ts,js}',
+        ],
+      },
+    },
+  },
+
+  /*
+   ** Build configuration
+   ** See https://nuxtjs.org/api/configuration-build/
+   */
+  build,
 };
+
+export default config;
