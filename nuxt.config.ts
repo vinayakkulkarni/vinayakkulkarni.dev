@@ -56,7 +56,7 @@ const config: NuxtConfig = {
     // https://typescript.nuxtjs.org/guide/setup.html#configuration
     '@nuxt/typescript-build',
     // https://typescript.nuxtjs.org/guide/setup.html#configuration
-    '@nuxtjs/composition-api',
+    '@nuxtjs/composition-api/module',
   ],
   /*
    ** Nuxt.js modules
