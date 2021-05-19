@@ -1,8 +1,11 @@
 [dev]
    command = "npm run dev"
 
+[build.environment]
+   NODE_VERSION = "16.2.0"
+   NPM_VERSION = "7.13.0"
+
 [build]
    command = "npm run generate"
    publish = "dist"
    functions = "functions"
-   environment = { NODE_VERSION = "14.15.4" }
