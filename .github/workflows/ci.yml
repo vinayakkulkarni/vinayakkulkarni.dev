@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [15]
+        node: [16]
 
     steps:
       - name: Checkout 🛎️
@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           registry-url: https://registry.npmjs.org
+
+      - name: Upgrade npm ✨
+        run: npm i -g npm@latest
 
       - name: Get npm cache directory 🏗
         id: npm-cache
@@ -39,9 +42,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies 🛠
+      - name: Install dependencies 🚀
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci --prefer-offline --no-audit
+        run: npm ci --prefer-offline --no-audit --no-optional
 
       - name: Generate the static site ⚡️
         run: npm run generate
