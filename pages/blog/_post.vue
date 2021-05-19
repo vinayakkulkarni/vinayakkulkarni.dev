@@ -10,7 +10,14 @@
       </div>
       <nuxt-link
         tag="a"
-        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
+        class="
+          inline-flex
+          self-center
+          justify-end
+          col-span-1
+          text-5xl
+          cursor-pointer
+        "
         :to="{ name: 'blog' }"
       >
         &larr;
@@ -21,14 +28,36 @@
       <span
         v-for="(tag, index) in post.tags"
         :key="index"
-        class="inline-flex items-center px-2.5 py-0.5 mb-2 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
+        class="
+          inline-flex
+          items-center
+          px-2.5
+          py-0.5
+          mb-2
+          rounded-full
+          text-xs
+          font-medium
+          leading-4
+          bg-red-100
+          text-gray-800
+          mr-2
+        "
       >
         {{ tag }}
       </span>
     </div>
     <vue-scroll :ops="scrollOps">
       <article
-        class="w-full pt-2 mb-4 prose break-words dark:prose-dark sm:max-w-full dark:text-gray-100"
+        class="
+          w-full
+          pt-2
+          mb-4
+          prose
+          break-words
+          dark:prose-dark
+          sm:max-w-full
+          dark:text-gray-100
+        "
       >
         <nuxt-content :document="post" class="flex flex-col" />
       </article>

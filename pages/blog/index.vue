@@ -11,7 +11,14 @@
       </div>
       <nuxt-link
         tag="div"
-        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
+        class="
+          inline-flex
+          self-center
+          justify-end
+          col-span-1
+          text-5xl
+          cursor-pointer
+        "
         :to="{ name: 'index' }"
       >
         &larr;
@@ -28,7 +35,22 @@
           v-for="post in state.posts"
           v-show="post.status !== 'draft'"
           :key="post.position"
-          class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-gray-700 to-gray-600 hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700"
+          class="
+            w-full
+            overflow-hidden
+            text-gray-100
+            rounded
+            shadow
+            cursor-pointer
+            md:max-w-lg
+            hover:shadow-md
+            bg-gradient-to-tr
+            from-gray-700
+            to-gray-600
+            hover:bg-gradient-to-bl
+            hover:from-gray-600
+            hover:to-gray-700
+          "
           :title="post.title"
           @click="$router.push({ path: post.path })"
         >
@@ -44,7 +66,19 @@
               </div>
               <div v-for="(tag, index) in post.tags" :key="index" class="pl-2">
                 <span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
+                  class="
+                    inline-flex
+                    items-center
+                    px-2.5
+                    py-0.5
+                    rounded-full
+                    text-xs
+                    font-medium
+                    leading-4
+                    bg-red-100
+                    text-gray-800
+                    mr-2
+                  "
                 >
                   {{ tag }}
                 </span>

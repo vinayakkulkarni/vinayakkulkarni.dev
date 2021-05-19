@@ -11,7 +11,14 @@
       </div>
       <nuxt-link
         tag="div"
-        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
+        class="
+          inline-flex
+          self-center
+          justify-end
+          col-span-1
+          text-5xl
+          cursor-pointer
+        "
         :to="{ name: 'index' }"
       >
         &larr;
@@ -38,7 +45,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -68,7 +81,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -96,7 +115,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -124,7 +149,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -152,7 +183,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -179,7 +216,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -207,7 +250,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -234,7 +283,13 @@
               viewBox="0 0 100 100"
               width="15"
               height="15"
-              class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+              class="
+                inline
+                align-top
+                fill-current
+                text-foreground-secondary
+                hover:text-foreground-primary
+              "
             >
               <path
                 fill="currentColor"
@@ -252,7 +307,12 @@
             href="https://www.bencodezen.io/uses/"
             rel="noopener"
             target="_blank"
-            class="italic hover:underline hover:text-foreground-secondary focus:text-green-500"
+            class="
+              italic
+              hover:underline
+              hover:text-foreground-secondary
+              focus:text-green-500
+            "
           >
             Ben Hong's Uses page
           </a>
