@@ -1,6 +1,16 @@
 <template>
   <header
-    class="fixed top-0 flex items-center justify-between invisible h-24 min-w-full p-4"
+    class="
+      fixed
+      top-0
+      flex
+      items-center
+      justify-between
+      invisible
+      h-24
+      min-w-full
+      p-4
+    "
   >
     <!-- Logo -->
     <div class="select-none">
@@ -18,7 +28,23 @@
     <div>
       <select
         v-model="$colorMode.preference"
-        class="visible block w-full py-2 pl-3 pr-10 mt-1 text-base text-gray-300 bg-gray-900 border-gray-700 rounded-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
+        class="
+          visible
+          block
+          w-full
+          py-2
+          pl-3
+          pr-10
+          mt-1
+          text-base text-gray-300
+          bg-gray-900
+          border-gray-700
+          rounded-md
+          focus:outline-none
+          focus:ring-gray-500
+          focus:border-gray-500
+          sm:text-sm
+        "
       >
         <option value="system">System</option>
         <option value="light">Light</option>

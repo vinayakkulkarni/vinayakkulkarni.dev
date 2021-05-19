@@ -10,7 +10,14 @@
         href="https://github.com/vinayakkulkarni"
         target="_blank"
         aria-label="Github"
-        class="px-2 transition-colors duration-100 ease-linear text-foreground-primary hover:text-github"
+        class="
+          px-2
+          transition-colors
+          duration-100
+          ease-linear
+          text-foreground-primary
+          hover:text-github
+        "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +40,14 @@
         href="https://twitter.com/_vinayak_k"
         target="_blank"
         aria-label="Twitter"
-        class="px-2 transition-colors duration-100 ease-linear text-foreground-primary hover:text-twitter"
+        class="
+          px-2
+          transition-colors
+          duration-100
+          ease-linear
+          text-foreground-primary
+          hover:text-twitter
+        "
       >
         <svg
           aria-hidden="true"
@@ -55,7 +69,14 @@
         href="https://www.linkedin.com/in/kulkarnivinayak/"
         target="_blank"
         aria-label="LinkedIn"
-        class="px-2 transition-colors duration-100 ease-linear text-foreground-primary hover:text-linkedIn"
+        class="
+          px-2
+          transition-colors
+          duration-100
+          ease-linear
+          text-foreground-primary
+          hover:text-linkedIn
+        "
       >
         <svg
           aria-hidden="true"
@@ -77,7 +98,14 @@
         href="https://codepen.io/vinayakkulkarni"
         target="_blank"
         aria-label="Codepen"
-        class="px-2 transition-colors duration-100 ease-linear text-foreground-primary hover:text-foreground-secondary"
+        class="
+          px-2
+          transition-colors
+          duration-100
+          ease-linear
+          text-foreground-primary
+          hover:text-foreground-secondary
+        "
       >
         <svg
           aria-hidden="true"
