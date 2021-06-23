@@ -40,9 +40,7 @@
           bg-gray-900
           border-gray-700
           rounded-md
-          focus:outline-none
-          focus:ring-gray-500
-          focus:border-gray-500
+          focus:outline-none focus:ring-gray-500 focus:border-gray-500
           sm:text-sm
         "
       >

@@ -14,8 +14,7 @@
       bg-gray-100
       min-w-screen
       text-foreground-primary
-      dark:bg-gray-900
-      dark:text-gray-100
+      dark:bg-gray-900 dark:text-gray-100
     "
   >
     <!-- Header -->
@@ -33,8 +32,7 @@
         pb-4
         pt-14
         md:py-16
-        xl:py-12
-        xl:px-0
+        xl:py-12 xl:px-0
       "
     >
       <nuxt class="md:max-w-screen-xl" />

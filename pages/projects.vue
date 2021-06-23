@@ -38,9 +38,7 @@
             bg-gradient-to-tr
             from-gray-700
             to-gray-600
-            hover:bg-gradient-to-bl
-            hover:from-gray-600
-            hover:to-gray-700
+            hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700
           "
         >
           <div class="p-4">
