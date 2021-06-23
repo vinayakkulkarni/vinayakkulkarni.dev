@@ -1,3 +1,5 @@
 [submodule "content/blog"]
 	path = content/blog
 	url = git@github.com:vinayakkulkarni/blog.git
+	branch = main
+	shallow = true
