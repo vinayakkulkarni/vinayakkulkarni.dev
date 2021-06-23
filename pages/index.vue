@@ -10,8 +10,7 @@
       from-gray-700
       to-gray-600
       hover:shadow-md
-      lg:m-0
-      lg:p-12
+      lg:m-0 lg:p-12
     "
   >
     <!-- Hello -->

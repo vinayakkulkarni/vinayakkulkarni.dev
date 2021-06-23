@@ -47,9 +47,7 @@
             bg-gradient-to-tr
             from-gray-700
             to-gray-600
-            hover:bg-gradient-to-bl
-            hover:from-gray-600
-            hover:to-gray-700
+            hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700
           "
           :title="post.title"
           @click="$router.push({ path: post.path })"

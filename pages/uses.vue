@@ -309,8 +309,7 @@
             target="_blank"
             class="
               italic
-              hover:underline
-              hover:text-foreground-secondary
+              hover:underline hover:text-foreground-secondary
               focus:text-green-500
             "
           >
