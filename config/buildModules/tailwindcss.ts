@@ -1,12 +1,12 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const tailwindcss = {
-  jit: true,
   cssPath: '~/assets/styles/tailwind.css',
   configPath: 'tailwind.config.js',
   exposeConfig: false,
   viewer: false,
   config: {
+    mode: 'jit',
     darkMode: 'class',
     prefix: '',
     separator: ':',
@@ -31,7 +31,7 @@ const tailwindcss = {
           ...defaultTheme.colors,
         },
         fontFamily: {
-          sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+          sans: ['Inter var'],
         },
         typography: (theme: (e: string) => void): unknown => ({
           DEFAULT: {
