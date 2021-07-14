@@ -7,40 +7,48 @@ on:
   pull_request:
     branches:
       - main
+  pull_request_target:
+    branches:
+      - main
+
+permissions:
+  checks: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest]
         node: [16]
 
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@master
+      - name: Check out repository (push)
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/checkout@v2
+
+      - name: Check out repository (pull_request_target)
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup node env 📦
         uses: actions/setup-node@v2.2.0
         with:
           node-version: ${{ matrix.node }}
           registry-url: https://registry.npmjs.org
+          cache: 'npm'
 
       - name: Upgrade npm ✨
         run: npm i -g npm@latest
-
-      - name: Get npm cache directory 🏗
-        id: npm-cache
-        run: echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Restore cached node_modules 🤷‍♂️
-        uses: actions/cache@v2.1.6
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Install dependencies 🚀
         if: steps.cache.outputs.cache-hit != 'true'
@@ -55,6 +63,7 @@ jobs:
           git_email: github-actions[bot]@users.noreply.github.com
           auto_fix: false
           stylelint: true
+          stylelint_extensions: css,sass,scss,vue
           eslint: true
           eslint_extensions: js,ts,vue
           prettier: true
