@@ -33,6 +33,8 @@ jobs:
       - name: Check out repository (push)
         if: ${{ github.event_name == 'push' }}
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Check out repository (pull_request_target)
         if: ${{ github.event_name == 'pull_request_target' }}
@@ -45,14 +47,14 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           registry-url: https://registry.npmjs.org
+          check-latest: true
           cache: 'npm'
 
       - name: Upgrade npm ✨
         run: npm i -g npm@latest
 
       - name: Install dependencies 🚀
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci --prefer-offline --no-audit --no-optional
+        run: npm i --prefer-offline --no-audit --no-optional --no-save
 
       - name: Run linter(s) 👀
         uses: wearerequired/lint-action@v1
