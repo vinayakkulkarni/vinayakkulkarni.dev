@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import colors from 'tailwindcss/colors';
 
 const tailwindcss = {
   cssPath: '~/assets/styles/tailwind.css',
@@ -28,7 +28,7 @@ const tailwindcss = {
           twitter: '#1DA1F2',
           linkedIn: '#2867B2',
           github: '#333333',
-          ...defaultTheme.colors,
+          ...colors,
         },
         fontFamily: {
           sans: ['Inter var'],
