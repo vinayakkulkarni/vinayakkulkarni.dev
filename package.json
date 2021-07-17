@@ -72,8 +72,8 @@
     "url": "https://vinayakkulkarni.dev"
   },
   "engines": {
-    "node": ">=14.15.0",
-    "vscode": "^1.22.0"
+    "node": ">=16.5.0",
+    "npm": ">=7.19.1"
   },
   "bugs": {
     "url": "https://github.com/vinayakkulkarni/vinayakkulkarni.dev/issues"
