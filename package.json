@@ -49,7 +49,7 @@
     "@types/node": "^16.9.6",
     "@types/tailwindcss": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.2",
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vue/runtime-dom": "^3.2.13",
     "@vue/test-utils": "^1.2.2",
