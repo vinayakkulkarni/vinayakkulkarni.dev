@@ -60,7 +60,7 @@
     "eslint-plugin-vue": "^7.18.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
-    "netlify-cli": "^6.9.12",
+    "netlify-cli": "^6.9.15",
     "prettier": "^2.4.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
