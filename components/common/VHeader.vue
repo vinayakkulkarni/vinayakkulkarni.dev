@@ -55,9 +55,3 @@
     name: 'VHeader',
   };
 </script>
-
-<style>
-  .v-logo {
-    font-family: 'Permanent Marker', -apple-system, Verdana, Tahoma, sans-serif;
-  }
-</style>

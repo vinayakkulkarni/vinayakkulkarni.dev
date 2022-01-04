@@ -90,4 +90,8 @@ section {
   transform: translate(-100px, 0);
 }
 
+.v-logo {
+  font-family: "Permanent Marker", -apple-system, Verdana, Tahoma, sans-serif;
+}
+
 /* purgecss end ignore */
