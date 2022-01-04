@@ -10,14 +10,7 @@
       </div>
       <nuxt-link
         tag="div"
-        class="
-          inline-flex
-          self-center
-          justify-end
-          col-span-1
-          text-5xl
-          cursor-pointer
-        "
+        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
         :to="{ name: 'index' }"
       >
         &larr;
@@ -28,18 +21,7 @@
         <div
           v-for="(project, idx) in projects"
           :key="idx"
-          class="
-            overflow-hidden
-            text-gray-100
-            rounded
-            shadow
-            md:max-w-lg
-            hover:shadow-md
-            bg-gradient-to-tr
-            from-gray-700
-            to-gray-600
-            hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700
-          "
+          class="overflow-hidden text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-gray-700 to-gray-600 hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700"
         >
           <div class="p-4">
             <div class="mb-2 text-xl font-bold">
@@ -76,16 +58,7 @@
             </p>
             <div class="mt-2">
               <span
-                class="
-                  inline-flex
-                  items-center
-                  px-2.5
-                  py-0.5
-                  rounded-full
-                  text-xs
-                  font-medium
-                  leading-4
-                "
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4"
                 :class="{
                   'bg-green-100 text-green-800': project.library === 'vue',
                   'bg-red-100 text-red-800': project.library === 'svelte',
@@ -105,7 +78,7 @@
   import { defineComponent } from '@nuxtjs/composition-api';
 
   export default defineComponent({
-    name: 'Projects',
+    name: 'VProjects',
     transition(_, from) {
       if (from && from.name === 'index') {
         return 'slide-right';

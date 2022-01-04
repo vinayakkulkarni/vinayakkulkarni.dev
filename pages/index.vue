@@ -1,17 +1,6 @@
 <template>
   <section
-    class="
-      p-6
-      m-12
-      text-gray-100
-      rounded
-      shadow
-      bg-gradient-to-t
-      from-gray-700
-      to-gray-600
-      hover:shadow-md
-      lg:m-0 lg:p-12
-    "
+    class="p-6 m-12 text-gray-100 rounded shadow bg-gradient-to-t from-gray-700 to-gray-600 hover:shadow-md lg:m-0 lg:p-12"
   >
     <!-- Hello -->
     <h1 class="text-5xl">Hello 👋</h1>
@@ -64,7 +53,7 @@
   import { defineComponent } from '@nuxtjs/composition-api';
 
   export default defineComponent({
-    name: 'Homepage',
+    name: 'HomePage',
     transition(_, from) {
       if (!from) {
         return 'slide-right';
