@@ -45,7 +45,7 @@
     "@nuxtjs/eslint-config-typescript": "^8.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/stylelint-module": "^4.1.0",
-    "@nuxtjs/tailwindcss": "^4.2.1",
+    "@nuxtjs/tailwindcss": "^5.0.1",
     "@types/node": "^17.0.21",
     "@types/tailwindcss": "^3.0.9",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
