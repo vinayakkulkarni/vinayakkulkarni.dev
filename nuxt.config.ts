@@ -1,7 +1,7 @@
 import { NuxtConfig } from '@nuxt/types';
 import { build, head } from './config';
+import { windicss } from './config/buildModules';
 import { axios, content, pwa } from './config/modules';
-import { tailwindcss, colorMode } from './config/buildModules';
 
 const config: NuxtConfig = {
   /*
@@ -49,14 +49,12 @@ const config: NuxtConfig = {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    ['@nuxtjs/tailwindcss', tailwindcss],
-    // https://color-mode.nuxtjs.org/#setup
-    ['@nuxtjs/color-mode', colorMode],
     // https://typescript.nuxtjs.org/guide/setup.html#configuration
     '@nuxt/typescript-build',
     // https://typescript.nuxtjs.org/guide/setup.html#configuration
     '@nuxtjs/composition-api/module',
+    // Doc: https://github.com/windicss/nuxt-windicss#usage
+    ['nuxt-windicss', windicss],
   ],
   /*
    ** Nuxt.js modules
