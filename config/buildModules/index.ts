@@ -1,2 +1,1 @@
-export { tailwindcss } from './tailwindcss';
-export { colorMode } from './colorMode';
+export { windicss } from './windicss';
