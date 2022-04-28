@@ -62,7 +62,7 @@
     "netlify-cli": "^10.1.0",
     "nuxt-windicss": "^2.3.1",
     "prettier": "^2.6.2",
-    "sass": "^1.50.1",
+    "sass": "^1.51.0",
     "stylelint": "^14.7.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-vue": "^1.4.0",
