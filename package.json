@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Vinayak's personal website",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "NODE_OPTIONS=--openssl-legacy-provider nuxt build",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider nuxt dev",
