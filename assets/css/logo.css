@@ -7,7 +7,7 @@
   src:
     local("Permanent Marker Regular"),
     local("PermanentMarker-Regular"),
-    url("~@/assets/fonts/PermanentMarkerRegular.woff2") format("woff2");
+    url("~/assets/fonts/PermanentMarkerRegular.woff2") format("woff2");
   unicode-range:
     U+0000-00FF,
     U+0131,
