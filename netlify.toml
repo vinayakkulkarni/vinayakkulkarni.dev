@@ -5,4 +5,3 @@
    command = "npm run generate"
    publish = "dist"
    functions = "functions"
-   environment = { NODE_VERSION = "17.3.0", NPM_VERSION = "8.3.0" }

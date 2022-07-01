@@ -37,16 +37,8 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from '@nuxtjs/composition-api';
-
   export default defineComponent({
     name: 'BlogPost',
-    transition(_, from) {
-      if (from && from.name === 'blog') {
-        return 'slide-left';
-      }
-      return 'slide-right';
-    },
     async asyncData({ $content, params }) {
       const post = await $content(`blog/${params.post}`).fetch();
       return { post };

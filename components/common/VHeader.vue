@@ -45,9 +45,6 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from '@nuxtjs/composition-api';
-  import { useDark, useToggle } from '@vueuse/core';
-
   export default defineComponent({
     name: 'VHeader',
     setup() {

@@ -8,7 +8,7 @@
     <section
       class="flex items-center justify-center w-full h-screen max-h-screen px-4 pb-4 pt-14 md:py-16 xl:py-12 xl:px-0"
     >
-      <nuxt class="md:max-w-screen-xl" />
+      <slot class="md:max-w-screen-xl" />
     </section>
     <!-- Footer -->
     <v-footer />
@@ -16,19 +16,14 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from '@nuxtjs/composition-api';
+  import VFooter from '~/components/common/VFooter.vue';
+  import VHeader from '~/components/common/VHeader.vue';
 
   export default defineComponent({
     name: 'DefaultLayout',
     components: {
-      VHeader: () =>
-        import(
-          /* webpackChunkName: "Header Component" */ '@/components/common/VHeader.vue'
-        ),
-      VFooter: () =>
-        import(
-          /* webpackChunkName: "Footer Component" */ '@/components/common/VFooter.vue'
-        ),
+      VHeader,
+      VFooter,
     },
   });
 </script>

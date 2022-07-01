@@ -1,9 +1,5 @@
-const contentConfig = {
-  markdown: {
-    prism: {
-      theme: 'prism-themes/themes/prism-material-dark.css',
-    },
-  },
+const cfg = {
+  base: '/_content',
 };
 
-export { contentConfig as content };
+export { cfg as content };

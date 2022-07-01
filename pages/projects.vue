@@ -75,50 +75,10 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from '@nuxtjs/composition-api';
-
   export default defineComponent({
     name: 'VProjects',
-    transition(_, from) {
-      if (from && from.name === 'index') {
-        return 'slide-right';
-      }
-      return 'slide-left';
-    },
     data() {
       return {
-        scrollOps: {
-          scrollPanel: {
-            initialScrollY: false,
-            initialScrollX: false,
-            scrollingX: false,
-            scrollingY: true,
-            speed: 500,
-            easing: 'easeInQuad',
-            verticalNativeBarPos: 'right',
-          },
-          rail: {
-            background: '#01a99a',
-            opacity: 0,
-            size: '6px',
-            specifyBorderRadius: false,
-            gutterOfEnds: null,
-            gutterOfSide: '2px',
-            keepShow: true,
-          },
-          bar: {
-            showDelay: 5000,
-            onlyShowBarOnScroll: true,
-            keepShow: false,
-            background: '#1E1E1E',
-            opacity: 0.7,
-            hoverStyle: true,
-            specifyBorderRadius: false,
-            minSize: 0,
-            size: '6px',
-            disable: false,
-          },
-        },
         projects: [
           {
             name: 'Janak',

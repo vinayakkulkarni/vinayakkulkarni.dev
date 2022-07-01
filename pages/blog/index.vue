@@ -61,20 +61,12 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive } from '@nuxtjs/composition-api';
-  import { getRuntimeVM } from '@/utils/runtime';
-  import { Post } from '@/types/blog';
+  import type { Post } from '~/types/blog';
 
   export default defineComponent({
     name: 'VBlog',
-    transition(_, from) {
-      if (from && from.name === 'blog-post') {
-        return 'slide-right';
-      }
-      return 'slide-left';
-    },
     setup() {
-      const { $content } = getRuntimeVM();
+      const { $content } = useNuxtApp();
       // component state
       const state = reactive({
         scrollOps: {

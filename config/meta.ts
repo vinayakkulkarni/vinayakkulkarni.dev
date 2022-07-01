@@ -1,27 +1,47 @@
-import { NuxtOptionsHead } from '@nuxt/types/config/head';
-
-const head: NuxtOptionsHead = {
+export const meta = {
   title: 'Vinayak Kulkarni - Portfolio',
   meta: [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    {
+      charset: 'utf-8',
+    },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1',
+    },
     {
       hid: 'description',
       name: 'description',
       content: 'Portfolio site for Vinayak Kulkarni ',
     },
     {
+      name: 'format-detection',
+      content: 'telephone=no',
+    },
+    {
       hid: 'keywords',
       name: 'keywords',
       content: 'Vinayak Kulkarni - Portfolio',
     },
-    { name: 'msapplication-TileColor', content: '#ffc40d' },
-    { name: 'theme-color', content: '#ffffff' },
+    {
+      name: 'msapplication-TileColor',
+      content: '#ffc40d',
+    },
+    {
+      name: 'theme-color',
+      content: '#ffffff',
+    },
   ],
-  noscript: [{ innerHTML: 'This application requires JavaScript.' }],
   link: [
-    { rel: 'mask-icon', color: '#5bbad5', href: '/safari-pinned-tab.svg' },
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    {
+      rel: 'mask-icon',
+      color: '#5bbad5',
+      href: '/safari-pinned-tab.svg',
+    },
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicon.ico',
+    },
     {
       rel: 'icon',
       type: 'image/png',
@@ -48,6 +68,9 @@ const head: NuxtOptionsHead = {
       type: 'text/javascript',
     },
   ],
+  noscript: [
+    {
+      innerHTML: 'This application requires JavaScript.',
+    },
+  ],
 };
-
-export { head };
