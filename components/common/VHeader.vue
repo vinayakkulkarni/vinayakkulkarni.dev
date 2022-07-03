@@ -1,7 +1,5 @@
 <template>
-  <header
-    class="fixed top-0 flex items-center justify-between invisible h-24 min-w-full p-4 select-none"
-  >
+  <section class="flex items-center justify-between invisible min-w-full p-4">
     <!-- Logo -->
     <svg
       class="visible text-gray-900 cursor-pointer v-logo dark:text-gray-100"
@@ -41,7 +39,7 @@
         </svg>
       </span>
     </div>
-  </header>
+  </section>
 </template>
 
 <script lang="ts">

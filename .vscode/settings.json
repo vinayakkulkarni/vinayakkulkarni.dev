@@ -10,4 +10,6 @@
   "[css]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active"
 }

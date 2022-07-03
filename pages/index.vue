@@ -52,11 +52,5 @@
 <script lang="ts">
   export default defineComponent({
     name: 'HomePage',
-    transition(_, from) {
-      if (!from) {
-        return 'slide-right';
-      }
-      return 'slide-left';
-    },
   });
 </script>
