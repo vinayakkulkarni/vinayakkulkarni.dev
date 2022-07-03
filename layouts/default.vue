@@ -7,7 +7,9 @@
       <v-header />
     </header>
     <!-- Body -->
-    <main class="flex-1 p-4 overflow-y-auto">
+    <main
+      class="flex-1 p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300"
+    >
       <div class="flex items-center justify-center h-full">
         <slot class="md:max-w-screen-xl" />
       </div>
