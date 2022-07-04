@@ -9,7 +9,7 @@ import {
 } from './config';
 
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
   components: false,
   meta,
   css,
@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   build,
   nitro: {
     prerender: {
-      routes: ['/articles'],
+      routes: ['/articles', '/api/_content/**'],
     },
   },
 });
