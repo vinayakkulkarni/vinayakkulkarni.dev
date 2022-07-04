@@ -11,8 +11,6 @@ import {
 export default defineNuxtConfig({
   preset: 'netlify',
   ssr: false,
-  modern: 'client',
-  target: 'static',
   components: false,
   meta,
   css,
