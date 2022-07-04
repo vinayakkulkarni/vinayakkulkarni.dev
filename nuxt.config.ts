@@ -10,7 +10,7 @@ import {
 
 export default defineNuxtConfig({
   preset: 'netlify',
-  ssr: false,
+  ssr: true,
   components: false,
   meta,
   css,
@@ -18,4 +18,9 @@ export default defineNuxtConfig({
   modules,
   publicRuntimeConfig,
   build,
+  nitro: {
+    prerender: {
+      routes: ['/articles'],
+    },
+  },
 });

@@ -76,7 +76,6 @@
         const { data: posts } = await useAsyncData('articles', () =>
           queryContent('/articles').find(),
         );
-        console.log('data: ', posts);
         state.posts = posts;
       }
       return {
