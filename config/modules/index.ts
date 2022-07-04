@@ -7,8 +7,6 @@ export const modules: any = [
   '@nuxtjs/stylelint-module',
   // https://vueuse.org/guide/#nuxt
   '@vueuse/nuxt',
-  // Doc: https://color-mode.nuxtjs.org/
-  '@nuxtjs/color-mode',
   // Doc: https://content.nuxtjs.org/
   ['@nuxt/content', content],
   // https://windicss.org/integrations/nuxt.html
