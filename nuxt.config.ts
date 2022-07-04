@@ -9,7 +9,6 @@ import {
 } from './config';
 
 export default defineNuxtConfig({
-  preset: 'netlify',
   ssr: true,
   components: false,
   meta,
@@ -18,9 +17,4 @@ export default defineNuxtConfig({
   modules,
   publicRuntimeConfig,
   build,
-  nitro: {
-    prerender: {
-      routes: ['/articles'],
-    },
-  },
 });
