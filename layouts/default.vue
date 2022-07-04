@@ -1,34 +1,35 @@
 <template>
-  <main
-    class="w-full h-full min-h-screen overflow-hidden antialiased font-light text-gray-800 transition-colors duration-200 ease-linear bg-gray-100 min-w-screen text-foreground-primary dark:bg-gray-900 dark:text-gray-100"
+  <div
+    class="flex flex-col w-screen h-screen overflow-hidden font-light text-gray-800 transition-colors duration-200 ease-linear bg-gray-100 select-none min-w-screen text-foreground-primary dark:bg-gray-900 dark:text-gray-100"
   >
     <!-- Header -->
-    <v-header />
+    <header>
+      <v-header />
+    </header>
     <!-- Body -->
-    <section
-      class="flex items-center justify-center w-full h-screen max-h-screen px-4 pb-4 pt-14 md:py-16 xl:py-12 xl:px-0"
+    <main
+      class="flex-1 p-4 overflow-y-auto scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-gray-600 dark:scrollbar-thumb-gray-400 dark:scrollbar-track-gray-600"
     >
-      <nuxt class="md:max-w-screen-xl" />
-    </section>
+      <div class="flex items-center justify-center h-full">
+        <slot class="md:max-w-screen-xl" />
+      </div>
+    </main>
     <!-- Footer -->
-    <v-footer />
-  </main>
+    <footer>
+      <v-footer />
+    </footer>
+  </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from '@nuxtjs/composition-api';
+  import VFooter from '~/components/common/VFooter.vue';
+  import VHeader from '~/components/common/VHeader.vue';
 
   export default defineComponent({
     name: 'DefaultLayout',
     components: {
-      VHeader: () =>
-        import(
-          /* webpackChunkName: "Header Component" */ '@/components/common/VHeader.vue'
-        ),
-      VFooter: () =>
-        import(
-          /* webpackChunkName: "Footer Component" */ '@/components/common/VFooter.vue'
-        ),
+      VHeader,
+      VFooter,
     },
   });
 </script>

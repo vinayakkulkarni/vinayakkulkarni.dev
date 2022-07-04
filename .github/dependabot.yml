@@ -6,6 +6,7 @@ updates:
     schedule:
       interval: daily
       time: '00:00'
+      timezone: Asia/Calcutta
     open-pull-requests-limit: 10
     reviewers:
       - vinayakkulkarni
@@ -21,6 +22,7 @@ updates:
     schedule:
       interval: daily
       time: '00:00'
+      timezone: Asia/Calcutta
     open-pull-requests-limit: 10
     reviewers:
       - vinayakkulkarni

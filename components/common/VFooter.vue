@@ -1,6 +1,6 @@
 <template>
-  <footer
-    class="fixed bottom-0 inline-flex min-w-full py-4"
+  <section
+    class="min-w-full py-4"
     :class="{ 'border-t border-gray-500': $route.name !== 'index' }"
   >
     <div class="flex items-center justify-center w-full">
@@ -94,10 +94,10 @@
         </svg>
       </a>
     </div>
-  </footer>
+  </section>
 </template>
 
-<script>
+<script lang="ts">
   export default {
     name: 'VFooter',
   };

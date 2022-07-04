@@ -28,7 +28,7 @@
       class="flex items-center justify-around w-full mt-8 text-xl tracking-wide"
     >
       <nuxt-link
-        :to="{ name: 'blog' }"
+        :to="{ name: 'articles' }"
         class="hover:line-through hover:text-foreground-secondary"
       >
         📖 Blog
@@ -50,15 +50,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from '@nuxtjs/composition-api';
-
   export default defineComponent({
     name: 'HomePage',
-    transition(_, from) {
-      if (!from) {
-        return 'slide-right';
-      }
-      return 'slide-left';
-    },
   });
 </script>

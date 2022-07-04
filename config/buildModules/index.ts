@@ -1,1 +1,0 @@
-export { windicss } from './windicss';

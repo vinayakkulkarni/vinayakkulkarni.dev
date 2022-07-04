@@ -1,19 +1,25 @@
-import { NuxtOptionsBuild } from '@nuxt/types/config/build';
-import { NuxtRuntimeConfig } from '@nuxt/types/config/runtime';
+import type { Configuration } from 'webpack';
 
-const build: NuxtOptionsBuild = {
-  corejs: 3,
-  extend(config: NuxtRuntimeConfig, { isDev, isClient }) {
-    config.node = {
-      fs: 'empty',
-    };
-    if (isDev && isClient) {
-      config.devtool = 'source-map';
-    }
-  },
+// Build Configuration (https://go.nuxtjs.dev/config-build)
+export const build = {
+  corejs: '3',
   terser: {
+    cache: true,
+    parallel: true,
     sourceMap: true,
+    terserOptions: {
+      ecma: 2020,
+      mangle: true,
+      module: true,
+      sourceMap: true,
+    },
+  },
+  extend(config: Configuration) {
+    config.devtool = 'source-map';
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
   },
 };
-
-export { build };
