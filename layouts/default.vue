@@ -8,7 +8,7 @@
     </header>
     <!-- Body -->
     <main
-      class="flex-1 p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300"
+      class="flex-1 p-4 overflow-y-auto scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-gray-600 dark:scrollbar-thumb-gray-400 dark:scrollbar-track-gray-600"
     >
       <div class="flex items-center justify-center h-full">
         <slot class="md:max-w-screen-xl" />

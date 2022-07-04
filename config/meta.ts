@@ -60,14 +60,6 @@ export const meta = {
       href: '/apple-touch-icon.png',
     },
   ],
-  script: [
-    {
-      hid: 'thesemetrics',
-      src: 'https://unpkg.com/thesemetrics@latest',
-      async: true,
-      type: 'text/javascript',
-    },
-  ],
   noscript: [
     {
       innerHTML: 'This application requires JavaScript.',

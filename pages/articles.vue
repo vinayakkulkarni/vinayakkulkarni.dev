@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col w-full h-full pb-20 mt-16 xl:mt-0 lg:pb-8">
+  <section class="flex flex-col w-full h-full p-4">
     <!-- Top Data -->
     <div class="grid grid-flow-col grid-cols-4 gap-4">
       <div class="inline-flex flex-col self-center justify-end col-span-3">
@@ -18,30 +18,25 @@
       </nuxt-link>
     </div>
     <!-- Actual Data -->
-    <vue-scroll :ops="state.scrollOps">
+    <content-list v-slot="{ list }" path="/articles">
       <div
-        v-if="state.posts.length > 0"
+        v-if="list.length > 0"
         class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
       >
         <!-- This needs to be dynamic -->
         <div
-          v-for="post in state.posts"
+          v-for="post in list"
           v-show="post.status !== 'draft'"
           :key="post.position"
-          class="w-full overflow-hidden text-gray-100 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md bg-gradient-to-tr from-gray-700 to-gray-600 hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700"
+          class="w-full overflow-hidden dark:bg-gray-700 bg-gray-900 text-gray-200 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md"
           :title="post.title"
-          @click="$router.push({ path: post.path })"
+          @click="$router.push({ path: post._path })"
         >
           <div class="p-4">
             <div class="mb-2 text-xl font-bold">
               {{ post.title }}
             </div>
             <div class="flex items-center justify-start py-1 text-sm">
-              <div
-                class="pr-2 border-r border-gray-500 text-foreground-secondary"
-              >
-                {{ new Date(post.createdAt).toDateString() }}
-              </div>
               <div v-for="(tag, index) in post.tags" :key="index" class="pl-2">
                 <span
                   class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
@@ -56,7 +51,7 @@
           </div>
         </div>
       </div>
-    </vue-scroll>
+    </content-list>
   </section>
 </template>
 
@@ -66,43 +61,11 @@
   export default defineComponent({
     name: 'VBlog',
     setup() {
-      const { $content } = useNuxtApp();
       // component state
       const state = reactive({
-        scrollOps: {
-          scrollPanel: {
-            initialScrollY: false,
-            initialScrollX: false,
-            scrollingX: false,
-            scrollingY: true,
-            speed: 500,
-            easing: 'easeInQuad',
-            verticalNativeBarPos: 'right',
-          },
-          rail: {
-            background: '#01a99a',
-            opacity: 0,
-            size: '6px',
-            specifyBorderRadius: false,
-            gutterOfEnds: null,
-            gutterOfSide: '2px',
-            keepShow: true,
-          },
-          bar: {
-            showDelay: 5000,
-            onlyShowBarOnScroll: true,
-            keepShow: false,
-            background: '#1E1E1E',
-            opacity: 0.7,
-            hoverStyle: true,
-            specifyBorderRadius: false,
-            minSize: 0,
-            size: '6px',
-            disable: false,
-          },
-        },
         posts: [] as Post[] | unknown,
       });
+
       // triggered in created()
       getPosts();
       // methods
@@ -110,7 +73,11 @@
        * API: GET Blog posts
        */
       async function getPosts(): Promise<void> {
-        state.posts = await $content('blog').sortBy('createdAt').fetch();
+        const { data: posts } = await useAsyncData('articles', () =>
+          queryContent('/articles').find(),
+        );
+        console.log('data: ', posts);
+        state.posts = posts;
       }
       return {
         state,

@@ -1,5 +1,10 @@
 const cfg = {
-  base: '/_content',
+  highlight: {
+    theme: {
+      default: 'light-plus',
+      dark: 'github-dark',
+    },
+  },
 };
 
 export { cfg as content };
