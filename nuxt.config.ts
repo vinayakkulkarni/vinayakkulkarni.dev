@@ -10,6 +10,7 @@ import {
 
 export default defineNuxtConfig({
   ssr: true,
+  target: 'static',
   components: false,
   meta,
   css,
