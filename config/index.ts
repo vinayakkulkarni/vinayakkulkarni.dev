@@ -10,7 +10,6 @@ const css: string[] = [
 
 const plugins: any[] = [{ src: '~/plugins/click-outside', mode: 'client' }];
 
-export { build } from './build';
 export { meta } from './meta';
 export { modules } from './modules';
 export { css, plugins, publicRuntimeConfig };
