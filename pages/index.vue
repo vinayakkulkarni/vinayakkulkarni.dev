@@ -9,12 +9,12 @@
       <article class="py-2 prose text-gray-100">
         <div>
           My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
-          Frontend Tech Lead @
+          Principal Engineer I @
           <a
             href="https://geospoc.com"
             target="_blank"
             rel="noopener nofollow"
-            class="focus:text-green-500"
+            class="text-white focus:text-green-500"
             >GeoSpoc</a
           >
           & open source contributor
