@@ -13,5 +13,12 @@ export default defineNuxtConfig({
   publicRuntimeConfig,
   typescript: {
     strict: true,
+    shim: false,
+  },
+  nitro: {
+    preset: 'netlify',
+    prerender: {
+      routes: ['/articles'],
+    },
   },
 });

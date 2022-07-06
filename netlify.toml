@@ -6,6 +6,6 @@
   targetPort = 3000
 
 [build]
-  command = "npm run build && npm run generate"
+  command = "npm run generate"
   publish = "dist"
   functions = "dist"
