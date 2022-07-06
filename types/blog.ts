@@ -1,4 +1,5 @@
 export interface Post {
+  _path: string;
   body: unknown;
   category: string;
   createdAt: string;
