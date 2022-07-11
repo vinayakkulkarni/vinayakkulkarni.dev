@@ -55,7 +55,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "nuxt": "npm:nuxt3@latest",
-    "nuxt-windicss": "^2.4.2",
+    "nuxt-windicss": "^2.4.3",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
     "shipjs": "^0.24.4",
