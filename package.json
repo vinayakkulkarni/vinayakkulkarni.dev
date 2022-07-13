@@ -42,7 +42,7 @@
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vue/runtime-dom": "^3.2.37",
     "@vueuse/core": "^8.9.1",
-    "@vueuse/nuxt": "^8.9.1",
+    "@vueuse/nuxt": "^8.9.2",
     "@windicss/animations": "^1.0.8",
     "@windicss/plugin-scrollbar": "^1.2.3",
     "eslint": "^8.19.0",
