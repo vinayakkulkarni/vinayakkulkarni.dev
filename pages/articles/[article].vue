@@ -1,7 +1,8 @@
 <template>
   <article class="flex flex-col w-full h-full prose prose-lg">
-    <content-doc v-slot="{ doc }">
-      <h1>{{ doc.title }}</h1>
+    <content-doc>
+      <!-- <content-doc v-slot="{ doc }"> -->
+      <!-- <h1>{{ doc.title }}</h1>
       <div
         v-if="doc.tags && doc.tags.length"
         class="flex items-center justify-start py-1 text-sm"
@@ -15,7 +16,7 @@
         </div>
       </div>
       <h3>{{ doc.description }}</h3>
-      <content-renderer-markdown :value="doc" />
+      <content-renderer :value="doc" /> -->
     </content-doc>
   </article>
 </template>
