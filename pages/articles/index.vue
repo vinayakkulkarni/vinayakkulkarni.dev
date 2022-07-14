@@ -18,64 +18,38 @@
       </nuxt-link>
     </div>
     <!-- Actual Data -->
-    <div
-      v-if="state.posts.length > 0"
-      class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-    >
+    <content-list v-slot="{ list }" path="/articles">
       <div
-        v-for="post in state.posts"
-        v-show="post.status !== 'draft'"
-        :key="post.position"
-        class="w-full overflow-hidden dark:bg-gray-700 bg-gray-900 text-gray-200 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md"
-        :title="post.title"
-        @click="$router.push({ path: post._path })"
+        v-if="list.length > 0"
+        class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
       >
-        <div class="p-4">
-          <div class="mb-2 text-xl font-bold">
-            {{ post.title }}
-          </div>
-          <div class="flex items-center justify-start py-1 text-sm">
-            <div v-for="(tag, index) in post.tags" :key="index" class="pl-2">
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
-              >
-                {{ tag }}
-              </span>
+        <div
+          v-for="post in list"
+          v-show="post.status !== 'draft'"
+          :key="post.position"
+          class="w-full overflow-hidden dark:bg-gray-700 bg-gray-900 text-gray-200 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md"
+          :title="post.title"
+          @click="$router.push({ path: post._path })"
+        >
+          <div class="p-4">
+            <div class="mb-2 text-xl font-bold">
+              {{ post.title }}
             </div>
-          </div>
-          <div class="pt-2">
-            {{ post.description }}
+            <div class="flex items-center justify-start py-1 text-sm">
+              <div v-for="(tag, index) in post.tags" :key="index" class="pl-2">
+                <span
+                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
+            <div class="pt-2">
+              {{ post.description }}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </content-list>
   </section>
 </template>
-
-<script lang="ts">
-  import type { Post } from '~/types/blog';
-
-  export default defineComponent({
-    name: 'VBlog',
-    setup() {
-      const state = reactive({
-        posts: [] as Post[],
-      });
-
-      getPosts();
-
-      /**
-       * API: GET Blog posts
-       */
-      async function getPosts(): Promise<void> {
-        const { data: posts } = await useAsyncData('articles', () =>
-          queryContent('/articles').find(),
-        );
-        state.posts = posts.value as any;
-      }
-      return {
-        state,
-      };
-    },
-  });
-</script>
