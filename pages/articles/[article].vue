@@ -1,6 +1,7 @@
 <template>
   <article class="flex flex-col w-full h-full prose prose-lg">
-    <content-doc>
+    <content-doc v-slot="{ doc }">
+      {{ doc }}
       <!-- <content-doc v-slot="{ doc }"> -->
       <!-- <h1>{{ doc.title }}</h1>
       <div
