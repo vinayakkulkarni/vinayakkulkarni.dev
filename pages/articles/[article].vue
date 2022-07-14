@@ -15,7 +15,7 @@
         </div>
       </div>
       <h3>{{ doc[0].description }}</h3>
-      <content-renderer :value="doc" />
+      <content-renderer :value="doc[0]" />
     </content-doc>
   </article>
 </template>
