@@ -10,39 +10,28 @@
         <div>
           My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
           Principal Engineer I @
-          <a
-            href="https://geospoc.com"
-            target="_blank"
-            rel="noopener nofollow"
-            class="text-white focus:text-green-500"
-            >GeoSpoc</a
-          >
-          & open source contributor
+          <a href="https://geospoc.com" target="_blank" rel="noopener nofollow">
+            GeoSpoc
+          </a>
+          &amp; open source contributor
         </div>
         <div><span class="blinking-heart">💚</span> Vue &amp; Nuxt.js</div>
-        <div>I love watching Arsenal FC, gymming, trekking & writing code</div>
+        <div>
+          I love watching Arsenal FC, gymming, trekking &amp; writing code
+        </div>
       </article>
     </div>
     <!-- Blog / Uses / Projects -->
     <div
       class="flex items-center justify-around w-full mt-8 text-xl tracking-wide"
     >
-      <nuxt-link
-        :to="{ name: 'articles' }"
-        class="hover:line-through hover:text-foreground-secondary"
-      >
+      <nuxt-link :to="{ name: 'articles' }" class="hover:line-through">
         📖 Blog
       </nuxt-link>
-      <nuxt-link
-        :to="{ name: 'projects' }"
-        class="hover:line-through hover:text-foreground-secondary"
-      >
+      <nuxt-link :to="{ name: 'projects' }" class="hover:line-through">
         🛠 Projects
       </nuxt-link>
-      <nuxt-link
-        :to="{ name: 'uses' }"
-        class="hover:line-through hover:text-foreground-secondary"
-      >
+      <nuxt-link :to="{ name: 'uses' }" class="hover:line-through">
         👨🏻‍💻 Uses
       </nuxt-link>
     </div>
