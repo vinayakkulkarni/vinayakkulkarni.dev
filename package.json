@@ -54,7 +54,7 @@
     "eslint-plugin-vue": "^9.2.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "nuxt": "npm:nuxt3@latest",
+    "nuxt": "^3.0.0-rc.5",
     "nuxt-windicss": "^2.4.3",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
@@ -75,7 +75,7 @@
     "url": "https://vinayakkulkarni.dev"
   },
   "engines": {
-    "node": ">=18.4.0",
+    "node": ">=18.5.0",
     "npm": ">=8.13.0"
   },
   "bugs": {
