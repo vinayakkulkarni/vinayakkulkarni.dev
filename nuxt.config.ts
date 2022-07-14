@@ -16,6 +16,9 @@ export default defineNuxtConfig({
     shim: false,
   },
   nitro: {
-    preset: 'netlify',
+    preset: 'netlify-edge',
+    prerender: {
+      routes: ['/', '/articles', '/projects', '/uses'],
+    },
   },
 });
