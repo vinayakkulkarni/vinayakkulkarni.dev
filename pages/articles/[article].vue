@@ -1,7 +1,7 @@
 <template>
   <article class="flex flex-col w-full h-full prose prose-lg">
     <content-doc v-slot="{ doc }">
-      {{ doc }}
+      <lazy-content-renderer :value="doc" />
       <!-- <content-doc v-slot="{ doc }"> -->
       <!-- <h1>{{ doc.title }}</h1>
       <div
