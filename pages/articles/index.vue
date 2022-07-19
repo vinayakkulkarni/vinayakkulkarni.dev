@@ -18,7 +18,7 @@
       </nuxt-link>
     </div>
     <!-- Actual Data -->
-    <content-list v-slot="{ list }" path="/articles">
+    <content-list v-slot="{ list }">
       <div
         v-if="list.length > 0"
         class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
