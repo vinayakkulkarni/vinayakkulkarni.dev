@@ -41,7 +41,7 @@
     "@typescript-eslint/parser": "^5.32.0",
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vue/runtime-dom": "^3.2.37",
-    "@vueuse/core": "^8.9.4",
+    "@vueuse/core": "^9.1.0",
     "@vueuse/nuxt": "^9.0.2",
     "@windicss/animations": "^1.0.8",
     "@windicss/plugin-scrollbar": "^1.2.3",
