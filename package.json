@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/preset-env": "^7.18.10",
-    "@commitlint/cli": "^17.0.3",
+    "@commitlint/cli": "^17.1.1",
     "@commitlint/config-conventional": "^17.0.3",
     "@kevinmarrec/nuxt-pwa": "^0.4.2",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
