@@ -14,13 +14,12 @@
       </div>
     </div>
     <h3>{{ data.description }}</h3>
-    <content-renderer :value="data[0]"> </content-renderer>
+    <content-renderer :value="data" />
   </article>
 </template>
 <script setup lang="ts">
   const route = useRoute();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data } = await useLazyAsyncData('page-data', () =>
     queryContent(route.path).findOne(),
   );

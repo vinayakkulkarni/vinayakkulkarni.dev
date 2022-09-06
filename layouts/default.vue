@@ -1,5 +1,5 @@
 <template>
-  <client-only>
+  <section>
     <div
       class="flex flex-col w-screen h-screen overflow-hidden font-light text-gray-800 transition-colors duration-200 ease-linear bg-gray-100 select-none min-w-screen dark:bg-gray-900 dark:text-gray-100"
     >
@@ -20,7 +20,7 @@
         <v-footer />
       </footer>
     </div>
-  </client-only>
+  </section>
 </template>
 
 <script lang="ts">
