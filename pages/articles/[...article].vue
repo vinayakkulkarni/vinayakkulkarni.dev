@@ -14,7 +14,7 @@
       </div>
     </div>
     <h3>{{ data.description }}</h3>
-    <content-renderer :value="data" />
+    <content-doc />
   </article>
 </template>
 <script setup lang="ts">
