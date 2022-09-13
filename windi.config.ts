@@ -41,7 +41,7 @@ const plugins = [
   require('windicss/plugin/line-clamp'),
   require('windicss/plugin/scroll-snap'),
   require('@windicss/plugin-scrollbar'),
-  require('@windicss/animations'),
+  require('@windicss/plugin-animations'),
   require('windicss/plugin/typography')({
     // Turns text color to light, when dark mode enabled. Default = false
     dark: true,

@@ -44,7 +44,7 @@
     "@vue/runtime-dom": "^3.2.39",
     "@vueuse/core": "^9.2.0",
     "@vueuse/nuxt": "^9.2.0",
-    "@windicss/animations": "^1.0.8",
+    "@windicss/plugin-animations": "^1.0.9",
     "@windicss/plugin-scrollbar": "^1.2.3",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
