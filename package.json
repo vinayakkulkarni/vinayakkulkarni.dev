@@ -31,7 +31,7 @@
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
     "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/config-conventional": "^17.2.0",
     "@kevinmarrec/nuxt-pwa": "^0.9.1",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
