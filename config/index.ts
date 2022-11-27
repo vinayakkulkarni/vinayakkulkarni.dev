@@ -1,15 +1,34 @@
-const publicRuntimeConfig = {
-  appVersion: process.env.npm_package_version,
+import type { NuxtConfig } from '@nuxt/schema';
+import { meta } from './meta';
+
+const app: NuxtConfig['app'] = {
+  head: meta,
 };
 
-const css: string[] = [
+const runtimeConfig: NuxtConfig['runtimeConfig'] = {
+  public: {
+    appVersion: process.env.npm_package_version,
+  },
+};
+
+const css: NuxtConfig['css'] = [
   '~/assets/css/fonts.css',
   '~/assets/css/logo.css',
   '~/assets/css/global.css',
 ];
 
-const plugins: any[] = [{ src: '~/plugins/click-outside', mode: 'client' }];
+const plugins: NuxtConfig['plugins'] = [
+  { src: '~/plugins/click-outside', mode: 'client' },
+];
 
-export { meta } from './meta';
+const typescript: NuxtConfig['typescript'] = {
+  strict: true,
+  shim: false,
+};
+
+const nitro: NuxtConfig['nitro'] = {
+  preset: 'netlify-builder',
+};
+
 export { modules } from './modules';
-export { css, plugins, publicRuntimeConfig };
+export { app, css, plugins, nitro, runtimeConfig, typescript };

@@ -1,21 +1,22 @@
-import { defineNuxtConfig } from 'nuxt';
-import { css, meta, modules, plugins, publicRuntimeConfig } from './config';
+import { defineNuxtConfig } from 'nuxt/config';
+import {
+  app,
+  css,
+  modules,
+  nitro,
+  plugins,
+  runtimeConfig,
+  typescript,
+} from './config';
 
 export default defineNuxtConfig({
+  app,
   ssr: true,
-  target: 'static',
-  modern: 'client',
   components: false,
-  meta,
   css,
   plugins,
   modules,
-  publicRuntimeConfig,
-  typescript: {
-    strict: true,
-    shim: false,
-  },
-  nitro: {
-    preset: 'netlify-builder',
-  },
+  runtimeConfig,
+  typescript,
+  nitro,
 });

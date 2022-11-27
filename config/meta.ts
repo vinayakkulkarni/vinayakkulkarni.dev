@@ -1,4 +1,5 @@
-export const meta = {
+import type { NuxtAppConfig } from '@nuxt/schema';
+export const meta: NuxtAppConfig['head'] = {
   title: 'Vinayak Kulkarni - Portfolio',
   meta: [
     {

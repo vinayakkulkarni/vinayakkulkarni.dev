@@ -1,5 +1,7 @@
 import colors from 'windicss/colors';
 import { defineConfig } from 'windicss/helpers';
+import defaultTheme from 'windicss/defaultTheme';
+import typographyPlugin from 'windicss/plugin/typography';
 
 const extract = {
   include: ['**/*.{vue,html,jsx,tsx,md}'],
@@ -14,7 +16,7 @@ const theme = {
       transparent: 'transparent',
     },
     fontFamily: {
-      sans: ['Inter var', ...require('windicss/defaultTheme').fontFamily.sans],
+      sans: ['Inter var', ...defaultTheme.fontFamily.sans],
     },
     typography: {
       DEFAULT: {
@@ -42,7 +44,7 @@ const plugins = [
   require('windicss/plugin/scroll-snap'),
   require('@windicss/plugin-scrollbar'),
   require('@windicss/plugin-animations'),
-  require('windicss/plugin/typography')({
+  typographyPlugin({
     // Turns text color to light, when dark mode enabled. Default = false
     dark: true,
     // Right-to-left mode (e.g. for Arabic, Uyghur languages). Default = false

@@ -1,11 +1,8 @@
+import type { NuxtConfig } from '@nuxt/schema';
 import { content } from './content';
 import { windicss } from './windicss';
 
-export const modules: any = [
-  // https://github.com/nuxt-community/eslint-module
-  '@nuxtjs/eslint-module',
-  // https://go.nuxtjs.dev/stylelint
-  '@nuxtjs/stylelint-module',
+export const modules: NuxtConfig['modules'] = [
   // https://vueuse.org/guide/#nuxt
   '@vueuse/nuxt',
   // https://content.nuxtjs.org/
