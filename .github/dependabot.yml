@@ -2,6 +2,7 @@ version: 2
 updates:
   # Fetch and update latest `npm` packages
   - package-ecosystem: npm
+    versioning-strategy: increase
     directory: '/'
     schedule:
       interval: daily
