@@ -28,7 +28,7 @@
     "click-outside-vue3": "^4.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.1",
+    "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.0",
     "@kevinmarrec/nuxt-pwa": "^0.15.0",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
