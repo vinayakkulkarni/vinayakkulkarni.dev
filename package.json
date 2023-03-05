@@ -30,7 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
-    "@kevinmarrec/nuxt-pwa": "^0.16.2",
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/node": "^18.14.4",
