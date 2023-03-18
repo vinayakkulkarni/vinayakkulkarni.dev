@@ -5,11 +5,7 @@ const app: NuxtConfig['app'] = {
   head: meta,
 };
 
-const runtimeConfig: NuxtConfig['runtimeConfig'] = {
-  public: {
-    appVersion: process.env.npm_package_version,
-  },
-};
+const components: NuxtConfig['components'] = false;
 
 const css: NuxtConfig['css'] = [
   '~/assets/css/fonts.css',
@@ -17,18 +13,26 @@ const css: NuxtConfig['css'] = [
   '~/assets/css/global.css',
 ];
 
+const nitro: NuxtConfig['nitro'] = {
+  preset: 'netlify-builder',
+};
+
 const plugins: NuxtConfig['plugins'] = [
-  { src: '~/plugins/click-outside', mode: 'client' },
+  { src: '~/plugins/v-click-outside', mode: 'client' },
 ];
+
+const runtimeConfig: NuxtConfig['runtimeConfig'] = {
+  public: {
+    appVersion: process.env.npm_package_version,
+  },
+};
+
+const ssr: NuxtConfig['ssr'] = true;
 
 const typescript: NuxtConfig['typescript'] = {
   strict: true,
   shim: false,
 };
 
-const nitro: NuxtConfig['nitro'] = {
-  preset: 'netlify-builder',
-};
-
 export { modules } from './modules';
-export { app, css, plugins, nitro, runtimeConfig, typescript };
+export { app, components, css, nitro, plugins, runtimeConfig, ssr, typescript };
