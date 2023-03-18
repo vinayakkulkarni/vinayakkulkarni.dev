@@ -1,6 +1,7 @@
 import type { NuxtConfig } from '@nuxt/schema';
 import { content } from './content';
 import { windicss } from './windicss';
+import { plausible } from './plausible';
 
 export const modules: NuxtConfig['modules'] = [
   // https://vueuse.org/guide/#nuxt
@@ -11,4 +12,6 @@ export const modules: NuxtConfig['modules'] = [
   '@kevinmarrec/nuxt-pwa',
   // https://windicss.org/integrations/nuxt.html
   ['nuxt-windicss', windicss],
+  // https://github.com/nuxt-modules/plausible#setup
+  ['@nuxtjs/plausible', plausible],
 ];
