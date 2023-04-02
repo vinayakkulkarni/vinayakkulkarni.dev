@@ -60,7 +60,7 @@
     "stylelint": "^15.3.0",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-prettier": "^3.0.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.3"
   },
   "repository": {
     "url": "git+https://github.com/vinayakkulkarni/vinayakkulkarni.dev.git",
