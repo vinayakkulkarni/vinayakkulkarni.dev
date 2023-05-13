@@ -9,9 +9,9 @@
       <article class="py-2 prose text-gray-100">
         <div>
           My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
-          Principal Engineer I @
-          <a href="https://geospoc.com" target="_blank" rel="noopener nofollow">
-            GeoSpoc
+          Frontend Engineering Lead @
+          <a href="https://dscvr.one" target="_blank" rel="noopener nofollow">
+            DSCVR
           </a>
           &amp; open source contributor
         </div>
