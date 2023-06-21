@@ -5,7 +5,7 @@
       class="visible text-gray-900 cursor-pointer v-logo dark:text-gray-100"
       width="30"
       height="30"
-      @click="$router.push({ name: 'index' })"
+      @click="router.push({ name: 'index' })"
     >
       <defs />
       <text y="30" fill="currentColor" class="text-5xl">V.</text>
@@ -42,17 +42,8 @@
   </section>
 </template>
 
-<script lang="ts">
-  export default defineComponent({
-    name: 'VHeader',
-    setup() {
-      const isDark = useDark();
-      const toggleDark = useToggle(isDark);
-
-      return {
-        isDark,
-        toggleDark,
-      };
-    },
-  });
+<script setup lang="ts">
+  const router = useRouter();
+  const isDark = useDark();
+  const toggleDark = useToggle(isDark);
 </script>

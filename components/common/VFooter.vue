@@ -1,7 +1,7 @@
 <template>
   <section
     class="min-w-full py-4"
-    :class="{ 'border-t border-gray-500': $route.name !== 'index' }"
+    :class="{ 'border-t border-gray-500': route.name !== 'index' }"
   >
     <div class="flex items-center justify-center w-full">
       <!-- GitHub -->
@@ -97,8 +97,6 @@
   </section>
 </template>
 
-<script lang="ts">
-  export default {
-    name: 'VFooter',
-  };
+<script setup lang="ts">
+  const route = useRoute();
 </script>

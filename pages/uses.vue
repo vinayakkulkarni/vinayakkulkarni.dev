@@ -20,6 +20,34 @@
     <p class="text-xl font-bold border-b dark:border-gray-500">Hardware</p>
     <!-- MBP -->
     <a
+      href="https://www.apple.com/in/shop/savedItem/Z176?option.hard_drive_solid_state_drive_aos_phantom_z176=065-CDP7&option.sw_logic_pro_z176=065-CDTY&option.sw_final_cut_pro_z176=065-CDTW&option.memory_aos_phantom_z176=065-CDP4"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block"
+    >
+      &bull; MacBook Pro (16-inch, 2023), Apple M2 Max with 12‑core CPU, 38‑core
+      GPU and 16‑core Neural Engine, 96 GB unified memory
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        x="0px"
+        y="0px"
+        viewBox="0 0 100 100"
+        width="15"
+        height="15"
+        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+      >
+        <path
+          fill="currentColor"
+          d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"
+        />
+        <polygon
+          fill="currentColor"
+          points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"
+        />
+      </svg>
+    </a>
+    <a
       href="https://www.amazon.in/gp/product/B01CDYB0QS"
       target="_blank"
       rel="noopener noreferrer"
@@ -255,9 +283,3 @@
     </a>
   </section>
 </template>
-
-<script lang="ts">
-  export default defineComponent({
-    name: 'VUses',
-  });
-</script>

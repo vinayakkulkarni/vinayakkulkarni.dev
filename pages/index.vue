@@ -37,9 +37,3 @@
     </div>
   </section>
 </template>
-
-<script lang="ts">
-  export default defineComponent({
-    name: 'HomePage',
-  });
-</script>
