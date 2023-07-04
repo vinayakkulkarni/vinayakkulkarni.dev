@@ -14,12 +14,19 @@ const css: NuxtConfig['css'] = [
 ];
 
 const nitro: NuxtConfig['nitro'] = {
-  preset: 'netlify-builder',
+  preset: 'netlify-static',
 };
 
 const plugins: NuxtConfig['plugins'] = [
   { src: '~/plugins/v-click-outside', mode: 'client' },
 ];
+
+const routeRules: NuxtConfig['routeRules'] = {
+  // Homepage pre-rendered at build time
+  '/': { prerender: true },
+  // Blog post generated on-demand once until next deploy
+  '/articles/**': { isr: true },
+};
 
 const runtimeConfig: NuxtConfig['runtimeConfig'] = {
   public: {
@@ -35,4 +42,14 @@ const typescript: NuxtConfig['typescript'] = {
 };
 
 export { modules } from './modules';
-export { app, components, css, nitro, plugins, runtimeConfig, ssr, typescript };
+export {
+  app,
+  components,
+  css,
+  nitro,
+  plugins,
+  routeRules,
+  runtimeConfig,
+  ssr,
+  typescript,
+};

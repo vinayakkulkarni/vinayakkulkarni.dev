@@ -5,12 +5,13 @@ import {
   modules,
   nitro,
   plugins,
+  routeRules,
   runtimeConfig,
   ssr,
   typescript,
 } from './config';
 
-export default defineNuxtConfig({
+export default {
   app,
   components,
   css,
@@ -20,4 +21,5 @@ export default defineNuxtConfig({
   runtimeConfig,
   ssr,
   typescript,
-});
+  routeRules,
+};
