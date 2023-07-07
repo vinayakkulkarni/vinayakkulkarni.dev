@@ -14,7 +14,7 @@ const css: NuxtConfig['css'] = [
 ];
 
 const nitro: NuxtConfig['nitro'] = {
-  preset: 'netlify',
+  preset: 'netlify-static',
   future: {
     nativeSWR: true,
   },
