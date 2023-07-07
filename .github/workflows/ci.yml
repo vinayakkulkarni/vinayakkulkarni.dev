@@ -64,4 +64,4 @@ jobs:
           prettier_extensions: js,ts,vue
 
       - name: Build the static site 🎉
-        run: npm run generate
+        run: npm run build
