@@ -1,8 +1,8 @@
 <template>
-  <section class="flex items-center justify-between invisible min-w-full p-4">
+  <section class="invisible min-w-full flex items-center justify-between p-4">
     <!-- Logo -->
     <svg
-      class="visible text-gray-900 cursor-pointer v-logo dark:text-gray-100"
+      class="v-logo visible cursor-pointer text-stone-900 dark:text-stone-100"
       width="30"
       height="30"
       @click="router.push({ name: 'index' })"
@@ -16,7 +16,7 @@
         <svg
           v-if="!isDark"
           xmlns="http://www.w3.org/2000/svg"
-          class="w-8 h-8 outline-none cursor-pointer"
+          class="h-8 w-8 cursor-pointer outline-none"
           viewBox="0 0 24 24"
           @click="toggleDark()"
         >
@@ -28,7 +28,7 @@
         <svg
           v-if="isDark"
           xmlns="http://www.w3.org/2000/svg"
-          class="w-8 h-8 outline-none cursor-pointer"
+          class="h-8 w-8 cursor-pointer outline-none"
           viewBox="0 0 512 512"
           @click="toggleDark()"
         >

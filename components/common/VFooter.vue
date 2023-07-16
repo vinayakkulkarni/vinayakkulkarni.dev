@@ -1,9 +1,9 @@
 <template>
   <section
     class="min-w-full py-4"
-    :class="{ 'border-t border-gray-500': route.name !== 'index' }"
+    :class="{ 'border-t border-stone-500': route.name !== 'index' }"
   >
-    <div class="flex items-center justify-center w-full">
+    <div class="w-full flex items-center justify-center">
       <!-- GitHub -->
       <a
         rel="noopener"
@@ -19,7 +19,7 @@
           viewBox="0 0 32 32"
           aria-labelledby="github"
           role="presentation"
-          class="text-xl fill-current"
+          class="fill-current text-xl"
         >
           <title id="github" lang="en">github</title>
           <path
@@ -40,7 +40,7 @@
           width="24"
           height="24"
           viewBox="0 0 512 512"
-          class="text-2xl fill-current"
+          class="fill-current text-2xl"
         >
           <g>
             <path
@@ -62,7 +62,7 @@
           width="24"
           height="24"
           viewBox="0 0 512 512"
-          class="text-2xl fill-current"
+          class="fill-current text-2xl"
         >
           <g>
             <path
@@ -84,7 +84,7 @@
           width="24"
           height="24"
           viewBox="0 0 512 512"
-          class="text-2xl fill-current"
+          class="fill-current text-2xl"
         >
           <g>
             <path
