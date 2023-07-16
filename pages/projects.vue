@@ -1,7 +1,7 @@
 <template>
-  <section class="w-full h-full">
-    <div class="grid grid-flow-col grid-cols-4 gap-4 mb-4">
-      <div class="inline-flex flex-col self-center justify-end col-span-3">
+  <section class="h-full w-full">
+    <div class="grid grid-flow-col grid-cols-4 mb-4 gap-4">
+      <div class="col-span-3 inline-flex flex-col self-center justify-end">
         <p class="text-3xl">Projects</p>
         <p>
           This page will serve as a listing for all the side-projects, plugins,
@@ -10,20 +10,20 @@
       </div>
       <nuxt-link
         tag="div"
-        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
+        class="col-span-1 inline-flex cursor-pointer self-center justify-end text-5xl"
         :to="{ name: 'index' }"
       >
         &larr;
       </nuxt-link>
     </div>
     <div
-      class="grid gap-4 mb-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6"
+      class="grid mb-4 gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 xl:grid-cols-6"
     >
       <div
         v-for="(project, idx) in projects"
         :key="idx"
         :class="{ 'mb-4 sm:mb-0': idx === projects.length - 1 }"
-        class="text-gray-100 rounded shadow md:max-w-lg hover:shadow-md bg-gradient-to-tr from-gray-700 to-gray-600 hover:bg-gradient-to-bl hover:from-gray-600 hover:to-gray-700"
+        class="rounded from-stone-700 to-stone-600 bg-gradient-to-tr text-stone-100 shadow md:max-w-lg hover:from-stone-600 hover:to-stone-700 hover:bg-gradient-to-bl hover:shadow-md"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">
@@ -42,7 +42,7 @@
                 viewBox="0 0 100 100"
                 width="15"
                 height="15"
-                class="w-4 ml-1 fill-current"
+                class="ml-1 w-4 fill-current"
               >
                 <path
                   fill="currentColor"
@@ -55,12 +55,12 @@
               </svg>
             </a>
           </div>
-          <p class="text-base break-words">
+          <p class="break-words text-base">
             {{ project.excerpt }}
           </p>
           <div class="mt-2">
             <span
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4"
+              class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium leading-4"
               :class="{
                 'bg-green-100 text-green-800': project.library === 'vue',
                 'bg-red-100 text-red-800': project.library === 'svelte',

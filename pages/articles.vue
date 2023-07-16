@@ -1,5 +1,5 @@
 <template>
-  <section class="flex items-center justify-center w-full h-full">
+  <section class="h-full w-full flex items-center justify-center">
     <nuxt-page :page-key="route.fullPath">
       <slot />
     </nuxt-page>

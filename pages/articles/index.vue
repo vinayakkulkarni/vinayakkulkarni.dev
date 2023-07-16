@@ -1,8 +1,8 @@
 <template>
-  <section class="flex flex-col w-full h-full p-4">
+  <section class="h-full w-full flex flex-col p-4">
     <!-- Top Data -->
     <div class="grid grid-flow-col grid-cols-4 gap-4">
-      <div class="inline-flex flex-col self-center justify-end col-span-3">
+      <div class="col-span-3 inline-flex flex-col self-center justify-end">
         <p class="text-3xl">Blog articles</p>
         <p>
           This page will serve as a listing for all the TIL's, blog articles &
@@ -11,7 +11,7 @@
       </div>
       <nuxt-link
         tag="div"
-        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
+        class="col-span-1 inline-flex cursor-pointer self-center justify-end text-5xl"
         :to="{ name: 'index' }"
       >
         &larr;
@@ -22,13 +22,13 @@
       <template #default="{ list }">
         <div
           v-if="list.length > 0"
-          class="grid gap-4 py-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          class="grid gap-4 py-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1"
         >
           <div
             v-for="article in list"
             v-show="article.status !== 'draft'"
             :key="article.position"
-            class="w-full overflow-hidden dark:bg-gray-700 bg-gray-900 text-gray-200 rounded shadow cursor-pointer md:max-w-lg hover:shadow-md"
+            class="w-full cursor-pointer overflow-hidden rounded bg-stone-900 text-stone-200 shadow md:max-w-lg dark:bg-stone-700 hover:shadow-md"
             :title="article.title"
             @click="router.push({ path: article._path })"
           >
@@ -43,7 +43,7 @@
                   class="pl-2"
                 >
                   <span
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-100 text-gray-800 mr-2"
+                    class="mr-2 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium leading-4 text-stone-800"
                   >
                     {{ tag }}
                   </span>

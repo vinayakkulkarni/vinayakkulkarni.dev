@@ -1,7 +1,7 @@
 <template>
-  <section class="w-full h-full p-4 overflow-hidden">
+  <section class="h-full w-full overflow-hidden p-4">
     <div class="grid grid-flow-col grid-cols-4 gap-4">
-      <div class="inline-flex flex-col self-center justify-end col-span-3">
+      <div class="col-span-3 inline-flex flex-col self-center justify-end">
         <p class="text-3xl">Uses</p>
         <p>
           There are times where people ask me about what software or gear I am
@@ -11,13 +11,13 @@
       </div>
       <nuxt-link
         tag="div"
-        class="inline-flex self-center justify-end col-span-1 text-5xl cursor-pointer"
+        class="col-span-1 inline-flex cursor-pointer self-center justify-end text-5xl"
         :to="{ name: 'index' }"
       >
         &larr;
       </nuxt-link>
     </div>
-    <p class="text-xl font-bold border-b dark:border-gray-500">Hardware</p>
+    <p class="border-b text-xl font-bold dark:border-stone-500">Hardware</p>
     <!-- MBP -->
     <a
       href="https://www.apple.com/in/shop/savedItem/Z176?option.hard_drive_solid_state_drive_aos_phantom_z176=065-CDP7&option.sw_logic_pro_z176=065-CDTY&option.sw_final_cut_pro_z176=065-CDTW&option.memory_aos_phantom_z176=065-CDP4"
@@ -35,7 +35,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -63,7 +63,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -91,7 +91,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -119,7 +119,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -147,7 +147,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -159,7 +159,7 @@
         />
       </svg>
     </a>
-    <p class="text-xl font-bold border-b dark:border-gray-500">
+    <p class="border-b text-xl font-bold dark:border-stone-500">
       Editor &amp; Terminal
     </p>
     <a
@@ -177,7 +177,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -204,7 +204,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -216,7 +216,7 @@
         />
       </svg>
     </a>
-    <p class="p-2 text-xl font-bold border-b dark:border-gray-500">Apps</p>
+    <p class="border-b p-2 text-xl font-bold dark:border-stone-500">Apps</p>
     <a
       href="https://notion.so/"
       target="_blank"
@@ -232,7 +232,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -259,7 +259,7 @@
         viewBox="0 0 100 100"
         width="15"
         height="15"
-        class="inline align-top fill-current text-foreground-secondary hover:text-foreground-primary"
+        class="text-foreground-secondary hover:text-foreground-primary inline fill-current align-top"
       >
         <path
           fill="currentColor"
@@ -277,7 +277,7 @@
       href="https://www.bencodezen.io/uses/"
       rel="noopener"
       target="_blank"
-      class="italic hover:underline hover:text-foreground-secondary focus:text-green-500"
+      class="hover:text-foreground-secondary italic focus:text-green-500 hover:underline"
     >
       Ben Hong's Uses page
     </a>
