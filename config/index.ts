@@ -20,9 +20,7 @@ const nitro: NuxtConfig['nitro'] = {
   },
 };
 
-const plugins: NuxtConfig['plugins'] = [
-  { src: '~/plugins/v-click-outside', mode: 'client' },
-];
+const plugins: NuxtConfig['plugins'] = [];
 
 const routeRules: NuxtConfig['routeRules'] = {
   // Homepage pre-rendered at build time
