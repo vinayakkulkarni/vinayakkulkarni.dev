@@ -2,28 +2,29 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2022: true,
     node: true,
+    es6: true,
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    ecmaVersion: 'latest',
+    ecmaVersion: 2022,
     sourceType: 'module',
+    lib: ['es2022'],
+    ecmaFeatures: {
+      jsx: true,
+      tsx: true,
+    },
+    extraFileExtensions: ['.vue'],
   },
-  plugins: [
-    '@typescript-eslint',
-    'jsdoc',
-    'prettier',
-    'security',
-    'vue',
-    'nuxt',
-  ],
+  plugins: ['prettier', 'vue', 'jsdoc', 'security', '@typescript-eslint'],
   extends: [
-    '@nuxtjs/eslint-config-typescript',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
     'plugin:jsdoc/recommended',
+    'plugin:security/recommended',
+    'plugin:prettier/recommended',
+    '@unocss',
+    'prettier',
   ],
   // add your custom rules here
   rules: {
