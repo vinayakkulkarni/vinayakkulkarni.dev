@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.7",
     "@julr/unocss-preset-forms": "^0.0.5",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
