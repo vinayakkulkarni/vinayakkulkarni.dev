@@ -33,7 +33,7 @@
     "@nuxtjs/plausible": "^0.2.1",
     "@types/node": "^20.4.5",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
-    "@typescript-eslint/parser": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.1",
     "@unocss/eslint-config": "^0.54.1",
     "@unocss/nuxt": "^0.54.0",
     "@unocss/preset-wind": "^0.54.1",
