@@ -31,7 +31,7 @@
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxtjs/plausible": "^0.2.1",
-    "@types/node": "^20.4.8",
+    "@types/node": "^20.4.9",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "@unocss/eslint-config": "^0.54.2",
