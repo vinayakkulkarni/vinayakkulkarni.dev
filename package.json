@@ -34,7 +34,7 @@
     "@types/node": "^20.4.9",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
-    "@unocss/eslint-config": "^0.54.2",
+    "@unocss/eslint-config": "^0.55.0",
     "@unocss/nuxt": "^0.54.2",
     "@unocss/preset-wind": "^0.55.0",
     "@unocss/reset": "^0.54.1",
