@@ -52,7 +52,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "nuxt": "^3.7.0",
-    "prettier": "^3.0.2",
+    "prettier": "^3.0.3",
     "sass": "^1.66.1",
     "shipjs": "^0.26.3",
     "stylelint": "^15.10.3",
