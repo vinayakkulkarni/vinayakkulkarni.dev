@@ -32,7 +32,7 @@
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxtjs/plausible": "^0.2.1",
     "@types/node": "^20.5.9",
-    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "@unocss/eslint-config": "^0.55.7",
     "@unocss/nuxt": "^0.55.7",
