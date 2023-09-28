@@ -25,7 +25,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.1",
+    "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@julr/unocss-preset-forms": "^0.0.5",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
