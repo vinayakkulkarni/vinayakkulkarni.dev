@@ -13,10 +13,31 @@ const css: NuxtConfig['css'] = [
   '~/assets/css/global.css',
 ];
 
+const dev: NuxtConfig['dev'] = process.env.NODE_ENV !== 'production';
+const debug: NuxtConfig['debug'] = process.env.NODE_ENV !== 'production';
+const devtools: NuxtConfig['devtools'] = { enabled: true };
+const devServer: NuxtConfig['devServer'] = {
+  port: Number(process.env.PORT) || 3000,
+};
+
+const experimental: NuxtConfig['experimental'] = {
+  asyncEntry: true,
+  externalVue: true,
+  emitRouteChunkError: 'automatic',
+  typescriptBundlerResolution: false,
+  viewTransition: true,
+  componentIslands: true,
+  payloadExtraction: true,
+  typedPages: true,
+};
+
 const nitro: NuxtConfig['nitro'] = {
-  preset: 'netlify',
+  preset: process.env.NODE_ENV === 'production' ? 'netlify' : 'static',
   future: {
     nativeSWR: true,
+  },
+  prerender: {
+    crawlLinks: true,
   },
 };
 
@@ -47,6 +68,11 @@ export {
   app,
   components,
   css,
+  debug,
+  dev,
+  devServer,
+  devtools,
+  experimental,
   nitro,
   plugins,
   routeRules,

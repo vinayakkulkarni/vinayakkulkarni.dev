@@ -1,9 +1,15 @@
+import { NuxtConfig } from 'nuxt/schema';
 import {
   app,
   components,
   css,
-  modules,
+  debug,
+  dev,
+  devServer,
+  devtools,
+  experimental,
   nitro,
+  modules,
   plugins,
   routeRules,
   runtimeConfig,
@@ -15,6 +21,11 @@ export default {
   app,
   components,
   css,
+  debug,
+  dev,
+  devServer,
+  devtools,
+  experimental,
   modules,
   nitro,
   plugins,
@@ -22,4 +33,4 @@ export default {
   ssr,
   typescript,
   routeRules,
-};
+} satisfies NuxtConfig;
