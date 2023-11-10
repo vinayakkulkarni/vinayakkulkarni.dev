@@ -28,7 +28,7 @@
     "v-spotlight": "^2.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.8.0",
+    "@commitlint/cli": "^18.4.0",
     "@commitlint/config-conventional": "^17.8.0",
     "@julr/unocss-preset-forms": "^0.0.5",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
