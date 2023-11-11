@@ -63,6 +63,16 @@ const typescript: NuxtConfig['typescript'] = {
   shim: false,
 };
 
+// temp sol: https://answers.netlify.com/t/javascript-heap-out-of-memory-when-trying-to-build-a-nuxt-app/93138/14
+const postcss: NuxtConfig['postcss'] = {
+  plugins: {
+    cssnano:
+      process.env.NODE_ENV === 'production'
+        ? { preset: ['default', { discardComments: { removeAll: true } }] }
+        : false, // disable cssnano when not in production
+  },
+};
+
 export { modules } from './modules';
 export {
   app,
@@ -75,6 +85,7 @@ export {
   experimental,
   nitro,
   plugins,
+  postcss,
   routeRules,
   runtimeConfig,
   ssr,
