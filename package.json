@@ -24,6 +24,9 @@
     "release:auto": "shipjs prepare --yes",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "v-spotlight": "^2.0.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.8.0",
     "@commitlint/config-conventional": "^17.8.0",
