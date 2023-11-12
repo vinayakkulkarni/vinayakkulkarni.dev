@@ -9,14 +9,11 @@ on:
         required: true
         type: string
     secrets:
-      WRANGLER_API_TOKEN:
-        description: 'Wrangler API Token for CD'
-        required: true
       CLOUDFLARE_ACCOUNT_ID:
         description: 'Cloudflare Account ID'
         required: true
-      CLOUDFLARE_WORKER_ROUTE:
-        description: 'Cloudflare Worker Route'
+      CLOUDFLARE_WRANGLER_API_TOKEN:
+        description: 'Wrangler API Token for CD'
         required: true
 jobs:
   build:
@@ -31,8 +28,7 @@ jobs:
       - name: Update Wrangler Config ♻️
         run: |
           sed -i '/compatibility_date/a \
-          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"\
-          route = "${{ secrets.CLOUDFLARE_WORKER_ROUTE }}"' wrangler.toml
+          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" wrangler.toml
 
       - name: Setup node environment 🤖
         uses: actions/setup-node@v4
@@ -52,5 +48,5 @@ jobs:
       - name: Publish to Cloudflare 🚀
         uses: cloudflare/wrangler-action@2.0.0
         with:
-          apiToken: ${{ secrets.WRANGLER_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_WRANGLER_API_TOKEN }}
           command: deploy --config wrangler.toml

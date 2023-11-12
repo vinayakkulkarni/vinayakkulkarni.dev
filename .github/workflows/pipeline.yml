@@ -37,6 +37,5 @@ jobs:
     with:
       environment: 'production'
     secrets:
-      WRANGLER_API_TOKEN: ${{ secrets.WRANGLER_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_WORKER_ROUTE: ${{ secrets.CLOUDFLARE_WORKER_ROUTE }}
+      CLOUDFLARE_WRANGLER_API_TOKEN: ${{ secrets.CLOUDFLARE_WRANGLER_API_TOKEN }}
