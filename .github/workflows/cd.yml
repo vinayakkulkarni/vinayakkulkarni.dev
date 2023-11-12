@@ -28,7 +28,7 @@ jobs:
       - name: Update Wrangler Config ♻️
         run: |
           sed -i '/compatibility_date/a \
-          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" wrangler.toml
+          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"' wrangler.toml
 
       - name: Setup node environment 🤖
         uses: actions/setup-node@v4
