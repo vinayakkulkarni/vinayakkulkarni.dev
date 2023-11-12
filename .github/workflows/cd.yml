@@ -30,10 +30,9 @@ jobs:
 
       - name: Update Wrangler Config ♻️
         run: |
-          cat << EOF >> wrangler.toml
-          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
-          route = "${{ secrets.CLOUDFLARE_WORKER_ROUTE }}"
-          EOF
+          sed -i '/compatibility_date/a \
+          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"\
+          route = "${{ secrets.CLOUDFLARE_WORKER_ROUTE }}"' wrangler.toml
 
       - name: Setup node environment 🤖
         uses: actions/setup-node@v4
