@@ -1,0 +1,57 @@
+name: 'Continuous Deployment'
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: 'The environment for the workflow'
+        default: 'production'
+        required: true
+        type: string
+    secrets:
+      WRANGLER_API_TOKEN:
+        description: 'Wrangler API Token for CD'
+        required: true
+      CLOUDFLARE_ACCOUNT_ID:
+        description: 'Cloudflare Account ID'
+        required: true
+      CLOUDFLARE_WORKER_ROUTE:
+        description: 'Cloudflare Worker Route'
+        required: true
+jobs:
+  build:
+    name: 'SSG'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
+
+      - name: Update Wrangler Config ♻️
+        run: |
+          cat << EOF >> wrangler.toml
+          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+          route = "${{ secrets.CLOUDFLARE_WORKER_ROUTE }}"
+          EOF
+
+      - name: Setup node environment 🤖
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          check-latest: true
+          cache: 'npm'
+
+      - name: Install dependencies 📦
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Build the application 🛠
+        run: npm run build
+        env:
+          NITRO_PRESET: cloudflare
+          WRANGLER_API_TOKEN: ${{ secrets.WRANGLER_API_TOKEN }}
+
+      - name: Publish to Cloudflare 🚀
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.WRANGLER_API_TOKEN }}

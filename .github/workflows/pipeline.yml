@@ -1,0 +1,42 @@
+name: 'The Pipeline'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.ref }}-1
+  cancel-in-progress: true
+
+jobs:
+  extract-branch:
+    name: 'Fetch branch'
+    runs-on: ubuntu-latest
+    outputs:
+      current_branch: ${{ steps.get-branch.outputs.current_branch }}
+    steps:
+      - name: Extract branch name 🕊
+        id: get-branch
+        run: echo "current_branch=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+  ci:
+    needs:
+      - extract-branch
+    name: 'CI'
+    uses: ./.github/workflows/ci.yml
+  deploy:
+    name: 'CD'
+    needs:
+      - extract-branch
+      - ci
+    if: ${{ github.event_name == 'push' && needs.extract-branch.outputs.current_branch == 'main' }}
+    uses: ./.github/workflows/cd.yml
+    with:
+      environment: 'production'
+    secrets:
+      WRANGLER_API_TOKEN: ${{ secrets.WRANGLER_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_WORKER_ROUTE: ${{ secrets.CLOUDFLARE_WORKER_ROUTE }}

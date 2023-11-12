@@ -1,33 +1,17 @@
 name: 'Continuous Integration'
 
 on:
-  push:
-    branches:
-      - main
-      - stage
-      - test
-      - dev
-  pull_request:
-    branches:
-      - main
-      - stage
-      - test
-      - dev
+  workflow_call:
 
 permissions:
   checks: write
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
-  cancel-in-progress: true
-
 jobs:
   ci:
-    name: 'Continuous Integration'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository ✨
+      - name: Check out repository ✨ (non dependabot)
         if: ${{ github.actor != 'dependabot[bot]' }}
         uses: actions/checkout@v4
 
@@ -37,7 +21,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Setup node 📦
+      - name: Setup node env 📦
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
