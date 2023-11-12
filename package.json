@@ -33,7 +33,7 @@
     "@julr/unocss-preset-forms": "^0.0.5",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
-    "@nuxt/devtools": "^1.0.1",
+    "@nuxt/devtools": "^1.0.2",
     "@nuxtjs/plausible": "^0.2.3",
     "@types/node": "^20.9.0",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
