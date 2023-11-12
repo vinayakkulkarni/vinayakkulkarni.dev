@@ -32,7 +32,7 @@ const experimental: NuxtConfig['experimental'] = {
 };
 
 const nitro: NuxtConfig['nitro'] = {
-  preset: process.env.NODE_ENV === 'production' ? 'netlify' : 'static',
+  preset: process.env.NODE_ENV === 'production' ? 'cloudflare' : 'static',
   future: {
     nativeSWR: true,
   },
