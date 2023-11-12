@@ -23,7 +23,7 @@
         v-for="(project, idx) in projects"
         :key="idx"
         :class="{ 'mb-4 sm:mb-0': idx === projects.length - 1 }"
-        class="rounded from-stone-700 to-stone-600 bg-gradient-to-tr text-stone-100 shadow md:max-w-lg hover:from-stone-600 hover:to-stone-700 hover:bg-gradient-to-bl hover:shadow-md"
+        class="rounded text-stone-100 shadow from-stone-700 to-stone-600 bg-gradient-to-tr md:max-w-lg hover:shadow-md hover:from-stone-600 hover:to-stone-700 hover:bg-gradient-to-bl"
       >
         <div class="p-4">
           <div class="mb-2 text-xl font-bold">
