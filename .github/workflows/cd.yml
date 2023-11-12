@@ -46,7 +46,7 @@ jobs:
           NITRO_PRESET: cloudflare
 
       - name: Publish to Cloudflare 🚀
-        uses: cloudflare/wrangler-action@2.0.0
+        uses: cloudflare/wrangler-action@v3.3.2
         with:
           apiToken: ${{ secrets.CLOUDFLARE_WRANGLER_API_TOKEN }}
           command: deploy --config wrangler.toml
