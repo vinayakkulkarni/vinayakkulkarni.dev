@@ -1,6 +1,6 @@
 # vinayak.dev
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8fc552a8-ded0-4a31-84f3-a463f5488b7b/deploy-status)](https://app.netlify.com/sites/vinayakkulkarni/deploys)
+[![The Pipeline](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/actions/workflows/pipeline.yml/badge.svg)](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/actions/workflows/pipeline.yml)
 
 > Vinayak Portfolio using amazing Nuxt.js
 

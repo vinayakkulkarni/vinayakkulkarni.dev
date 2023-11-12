@@ -96,4 +96,4 @@ test/e2e/videos/*.mp4
 nuxt.d.ts
 .nitro
 .output
-.netlify
+.wrangler
