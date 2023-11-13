@@ -43,7 +43,7 @@
     "@nuxt/devtools": "^1.0.2",
     "@nuxtjs/plausible": "^0.2.3",
     "@types/node": "^20.9.0",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "@unocss/eslint-config": "^0.57.3",
     "@unocss/nuxt": "^0.57.3",
