@@ -4,7 +4,6 @@ import { config as device } from './device';
 import { config as htmlValidator } from './html-validator';
 import { config as plausible } from './plausible';
 import { config as pwa } from './pwa';
-import { config as security } from './security';
 import { config as unocss } from './unocss';
 
 export const modules: NuxtConfig['modules'] = [
@@ -24,6 +23,4 @@ export const modules: NuxtConfig['modules'] = [
   ['@nuxtjs/device', device],
   // https://html-validator.nuxtjs.org/
   ['@nuxtjs/html-validator', htmlValidator],
-  // https://nuxt-security.vercel.app/documentation/getting-started/usage
-  ['nuxt-security', security],
 ];
