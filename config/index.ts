@@ -1,8 +1,10 @@
 import type { NuxtConfig } from '@nuxt/schema';
-import { meta } from './meta';
+import { head } from './head';
 
 const app: NuxtConfig['app'] = {
-  head: meta,
+  head,
+  pageTransition: false,
+  layoutTransition: false,
 };
 
 const components: NuxtConfig['components'] = false;
