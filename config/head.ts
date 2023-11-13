@@ -1,6 +1,7 @@
 import type { NuxtAppConfig } from '@nuxt/schema';
 
-export const meta: NuxtAppConfig['head'] = {
+export const head: NuxtAppConfig['head'] = {
+  htmlAttrs: { lang: 'en' },
   title: 'Vinayak Kulkarni - Portfolio',
   meta: [
     {
