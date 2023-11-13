@@ -1,10 +1,15 @@
 import type { NuxtConfig } from '@nuxt/schema';
-import { content } from './content';
-import { plausible } from './plausible';
-import { pwa } from './pwa';
-import { unocss } from './unocss';
+import { config as content } from './content';
+import { config as device } from './device';
+import { config as htmlValidator } from './html-validator';
+import { config as plausible } from './plausible';
+import { config as pwa } from './pwa';
+import { config as security } from './security';
+import { config as unocss } from './unocss';
 
 export const modules: NuxtConfig['modules'] = [
+  // https://nuxt.com/modules/time#nuxt-time
+  'nuxt-time',
   // https://vueuse.org/guide/#nuxt
   '@vueuse/nuxt',
   // https://content.nuxtjs.org/
@@ -15,4 +20,10 @@ export const modules: NuxtConfig['modules'] = [
   ['@nuxtjs/plausible', plausible],
   // https://unocss.dev/integrations/nuxt
   ['@unocss/nuxt', unocss],
+  // https://github.com/nuxt-modules/device?tab=readme-ov-file#setup-for-nuxt3
+  ['@nuxtjs/device', device],
+  // https://html-validator.nuxtjs.org/
+  ['@nuxtjs/html-validator', htmlValidator],
+  // https://nuxt-security.vercel.app/documentation/getting-started/usage
+  ['nuxt-security', security],
 ];
