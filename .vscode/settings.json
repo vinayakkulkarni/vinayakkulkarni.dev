@@ -11,5 +11,6 @@
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active"
+  "editor.guides.bracketPairs": "active",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
