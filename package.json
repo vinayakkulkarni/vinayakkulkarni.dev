@@ -52,7 +52,7 @@
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vue/runtime-dom": "^3.3.8",
     "@vueuse/core": "^10.6.1",
-    "@vueuse/nuxt": "^10.6.0",
+    "@vueuse/nuxt": "^10.6.1",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-anti-trojan-source": "^1.1.1",
