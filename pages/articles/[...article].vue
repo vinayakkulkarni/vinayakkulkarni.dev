@@ -2,9 +2,17 @@
   <section class="h-full w-full flex items-center justify-center">
     <article v-if="data" class="prose-lg h-full w-full flex flex-col prose">
       <h1>{{ data.title }}</h1>
+      <dd class="mr-4">
+        <nuxt-time
+          :datetime="data.date"
+          day="numeric"
+          month="long"
+          year="numeric"
+        />
+      </dd>
       <div
         v-if="data.tags && data.tags.length"
-        class="flex items-center justify-start py-1 text-sm"
+        class="mt-2 flex items-center justify-start py-1 text-sm"
       >
         <div v-for="(tag, index) in data.tags" :key="index" class="pl-2">
           <span
