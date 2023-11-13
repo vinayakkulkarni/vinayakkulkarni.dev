@@ -14,7 +14,7 @@
         v-if="data.tags && data.tags.length"
         class="mt-2 flex items-center justify-start py-1 text-sm"
       >
-        <div v-for="(tag, index) in data.tags" :key="index" class="pl-2">
+        <div v-for="(tag, index) in data.tags" :key="index">
           <span
             class="mr-2 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium leading-4 text-stone-800"
           >
