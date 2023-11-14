@@ -47,7 +47,7 @@
     "@unocss/eslint-config": "^0.57.4",
     "@unocss/nuxt": "^0.57.4",
     "@unocss/preset-wind": "^0.57.4",
-    "@unocss/reset": "^0.57.3",
+    "@unocss/reset": "^0.57.4",
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vite-pwa/nuxt": "^0.2.3",
     "@vue/runtime-dom": "^3.3.8",
