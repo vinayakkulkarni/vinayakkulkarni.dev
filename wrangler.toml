@@ -1,9 +1,10 @@
 name = "vinayakkulkarni"
 main = "./.output/server/index.mjs"
-workers_dev = true
 minify = true
 compatibility_flags = ["nodejs_compat"]
 compatibility_date = "2022-09-10"
+
+rules = [{ type = "ESModule", globs = ["**/*.js", "**/*.mjs"] }]
 
 [site]
 bucket = ".output/public"
