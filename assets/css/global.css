@@ -31,10 +31,6 @@ body {
   margin: 0;
 }
 
-canvas {
-  outline: none !important;
-}
-
 .v-logo {
   font-family:
     'Permanent Marker',

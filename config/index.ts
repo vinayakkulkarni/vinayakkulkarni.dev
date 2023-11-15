@@ -7,6 +7,10 @@ const app: NuxtConfig['app'] = {
   layoutTransition: false,
 };
 
+const build: NuxtConfig['build'] = {
+  analyze: true,
+};
+
 const components: NuxtConfig['components'] = false;
 
 const css: NuxtConfig['css'] = [
@@ -15,8 +19,8 @@ const css: NuxtConfig['css'] = [
   '~/assets/css/global.css',
 ];
 
-const dev: NuxtConfig['dev'] = process.env.NODE_ENV !== 'production';
-const debug: NuxtConfig['debug'] = process.env.NODE_ENV !== 'production';
+const dev: NuxtConfig['dev'] = false;
+const debug: NuxtConfig['debug'] = false;
 const devtools: NuxtConfig['devtools'] = { enabled: true };
 const devServer: NuxtConfig['devServer'] = {
   port: Number(process.env.PORT) || 3000,
@@ -25,6 +29,7 @@ const devServer: NuxtConfig['devServer'] = {
 const experimental: NuxtConfig['experimental'] = {
   asyncEntry: true,
   externalVue: true,
+  configSchema: false,
   emitRouteChunkError: 'automatic',
   typescriptBundlerResolution: false,
   viewTransition: true,
@@ -35,6 +40,8 @@ const experimental: NuxtConfig['experimental'] = {
 
 const nitro: NuxtConfig['nitro'] = {
   preset: process.env.NODE_ENV === 'production' ? 'cloudflare' : 'static',
+  sourceMap: false,
+  inlineDynamicImports: true,
   future: {
     nativeSWR: true,
   },
@@ -75,6 +82,7 @@ const typescript: NuxtConfig['typescript'] = {
 export { modules } from './modules';
 export {
   app,
+  build,
   components,
   css,
   debug,

@@ -5,6 +5,7 @@ import { config as htmlValidator } from './html-validator';
 import { config as plausible } from './plausible';
 import { config as pwa } from './pwa';
 import { config as unocss } from './unocss';
+import { config as fontMetrics } from './font-metrics';
 
 export const modules: NuxtConfig['modules'] = [
   // https://nuxt.com/modules/time#nuxt-time
@@ -23,4 +24,6 @@ export const modules: NuxtConfig['modules'] = [
   ['@nuxtjs/device', device],
   // https://html-validator.nuxtjs.org/
   ['@nuxtjs/html-validator', htmlValidator],
+  // https://github.com/nuxt-modules/fontaine?tab=readme-ov-file#installation
+  ['@nuxtjs/fontaine', fontMetrics],
 ];

@@ -1,6 +1,6 @@
-import { NuxtConfig } from 'nuxt/schema';
 import {
   app,
+  build,
   components,
   css,
   debug,
@@ -18,8 +18,9 @@ import {
   typescript,
 } from './config';
 
-export default {
+export default defineNuxtConfig({
   app,
+  build,
   components,
   css,
   debug,
@@ -35,4 +36,4 @@ export default {
   ssr,
   typescript,
   routeRules,
-} satisfies NuxtConfig;
+});
