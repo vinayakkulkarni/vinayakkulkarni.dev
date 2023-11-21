@@ -48,7 +48,7 @@
     "@typescript-eslint/parser": "^6.12.0",
     "@unocss/eslint-config": "^0.57.7",
     "@unocss/nuxt": "^0.57.6",
-    "@unocss/preset-wind": "^0.57.6",
+    "@unocss/preset-wind": "^0.57.7",
     "@unocss/reset": "^0.57.7",
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "@vite-pwa/nuxt": "^0.2.3",
