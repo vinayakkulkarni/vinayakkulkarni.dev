@@ -36,6 +36,3 @@ jobs:
     uses: ./.github/workflows/cd.yml
     with:
       environment: 'production'
-    secrets:
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_WRANGLER_API_TOKEN: ${{ secrets.CLOUDFLARE_WRANGLER_API_TOKEN }}

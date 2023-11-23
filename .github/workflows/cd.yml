@@ -8,13 +8,6 @@ on:
         default: 'production'
         required: true
         type: string
-    secrets:
-      CLOUDFLARE_ACCOUNT_ID:
-        description: 'Cloudflare Account ID'
-        required: true
-      CLOUDFLARE_WRANGLER_API_TOKEN:
-        description: 'Wrangler API Token for CD'
-        required: true
 jobs:
   build:
     name: 'SSG'
@@ -24,11 +17,6 @@ jobs:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v4
-
-      - name: Update Wrangler Config ♻️
-        run: |
-          sed -i '/compatibility_date/a \
-          account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"' wrangler.toml
 
       - name: Setup node environment 🤖
         uses: actions/setup-node@v4
@@ -45,8 +33,9 @@ jobs:
         env:
           NITRO_PRESET: cloudflare
 
-      - name: Publish to Cloudflare 🚀
-        uses: cloudflare/wrangler-action@v3.3.2
+      - name: Deploy to Deno Deploy ✨
+        uses: denoland/deployctl@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_WRANGLER_API_TOKEN }}
-          command: deploy --config wrangler.toml
+          project: my-project
+          entrypoint: server/index.ts
+          root: .output

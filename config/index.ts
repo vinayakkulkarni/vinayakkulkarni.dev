@@ -39,9 +39,8 @@ const experimental: NuxtConfig['experimental'] = {
 };
 
 const nitro: NuxtConfig['nitro'] = {
-  preset: 'cloudflare-pages',
-  sourceMap: false,
-  inlineDynamicImports: true,
+  preset: 'deno-deploy',
+  sourceMap: true,
   future: {
     nativeSWR: true,
   },
