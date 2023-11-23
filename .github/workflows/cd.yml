@@ -40,6 +40,6 @@ jobs:
       - name: Deploy to Deno Deploy ✨
         uses: denoland/deployctl@v1
         with:
-          project: my-project
+          project: vinayakkulkarni
           entrypoint: server/index.ts
           root: .output
