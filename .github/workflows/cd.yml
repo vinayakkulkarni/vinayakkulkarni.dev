@@ -8,8 +8,12 @@ on:
         default: 'production'
         required: true
         type: string
+
 jobs:
   build:
+    permissions:
+      id-token: write
+      contents: read
     name: 'SSG'
     runs-on: ubuntu-latest
     environment:
