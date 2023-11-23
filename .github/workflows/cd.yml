@@ -35,7 +35,7 @@ jobs:
       - name: Build the application 🛠
         run: npm run build
         env:
-          NITRO_PRESET: cloudflare
+          NITRO_PRESET: deno_deploy
 
       - name: Deploy to Deno Deploy ✨
         uses: denoland/deployctl@v1
