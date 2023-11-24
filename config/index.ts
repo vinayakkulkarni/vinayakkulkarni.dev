@@ -41,7 +41,6 @@ const experimental: NuxtConfig['experimental'] = {
 const nitro: NuxtConfig['nitro'] = {
   preset: 'deno-deploy',
   sourceMap: true,
-  inlineDynamicImports: true,
   future: {
     nativeSWR: true,
   },
