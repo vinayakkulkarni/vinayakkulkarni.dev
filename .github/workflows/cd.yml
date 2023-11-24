@@ -8,6 +8,16 @@ on:
         default: 'production'
         required: true
         type: string
+    secrets:
+      NUXT_SESSION_PASSWORD:
+        description: 'The session password'
+        required: true
+      NUXT_OAUTH_GITHUB_CLIENT_ID:
+        description: 'The GitHub OAuth client ID'
+        required: true
+      NUXT_OAUTH_GITHUB_CLIENT_SECRET:
+        description: 'The GitHub OAuth client secret'
+        required: true
 
 jobs:
   build:
@@ -35,7 +45,9 @@ jobs:
       - name: Build the application 🛠
         run: npm run build
         env:
-          NITRO_PRESET: deno_deploy
+          NUXT_SESSION_PASSWORD: ${{ secrets.NUXT_SESSION_PASSWORD }}
+          NUXT_OAUTH_GITHUB_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_ID }}
+          NUXT_OAUTH_GITHUB_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_SECRET }}
 
       - name: Deploy to Deno Deploy ✨
         uses: denoland/deployctl@v1

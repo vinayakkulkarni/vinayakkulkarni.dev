@@ -1,3 +1,18 @@
+<script setup lang="ts">
+  const router = useRouter();
+  const isDark = useDark();
+  const toggleDark = useToggle(isDark);
+  const { loggedIn, user, session, clear } = useUserSession();
+  const dropdown = ref(false);
+  const login = () => {
+    window.location.href = '/api/auth/github';
+  };
+  const logout = () => {
+    if (loggedIn) {
+      clear();
+    }
+  };
+</script>
 <template>
   <section class="invisible min-w-full flex items-center justify-between p-4">
     <!-- Logo -->
@@ -10,8 +25,92 @@
       <defs />
       <text y="30" fill="currentColor" class="text-5xl">V.</text>
     </svg>
-    <!-- Theme switcher -->
-    <div class="visible">
+    <div class="visible flex items-center">
+      <button
+        type="button"
+        @click="login"
+        v-if="!loggedIn"
+        class="p-4"
+        aria-label="Sign in"
+      >
+        <svg
+          class="h-8 w-8"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm10.72 4.72a.75.75 0 011.06 0l3 3a.75.75 0 010 1.06l-3 3a.75.75 0 11-1.06-1.06l1.72-1.72H9a.75.75 0 010-1.5h10.94l-1.72-1.72a.75.75 0 010-1.06z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <template v-if="loggedIn">
+        <div class="relative ml-3 p-4">
+          <div>
+            <button
+              type="button"
+              class="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-gray-800 dark:focus:ring-gray-700"
+              id="user-menu-button"
+              :aria-expanded="dropdown"
+              aria-haspopup="true"
+              @click="dropdown = !dropdown"
+            >
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <img
+                class="h-8 w-8 rounded-full"
+                :src="user.avatar_url"
+                :alt="`${user.name} Profile picture`"
+                :title="user.name"
+              />
+            </button>
+          </div>
+          <transition
+            enter-active-class="transition ease-out duration-100"
+            enter-from-class="transform opacity-0 scale-95"
+            enter-to-class="transform opacity-100 scale-100"
+            leave-active-class="transition ease-in duration-75"
+            leave-from-class="transform opacity-100 scale-100"
+            leave-to-class="transform opacity-0 scale-95"
+          >
+            <div
+              v-if="dropdown"
+              class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md py-1 shadow-lg ring-1 ring-black ring-opacity-5 dark:bg-gray-800 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="user-menu-button"
+              tabindex="-1"
+            >
+              <!-- Active: "bg-gray-100", Not Active: "" -->
+              <a
+                href="#"
+                class="flex items-center gap-3 px-4 py-2 text-base hover:bg-gray-200 dark:hover:bg-gray-700"
+                role="menuitem"
+                tabindex="-1"
+                id="user-menu-item-2"
+                @click="logout"
+              >
+                <svg
+                  class="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm5.03 4.72a.75.75 0 010 1.06l-1.72 1.72h10.94a.75.75 0 010 1.5H10.81l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3a.75.75 0 010-1.06l3-3a.75.75 0 011.06 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Sign out
+              </a>
+            </div>
+          </transition>
+        </div>
+      </template>
+      <!-- Theme switcher -->
       <span class="relative z-0 inline-flex rounded-full">
         <svg
           v-if="!isDark"
@@ -41,9 +140,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-  const router = useRouter();
-  const isDark = useDark();
-  const toggleDark = useToggle(isDark);
-</script>
