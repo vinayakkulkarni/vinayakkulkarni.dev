@@ -1,8 +1,0 @@
-name = "vinayakkulkarni"
-main = "./.output/server/index.mjs"
-minify = true
-compatibility_flags = ["nodejs_compat"]
-compatibility_date = "2022-09-10"
-
-[site]
-bucket = ".output/public"
