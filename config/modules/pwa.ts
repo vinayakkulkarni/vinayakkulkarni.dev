@@ -32,7 +32,7 @@ export const config: NuxtConfig['pwa'] = {
     runtimeCaching: [
       {
         urlPattern: ({ url, sameOrigin }) =>
-          sameOrigin && url.pathname.match(/^\/(api|article)\/.*/i),
+          sameOrigin && url.pathname.match(/^\/(api|articles)\/.*/i),
         handler: 'NetworkOnly' as const,
         options: {
           cacheName: 'content',
