@@ -29,6 +29,7 @@ export const config: NuxtConfig['pwa'] = {
   },
   workbox: {
     globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+    navigateFallbackDenylist: [/^\/(api|articles)\/.*/i],
     runtimeCaching: [
       {
         urlPattern: ({ url, sameOrigin }) =>

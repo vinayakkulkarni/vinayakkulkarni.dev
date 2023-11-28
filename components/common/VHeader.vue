@@ -4,9 +4,6 @@
   const toggleDark = useToggle(isDark);
   const { loggedIn, user, session, clear } = useUserSession();
   const dropdown = ref(false);
-  const login = () => {
-    window.location.href = '/api/auth/github';
-  };
   const logout = () => {
     if (loggedIn) {
       clear();
@@ -26,9 +23,8 @@
       <text y="30" fill="currentColor" class="text-5xl">V.</text>
     </svg>
     <div class="visible flex items-center">
-      <button
-        type="button"
-        @click="login"
+      <a
+        href="/api/auth/github"
         v-if="!loggedIn"
         class="p-4"
         aria-label="Sign in"
@@ -45,7 +41,7 @@
             clip-rule="evenodd"
           />
         </svg>
-      </button>
+      </a>
       <template v-if="loggedIn">
         <div class="relative ml-3 p-4">
           <div>
@@ -61,9 +57,9 @@
               <span class="sr-only">Open user menu</span>
               <img
                 class="h-8 w-8 rounded-full"
-                :src="user.avatar_url"
-                :alt="`${user.name} Profile picture`"
-                :title="user.name"
+                :src="user.github.avatar_url"
+                :alt="`${user.github.name} Profile picture`"
+                :title="user.github.name"
               />
             </button>
           </div>
