@@ -29,6 +29,16 @@ export const config: NuxtConfig['pwa'] = {
   },
   workbox: {
     globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+    runtimeCaching: [
+      {
+        urlPattern: ({ url, sameOrigin }) =>
+          sameOrigin && url.pathname.match(/^\/(api|article)\/.*/i),
+        handler: 'NetworkOnly' as const,
+        options: {
+          cacheName: 'content',
+        },
+      },
+    ],
   },
   client: {
     installPrompt: true,
