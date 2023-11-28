@@ -63,6 +63,8 @@ const routeRules: NuxtConfig['routeRules'] = {
   '/': { prerender: true },
   // Blog post generated on-demand once until next deploy
   '/articles/**': { isr: true },
+  // API routes are not pre-rendered
+  '/api/**': { prerender: false },
 };
 
 const runtimeConfig: NuxtConfig['runtimeConfig'] = {

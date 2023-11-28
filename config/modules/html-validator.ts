@@ -1,7 +1,7 @@
 import type { NuxtConfig } from 'nuxt/schema';
 
 export const config: NuxtConfig['htmlValidator'] = {
-  failOnError: false,
+  failOnError: true,
   options: {
     rules: {
       'wcag/h37': 'warn',
