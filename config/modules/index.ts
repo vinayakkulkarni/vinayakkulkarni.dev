@@ -3,7 +3,7 @@ import { config as content } from './content';
 import { config as device } from './device';
 import { config as htmlValidator } from './html-validator';
 import { config as plausible } from './plausible';
-import { config as pwa } from './pwa';
+// import { config as pwa } from './pwa';
 import { config as unocss } from './unocss';
 import { config as fontMetrics } from './font-metrics';
 import { config as auth } from './auth';
@@ -16,7 +16,7 @@ export const modules: NuxtConfig['modules'] = [
   // https://content.nuxtjs.org/
   ['@nuxt/content', content],
   // https://github.com/kevinmarrec/nuxt-pwa-module#nuxt-3-pwa
-  ['@vite-pwa/nuxt', pwa],
+  // ['@vite-pwa/nuxt', pwa],
   // https://github.com/nuxt-modules/plausible#setup
   ['@nuxtjs/plausible', plausible],
   // https://unocss.dev/integrations/nuxt
