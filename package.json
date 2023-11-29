@@ -30,7 +30,7 @@
     "@nuxtjs/html-validator": "^1.5.2",
     "@unocss/postcss": "^0.57.7",
     "nuxt": "^3.8.2",
-    "nuxt-auth-utils": "^0.0.8",
+    "nuxt-auth-utils": "^0.0.9",
     "nuxt-time": "^0.1.1",
     "postcss-nesting": "^12.0.1",
     "v-spotlight": "^2.0.1",
