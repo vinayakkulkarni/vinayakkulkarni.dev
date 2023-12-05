@@ -42,7 +42,7 @@
     "@julr/unocss-preset-forms": "^0.1.0",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxt/devtools": "^1.0.4",
-    "@nuxtjs/plausible": "^0.2.3",
+    "@nuxtjs/plausible": "^0.2.4",
     "@types/node": "^20.10.3",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
