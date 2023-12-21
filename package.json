@@ -60,7 +60,7 @@
     "eslint-plugin-anti-trojan-source": "^1.1.1",
     "eslint-plugin-jsdoc": "^46.9.1",
     "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-prettier": "^5.1.0",
+    "eslint-plugin-prettier": "^5.1.1",
     "eslint-plugin-security": "^1.7.1",
     "eslint-plugin-security-node": "^1.1.1",
     "eslint-plugin-vue": "^9.19.2",
