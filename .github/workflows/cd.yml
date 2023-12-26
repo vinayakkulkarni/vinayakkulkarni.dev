@@ -9,9 +9,6 @@ on:
         required: true
         type: string
     secrets:
-      NUXT_SESSION_PASSWORD:
-        description: 'The session password'
-        required: true
       NUXT_OAUTH_GITHUB_CLIENT_ID:
         description: 'The GitHub OAuth client ID'
         required: true
@@ -45,7 +42,6 @@ jobs:
       - name: Build the application 🛠
         run: npm run build
         env:
-          NUXT_SESSION_PASSWORD: ${{ secrets.NUXT_SESSION_PASSWORD }}
           NUXT_OAUTH_GITHUB_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_ID }}
           NUXT_OAUTH_GITHUB_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_SECRET }}
 
