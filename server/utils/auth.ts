@@ -26,6 +26,10 @@ export const lucia = new Lucia(adapter, {
   },
 });
 
+export const setLuciaCookie = (event: H3Event, cookie: Cookie) => {
+  setCookie(event, cookie.name, cookie.value, cookie.attributes);
+};
+
 declare module 'lucia' {
   interface Register {
     Lucia: typeof lucia;
@@ -36,9 +40,7 @@ declare module 'lucia' {
     avatar_url: string;
   }
 }
-export const setLuciaCookie = (event: H3Event, cookie: Cookie) => {
-  setCookie(event, cookie.name, cookie.value, cookie.attributes);
-};
+
 const config = useRuntimeConfig();
 
 export const github = new GitHub(
