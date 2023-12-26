@@ -2,12 +2,14 @@
   const router = useRouter();
   const isDark = useDark();
   const toggleDark = useToggle(isDark);
-  const { loggedIn, user, session, clear } = useUserSession();
+  const user = useUser();
   const dropdown = ref(false);
-  const logout = () => {
-    if (loggedIn) {
-      clear();
-    }
+  const logout = async (e: Event) => {
+    if (!(e.target instanceof HTMLFormElement)) return;
+    await useFetch('/api/logout', {
+      method: 'POST',
+    });
+    await navigateTo('/');
   };
 </script>
 <template>
@@ -23,12 +25,7 @@
       <text y="30" fill="currentColor" class="text-5xl">V.</text>
     </svg>
     <div class="visible flex items-center">
-      <a
-        href="/api/auth/github"
-        v-if="!loggedIn"
-        class="p-4"
-        aria-label="Sign in"
-      >
+      <a href="/api/login/github" v-if="!user" class="p-4" aria-label="Sign in">
         <svg
           class="h-8 w-8"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +39,7 @@
           />
         </svg>
       </a>
-      <template v-if="loggedIn">
+      <template v-if="user">
         <div class="relative ml-3 p-4">
           <div>
             <button
@@ -57,9 +54,9 @@
               <span class="sr-only">Open user menu</span>
               <img
                 class="h-8 w-8 rounded-full"
-                :src="user.github.avatar_url"
-                :alt="`${user.github.name} Profile picture`"
-                :title="user.github.name"
+                :src="user.avatarUrl"
+                :alt="`${user.githubUsername} Profile picture`"
+                :title="user.githubUsername"
               />
             </button>
           </div>

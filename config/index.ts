@@ -31,7 +31,6 @@ const experimental: NuxtConfig['experimental'] = {
   externalVue: true,
   configSchema: false,
   emitRouteChunkError: 'automatic',
-  typescriptBundlerResolution: false,
   viewTransition: true,
   componentIslands: true,
   payloadExtraction: true,
