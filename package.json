@@ -25,14 +25,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@lucia-auth/adapter-sqlite": "3.0.0-beta.11",
+    "@lucia-auth/adapter-sqlite": "3.0.0-beta.12",
     "@nuxtjs/device": "^3.1.1",
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/html-validator": "^1.6.0",
     "@unocss/postcss": "^0.58.3",
     "arctic": "^0.10.2",
     "better-sqlite3": "^9.2.2",
-    "lucia": "3.0.0-beta.13",
+    "lucia": "3.0.0-beta.14",
     "nuxt": "^3.9.0",
     "nuxt-time": "^0.1.1",
     "oslo": "^0.27.0",
