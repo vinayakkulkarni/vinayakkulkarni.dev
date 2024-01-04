@@ -38,7 +38,7 @@
     "oslo": "^0.27.0",
     "postcss-nesting": "^12.0.2",
     "v-spotlight": "^2.0.1",
-    "vue": "^3.4.4"
+    "vue": "^3.4.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
