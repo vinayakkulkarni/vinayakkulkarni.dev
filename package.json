@@ -30,7 +30,7 @@
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/html-validator": "^1.6.0",
     "@unocss/postcss": "^0.58.3",
-    "arctic": "^0.10.2",
+    "arctic": "^1.0.0",
     "better-sqlite3": "^9.2.2",
     "lucia": "3.0.0-beta.15",
     "nuxt": "^3.9.0",
