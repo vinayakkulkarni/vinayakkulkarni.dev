@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative h-screen min-w-screen w-screen flex flex-col select-none overflow-hidden bg-stone-100 font-light text-stone-800 transition-colors duration-200 ease-linear dark:bg-stone-900 dark:text-stone-100"
+    class="relative h-screen min-w-screen w-screen flex flex-col select-none overflow-hidden bg-stone-100 text-stone-800 font-light transition-colors duration-200 ease-linear dark:bg-stone-900 dark:text-stone-100"
   >
     <v-spotlight v-if="isDark && isDesktop" />
     <!-- Header -->

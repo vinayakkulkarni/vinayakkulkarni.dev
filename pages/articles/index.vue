@@ -45,7 +45,7 @@
                 />
                 <div v-for="(tag, index) in article.tags" :key="index">
                   <span
-                    class="mr-2 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium leading-4 text-stone-800"
+                    class="mr-2 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs text-stone-800 font-medium leading-4"
                   >
                     {{ tag }}
                   </span>
