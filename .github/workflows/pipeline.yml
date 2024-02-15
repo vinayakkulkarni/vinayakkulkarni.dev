@@ -27,15 +27,3 @@ jobs:
       - extract-branch
     name: 'CI'
     uses: ./.github/workflows/ci.yml
-  deploy:
-    name: 'CD'
-    needs:
-      - extract-branch
-      - ci
-    if: ${{ github.event_name == 'push' && needs.extract-branch.outputs.current_branch == 'main' }}
-    uses: ./.github/workflows/cd.yml
-    with:
-      environment: 'production'
-    secrets:
-      NUXT_OAUTH_GITHUB_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_ID }}
-      NUXT_OAUTH_GITHUB_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_SECRET }}
