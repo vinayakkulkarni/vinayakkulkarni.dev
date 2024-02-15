@@ -97,3 +97,4 @@ nuxt.d.ts
 .nitro
 .output
 .wrangler
+.vercel
