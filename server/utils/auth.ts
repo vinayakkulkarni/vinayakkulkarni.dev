@@ -5,8 +5,8 @@ import { pool } from '~/server/utils/db';
 import type { DatabaseUser } from '~/server/utils/db';
 
 // Polyfill for webcrypto
-import { webcrypto } from 'crypto';
-globalThis.crypto = webcrypto as Crypto;
+// import { webcrypto } from 'crypto';
+// globalThis.crypto = webcrypto as Crypto;
 
 const adapter = new NodePostgresAdapter(pool, {
   user: 'user',
