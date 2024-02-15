@@ -4,12 +4,12 @@
   const toggleDark = useToggle(isDark);
   const user = useUser();
   const dropdown = ref(false);
-  const logout = async (e: Event) => {
-    if (!(e.target instanceof HTMLFormElement)) return;
-    await useFetch('/api/logout', {
+
+  const logout = async () => {
+    await $fetch('/api/logout', {
       method: 'POST',
     });
-    await navigateTo('/');
+    navigateTo('/');
   };
 </script>
 <template>
@@ -55,8 +55,8 @@
               <img
                 class="h-8 w-8 rounded-full"
                 :src="user.avatarUrl"
-                :alt="`${user.githubUsername} Profile picture`"
-                :title="user.githubUsername"
+                :alt="`${user.username} Profile picture`"
+                :title="user.username"
               />
             </button>
           </div>

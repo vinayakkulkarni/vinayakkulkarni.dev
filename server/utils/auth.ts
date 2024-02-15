@@ -1,12 +1,13 @@
-import { Lucia, type Cookie } from 'lucia';
-import { BetterSqlite3Adapter } from '@lucia-auth/adapter-sqlite';
-import { db } from './db';
+import { Lucia } from 'lucia';
+import { NodePostgresAdapter } from '@lucia-auth/adapter-postgresql';
 import { GitHub } from 'arctic';
-import type { H3Event } from 'h3';
+import { pool } from '~/server/utils/db';
+import type { DatabaseUser } from '~/server/utils/db';
+
 // import { webcrypto } from "crypto";
 // globalThis.crypto = webcrypto as Crypto;
 
-const adapter = new BetterSqlite3Adapter(db, {
+const adapter = new NodePostgresAdapter(pool, {
   user: 'user',
   session: 'session',
 });
@@ -26,18 +27,10 @@ export const lucia = new Lucia(adapter, {
   },
 });
 
-export const setLuciaCookie = (event: H3Event, cookie: Cookie) => {
-  setCookie(event, cookie.name, cookie.value, cookie.attributes);
-};
-
 declare module 'lucia' {
   interface Register {
     Lucia: typeof lucia;
-  }
-  interface DatabaseUserAttributes {
-    username: string;
-    github_id: number;
-    avatar_url: string;
+    DatabaseUserAttributes: Omit<DatabaseUser, 'id'>;
   }
 }
 

@@ -1,5 +1,7 @@
 import { OAuth2RequestError } from 'arctic';
 import { generateId } from 'lucia';
+import { pool } from '~/server/utils/db';
+import type { DatabaseUser } from '~/server/utils/db';
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
@@ -19,26 +21,40 @@ export default defineEventHandler(async (event) => {
         Authorization: `Bearer ${tokens.accessToken}`,
       },
     });
-    let user = db
-      .prepare('SELECT * FROM user WHERE github_id = ?')
-      .get(githubUser.id) as DatabaseUser | undefined;
 
-    if (!user) {
-      const userId = generateId(15);
-      db.prepare(
-        'INSERT INTO user (id, github_id, username, avatar_url) VALUES (?, ?, ?, ?)',
-      ).run(userId, githubUser.id, githubUser.login, githubUser.avatar_url);
-
-      user = {
-        id: userId,
-        username: githubUser.login,
-        github_id: Number(githubUser.id),
-        avatar_url: githubUser.avatar_url,
-      };
+    // Connect to the database
+    const db = await pool.connect();
+    // Execute the query
+    const result = await db.query('SELECT * FROM "user" WHERE github_id = $1', [
+      githubUser.id,
+    ]);
+    // Check if a user exists
+    const existingUser: DatabaseUser = result.rows[0]; // First row returned by the query
+    if (existingUser) {
+      const session = await lucia.createSession(existingUser.id, {});
+      appendHeader(
+        event,
+        'Set-Cookie',
+        lucia.createSessionCookie(session.id).serialize(),
+      );
+      return sendRedirect(event, '/');
     }
+    // Generate a new user id
+    const userId = generateId(15);
+    // Execute the query
+    await db.query(
+      'INSERT INTO "user" (id, github_id, username, avatar_url) VALUES ($1, $2, $3, $4)',
+      [userId, githubUser.id, githubUser.login, githubUser.avatar_url],
+    );
+    // Release the client to the pool
+    db.release();
 
-    const session = await lucia.createSession(user.id, {});
-    setLuciaCookie(event, lucia.createSessionCookie(session.id));
+    const session = await lucia.createSession(userId, {});
+    appendHeader(
+      event,
+      'Set-Cookie',
+      lucia.createSessionCookie(session.id).serialize(),
+    );
     return sendRedirect(event, '/');
   } catch (e) {
     if (
@@ -57,7 +73,36 @@ export default defineEventHandler(async (event) => {
 });
 
 interface GitHubUser {
-  id: string;
   login: string;
+  id: number;
+  node_id: string;
   avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  starred_url: string;
+  subscriptions_url: string;
+  organizations_url: string;
+  repos_url: string;
+  events_url: string;
+  received_events_url: string;
+  type: string;
+  site_admin: boolean;
+  name: string;
+  company: string;
+  blog: string;
+  location: string;
+  email: any;
+  hireable: boolean;
+  bio: string;
+  twitter_username: string;
+  public_repos: number;
+  public_gists: number;
+  followers: number;
+  following: number;
+  created_at: string;
+  updated_at: string;
 }

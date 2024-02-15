@@ -1,20 +1,10 @@
-import sqlite from 'better-sqlite3';
+import pg from 'pg';
 
-export const db = sqlite(':memory:');
+const config = useRuntimeConfig();
 
-db.exec(`CREATE TABLE IF NOT EXISTS user (
-    id TEXT NOT NULL PRIMARY KEY,
-    github_id INTEGER NOT NULL UNIQUE,
-    avatar_url TEXT NOT NULL,
-    username TEXT NOT NULL
-)`);
-
-db.exec(`CREATE TABLE IF NOT EXISTS session (
-    id TEXT NOT NULL PRIMARY KEY,
-    expires_at INTEGER NOT NULL,
-    user_id TEXT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES user(id)
-)`);
+export const pool = new pg.Pool({
+  connectionString: config.database.url,
+});
 
 export interface DatabaseUser {
   id: string;

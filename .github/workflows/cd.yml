@@ -42,6 +42,7 @@ jobs:
       - name: Build the application 🛠
         run: npm run build
         env:
+          NITRO_PRESET: deno_deploy
           NUXT_OAUTH_GITHUB_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_ID }}
           NUXT_OAUTH_GITHUB_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_SECRET }}
 

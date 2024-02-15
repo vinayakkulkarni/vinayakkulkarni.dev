@@ -38,7 +38,6 @@ const experimental: NuxtConfig['experimental'] = {
 };
 
 const nitro: NuxtConfig['nitro'] = {
-  preset: 'deno-deploy',
   sourceMap: true,
   future: {
     nativeSWR: true,
@@ -67,6 +66,9 @@ const routeRules: NuxtConfig['routeRules'] = {
 };
 
 const runtimeConfig: NuxtConfig['runtimeConfig'] = {
+  database: {
+    url: process.env.NUXT_DATABASE_URL,
+  },
   oauth: {
     github: {
       clientId: process.env.NUXT_OAUTH_GITHUB_CLIENT_ID,
