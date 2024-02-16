@@ -57,12 +57,10 @@ const postcss: NuxtConfig['postcss'] = {
 const plugins: NuxtConfig['plugins'] = [];
 
 const routeRules: NuxtConfig['routeRules'] = {
-  // Homepage pre-rendered at build time
-  '/': { prerender: true },
   // Blog post generated on-demand once until next deploy
   '/articles/**': { isr: true },
   // API routes are not pre-rendered
-  '/api/**': { prerender: false },
+  // '/api/**': { prerender: false },
 };
 
 const runtimeConfig: NuxtConfig['runtimeConfig'] = {

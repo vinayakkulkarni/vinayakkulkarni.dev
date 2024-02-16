@@ -25,7 +25,7 @@
       <text y="30" fill="currentColor" class="text-5xl">V.</text>
     </svg>
     <div class="visible flex items-center">
-      <a href="/api/login/github" v-if="!user" class="p-4" aria-label="Sign in">
+      <a href="/login/github" v-if="!user" class="p-4" aria-label="Sign in">
         <svg
           class="h-8 w-8"
           xmlns="http://www.w3.org/2000/svg"
