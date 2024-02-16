@@ -24,6 +24,7 @@ export default defineEventHandler(async (event) => {
 
     // Connect to the database
     const db = await pool.connect();
+    console.log('db: ', db);
     // Execute the query
     const result = await db.query('SELECT * FROM "user" WHERE github_id = $1', [
       githubUser.id,
