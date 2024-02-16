@@ -28,10 +28,12 @@ export default defineEventHandler(async (event) => {
     const result = await db.query('SELECT * FROM "user" WHERE github_id = $1', [
       githubUser.id,
     ]);
+    console.log('result from db :', result);
     // Check if a user exists
     const existingUser: DatabaseUser = result.rows[0]; // First row returned by the query
     if (existingUser) {
       const session = await lucia.createSession(existingUser.id, {});
+      console.log('user found, creating session: ', session);
       appendHeader(
         event,
         'Set-Cookie',
@@ -39,6 +41,7 @@ export default defineEventHandler(async (event) => {
       );
       return sendRedirect(event, '/');
     }
+    console.log('user not found, creating user');
     // Generate a new user id
     const userId = generateId(15);
     // Execute the query
@@ -46,10 +49,12 @@ export default defineEventHandler(async (event) => {
       'INSERT INTO "user" (id, github_id, username, avatar_url) VALUES ($1, $2, $3, $4)',
       [userId, githubUser.id, githubUser.login, githubUser.avatar_url],
     );
+    console.log('user created');
     // Release the client to the pool
     db.release();
 
     const session = await lucia.createSession(userId, {});
+    console.log('new user created, creating session: ', session);
     appendHeader(
       event,
       'Set-Cookie',
