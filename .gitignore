@@ -98,3 +98,4 @@ nuxt.d.ts
 .output
 .wrangler
 .vercel
+.netlify

@@ -19,8 +19,8 @@ const css: NuxtConfig['css'] = [
   '~/assets/css/global.css',
 ];
 
-const dev: NuxtConfig['dev'] = false;
-const debug: NuxtConfig['debug'] = false;
+const dev: NuxtConfig['dev'] = true;
+const debug: NuxtConfig['debug'] = true;
 const devtools: NuxtConfig['devtools'] = { enabled: true };
 const devServer: NuxtConfig['devServer'] = {
   port: Number(process.env.PORT) || 3000,
