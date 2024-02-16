@@ -77,6 +77,7 @@ const runtimeConfig: NuxtConfig['runtimeConfig'] = {
   },
   public: {
     appVersion: process.env.npm_package_version,
+    NUXT_ENV: 'development',
   },
 };
 
