@@ -23,7 +23,20 @@ jobs:
         id: get-branch
         run: echo "current_branch=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
   ci:
+    name: 'CI'
     needs:
       - extract-branch
-    name: 'CI'
     uses: ./.github/workflows/ci.yml
+  cd:
+    name: 'CD'
+    needs:
+      - extract-branch
+      - ci
+    if: ${{ github.event_name == 'push' && needs.extract-branch.outputs.current_branch == 'main' }}
+    uses: ./.github/workflows/cd.yml
+    with:
+      environment: 'production'
+    secrets:
+      NUXT_DATABASE_URL: ${{ secrets.NUXT_DATABASE_URL }}
+      NUXT_OAUTH_GITHUB_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_ID }}
+      NUXT_OAUTH_GITHUB_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_SECRET }}
