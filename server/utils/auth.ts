@@ -9,8 +9,8 @@ import type { DatabaseUser } from '~/server/utils/db';
 // globalThis.crypto = webcrypto as Crypto;
 
 const adapter = new PostgresJsAdapter(sql, {
-  user: 'user',
-  session: 'session',
+  user: 'users',
+  session: 'sessions',
 });
 
 export const lucia = new Lucia(adapter, {
