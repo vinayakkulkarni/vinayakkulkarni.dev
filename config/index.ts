@@ -19,9 +19,11 @@ const css: NuxtConfig['css'] = [
   '~/assets/css/global.css',
 ];
 
-const dev: NuxtConfig['dev'] = true;
-const debug: NuxtConfig['debug'] = true;
-const devtools: NuxtConfig['devtools'] = { enabled: true };
+const dev: NuxtConfig['dev'] = process.env.NODE_ENV !== 'production';
+const debug: NuxtConfig['debug'] = process.env.NODE_ENV !== 'production';
+const devtools: NuxtConfig['devtools'] = {
+  enabled: process.env.NODE_ENV !== 'production',
+};
 const devServer: NuxtConfig['devServer'] = {
   port: Number(process.env.PORT) || 3000,
 };
@@ -57,10 +59,11 @@ const postcss: NuxtConfig['postcss'] = {
 const plugins: NuxtConfig['plugins'] = [];
 
 const routeRules: NuxtConfig['routeRules'] = {
+  '/': { prerender: true },
   // Blog post generated on-demand once until next deploy
   '/articles/**': { isr: true },
   // API routes are not pre-rendered
-  // '/api/**': { prerender: false },
+  '/api/**': { prerender: false },
 };
 
 const runtimeConfig: NuxtConfig['runtimeConfig'] = {
