@@ -1,9 +1,9 @@
-import pg from 'pg';
+import postgres from 'postgres';
 
 const config = useRuntimeConfig();
 
-export const pool = new pg.Pool({
-  connectionString: config.database.url,
+export const sql = postgres(config.database.url, {
+  ssl: { rejectUnauthorized: false },
 });
 
 export interface DatabaseUser {

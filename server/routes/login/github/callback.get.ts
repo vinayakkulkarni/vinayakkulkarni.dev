@@ -1,6 +1,6 @@
 import { OAuth2RequestError } from 'arctic';
 import { generateId } from 'lucia';
-import { pool } from '~/server/utils/db';
+import { sql } from '~/server/utils/db';
 import type { DatabaseUser } from '~/server/utils/db';
 
 export default defineEventHandler(async (event) => {
@@ -22,19 +22,12 @@ export default defineEventHandler(async (event) => {
       },
     });
 
-    // Connect to the database
-    const db = await pool.connect();
-    console.log('db: ', db);
     // Execute the query
-    const result = await db.query('SELECT * FROM "user" WHERE github_id = $1', [
-      githubUser.id,
-    ]);
-    console.log('result from db :', result);
+    const [existingUser]: [DatabaseUser?] =
+      await sql`SELECT * FROM "user" WHERE github_id = ${githubUser.id}`;
     // Check if a user exists
-    const existingUser: DatabaseUser = result.rows[0]; // First row returned by the query
     if (existingUser) {
       const session = await lucia.createSession(existingUser.id, {});
-      console.log('user found, creating session: ', session);
       appendHeader(
         event,
         'Set-Cookie',
@@ -46,16 +39,16 @@ export default defineEventHandler(async (event) => {
     // Generate a new user id
     const userId = generateId(15);
     // Execute the query
-    await db.query(
-      'INSERT INTO "user" (id, github_id, username, avatar_url) VALUES ($1, $2, $3, $4)',
-      [userId, githubUser.id, githubUser.login, githubUser.avatar_url],
-    );
+    const payload = {
+      id: userId,
+      github_id: githubUser.id,
+      username: githubUser.login,
+      avatar_url: githubUser.avatar_url,
+    };
+    await sql`insert into user ${sql(payload, 'id', 'github_id', 'username', 'avatar_url')}`;
     console.log('user created');
-    // Release the client to the pool
-    db.release();
 
     const session = await lucia.createSession(userId, {});
-    console.log('new user created, creating session: ', session);
     appendHeader(
       event,
       'Set-Cookie',

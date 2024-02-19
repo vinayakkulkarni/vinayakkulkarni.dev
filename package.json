@@ -35,8 +35,8 @@
     "nuxt": "npm:nuxt-nightly@latest",
     "nuxt-time": "^0.1.2",
     "oslo": "^1.1.1",
-    "pg": "^8.11.3",
     "postcss-nesting": "^12.0.2",
+    "postgres": "^3.4.3",
     "v-spotlight": "^2.0.1",
     "vue": "^3.4.19"
   },
@@ -48,7 +48,6 @@
     "@nuxt/devtools": "^1.0.8",
     "@nuxtjs/plausible": "^0.2.4",
     "@types/node": "^20.11.19",
-    "@types/pg": "^8.11.0",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
     "@unocss/eslint-config": "^0.58.5",

@@ -1,14 +1,14 @@
 import { Lucia } from 'lucia';
-import { NodePostgresAdapter } from '@lucia-auth/adapter-postgresql';
+import { PostgresJsAdapter } from '@lucia-auth/adapter-postgresql';
 import { GitHub } from 'arctic';
-import { pool } from '~/server/utils/db';
+import { sql } from '~/server/utils/db';
 import type { DatabaseUser } from '~/server/utils/db';
 
 // Polyfill for webcrypto
 // import { webcrypto } from 'crypto';
 // globalThis.crypto = webcrypto as Crypto;
 
-const adapter = new NodePostgresAdapter(pool, {
+const adapter = new PostgresJsAdapter(sql, {
   user: 'user',
   session: 'session',
 });
