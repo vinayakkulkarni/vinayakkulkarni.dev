@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
 
     // Execute the query
     const [existingUser]: [DatabaseUser?] =
-      await sql`SELECT * FROM "user" WHERE github_id = ${githubUser.id}`;
+      await sql`SELECT * FROM "users" WHERE oauth_id = ${githubUser.id} AND oauth_provider = 'github' LIMIT 1`;
     // Check if a user exists
     if (existingUser) {
       const session = await lucia.createSession(existingUser.id, {});
@@ -35,18 +35,17 @@ export default defineEventHandler(async (event) => {
       );
       return sendRedirect(event, '/');
     }
-    console.log('user not found, creating user');
     // Generate a new user id
     const userId = generateId(15);
     // Execute the query
     const payload = {
       id: userId,
-      github_id: githubUser.id,
+      oauth_provider: 'github',
+      oauth_id: githubUser.id,
       username: githubUser.login,
       avatar_url: githubUser.avatar_url,
     };
-    await sql`insert into user ${sql(payload, 'id', 'github_id', 'username', 'avatar_url')}`;
-    console.log('user created');
+    await sql`insert into users ${sql(payload, 'id', 'oauth_provider', 'oauth_id', 'username', 'avatar_url')}`;
 
     const session = await lucia.createSession(userId, {});
     appendHeader(

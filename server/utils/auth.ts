@@ -22,7 +22,7 @@ export const lucia = new Lucia(adapter, {
   getUserAttributes: (attributes) => {
     return {
       username: attributes.username,
-      githubId: attributes.github_id,
+      githubId: attributes.oauth_id,
       avatarUrl: attributes.avatar_url,
     };
   },

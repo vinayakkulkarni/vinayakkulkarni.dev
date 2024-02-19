@@ -9,6 +9,7 @@ export const sql = postgres(config.database.url, {
 export interface DatabaseUser {
   id: string;
   username: string;
-  github_id: number;
+  oauth_provider: string;
+  oauth_id: number;
   avatar_url: string;
 }
