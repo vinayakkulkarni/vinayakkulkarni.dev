@@ -47,6 +47,9 @@ const nitro: NuxtConfig['nitro'] = {
   prerender: {
     crawlLinks: true,
   },
+  rollupConfig: {
+    external: ['cloudflare:sockets'],
+  },
 };
 
 const postcss: NuxtConfig['postcss'] = {
