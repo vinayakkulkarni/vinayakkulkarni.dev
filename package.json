@@ -37,7 +37,7 @@
     "oslo": "^1.2.0",
     "postcss-nesting": "^12.0.3",
     "postgres": "^3.4.4",
-    "v-spotlight": "^2.0.1",
+    "v-spotlight": "^2.1.0",
     "vue": "^3.4.27"
   },
   "devDependencies": {
