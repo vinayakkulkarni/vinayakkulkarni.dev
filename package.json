@@ -34,7 +34,7 @@
     "lucia": "3.0.1",
     "nuxt": "npm:nuxt-nightly@latest",
     "nuxt-time": "^0.1.2",
-    "oslo": "^1.1.2",
+    "oslo": "^1.2.0",
     "postcss-nesting": "^12.0.3",
     "postgres": "^3.4.3",
     "v-spotlight": "^2.0.1",
