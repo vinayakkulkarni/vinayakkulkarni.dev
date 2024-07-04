@@ -55,7 +55,7 @@
     "@unocss/preset-wind": "^0.61.0",
     "@unocss/reset": "^0.61.0",
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
-    "@vite-pwa/nuxt": "^0.8.1",
+    "@vite-pwa/nuxt": "^0.9.0",
     "@vue/runtime-dom": "^3.4.31",
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
