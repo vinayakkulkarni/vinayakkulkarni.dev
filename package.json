@@ -41,7 +41,7 @@
     "vue": "^3.4.30"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
+    "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@julr/unocss-preset-forms": "^0.1.0",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
