@@ -58,7 +58,7 @@
     "@vite-pwa/nuxt": "^0.10.0",
     "@vue/runtime-dom": "^3.4.38",
     "@vueuse/core": "^10.11.1",
-    "@vueuse/nuxt": "^10.11.1",
+    "@vueuse/nuxt": "^11.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-anti-trojan-source": "^1.1.1",
