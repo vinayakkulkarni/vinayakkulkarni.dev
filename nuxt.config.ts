@@ -101,7 +101,11 @@ export default defineNuxtConfig({
   routeRules: {
     '/articles/**': { isr: true },
   },
-
+  nitro: {
+    rollupConfig: {
+      external: ['cloudflare:sockets'],
+    },
+  },
   modules: [
     // https://content.nuxtjs.org/
     '@nuxt/content',
