@@ -30,7 +30,7 @@ jobs:
         run: bun install
 
       - name: Run linter(s) 👀
-        run: bun run lint
+        run: bun run lint:eslint && bun run lint:stylelint
 
       - name: Run build 🏁
         run: bun run build
