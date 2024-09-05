@@ -32,18 +32,16 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v4
 
-      - name: Setup node environment 🤖
-        uses: actions/setup-node@v4
+      - name: Setup bun env 🐰
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version-file: '.nvmrc'
-          check-latest: true
-          cache: 'npm'
+          bun-version: latest
 
-      - name: Install dependencies 📦
-        run: npm ci --prefer-offline --no-audit
+      - name: Install dependencies 🚀
+        run: bun install --frozen-lockfile
 
       - name: Build the application 🛠
-        run: npm run build
+        run: bun run build
         env:
           NITRO_PRESET: deno_deploy
           NUXT_DATABASE_URL: ${{ secrets.NUXT_DATABASE_URL }}
