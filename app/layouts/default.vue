@@ -4,7 +4,7 @@
   >
     <!-- Header -->
     <header>
-      <v-header></v-header>
+      <v-header />
     </header>
     <!-- Body -->
     <main
@@ -16,7 +16,7 @@
     </main>
     <!-- Footer -->
     <footer>
-      <v-footer></v-footer>
+      <v-footer />
     </footer>
   </div>
 </template>

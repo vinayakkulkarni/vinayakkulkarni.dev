@@ -1,8 +1,81 @@
+<script setup lang="ts">
+  const projects = ref([
+    {
+      name: 'Janak',
+      excerpt: '🤙 Build Vue 3 apps in a breeze!',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/janak',
+    },
+    {
+      name: 'v-offline',
+      excerpt: '⚡️ Easily detect offline & online events',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/v-offline',
+    },
+    {
+      name: 'v-image',
+      excerpt: '🖼 Tiny css-free component for your input type file',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/v-image',
+    },
+    {
+      name: 'v-intl',
+      excerpt: '🔉 Add i18n to your awesome Vue 3 apps',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/v-intl',
+    },
+    {
+      name: 'v-pip',
+      excerpt: '🌁 Vue wrapper for native picture-in-picture',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/v-intl',
+    },
+    {
+      name: 'v-clappr',
+      excerpt: '📹 Vue wrapper for Clappr media player',
+      url: 'https://github.com/vinayakkulkarni/v-clappr',
+      library: 'vue',
+    },
+    {
+      name: 'v-spotlight',
+      excerpt: '🔦 Tiny reusable spotlight Vue component',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/v-spotlight',
+    },
+    {
+      name: 'v-rating',
+      excerpt: '⭐ Rating component in Semantic-UI',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/v-rating',
+    },
+    {
+      name: 'v-github-icon',
+      excerpt: '🐙 GitHub corner icons',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/v-github-icon',
+    },
+    {
+      name: 's-offline',
+      excerpt: '🎉 Detect offline & online events in Svelte',
+      url: 'https://github.com/vinayakkulkarni/s-offline',
+      library: 'svelte',
+    },
+    {
+      name: 'Vue Identify Network',
+      excerpt: '🚨 Identify network type & speed',
+      library: 'vue',
+      url: 'https://github.com/vinayakkulkarni/vue-identify-network',
+    },
+  ]);
+</script>
+
 <template>
   <section class="h-full w-full">
     <div class="grid grid-flow-col grid-cols-4 mb-4 gap-4">
       <div class="col-span-3 inline-flex flex-col self-center justify-end">
-        <p class="text-3xl">Projects</p>
+        <p class="text-3xl">
+          Projects
+        </p>
         <p>
           This page will serve as a listing for all the side-projects, plugins,
           tools created for OSS 💚
@@ -74,74 +147,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-  const projects = ref([
-    {
-      name: 'Janak',
-      excerpt: '🤙 Build Vue 3 apps in a breeze!',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/janak',
-    },
-    {
-      name: 'v-offline',
-      excerpt: '⚡️ Easily detect offline & online events',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/v-offline',
-    },
-    {
-      name: 'v-image',
-      excerpt: '🖼 Tiny css-free component for your input type file',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/v-image',
-    },
-    {
-      name: 'v-intl',
-      excerpt: '🔉 Add i18n to your awesome Vue 3 apps',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/v-intl',
-    },
-    {
-      name: 'v-pip',
-      excerpt: '🌁 Vue wrapper for native picture-in-picture',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/v-intl',
-    },
-    {
-      name: 'v-clappr',
-      excerpt: '📹 Vue wrapper for Clappr media player',
-      url: 'https://github.com/vinayakkulkarni/v-clappr',
-      library: 'vue',
-    },
-    {
-      name: 'v-spotlight',
-      excerpt: '🔦 Tiny reusable spotlight Vue component',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/v-spotlight',
-    },
-    {
-      name: 'v-rating',
-      excerpt: '⭐ Rating component in Semantic-UI',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/v-rating',
-    },
-    {
-      name: 'v-github-icon',
-      excerpt: '🐙 GitHub corner icons',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/v-github-icon',
-    },
-    {
-      name: 's-offline',
-      excerpt: '🎉 Detect offline & online events in Svelte',
-      url: 'https://github.com/vinayakkulkarni/s-offline',
-      library: 'svelte',
-    },
-    {
-      name: 'Vue Identify Network',
-      excerpt: '🚨 Identify network type & speed',
-      library: 'vue',
-      url: 'https://github.com/vinayakkulkarni/vue-identify-network',
-    },
-  ]);
-</script>

@@ -3,7 +3,9 @@
     <!-- Top Data -->
     <div class="grid grid-flow-col grid-cols-4 gap-4">
       <div class="col-span-3 inline-flex flex-col self-center justify-end">
-        <p class="text-3xl">Blog articles</p>
+        <p class="text-3xl">
+          Blog articles
+        </p>
         <p>
           This page will serve as a listing for all the TIL's, blog articles &
           learnings.
@@ -42,7 +44,7 @@
                   day="numeric"
                   month="long"
                   year="numeric"
-                ></nuxt-time>
+                />
                 <div v-for="(tag, index) in article.tags" :key="index">
                   <span
                     class="mr-2 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs text-stone-800 font-medium leading-4"

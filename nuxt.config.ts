@@ -173,6 +173,7 @@ export default defineNuxtConfig({
         semi: true,
         jsx: false,
         arrowParens: true,
+        quotes: 'single',
       },
     },
   },

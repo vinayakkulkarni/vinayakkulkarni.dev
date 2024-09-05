@@ -1,7 +1,7 @@
 <template>
   <section
     class="min-w-full py-4"
-    :class="{ 'border-t border-stone-500': route.name !== 'index' }"
+    :class="{ 'border-t border-stone-500': $route.name !== 'index' }"
   >
     <div class="w-full flex items-center justify-center">
       <!-- GitHub -->
@@ -96,7 +96,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-  const route = useRoute();
-</script>

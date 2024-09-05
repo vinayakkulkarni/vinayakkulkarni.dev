@@ -2,15 +2,17 @@
   <section
     class="m-12 rounded from-stone-700 to-stone-600 bg-gradient-to-t p-6 text-stone-100 shadow lg:m-0 lg:p-12 hover:shadow-md"
   >
-    <h1 class="text-5xl">Hello 👋</h1>
+    <h1 class="text-5xl">
+      Hello 👋
+    </h1>
     <div class="max-w-lg break-words text-base">
       <article class="py-2 text-stone-100 prose">
         <div>
           My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
           Frontend Engineering Lead @
-          <a href="https://dscvr.one" target="_blank" rel="noopener nofollow"
-            >DSCVR</a
-          >
+          <a href="https://dscvr.one" target="_blank" rel="noopener nofollow">
+            DSCVR
+          </a>
           &amp; open source contributor
         </div>
         <div>

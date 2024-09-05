@@ -16,7 +16,7 @@
           day="numeric"
           month="long"
           year="numeric"
-        ></nuxt-time>
+        />
       </p>
       <div
         v-if="data.tags && data.tags.length"
@@ -31,7 +31,7 @@
         </div>
       </div>
       <h3>{{ data.description }}</h3>
-      <content-doc></content-doc>
+      <content-doc />
     </article>
   </section>
 </template>

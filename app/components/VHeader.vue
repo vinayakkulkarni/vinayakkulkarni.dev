@@ -1,3 +1,25 @@
+<script setup lang="ts">
+  import { useRouter, useToggle, useDark, useUser } from '#imports';
+
+  const router = useRouter();
+  const isDark = useDark();
+  const toggleDark = useToggle(isDark);
+  const user = useUser();
+  const dropdown = ref(false);
+
+  const logout = async () => {
+    try {
+      await $fetch('/api/logout', {
+        method: 'POST',
+      });
+      navigateTo('/');
+    } catch (error) {
+      console.error('Logout failed:', error);
+      // Optionally, show an error message to the user
+    }
+  };
+</script>
+
 <template>
   <section class="invisible min-w-full flex items-center justify-between p-4">
     <!-- Logo -->
@@ -46,7 +68,7 @@
                   :src="user.avatarUrl"
                   :alt="`${user.username} Profile picture`"
                   :title="user.username"
-                >
+                />
               </button>
             </div>
             <transition
@@ -124,25 +146,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-  import { useRouter, useToggle, useDark, useUser } from '#imports';
-
-  const router = useRouter();
-  const isDark = useDark();
-  const toggleDark = useToggle(isDark);
-  const user = useUser();
-  const dropdown = ref(false);
-
-  const logout = async () => {
-    try {
-      await $fetch('/api/logout', {
-        method: 'POST',
-      });
-      navigateTo('/');
-    } catch (error) {
-      console.error('Logout failed:', error);
-      // Optionally, show an error message to the user
-    }
-  };
-</script>

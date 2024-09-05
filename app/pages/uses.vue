@@ -2,7 +2,9 @@
   <section class="h-full w-full overflow-hidden p-4">
     <div class="grid grid-flow-col grid-cols-4 gap-4">
       <div class="col-span-3 inline-flex flex-col self-center justify-end">
-        <p class="text-3xl">Uses</p>
+        <p class="text-3xl">
+          Uses
+        </p>
         <p>
           There are times where people ask me about what software or gear I am
           using. This page will serve as a living document for people to always
@@ -17,7 +19,9 @@
         &larr;
       </nuxt-link>
     </div>
-    <p class="border-b text-xl font-bold dark:border-stone-500">Hardware</p>
+    <p class="border-b text-xl font-bold dark:border-stone-500">
+      Hardware
+    </p>
     <!-- MBP -->
     <a
       href="https://www.apple.com/in/shop/savedItem/Z176?option.hard_drive_solid_state_drive_aos_phantom_z176=065-CDP7&option.sw_logic_pro_z176=065-CDTY&option.sw_final_cut_pro_z176=065-CDTW&option.memory_aos_phantom_z176=065-CDP4"
@@ -216,7 +220,9 @@
         />
       </svg>
     </a>
-    <p class="border-b p-2 text-xl font-bold dark:border-stone-500">Apps</p>
+    <p class="border-b p-2 text-xl font-bold dark:border-stone-500">
+      Apps
+    </p>
     <a
       href="https://notion.so/"
       target="_blank"
