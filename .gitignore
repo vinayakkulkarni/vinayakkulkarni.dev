@@ -99,3 +99,10 @@ nuxt.d.ts
 .wrangler
 .vercel
 .netlify
+.data
+.nitro
+.cache
+.wrangler
+.dev.vars
+.drizzle.env
+tunnel.yml

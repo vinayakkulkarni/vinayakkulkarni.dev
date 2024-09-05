@@ -1,7 +1,11 @@
 import { OAuth2RequestError } from 'arctic';
 import { generateId } from 'lucia';
-import { sql } from '~/server/utils/db';
-import type { DatabaseUser } from '~/server/utils/db';
+import { eq, and } from 'drizzle-orm';
+import {
+  insertUserSchema,
+  selectUserSchema,
+  userTable,
+} from '../../../db/schema';
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
@@ -22,9 +26,22 @@ export default defineEventHandler(async (event) => {
       },
     });
 
-    // Execute the query
-    const [existingUser]: [DatabaseUser?] =
-      await sql`SELECT * FROM "users" WHERE oauth_id = ${githubUser.id} AND oauth_provider = 'github' LIMIT 1`;
+    const db = useDrizzle();
+
+    // Query for existing user
+    const existingUsers = await db
+      .select()
+      .from(userTable)
+      .where(
+        and(
+          eq(userTable.oauthId, githubUser.id),
+          eq(userTable.oauthProvider, 'github'),
+        ),
+      )
+      .limit(1);
+
+    const existingUser = selectUserSchema.parse(existingUsers[0]);
+
     // Check if a user exists
     if (existingUser) {
       const session = await lucia.createSession(existingUser.id, {});
@@ -35,17 +52,20 @@ export default defineEventHandler(async (event) => {
       );
       return sendRedirect(event, '/');
     }
+
     // Generate a new user id
     const userId = generateId(15);
-    // Execute the query
-    const payload = {
+
+    // Insert new user
+    const newUser = insertUserSchema.parse({
       id: userId,
-      oauth_provider: 'github',
-      oauth_id: githubUser.id,
+      oauthProvider: 'github',
+      oauthId: githubUser.id,
       username: githubUser.login,
-      avatar_url: githubUser.avatar_url,
-    };
-    await sql`insert into users ${sql(payload, 'id', 'oauth_provider', 'oauth_id', 'username', 'avatar_url')}`;
+      avatarUrl: githubUser.avatar_url,
+    });
+
+    await db.insert(userTable).values(newUser);
 
     const session = await lucia.createSession(userId, {});
     appendHeader(
@@ -70,7 +90,7 @@ export default defineEventHandler(async (event) => {
   }
 });
 
-interface GitHubUser {
+type GitHubUser = {
   login: string;
   id: number;
   node_id: string;
@@ -93,7 +113,7 @@ interface GitHubUser {
   company: string;
   blog: string;
   location: string;
-  email: any;
+  email: string;
   hireable: boolean;
   bio: string;
   twitter_username: string;
@@ -103,4 +123,4 @@ interface GitHubUser {
   following: number;
   created_at: string;
   updated_at: string;
-}
+};

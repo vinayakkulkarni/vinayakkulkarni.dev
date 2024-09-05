@@ -12,5 +12,4 @@
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -1,1 +1,1 @@
-npm exec --no -- lint-staged
+bun run lint-staged --no-stash

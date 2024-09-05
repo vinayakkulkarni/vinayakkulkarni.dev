@@ -1,15 +1,23 @@
+<script setup lang="ts">
+  const route = useRoute();
+
+  const { data } = await useLazyAsyncData('page-data', () =>
+    queryContent(route.path).findOne(),
+  );
+</script>
+
 <template>
   <section class="h-full w-full flex items-center justify-center">
     <article v-if="data" class="prose-lg h-full w-full flex flex-col prose">
       <h1>{{ data.title }}</h1>
-      <dd class="mr-4">
+      <p class="subtitle mr-4">
         <nuxt-time
           :datetime="data.date"
           day="numeric"
           month="long"
           year="numeric"
-        />
-      </dd>
+        ></nuxt-time>
+      </p>
       <div
         v-if="data.tags && data.tags.length"
         class="mt-2 flex items-center justify-start py-1 text-sm"
@@ -23,14 +31,7 @@
         </div>
       </div>
       <h3>{{ data.description }}</h3>
-      <content-doc />
+      <content-doc></content-doc>
     </article>
   </section>
 </template>
-<script setup lang="ts">
-  const route = useRoute();
-
-  const { data } = await useLazyAsyncData('page-data', () =>
-    queryContent(route.path).findOne(),
-  );
-</script>

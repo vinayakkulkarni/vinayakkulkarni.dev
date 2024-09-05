@@ -1,17 +1,15 @@
 import { Lucia } from 'lucia';
-import { PostgresJsAdapter } from '@lucia-auth/adapter-postgresql';
+import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
 import { GitHub } from 'arctic';
-import { sql } from '~/server/utils/db';
-import type { DatabaseUser } from '~/server/utils/db';
+import { sessionTable, userTable } from '../db/schema';
 
 // Polyfill for webcrypto
 // import { webcrypto } from 'crypto';
 // globalThis.crypto = webcrypto as Crypto;
 
-const adapter = new PostgresJsAdapter(sql, {
-  user: 'users',
-  session: 'sessions',
-});
+const db = useDrizzle();
+
+const adapter = new DrizzlePostgreSQLAdapter(db, sessionTable, userTable);
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {

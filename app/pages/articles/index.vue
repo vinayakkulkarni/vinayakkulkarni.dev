@@ -42,7 +42,7 @@
                   day="numeric"
                   month="long"
                   year="numeric"
-                />
+                ></nuxt-time>
                 <div v-for="(tag, index) in article.tags" :key="index">
                   <span
                     class="mr-2 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs text-stone-800 font-medium leading-4"
@@ -64,6 +64,7 @@
     </content-list>
   </section>
 </template>
+
 <script setup lang="ts">
   const router = useRouter();
 </script>

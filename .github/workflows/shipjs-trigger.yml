@@ -22,19 +22,16 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
 
-      - name: Setup node environment 📦
-        uses: actions/setup-node@v4
+      - name: Setup bun env 🐰
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: 20
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
-          check-latest: true
+          bun-version: 1.0.25+a8ff7be64
 
       - name: Install dependencies 🚀
-        run: npm ci --prefer-offline --no-audit
+        run: bun install
 
       - name: Trigger a release 🥳
-        run: npx shipjs trigger
+        run: bunx shipjs trigger
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
