@@ -107,12 +107,14 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    // https://content.nuxtjs.org/
+    // https://content.nuxtjs.org
     '@nuxt/content',
     // https://github.com/nuxt-modules/fontaine?tab=readme-ov-file#installation
     '@nuxtjs/fontaine',
-    // https://html-validator.nuxtjs.org/
+    // https://html-validator.nuxtjs.org
     '@nuxtjs/html-validator',
+    // https://github.com/nuxt/icon
+    '@nuxt/icon',
     // https://github.com/nuxt-modules/plausible#setup
     '@nuxtjs/plausible',
     // https://unocss.dev/integrations/nuxt
@@ -124,6 +126,7 @@ export default defineNuxtConfig({
     // https://vueuse.org/guide/#nuxt
     '@vueuse/nuxt',
   ],
+
   content: {
     highlight: {
       preload: ['js', 'ts', 'json', 'vue'],
@@ -133,6 +136,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   fontMetrics: {
     fonts: [
       {
@@ -147,6 +151,7 @@ export default defineNuxtConfig({
       },
     ],
   },
+
   htmlValidator: {
     failOnError: false,
     options: {
@@ -157,6 +162,17 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  icon: {
+    provider: 'server',
+    customCollections: [
+      {
+        prefix: 'base',
+        dir: './app/assets/icons',
+      },
+    ],
+  },
+
   plausible: {
     hashMode: false,
     trackLocalhost: false,
@@ -165,12 +181,14 @@ export default defineNuxtConfig({
     autoPageviews: true,
     autoOutboundTracking: true,
   },
+
   unocss: {
     attributify: true,
     icons: true,
     components: false,
     shortcuts: [],
   },
+
   eslint: {
     config: {
       stylistic: {
@@ -180,5 +198,9 @@ export default defineNuxtConfig({
         quotes: 'single',
       },
     },
+  },
+
+  devtools: {
+    enabled: true,
   },
 });

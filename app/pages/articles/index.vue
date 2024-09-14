@@ -32,7 +32,7 @@
             :key="article.position"
             class="w-full cursor-pointer overflow-hidden rounded bg-stone-900 text-stone-200 shadow md:max-w-lg dark:bg-stone-700 hover:shadow-md"
             :title="article.title"
-            @click="router.push({ path: article._path })"
+            @click="$router.push({ path: article._path })"
           >
             <div class="p-4">
               <div class="mb-2 text-xl font-bold">
@@ -66,7 +66,3 @@
     </content-list>
   </section>
 </template>
-
-<script setup lang="ts">
-  const router = useRouter();
-</script>
