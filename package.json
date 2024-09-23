@@ -61,7 +61,7 @@
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
     "drizzle-kit": "^0.24.2",
-    "eslint": "^9.10.0",
+    "eslint": "^9.11.1",
     "husky": "^9.1.6",
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.10",
