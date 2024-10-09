@@ -50,7 +50,7 @@
     "@commitlint/config-conventional": "^19.5.0",
     "@julr/unocss-preset-forms": "^0.1.0",
     "@nuxt/content": "^2.13.2",
-    "@nuxt/devtools": "^1.4.2",
+    "@nuxt/devtools": "^1.5.2",
     "@nuxt/eslint": "^0.5.7",
     "@nuxtjs/plausible": "^1.0.2",
     "@types/bun": "^1.1.11",
