@@ -53,7 +53,7 @@
     "@nuxt/devtools": "^1.4.2",
     "@nuxt/eslint": "^0.5.7",
     "@nuxtjs/plausible": "^1.0.2",
-    "@types/bun": "^1.1.9",
+    "@types/bun": "^1.1.11",
     "@types/node": "^22.5.5",
     "@unocss/nuxt": "^0.62.4",
     "@unocss/preset-wind": "^0.62.4",
