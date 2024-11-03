@@ -60,7 +60,7 @@
     "@unocss/reset": "^0.63.6",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
-    "drizzle-kit": "^0.26.2",
+    "drizzle-kit": "^0.27.1",
     "eslint": "^9.13.0",
     "husky": "^9.1.6",
     "is-ci": "^3.0.1",
