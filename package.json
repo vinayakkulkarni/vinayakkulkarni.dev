@@ -34,7 +34,7 @@
     "@nuxtjs/fontaine": "^0.4.3",
     "@nuxtjs/html-validator": "^1.8.2",
     "arctic": "^1.9.2",
-    "drizzle-orm": "^0.33.0",
+    "drizzle-orm": "^0.36.0",
     "drizzle-zod": "^0.5.1",
     "lucia": "3.2.2",
     "nuxt": "^3.13.2",
