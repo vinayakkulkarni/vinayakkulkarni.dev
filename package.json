@@ -31,7 +31,7 @@
     "@lucia-auth/adapter-drizzle": "^1.1.0",
     "@nuxt/icon": "^1.5.1",
     "@nuxtjs/device": "^3.2.4",
-    "@nuxtjs/fontaine": "^0.4.3",
+    "@nuxtjs/fontaine": "^0.4.4",
     "@nuxtjs/html-validator": "^1.8.2",
     "arctic": "^1.9.2",
     "drizzle-orm": "^0.38.1",
