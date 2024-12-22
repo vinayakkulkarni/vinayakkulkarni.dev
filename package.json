@@ -58,7 +58,7 @@
     "@unocss/nuxt": "^0.65.2",
     "@unocss/preset-wind": "^0.65.2",
     "@unocss/reset": "^0.65.2",
-    "@vueuse/core": "^11.1.0",
+    "@vueuse/core": "^12.1.0",
     "@vueuse/nuxt": "^11.1.0",
     "drizzle-kit": "^0.30.1",
     "eslint": "^9.13.0",
