@@ -62,7 +62,7 @@
     "@vueuse/nuxt": "^11.1.0",
     "drizzle-kit": "^0.30.1",
     "eslint": "^9.13.0",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.10",
     "nitropack": "^2.9.7",
