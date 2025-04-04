@@ -1,5 +1,26 @@
 export default defineNuxtConfig({
-  compatibilityDate: '2024-09-05',
+  modules: [
+    // https://content.nuxtjs.org
+    '@nuxt/content',
+    // https://github.com/nuxt-modules/fontaine?tab=readme-ov-file#installation
+    '@nuxtjs/fontaine',
+    // https://github.com/nuxt/icon
+    '@nuxt/icon',
+    // https://github.com/nuxt-modules/plausible#setup
+    '@nuxtjs/plausible',
+    // https://unocss.dev/integrations/nuxt
+    '@unocss/nuxt',
+    // https://nuxt.com/blog/eslint-module
+    '@nuxt/eslint',
+    // https://nuxt.com/modules/time#nuxt-time
+    'nuxt-time',
+    // https://vueuse.org/guide/#nuxt
+    '@vueuse/nuxt',
+  ],
+
+  devtools: {
+    enabled: true,
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
@@ -13,7 +34,6 @@ export default defineNuxtConfig({
           content: 'width=device-width, initial-scale=1',
         },
         {
-          hid: 'description',
           name: 'description',
           content: 'Portfolio site for Vinayak Kulkarni ',
         },
@@ -22,7 +42,6 @@ export default defineNuxtConfig({
           content: 'telephone=no',
         },
         {
-          hid: 'keywords',
           name: 'keywords',
           content: 'Vinayak Kulkarni - Portfolio',
         },
@@ -76,12 +95,25 @@ export default defineNuxtConfig({
     '~/assets/css/logo.css',
     '~/assets/css/global.css',
   ],
-  experimental: {
-    renderJsonPayloads: true,
-    asyncContext: true,
-  },
-  future: {
-    compatibilityVersion: 4,
+
+  content: {
+    experimental: { nativeSqlite: true },
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'github-dark',
+            dark: 'github-dark',
+            light: 'github-light',
+          },
+          preload: ['js', 'ts', 'json', 'vue'],
+        },
+      },
+    },
+    // database: {
+    //   type: 'postgres',
+    //   url: process.env.NUXT_DATABASE_URL as string,
+    // }
   },
   runtimeConfig: {
     database: {
@@ -101,38 +133,27 @@ export default defineNuxtConfig({
   routeRules: {
     '/articles/**': { isr: true },
   },
+  future: {
+    compatibilityVersion: 4,
+  },
+  experimental: {
+    renderJsonPayloads: true,
+    asyncContext: true,
+  },
+  compatibilityDate: '2024-09-05',
   nitro: {
     rollupConfig: {
       external: ['cloudflare:sockets'],
     },
   },
-  modules: [
-    // https://content.nuxtjs.org
-    '@nuxt/content',
-    // https://github.com/nuxt-modules/fontaine?tab=readme-ov-file#installation
-    '@nuxtjs/fontaine',
-    // https://html-validator.nuxtjs.org
-    '@nuxtjs/html-validator',
-    // https://github.com/nuxt/icon
-    '@nuxt/icon',
-    // https://github.com/nuxt-modules/plausible#setup
-    '@nuxtjs/plausible',
-    // https://unocss.dev/integrations/nuxt
-    '@unocss/nuxt',
-    // https://nuxt.com/blog/eslint-module
-    '@nuxt/eslint',
-    // https://nuxt.com/modules/time#nuxt-time
-    'nuxt-time',
-    // https://vueuse.org/guide/#nuxt
-    '@vueuse/nuxt',
-  ],
 
-  content: {
-    highlight: {
-      preload: ['js', 'ts', 'json', 'vue'],
-      theme: {
-        default: 'light-plus',
-        dark: 'github-dark',
+  eslint: {
+    config: {
+      stylistic: {
+        semi: true,
+        jsx: false,
+        arrowParens: true,
+        quotes: 'single',
       },
     },
   },
@@ -152,17 +173,6 @@ export default defineNuxtConfig({
     ],
   },
 
-  htmlValidator: {
-    failOnError: false,
-    options: {
-      rules: {
-        'wcag/h37': 'warn',
-        'element-permitted-content': 'warn',
-        'element-required-attributes': 'warn',
-      },
-    },
-  },
-
   icon: {
     provider: 'server',
     customCollections: [
@@ -175,7 +185,6 @@ export default defineNuxtConfig({
 
   plausible: {
     hashMode: false,
-    trackLocalhost: false,
     domain: 'vinayakkulkarni.dev',
     apiHost: 'https://analytics.geoql.in',
     autoPageviews: true,
@@ -187,20 +196,5 @@ export default defineNuxtConfig({
     icons: true,
     components: false,
     shortcuts: [],
-  },
-
-  eslint: {
-    config: {
-      stylistic: {
-        semi: true,
-        jsx: false,
-        arrowParens: true,
-        quotes: 'single',
-      },
-    },
-  },
-
-  devtools: {
-    enabled: true,
   },
 });

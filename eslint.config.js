@@ -35,7 +35,7 @@ export default createConfigForNuxt({
     },
   })
   .override('nuxt/vue/rules', {
-    files: ['app/**/*.vue'],
+    files: ['app/pages/**/*.vue'],
     rules: {
       'vue/multi-word-component-names': 'off',
     },

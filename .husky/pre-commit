@@ -1,1 +1,1 @@
-bun run lint-staged --no-stash
+pnpm dlx lint-staged --no-stash

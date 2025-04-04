@@ -1,28 +1,27 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   const route = useRoute();
-
-  const { data } = await useLazyAsyncData('page-data', () =>
-    queryContent(route.path).findOne(),
-  );
+  const { data: post } = await useAsyncData(() => {
+    return queryCollection('articles').path(route.path).first();
+  });
 </script>
 
 <template>
-  <section class="h-full w-full flex items-center justify-center">
-    <article v-if="data" class="prose-lg h-full w-full flex flex-col prose">
-      <h1>{{ data.title }}</h1>
+  <section class="size-full relative flex items-center justify-center">
+    <article v-if="post" class="prose-lg size-full flex flex-col prose">
+      <h1>{{ post.title }}</h1>
       <p class="subtitle mr-4">
         <nuxt-time
-          :datetime="data.date"
+          :datetime="post.date"
           day="numeric"
           month="long"
           year="numeric"
         />
       </p>
       <div
-        v-if="data.tags && data.tags.length"
+        v-if="post.tags && post.tags.length"
         class="mt-2 flex items-center justify-start py-1 text-sm"
       >
-        <div v-for="(tag, index) in data.tags" :key="index">
+        <div v-for="(tag, index) in post.tags" :key="index">
           <span
             class="mr-2 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs text-stone-800 font-medium leading-4"
           >
@@ -30,8 +29,8 @@
           </span>
         </div>
       </div>
-      <h3>{{ data.description }}</h3>
-      <content-doc />
+      <h3>{{ post.description }}</h3>
+      <content-renderer :value="post" />
     </article>
   </section>
 </template>

@@ -1,3 +1,3 @@
 export default {
-  '*.{js,css,vue}': 'bun run lint',
+  '*.{js,css,vue}': 'pnpm lint:eslint',
 };
