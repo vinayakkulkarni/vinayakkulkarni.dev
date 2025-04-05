@@ -6,13 +6,12 @@
 <template>
   <section class="flex items-center justify-between invisible min-w-full p-4">
     <!-- Logo -->
-    <nuxt-link to="/" class="visible cursor-pointer pl-4">
+    <nuxt-link to="/" class="visible pl-4 cursor-pointer">
       <icon
         :name="isDark ? 'base:v-logo-dark' : 'base:v-logo-dark'"
         size="32"
         mode="svg"
-        class="v-logo dark:text-white text-black"
-        @click="toggleDark()"
+        class="text-black v-logo dark:text-white"
       />
     </nuxt-link>
     <div class="flex items-center justify-center visible gap-4 px-4 py-2">
