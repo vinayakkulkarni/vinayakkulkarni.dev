@@ -25,7 +25,7 @@ importers:
         version: 0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5)
       drizzle-zod:
         specifier: ^0.7.1
-        version: 0.7.1(drizzle-orm@0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5))(zod@3.24.2)
+        version: 0.7.1(drizzle-orm@0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5))(zod@3.24.3)
       nuxt:
         specifier: ^3.16.2
         version: 3.16.2(@parcel/watcher@2.5.1)(@types/node@22.14.0)(better-sqlite3@11.9.1)(db0@0.3.1(better-sqlite3@11.9.1)(drizzle-orm@0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5)))(drizzle-orm@0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5))(eslint@9.24.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(meow@13.2.0)(optionator@0.9.4)(rollup@4.39.0)(sass@1.86.3)(stylelint@16.18.0(typescript@5.8.3))(terser@5.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.0)(jiti@2.4.2)(sass@1.86.3)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
@@ -39,8 +39,8 @@ importers:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.8.3)
       zod:
-        specifier: ^3.24.2
-        version: 3.24.2
+        specifier: ^3.24.3
+        version: 3.24.3
     devDependencies:
       '@awmottaz/prettier-plugin-void-html':
         specifier: ^1.8.0
@@ -1663,6 +1663,9 @@ packages:
 
   '@types/node@22.14.0':
     resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
+
+  '@types/node@22.14.1':
+    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -6596,8 +6599,8 @@ packages:
       typescript: ^4.9.4 || ^5.0.2
       zod: ^3
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@3.24.3:
+    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -7500,9 +7503,9 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       unist-util-visit: 5.0.0
       ws: 8.18.1
-      zod: 3.24.2
-      zod-to-json-schema: 3.24.5(zod@3.24.2)
-      zod-to-ts: 1.2.0(typescript@5.8.3)(zod@3.24.2)
+      zod: 3.24.3
+      zod-to-json-schema: 3.24.5(zod@3.24.3)
+      zod-to-ts: 1.2.0(typescript@5.8.3)(zod@3.24.3)
     transitivePeerDependencies:
       - bufferutil
       - drizzle-orm
@@ -8328,6 +8331,10 @@ snapshots:
   '@types/ms@2.1.0': {}
 
   '@types/node@22.14.0':
+    dependencies:
+      undici-types: 6.21.0
+
+  '@types/node@22.14.1':
     dependencies:
       undici-types: 6.21.0
 
@@ -9795,10 +9802,10 @@ snapshots:
       pg: 8.14.1
       postgres: 3.4.5
 
-  drizzle-zod@0.7.1(drizzle-orm@0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5))(zod@3.24.2):
+  drizzle-zod@0.7.1(drizzle-orm@0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5))(zod@3.24.3):
     dependencies:
       drizzle-orm: 0.41.0(@types/pg@8.11.11)(better-sqlite3@11.9.1)(bun-types@1.2.9)(gel@2.0.2)(pg@8.14.1)(postgres@3.4.5)
-      zod: 3.24.2
+      zod: 3.24.3
 
   duplexer@0.1.2: {}
 
@@ -10974,7 +10981,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.14.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -14158,15 +14165,15 @@ snapshots:
       compress-commons: 6.0.2
       readable-stream: 4.7.0
 
-  zod-to-json-schema@3.24.5(zod@3.24.2):
+  zod-to-json-schema@3.24.5(zod@3.24.3):
     dependencies:
-      zod: 3.24.2
+      zod: 3.24.3
 
-  zod-to-ts@1.2.0(typescript@5.8.3)(zod@3.24.2):
+  zod-to-ts@1.2.0(typescript@5.8.3)(zod@3.24.3):
     dependencies:
       typescript: 5.8.3
-      zod: 3.24.2
+      zod: 3.24.3
 
-  zod@3.24.2: {}
+  zod@3.24.3: {}
 
   zwitch@2.0.4: {}
