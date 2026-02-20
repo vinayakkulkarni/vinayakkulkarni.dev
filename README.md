@@ -1,24 +1,39 @@
-# vinayak.dev
+# vinayakkulkarni.dev
 
 [![The Pipeline](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/actions/workflows/pipeline.yml/badge.svg)](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/actions/workflows/pipeline.yml)
 
-> Vinayak Portfolio using amazing Nuxt.js
+> Personal portfolio — GIS Engineer & Co-Founder
 
-## Build Setup
+## Tech Stack
+
+- **Framework**: [Nuxt 4](https://nuxt.com) (Vue 3, TypeScript)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com), [shadcn-vue](https://www.shadcn-vue.com)
+- **Maps**: [MapLibre GL JS](https://maplibre.org), [@geoql/maplibre-gl-starfield](https://github.com/geoql/maplibre-gl-starfield)
+- **Content**: [@nuxt/content](https://content.nuxt.com) (Markdown articles, Cloudflare D1)
+- **Animations**: [motion-v](https://motion.dev), [nxui](https://nxui.geoql.in)
+- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com)
+- **Linting**: [oxlint](https://oxc.rs) + [oxfmt](https://oxc.rs)
+
+## Development
 
 ```bash
 # install dependencies
-$ npm install
+pnpm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# start dev server
+pnpm dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+# lint & format
+pnpm lint
+pnpm fmt
 
-# generate static project
-$ npm run generate
+# build for production
+pnpm build
+
+# preview production build
+pnpm preview
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## License
+
+MIT © [Vinayak Kulkarni](https://vinayakkulkarni.dev)
