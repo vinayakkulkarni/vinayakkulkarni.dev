@@ -1,56 +1,62 @@
-name: 'Continuous Deployment'
+name: "Continuous Deployment"
 
 on:
   workflow_call:
     inputs:
       environment:
-        description: 'The environment for the workflow'
-        default: 'production'
+        description: "The environment for the workflow"
+        default: "production"
         required: true
         type: string
     secrets:
-      NUXT_DATABASE_URL:
-        description: 'The database URL'
+      CLOUDFLARE_API_TOKEN:
+        description: "Cloudflare API token for Pages deployment"
         required: true
-      NUXT_OAUTH_GITHUB_CLIENT_ID:
-        description: 'The GitHub OAuth client ID'
-        required: true
-      NUXT_OAUTH_GITHUB_CLIENT_SECRET:
-        description: 'The GitHub OAuth client secret'
+      CLOUDFLARE_ACCOUNT_ID:
+        description: "Cloudflare account ID"
         required: true
 
 jobs:
-  build:
+  deploy:
     permissions:
-      id-token: write
       contents: read
-    name: 'SSG'
+      deployments: write
+    name: "Deploy to Cloudflare Pages"
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
     steps:
-      - name: Checkout 🛎
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup bun env 🐰
-        uses: oven-sh/setup-bun@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          bun-version: latest
+          node-version: 24
 
-      - name: Install dependencies 🚀
-        run: bun install
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Build the application 🛠
-        run: bun run build
-        env:
-          NITRO_PRESET: deno_deploy
-          NUXT_DATABASE_URL: ${{ secrets.NUXT_DATABASE_URL }}
-          NUXT_OAUTH_GITHUB_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_ID }}
-          NUXT_OAUTH_GITHUB_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_SECRET }}
+      - name: Get pnpm store directory
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: Deploy to Deno Deploy ✨
-        uses: denoland/deployctl@v1
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v4
         with:
-          project: vinayakkulkarni
-          entrypoint: server/index.ts
-          root: .output
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy .output/public --project-name=vinayakkulkarni-dev

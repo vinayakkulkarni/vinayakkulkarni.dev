@@ -106,3 +106,5 @@ nuxt.d.ts
 .dev.vars
 .drizzle.env
 tunnel.yml
+*.local
+tmp/*.*

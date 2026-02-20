@@ -1,41 +1,81 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: "Vinayak Kulkarni — GIS Engineer & Co-Founder",
+  description:
+    "Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js. Open source cartographer.",
+  ogTitle: "Vinayak Kulkarni — GIS Engineer & Co-Founder",
+  ogDescription:
+    "Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js.",
+  ogUrl: "https://vinayakkulkarni.dev",
+  twitterCard: "summary_large_image",
+});
+
+const teasers = [
+  {
+    title: "About",
+    description:
+      "Co-Founder building the geospatial infrastructure of the future.",
+    href: "/about",
+    icon: "lucide:user",
+  },
+  {
+    title: "Projects",
+    description:
+      "From tile servers to map SDKs — tools powering millions of map views.",
+    href: "/projects",
+    icon: "lucide:folder-open",
+  },
+  {
+    title: "Open Source",
+    description: "50+ packages, 2000+ stars, and counting.",
+    href: "/open-source",
+    icon: "lucide:heart",
+  },
+  {
+    title: "Articles",
+    description: "Writing about Vue, GIS, and the modern web.",
+    href: "/articles",
+    icon: "lucide:pen-line",
+  },
+];
+</script>
+
 <template>
-  <section
-    class="m-12 rounded from-stone-700 to-stone-600 bg-gradient-to-t p-6 text-stone-100 shadow lg:m-0 lg:p-12 hover:shadow-md"
-  >
-    <h1 class="text-5xl">
-      Hello 👋
-    </h1>
-    <div class="max-w-lg break-words text-base">
-      <article class="py-2 text-stone-100 prose">
-        <div>
-          My name is Vinayak Kulkarni. I’m a JavaScript enthusiast. Currently
-          Frontend Engineering Lead @
-          <a href="https://dscvr.one" target="_blank" rel="noopener nofollow">
-            DSCVR
-          </a>
-          &amp; open source contributor
+  <main>
+    <HeroSection />
+
+    <!-- Section Teasers -->
+    <section class="relative py-24">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="grid gap-6 sm:grid-cols-2">
+          <NuxtLink
+            v-for="teaser in teasers"
+            :key="teaser.href"
+            :to="teaser.href"
+            class="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:border-primary/30 hover:bg-accent/50"
+          >
+            <div class="mb-4 flex items-center gap-3">
+              <div
+                class="flex size-10 items-center justify-center rounded-xl bg-primary/10"
+              >
+                <Icon :name="teaser.icon" class="size-5 text-primary" />
+              </div>
+              <h2 class="text-xl font-semibold text-foreground">
+                {{ teaser.title }}
+              </h2>
+            </div>
+            <p class="mb-4 text-sm text-muted-foreground">
+              {{ teaser.description }}
+            </p>
+            <span
+              class="inline-flex items-center gap-1 text-sm text-primary transition-transform group-hover:translate-x-1"
+            >
+              Explore
+              <Icon name="lucide:arrow-right" class="size-4" />
+            </span>
+          </NuxtLink>
         </div>
-        <div>
-          <span class="keyframes-pulse animate-fade-in-up">💚</span> Vue &amp;
-          Nuxt.js
-        </div>
-        <div>
-          I love watching Arsenal FC, gymming, trekking &amp; writing code
-        </div>
-      </article>
-    </div>
-    <div
-      class="mt-8 w-full flex items-center justify-around text-xl tracking-wide"
-    >
-      <nuxt-link :to="{ name: 'articles' }" class="hover:line-through">
-        📖 Blog
-      </nuxt-link>
-      <nuxt-link :to="{ name: 'projects' }" class="hover:line-through">
-        🛠 Projects
-      </nuxt-link>
-      <nuxt-link :to="{ name: 'uses' }" class="hover:line-through">
-        👨🏻‍💻 Uses
-      </nuxt-link>
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 </template>

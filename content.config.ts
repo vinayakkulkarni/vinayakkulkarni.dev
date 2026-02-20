@@ -11,7 +11,6 @@ export default defineContentConfig({
         date: z.string(),
         tags: z.array(z.string()).optional(),
         status: z.enum(['draft', 'published']).default('draft'),
-        position: z.number().default(0),
       }),
     }),
   },
