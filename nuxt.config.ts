@@ -78,6 +78,10 @@ export default defineNuxtConfig({
   },
 
   content: {
+    database: {
+      type: 'd1',
+      bindingName: 'DB',
+    },
     build: {
       markdown: {
         highlight: {
@@ -86,6 +90,18 @@ export default defineNuxtConfig({
             dark: 'github-dark',
             light: 'github-light',
           },
+          langs: [
+            'bash',
+            'json',
+            'js',
+            'ts',
+            'html',
+            'css',
+            'vue',
+            'shell',
+            'md',
+            'yaml',
+          ],
         },
       },
     },
@@ -100,6 +116,26 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/', '/about', '/projects', '/open-source', '/articles'],
+    },
+    cloudflare: {
+      nodeCompat: true,
+    },
+    experimental: {
+      wasm: true,
+    },
+    wasm: {
+      esmImport: true,
+      lazy: true,
+    },
+    rollupConfig: {
+      output: {
+        generatedCode: {
+          constBindings: true,
+        },
+      },
+    },
+    replace: {
+      'process.stdout': 'undefined',
     },
   },
 });

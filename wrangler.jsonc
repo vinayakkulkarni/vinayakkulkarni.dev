@@ -3,4 +3,11 @@
   "name": "vinayakkulkarni-dev",
   "pages_build_output_dir": ".output/public",
   "compatibility_date": "2025-07-18",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "vinayakkulkarni-dev-db",
+      "database_id": "4e5afc7d-61a8-44d5-9a9b-a3fbd6cb7277",
+    },
+  ],
 }

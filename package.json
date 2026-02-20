@@ -27,7 +27,8 @@
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "fmt:check": "oxfmt --check",
+    "prepare": "husky"
   },
   "dependencies": {
     "@geoql/maplibre-gl-starfield": "latest",
@@ -37,6 +38,8 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
     "@iconify-json/carbon": "latest",
     "@iconify-json/line-md": "latest",
     "@iconify-json/lucide": "latest",
@@ -52,19 +55,24 @@
     "@vueuse/core": "^14.2.1",
     "@vueuse/nuxt": "latest",
     "clsx": "latest",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "motion-v": "2.0.0-beta.4",
     "oxfmt": "latest",
     "oxlint": "latest",
     "tailwind-merge": "latest",
     "tailwindcss": "^4.2.0",
-    "typescript": "latest"
+    "typescript": "latest",
+    "wrangler": "^4.67.0"
   },
-  "packageManager": "pnpm@10.7.1+sha512.2d92c86b7928dc8284f53494fb4201f983da65f0fb4f0d40baafa5cf628fa31dae3e5968f12466f17df7e97310e30f343a648baea1b9b350685dafafffdf5808",
+  "packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a",
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@parcel/watcher",
       "better-sqlite3",
       "esbuild",
-      "sharp"
+      "sharp",
+      "workerd"
     ]
   }
 }
