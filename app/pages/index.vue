@@ -1,43 +1,43 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: "Vinayak Kulkarni — GIS Engineer & Co-Founder",
-  description:
-    "Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js. Open source cartographer.",
-  ogTitle: "Vinayak Kulkarni — GIS Engineer & Co-Founder",
-  ogDescription:
-    "Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js.",
-  ogUrl: "https://vinayakkulkarni.dev",
-  twitterCard: "summary_large_image",
-});
+  useSeoMeta({
+    title: 'Vinayak Kulkarni — GIS Engineer & Co-Founder',
+    description:
+      'Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js. Open source cartographer.',
+    ogTitle: 'Vinayak Kulkarni — GIS Engineer & Co-Founder',
+    ogDescription:
+      'Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js.',
+    ogUrl: 'https://vinayakkulkarni.dev',
+    twitterCard: 'summary_large_image',
+  });
 
-const teasers = [
-  {
-    title: "About",
-    description:
-      "Co-Founder building the geospatial infrastructure of the future.",
-    href: "/about",
-    icon: "lucide:user",
-  },
-  {
-    title: "Projects",
-    description:
-      "From tile servers to map SDKs — tools powering millions of map views.",
-    href: "/projects",
-    icon: "lucide:folder-open",
-  },
-  {
-    title: "Open Source",
-    description: "50+ packages, 2000+ stars, and counting.",
-    href: "/open-source",
-    icon: "lucide:heart",
-  },
-  {
-    title: "Articles",
-    description: "Writing about Vue, GIS, and the modern web.",
-    href: "/articles",
-    icon: "lucide:pen-line",
-  },
-];
+  const teasers = [
+    {
+      title: 'About',
+      description:
+        'Co-Founder building the geospatial infrastructure of the future.',
+      href: '/about',
+      icon: 'lucide:user',
+    },
+    {
+      title: 'Projects',
+      description:
+        'From tile servers to map SDKs — tools powering millions of map views.',
+      href: '/projects',
+      icon: 'lucide:folder-open',
+    },
+    {
+      title: 'Open Source',
+      description: '50+ packages, 2000+ stars, and counting.',
+      href: '/open-source',
+      icon: 'lucide:heart',
+    },
+    {
+      title: 'Articles',
+      description: 'Writing about Vue, GIS, and the modern web.',
+      href: '/articles',
+      icon: 'lucide:pen-line',
+    },
+  ];
 </script>
 
 <template>

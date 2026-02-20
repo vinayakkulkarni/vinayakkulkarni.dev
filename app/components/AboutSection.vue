@@ -1,18 +1,18 @@
 <script setup lang="ts">
-const techStack = [
-  { label: "Vue 3", icon: "simple-icons:vuedotjs" },
-  { label: "Nuxt", icon: "simple-icons:nuxtdotjs" },
-  { label: "TypeScript", icon: "simple-icons:typescript" },
-  { label: "MapLibre GL", icon: "simple-icons:maplibre" },
-  { label: "Planetiler", icon: "lucide:globe-2" },
-  { label: "PMTiles", icon: "lucide:database" },
-  { label: "Rust", icon: "simple-icons:rust" },
-  { label: "Cloudflare", icon: "simple-icons:cloudflare" },
-  { label: "Tailwind CSS", icon: "simple-icons:tailwindcss" },
-  { label: "DuckDB", icon: "simple-icons:duckdb" },
-  { label: "PostGIS", icon: "simple-icons:postgresql" },
-  { label: "Three.js", icon: "simple-icons:threedotjs" },
-];
+  const techStack = [
+    { label: 'Vue 3', icon: 'simple-icons:vuedotjs' },
+    { label: 'Nuxt', icon: 'simple-icons:nuxtdotjs' },
+    { label: 'TypeScript', icon: 'simple-icons:typescript' },
+    { label: 'MapLibre GL', icon: 'simple-icons:maplibre' },
+    { label: 'Planetiler', icon: 'lucide:globe-2' },
+    { label: 'PMTiles', icon: 'lucide:database' },
+    { label: 'Rust', icon: 'simple-icons:rust' },
+    { label: 'Cloudflare', icon: 'simple-icons:cloudflare' },
+    { label: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
+    { label: 'DuckDB', icon: 'simple-icons:duckdb' },
+    { label: 'PostGIS', icon: 'simple-icons:postgresql' },
+    { label: 'Three.js', icon: 'simple-icons:threedotjs' },
+  ];
 </script>
 
 <template>

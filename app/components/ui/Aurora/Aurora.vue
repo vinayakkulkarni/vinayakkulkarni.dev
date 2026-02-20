@@ -1,38 +1,38 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { useResizeObserver } from '@vueuse/core';
-import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
-import { cn } from '~/lib/utils';
+  import { ref, onMounted, onBeforeUnmount } from 'vue';
+  import { useResizeObserver } from '@vueuse/core';
+  import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
+  import { cn } from '~/lib/utils';
 
-const props = withDefaults(
-  defineProps<{
-    colorStops?: string[];
-    amplitude?: number;
-    blend?: number;
-    speed?: number;
-    class?: string;
-  }>(),
-  {
-    colorStops: () => ['#5227FF', '#7cff67', '#5227FF'],
-    amplitude: 1.0,
-    blend: 0.5,
-    speed: 1.0,
-    class: '',
-  },
-);
+  const props = withDefaults(
+    defineProps<{
+      colorStops?: string[];
+      amplitude?: number;
+      blend?: number;
+      speed?: number;
+      class?: string;
+    }>(),
+    {
+      colorStops: () => ['#5227FF', '#7cff67', '#5227FF'],
+      amplitude: 1.0,
+      blend: 0.5,
+      speed: 1.0,
+      class: '',
+    },
+  );
 
-const containerRef = ref<HTMLDivElement | null>(null);
-let animationId = 0;
-let renderer: InstanceType<typeof Renderer> | null = null;
-let glContext: WebGLRenderingContext | null = null;
+  const containerRef = ref<HTMLDivElement | null>(null);
+  let animationId = 0;
+  let renderer: InstanceType<typeof Renderer> | null = null;
+  let glContext: WebGLRenderingContext | null = null;
 
-const VERT = `#version 300 es
+  const VERT = `#version 300 es
 in vec2 position;
 void main() {
 gl_Position = vec4(position, 0.0, 1.0);
 }`;
 
-const FRAG = `#version 300 es
+  const FRAG = `#version 300 es
 precision highp float;
 uniform float uTime;
 uniform float uAmplitude;
@@ -99,78 +99,78 @@ vec3 auroraColor = intensity * rampColor;
 fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha);
 }`;
 
-useResizeObserver(containerRef, (entries) => {
-  if (!renderer || !containerRef.value) return;
-  const { width, height } = entries[0].contentRect;
-  renderer.setSize(width, height);
-});
-
-onMounted(() => {
-  const container = containerRef.value;
-  if (!container) return;
-
-  renderer = new Renderer({
-    alpha: true,
-    premultipliedAlpha: true,
-    antialias: true,
-  });
-  const gl = renderer.gl;
-  glContext = gl;
-  gl.clearColor(0, 0, 0, 0);
-  gl.enable(gl.BLEND);
-  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-  (gl.canvas as HTMLCanvasElement).style.backgroundColor = 'transparent';
-
-  renderer.setSize(container.offsetWidth, container.offsetHeight);
-
-  const geometry = new Triangle(gl);
-  if ((geometry.attributes as Record<string, unknown>).uv) {
-    delete (geometry.attributes as Record<string, unknown>).uv;
-  }
-
-  const colorStopsArray = props.colorStops.map((hex) => {
-    const c = new Color(hex);
-    return [c.r, c.g, c.b];
+  useResizeObserver(containerRef, (entries) => {
+    if (!renderer || !containerRef.value) return;
+    const { width, height } = entries[0].contentRect;
+    renderer.setSize(width, height);
   });
 
-  const program = new Program(gl, {
-    vertex: VERT,
-    fragment: FRAG,
-    uniforms: {
-      uTime: { value: 0 },
-      uAmplitude: { value: props.amplitude },
-      uColorStops: { value: colorStopsArray },
-      uResolution: { value: [container.offsetWidth, container.offsetHeight] },
-      uBlend: { value: props.blend },
-    },
-  });
+  onMounted(() => {
+    const container = containerRef.value;
+    if (!container) return;
 
-  const mesh = new Mesh(gl, { geometry, program });
-  container.appendChild(gl.canvas as HTMLCanvasElement);
+    renderer = new Renderer({
+      alpha: true,
+      premultipliedAlpha: true,
+      antialias: true,
+    });
+    const gl = renderer.gl;
+    glContext = gl;
+    gl.clearColor(0, 0, 0, 0);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    (gl.canvas as HTMLCanvasElement).style.backgroundColor = 'transparent';
 
-  function update(t: number) {
-    animationId = requestAnimationFrame(update);
-    program.uniforms.uTime.value = t * 0.01 * props.speed * 0.1;
-    program.uniforms.uAmplitude.value = props.amplitude;
-    program.uniforms.uBlend.value = props.blend;
-    const stops = props.colorStops;
-    program.uniforms.uColorStops.value = stops.map((hex) => {
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
+
+    const geometry = new Triangle(gl);
+    if ((geometry.attributes as Record<string, unknown>).uv) {
+      delete (geometry.attributes as Record<string, unknown>).uv;
+    }
+
+    const colorStopsArray = props.colorStops.map((hex) => {
       const c = new Color(hex);
       return [c.r, c.g, c.b];
     });
-    if (renderer) renderer.render({ scene: mesh });
-  }
-  animationId = requestAnimationFrame(update);
-});
 
-onBeforeUnmount(() => {
-  cancelAnimationFrame(animationId);
-  if (glContext) {
-    const canvas = glContext.canvas as HTMLCanvasElement;
-    if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
-    glContext.getExtension('WEBGL_lose_context')?.loseContext();
-  }
-});
+    const program = new Program(gl, {
+      vertex: VERT,
+      fragment: FRAG,
+      uniforms: {
+        uTime: { value: 0 },
+        uAmplitude: { value: props.amplitude },
+        uColorStops: { value: colorStopsArray },
+        uResolution: { value: [container.offsetWidth, container.offsetHeight] },
+        uBlend: { value: props.blend },
+      },
+    });
+
+    const mesh = new Mesh(gl, { geometry, program });
+    container.appendChild(gl.canvas as HTMLCanvasElement);
+
+    function update(t: number) {
+      animationId = requestAnimationFrame(update);
+      program.uniforms.uTime.value = t * 0.01 * props.speed * 0.1;
+      program.uniforms.uAmplitude.value = props.amplitude;
+      program.uniforms.uBlend.value = props.blend;
+      const stops = props.colorStops;
+      program.uniforms.uColorStops.value = stops.map((hex) => {
+        const c = new Color(hex);
+        return [c.r, c.g, c.b];
+      });
+      if (renderer) renderer.render({ scene: mesh });
+    }
+    animationId = requestAnimationFrame(update);
+  });
+
+  onBeforeUnmount(() => {
+    cancelAnimationFrame(animationId);
+    if (glContext) {
+      const canvas = glContext.canvas as HTMLCanvasElement;
+      if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+      glContext.getExtension('WEBGL_lose_context')?.loseContext();
+    }
+  });
 </script>
 
 <template>

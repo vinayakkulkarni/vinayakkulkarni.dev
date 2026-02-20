@@ -1,98 +1,98 @@
 <script setup lang="ts">
-import maplibregl from "maplibre-gl";
-import { MaplibreStarfieldLayer } from "@geoql/maplibre-gl-starfield";
+  import maplibregl from 'maplibre-gl';
+  import { MaplibreStarfieldLayer } from '@geoql/maplibre-gl-starfield';
 
-const mapContainer = useTemplateRef<HTMLDivElement>("mapContainer");
-const map = shallowRef<maplibregl.Map | null>(null);
-const { sunAzimuth, sunAltitude, skyMode } = useSunPosition();
+  const mapContainer = useTemplateRef<HTMLDivElement>('mapContainer');
+  const map = shallowRef<maplibregl.Map | null>(null);
+  const { sunAzimuth, sunAltitude, skyMode } = useSunPosition();
 
-const taglines = [
-  "GIS Engineer",
-  "Co-Founder",
-  "Open Source Cartographer",
-  "Vue.js Expert",
-  "Geospatial Architect",
-];
+  const taglines = [
+    'GIS Engineer',
+    'Co-Founder',
+    'Open Source Cartographer',
+    'Vue.js Expert',
+    'Geospatial Architect',
+  ];
 
-function initMap(el: HTMLDivElement) {
-  if (map.value) return;
+  function initMap(el: HTMLDivElement) {
+    if (map.value) return;
 
-  const m = new maplibregl.Map({
-    container: el,
-    style: {
-      version: 8,
-      projection: { type: "globe" },
-      sources: {
-        satellite: {
-          type: "raster",
-          tiles: [
-            "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg",
+    const m = new maplibregl.Map({
+      container: el,
+      style: {
+        version: 8,
+        projection: { type: 'globe' },
+        sources: {
+          satellite: {
+            type: 'raster',
+            tiles: [
+              'https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg',
+            ],
+            tileSize: 256,
+          },
+        },
+        layers: [{ id: 'satellite', type: 'raster', source: 'satellite' }],
+        sky: {
+          'atmosphere-blend': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            0,
+            0.15,
+            5,
+            0.3,
+            7,
+            0,
           ],
-          tileSize: 256,
         },
       },
-      layers: [{ id: "satellite", type: "raster", source: "satellite" }],
-      sky: {
-        "atmosphere-blend": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          0,
-          1,
-          5,
-          1,
-          7,
-          0,
-        ],
-      },
-    },
-    center: [73.85, 18.52],
-    zoom: 1.8,
-    attributionControl: false,
-  });
-
-  m.addControl(new maplibregl.NavigationControl(), "top-right");
-
-  m.on("style.load", () => {
-    const starfield = new MaplibreStarfieldLayer({
-      galaxyTextureUrl: "/milkyway.jpg",
-      starCount: 5000,
-      starSize: 2.5,
-      sunEnabled: true,
-      sunAzimuth: sunAzimuth.value,
-      sunAltitude: sunAltitude.value,
+      center: [73.85, 18.52],
+      zoom: 1.8,
+      attributionControl: false,
     });
-    m.addLayer(
-      starfield as unknown as maplibregl.LayerSpecification,
-      "satellite",
-    );
+
+    m.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+    m.on('style.load', () => {
+      const starfield = new MaplibreStarfieldLayer({
+        galaxyTextureUrl: '/milkyway.jpg',
+        starCount: 5000,
+        starSize: 2.5,
+        sunEnabled: true,
+        sunAzimuth: sunAzimuth.value,
+        sunAltitude: sunAltitude.value,
+      });
+      m.addLayer(
+        starfield as unknown as maplibregl.LayerSpecification,
+        'satellite',
+      );
+    });
+
+    map.value = m;
+  }
+
+  watch(mapContainer, (el) => {
+    if (el) initMap(el);
   });
 
-  map.value = m;
-}
+  onMounted(() => {
+    if (mapContainer.value) initMap(mapContainer.value);
+  });
 
-watch(mapContainer, (el) => {
-  if (el) initMap(el);
-});
+  watch([sunAzimuth, sunAltitude], ([az, alt]) => {
+    const m = map.value;
+    if (!m) return;
+    const layer = m.getLayer('maplibre-starfield');
+    if (layer && 'implementation' in layer) {
+      const impl = layer.implementation as MaplibreStarfieldLayer;
+      impl.setSunPosition?.(az, alt);
+    }
+  });
 
-onMounted(() => {
-  if (mapContainer.value) initMap(mapContainer.value);
-});
-
-watch([sunAzimuth, sunAltitude], ([az, alt]) => {
-  const m = map.value;
-  if (!m) return;
-  const layer = m.getLayer("maplibre-starfield");
-  if (layer && "implementation" in layer) {
-    const impl = layer.implementation as MaplibreStarfieldLayer;
-    impl.setSunPosition?.(az, alt);
-  }
-});
-
-onBeforeUnmount(() => {
-  map.value?.remove();
-  map.value = null;
-});
+  onBeforeUnmount(() => {
+    map.value?.remove();
+    map.value = null;
+  });
 </script>
 
 <template>

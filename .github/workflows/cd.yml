@@ -1,19 +1,19 @@
-name: "Continuous Deployment"
+name: 'Continuous Deployment'
 
 on:
   workflow_call:
     inputs:
       environment:
-        description: "The environment for the workflow"
-        default: "production"
+        description: 'The environment for the workflow'
+        default: 'production'
         required: true
         type: string
     secrets:
       CLOUDFLARE_API_TOKEN:
-        description: "Cloudflare API token for Pages deployment"
+        description: 'Cloudflare API token for Pages deployment'
         required: true
       CLOUDFLARE_ACCOUNT_ID:
-        description: "Cloudflare account ID"
+        description: 'Cloudflare account ID'
         required: true
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: "Deploy to Cloudflare Pages"
+    name: 'Deploy to Cloudflare Pages'
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}

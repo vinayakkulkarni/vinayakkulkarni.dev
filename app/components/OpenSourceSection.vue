@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const stats = [
-  { label: "GitHub Stars", value: 1200, icon: "lucide:star" },
-  { label: "Open Source Packages", value: 45, icon: "lucide:package" },
-  { label: "npm Downloads", value: 737000, icon: "lucide:download" },
-  {
-    label: "Contributions",
-    value: 8378,
-    icon: "lucide:git-commit-horizontal",
-  },
-];
+  const stats = [
+    { label: 'GitHub Stars', value: 1200, icon: 'lucide:star' },
+    { label: 'Open Source Packages', value: 45, icon: 'lucide:package' },
+    { label: 'npm Downloads', value: 737000, icon: 'lucide:download' },
+    {
+      label: 'Contributions',
+      value: 8378,
+      icon: 'lucide:git-commit-horizontal',
+    },
+  ];
 </script>
 
 <template>

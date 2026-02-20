@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { data: articles } = await useAsyncData("articles", () =>
-  queryCollection("articles").order("date", "DESC").limit(6).all(),
-);
+  const { data: articles } = await useAsyncData('articles', () =>
+    queryCollection('articles').order('date', 'DESC').limit(6).all(),
+  );
 </script>
 
 <template>

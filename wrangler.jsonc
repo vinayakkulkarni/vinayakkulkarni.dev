@@ -1,0 +1,6 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vinayakkulkarni-dev",
+  "pages_build_output_dir": ".output/public",
+  "compatibility_date": "2025-07-18",
+}

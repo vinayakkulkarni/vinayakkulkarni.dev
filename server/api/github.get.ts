@@ -1,16 +1,16 @@
-import type { GitHubRepo, GitHubResponse } from "~~/app/types/github";
+import type { GitHubRepo, GitHubResponse } from '~~/app/types/github';
 
-const GITHUB_USERNAME = "vinayakkulkarni";
-const GITHUB_API = "https://api.github.com";
-const GITHUB_GRAPHQL = "https://api.github.com/graphql";
+const GITHUB_USERNAME = 'vinayakkulkarni';
+const GITHUB_API = 'https://api.github.com';
+const GITHUB_GRAPHQL = 'https://api.github.com/graphql';
 
-const FALLBACK_PINNED_NAMES = ["tileserver-rs", "vue-nuxt-best-practices"];
+const FALLBACK_PINNED_NAMES = ['tileserver-rs', 'vue-nuxt-best-practices'];
 
 const FALLBACK_GEOQL_REPOS = [
-  "geoql/v-maplibre",
-  "geoql/maplibre-gl-interpolate-heatmap",
-  "geoql/maplibre-gl-compare",
-  "geoql/maplibre-gl-wind",
+  'geoql/v-maplibre',
+  'geoql/maplibre-gl-interpolate-heatmap',
+  'geoql/maplibre-gl-compare',
+  'geoql/maplibre-gl-wind',
 ];
 
 interface GraphQLPinnedNode {
@@ -39,22 +39,22 @@ interface RestRepo {
 }
 
 const LANGUAGE_COLORS: Record<string, string> = {
-  TypeScript: "#3178c6",
-  JavaScript: "#f1e05a",
-  Vue: "#41b883",
-  Rust: "#dea584",
-  Python: "#3572A5",
-  Java: "#b07219",
-  Ruby: "#701516",
-  Go: "#00ADD8",
-  CSS: "#563d7c",
-  HTML: "#e34c26",
+  TypeScript: '#3178c6',
+  JavaScript: '#f1e05a',
+  Vue: '#41b883',
+  Rust: '#dea584',
+  Python: '#3572A5',
+  Java: '#b07219',
+  Ruby: '#701516',
+  Go: '#00ADD8',
+  CSS: '#563d7c',
+  HTML: '#e34c26',
 };
 
 async function fetchPinnedRepos(token?: string): Promise<GitHubRepo[]> {
   const headers: Record<string, string> = {
-    "Content-Type": "application/json",
-    "User-Agent": "vinayakkulkarni.dev",
+    'Content-Type': 'application/json',
+    'User-Agent': 'vinayakkulkarni.dev',
   };
   if (token) headers.Authorization = `Bearer ${token}`;
 
@@ -84,7 +84,7 @@ async function fetchPinnedRepos(token?: string): Promise<GitHubRepo[]> {
       user: { pinnedItems: { nodes: GraphQLPinnedNode[] } };
     };
   }>(GITHUB_GRAPHQL, {
-    method: "POST",
+    method: 'POST',
     headers,
     body: { query },
   });
@@ -107,8 +107,8 @@ async function fetchPinnedRepos(token?: string): Promise<GitHubRepo[]> {
 
 async function fetchAllRepos(token?: string): Promise<GitHubRepo[]> {
   const headers: Record<string, string> = {
-    Accept: "application/vnd.github+json",
-    "User-Agent": "vinayakkulkarni.dev",
+    Accept: 'application/vnd.github+json',
+    'User-Agent': 'vinayakkulkarni.dev',
   };
   if (token) headers.Authorization = `Bearer ${token}`;
 
@@ -117,9 +117,9 @@ async function fetchAllRepos(token?: string): Promise<GitHubRepo[]> {
     {
       headers,
       query: {
-        sort: "updated",
+        sort: 'updated',
         per_page: 50,
-        type: "owner",
+        type: 'owner',
       },
     },
   );
@@ -161,8 +161,8 @@ export default defineCachedEventHandler(
         .map((r) => ({ ...r, pinned: true }));
 
       const geoqlHeaders = {
-        Accept: "application/vnd.github+json",
-        "User-Agent": "vinayakkulkarni.dev",
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'vinayakkulkarni.dev',
       };
 
       const geoqlResults = await Promise.allSettled(
@@ -174,7 +174,7 @@ export default defineCachedEventHandler(
       );
 
       for (const result of geoqlResults) {
-        if (result.status !== "fulfilled") continue;
+        if (result.status !== 'fulfilled') continue;
         const repo = result.value;
         pinned.push({
           name: repo.name,
@@ -205,6 +205,6 @@ export default defineCachedEventHandler(
   },
   {
     maxAge: 3600,
-    name: "github-repos",
+    name: 'github-repos',
   },
 );

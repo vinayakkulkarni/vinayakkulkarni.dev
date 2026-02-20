@@ -1,33 +1,33 @@
 <script setup lang="ts">
-const quotes = [
-  "Never stop learning, cause life never stops teaching.",
-  "The best maps are the ones people can build on.",
-  "Open source is not just code, it's community.",
-  "Ship fast, iterate faster.",
-];
+  const quotes = [
+    'Never stop learning, cause life never stops teaching.',
+    'The best maps are the ones people can build on.',
+    "Open source is not just code, it's community.",
+    'Ship fast, iterate faster.',
+  ];
 
-const socials = [
-  {
-    label: "GitHub",
-    icon: "lucide:github",
-    url: "https://github.com/vinayakkulkarni",
-  },
-  {
-    label: "Twitter",
-    icon: "lucide:twitter",
-    url: "https://twitter.com/_vinayakkulkarni",
-  },
-  {
-    label: "LinkedIn",
-    icon: "lucide:linkedin",
-    url: "https://www.linkedin.com/in/kulkarnivinayak/",
-  },
-  {
-    label: "Website",
-    icon: "lucide:globe",
-    url: "https://vinayakkulkarni.dev",
-  },
-];
+  const socials = [
+    {
+      label: 'GitHub',
+      icon: 'lucide:github',
+      url: 'https://github.com/vinayakkulkarni',
+    },
+    {
+      label: 'Twitter',
+      icon: 'lucide:twitter',
+      url: 'https://twitter.com/_vinayakkulkarni',
+    },
+    {
+      label: 'LinkedIn',
+      icon: 'lucide:linkedin',
+      url: 'https://www.linkedin.com/in/kulkarnivinayak/',
+    },
+    {
+      label: 'Website',
+      icon: 'lucide:globe',
+      url: 'https://vinayakkulkarni.dev',
+    },
+  ];
 </script>
 
 <template>

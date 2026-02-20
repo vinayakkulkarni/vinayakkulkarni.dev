@@ -1,42 +1,42 @@
 <script setup lang="ts">
-import type { GitHubResponse } from "~/types/github";
+  import type { GitHubResponse } from '~/types/github';
 
-const colorMode = useColorMode();
+  const colorMode = useColorMode();
 
-const { data, status } = await useFetch<GitHubResponse>("/api/github", {
-  key: "github-repos",
-});
+  const { data, status } = await useFetch<GitHubResponse>('/api/github', {
+    key: 'github-repos',
+  });
 
-const FEATURED_REPOS = ["tileserver-rs", "v-maplibre"];
+  const FEATURED_REPOS = ['tileserver-rs', 'v-maplibre'];
 
-const pinnedRepos = computed(() => {
-  if (!data.value?.pinned) return [];
-  const pinned = [...data.value.pinned];
-  const featured = pinned.filter((r) => FEATURED_REPOS.includes(r.name));
-  const rest = pinned.filter((r) => !FEATURED_REPOS.includes(r.name));
-  return [...featured, ...rest];
-});
+  const pinnedRepos = computed(() => {
+    if (!data.value?.pinned) return [];
+    const pinned = [...data.value.pinned];
+    const featured = pinned.filter((r) => FEATURED_REPOS.includes(r.name));
+    const rest = pinned.filter((r) => !FEATURED_REPOS.includes(r.name));
+    return [...featured, ...rest];
+  });
 
-const repos = computed(() => data.value?.repos ?? []);
+  const repos = computed(() => data.value?.repos ?? []);
 
-function formatDate(dateStr: string): string {
-  const date = new Date(dateStr);
-  const now = new Date();
-  const diffMs = now.getTime() - date.getTime();
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  function formatDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-  if (diffDays === 0) return "today";
-  if (diffDays === 1) return "yesterday";
-  if (diffDays < 7) return `${diffDays}d ago`;
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
-  if (diffDays < 365) return `${Math.floor(diffDays / 30)}mo ago`;
-  return `${Math.floor(diffDays / 365)}y ago`;
-}
+    if (diffDays === 0) return 'today';
+    if (diffDays === 1) return 'yesterday';
+    if (diffDays < 7) return `${diffDays}d ago`;
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
+    if (diffDays < 365) return `${Math.floor(diffDays / 30)}mo ago`;
+    return `${Math.floor(diffDays / 365)}y ago`;
+  }
 
-function formatStars(count: number): string {
-  if (count >= 1000) return `${(count / 1000).toFixed(1)}k`;
-  return count.toString();
-}
+  function formatStars(count: number): string {
+    if (count >= 1000) return `${(count / 1000).toFixed(1)}k`;
+    return count.toString();
+  }
 </script>
 
 <template>

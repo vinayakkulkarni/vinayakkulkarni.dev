@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { motion } from "motion-v";
+  import { motion } from 'motion-v';
 
-const route = useRoute();
-const colorMode = useColorMode();
+  const route = useRoute();
+  const colorMode = useColorMode();
 
-function isActiveLink(href: string): boolean {
-  if (href === "/") return route.path === "/";
-  return route.path.startsWith(href);
-}
+  function isActiveLink(href: string): boolean {
+    if (href === '/') return route.path === '/';
+    return route.path.startsWith(href);
+  }
 
-const navLinks = [
-  { label: "About", href: "/about", icon: "lucide:user" },
-  { label: "Projects", href: "/projects", icon: "lucide:folder-kanban" },
-  { label: "Open Source", href: "/open-source", icon: "lucide:heart" },
-  { label: "Articles", href: "/articles", icon: "lucide:file-text" },
-];
+  const navLinks = [
+    { label: 'About', href: '/about', icon: 'lucide:user' },
+    { label: 'Projects', href: '/projects', icon: 'lucide:folder-kanban' },
+    { label: 'Open Source', href: '/open-source', icon: 'lucide:heart' },
+    { label: 'Articles', href: '/articles', icon: 'lucide:file-text' },
+  ];
 
-const springTransition = { type: "spring", stiffness: 400, damping: 15 };
+  const springTransition = { type: 'spring', stiffness: 400, damping: 15 };
 
-function toggleColorMode() {
-  colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
-}
+  function toggleColorMode() {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+  }
 </script>
 
 <template>

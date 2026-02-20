@@ -54,9 +54,9 @@ importers:
       '@nuxtjs/plausible':
         specifier: latest
         version: 3.0.1(magicast@0.5.2)
-      '@tailwindcss/vite':
-        specifier: latest
-        version: 4.2.0(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.86.3)(terser@5.43.1)(yaml@2.8.2))
+      '@nuxtjs/tailwindcss':
+        specifier: 7.0.0-beta.1
+        version: 7.0.0-beta.1(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.86.3)(terser@5.43.1)(yaml@2.8.2))
       '@types/node':
         specifier: latest
         version: 25.3.0
@@ -82,13 +82,17 @@ importers:
         specifier: latest
         version: 3.5.0
       tailwindcss:
-        specifier: latest
+        specifier: ^4.2.0
         version: 4.2.0
       typescript:
         specifier: latest
         version: 5.9.3
 
 packages:
+
+  '@alloc/quick-lru@5.2.0':
+    resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
+    engines: {node: '>=10'}
 
   '@antfu/install-pkg@1.1.0':
     resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
@@ -837,6 +841,9 @@ packages:
 
   '@nuxtjs/plausible@3.0.1':
     resolution: {integrity: sha512-T+F5EDI9t9ribHyhCaAt4mfetualCGuHu71mghjyOQAufBeGtxNdfjT/g4QcJnpG+pqfm4Lpe+hWBZhtoF4bkw==}
+
+  '@nuxtjs/tailwindcss@7.0.0-beta.1':
+    resolution: {integrity: sha512-oaILm+parts21JuGwntiIwyjJAqfumfeZk9/SXsBhss5Pqfn1gSA6Msxe7cd+QLXZtpXfj4mgv5DhFUcMmSJiA==}
 
   '@oxc-minify/binding-android-arm-eabi@0.112.0':
     resolution: {integrity: sha512-m7TGBR2hjsBJIN9UJ909KBoKsuogo6CuLsHKvUIBXdjI0JVHP8g4ZHeB+BJpGn5LJdeSGDfz9MWiuXrZDRzunw==}
@@ -1872,6 +1879,9 @@ packages:
   '@tailwindcss/oxide@4.2.0':
     resolution: {integrity: sha512-AZqQzADaj742oqn2xjl5JbIOzZB/DGCYF/7bpvhA8KvjUj9HJkag6bBuwZvH1ps6dfgxNHyuJVlzSr2VpMgdTQ==}
     engines: {node: '>= 20'}
+
+  '@tailwindcss/postcss@4.2.0':
+    resolution: {integrity: sha512-u6YBacGpOm/ixPfKqfgrJEjMfrYmPD7gEFRoygS/hnQaRtV0VCBdpkx5Ouw9pnaLRwwlgGCuJw8xLpaR0hOrQg==}
 
   '@tailwindcss/vite@4.2.0':
     resolution: {integrity: sha512-da9mFCaHpoOgtQiWtDGIikTrSpUFBtIZCG3jy/u2BGV+l/X1/pbxzmIUxNt6JWm19N3WtGi4KlJdSH/Si83WOA==}
@@ -5553,6 +5563,8 @@ packages:
 
 snapshots:
 
+  '@alloc/quick-lru@5.2.0': {}
+
   '@antfu/install-pkg@1.1.0':
     dependencies:
       package-manager-detector: 1.6.0
@@ -6653,6 +6665,18 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
+  '@nuxtjs/tailwindcss@7.0.0-beta.1(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.86.3)(terser@5.43.1)(yaml@2.8.2))':
+    dependencies:
+      '@nuxt/kit': 4.3.1(magicast@0.5.2)
+      '@tailwindcss/postcss': 4.2.0
+      '@tailwindcss/vite': 4.2.0(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.86.3)(terser@5.43.1)(yaml@2.8.2))
+      exsolve: 1.0.8
+      pathe: 2.0.3
+      tailwindcss: 4.2.0
+    transitivePeerDependencies:
+      - magicast
+      - vite
+
   '@oxc-minify/binding-android-arm-eabi@0.112.0':
     optional: true
 
@@ -7296,6 +7320,14 @@ snapshots:
       '@tailwindcss/oxide-wasm32-wasi': 4.2.0
       '@tailwindcss/oxide-win32-arm64-msvc': 4.2.0
       '@tailwindcss/oxide-win32-x64-msvc': 4.2.0
+
+  '@tailwindcss/postcss@4.2.0':
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      '@tailwindcss/node': 4.2.0
+      '@tailwindcss/oxide': 4.2.0
+      postcss: 8.5.6
+      tailwindcss: 4.2.0
 
   '@tailwindcss/vite@4.2.0(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.86.3)(terser@5.43.1)(yaml@2.8.2))':
     dependencies:
