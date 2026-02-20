@@ -259,7 +259,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     transition: opacity 0.26s ease-out;
   }
 
@@ -286,6 +285,7 @@
   }
 
   .gs-surface--svg {
+    overflow: hidden;
     background: oklch(0 0 0 / var(--glass-frost, 0));
     backdrop-filter: var(--filter-id) saturate(var(--glass-saturation, 1));
     -webkit-backdrop-filter: var(--filter-id)
@@ -299,13 +299,29 @@
   }
 
   .gs-surface--fallback {
-    background: color-mix(in oklch, var(--foreground), transparent 90%);
-    backdrop-filter: blur(12px) saturate(1.8) brightness(1.2);
-    -webkit-backdrop-filter: blur(12px) saturate(1.8) brightness(1.2);
-    border: 1px solid color-mix(in oklch, var(--foreground), transparent 80%);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(1.8) brightness(1.1);
+    -webkit-backdrop-filter: blur(16px) saturate(1.8) brightness(1.1);
+    -webkit-transform: translate3d(0, 0, 0);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow:
-      inset 0 1px 0 0 color-mix(in oklch, var(--foreground), transparent 80%),
-      inset 0 -1px 0 0 color-mix(in oklch, var(--foreground), transparent 90%);
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.06);
+  }
+
+  :where(.dark) .gs-surface--fallback {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :where(:not(.dark)) .gs-surface--fallback {
+    background: rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(16px) saturate(1.6) brightness(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.6) brightness(1.3);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.04);
   }
 
   .gs-surface:focus-visible {
