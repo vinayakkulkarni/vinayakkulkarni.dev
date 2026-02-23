@@ -4,7 +4,7 @@
 
   const mapContainer = useTemplateRef<HTMLDivElement>('mapContainer');
   const map = shallowRef<maplibregl.Map | null>(null);
-  const { sunAzimuth, sunAltitude, skyMode } = useSunPosition();
+  const { sunAzimuth, sunAltitude, localSunAltitude, skyMode } = useSunPosition();
 
   const taglines = [
     'GIS Engineer',
@@ -61,6 +61,7 @@
         sunEnabled: true,
         sunAzimuth: sunAzimuth.value,
         sunAltitude: sunAltitude.value,
+        fadeAltitude: localSunAltitude.value,
       });
       m.addLayer(
         starfield as unknown as maplibregl.LayerSpecification,
@@ -79,13 +80,13 @@
     if (mapContainer.value) initMap(mapContainer.value);
   });
 
-  watch([sunAzimuth, sunAltitude], ([az, alt]) => {
+  watch([sunAzimuth, sunAltitude, localSunAltitude], ([az, alt, fadeAlt]) => {
     const m = map.value;
     if (!m) return;
     const layer = m.getLayer('maplibre-starfield');
     if (layer && 'implementation' in layer) {
       const impl = layer.implementation as MaplibreStarfieldLayer;
-      impl.setSunPosition?.(az, alt);
+      impl.setSunPosition?.(az, alt, fadeAlt);
     }
   });
 
@@ -123,7 +124,8 @@
           <span class="mr-1 font-medium capitalize text-white">{{
             skyMode
           }}</span>
-          &middot; Az {{ sunAzimuth }}&deg; &middot; Alt {{ sunAltitude }}&deg;
+          &middot; Lng {{ sunAzimuth }}&deg; &middot; Decl
+          {{ sunAltitude }}&deg; &middot; Local {{ localSunAltitude }}&deg;
         </span>
       </div>
 
