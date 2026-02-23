@@ -15,7 +15,7 @@
     {
       label: 'Twitter',
       icon: 'lucide:twitter',
-      url: 'https://twitter.com/_vinayakkulkarni',
+      url: 'https://x.com/_vinayak_k',
     },
     {
       label: 'LinkedIn',
