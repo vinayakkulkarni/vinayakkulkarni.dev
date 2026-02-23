@@ -41,7 +41,7 @@
 </script>
 
 <template>
-  <main>
+  <main class="dark bg-background">
     <HeroSection />
 
     <!-- Section Teasers -->
