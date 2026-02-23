@@ -1,4 +1,140 @@
-# 0.1.0 (2022-07-04)
+# Changelog
+
+## 1.0.0 (2026-02-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to Nuxt 4
+* use postgres for storing data
+* use lucia auth
+* use deno-deploy instead of CF ✨
+
+### Features
+
+* add `dependabot[bot]` support 🤖 ([cebe8f6](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/cebe8f64b6ecd9b3a18c37d772b045052f2e5076))
+* add dependabot config ([a238058](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/a23805885f1f3280da682dd0fb9c83ffda1a7ed5))
+* add runtimeCaching in workbox 🕺 ([615b4cd](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/615b4cd95c4717f736ef5bc5979b71384ffc0d0e))
+* auth 🔐 ([eda6c86](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/eda6c86b95d7002bac72f56ef545dc4372a74aef))
+* complete portfolio redesign with Nuxt 4, shadcn-vue, MapLibre globe hero ([64eba4e](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/64eba4ee765f19448a95121616c7e739f00fb30d))
+* **db:** make db more dynamic ([af42b88](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/af42b88c13720ee4c5de2c7c929f08c17786002d))
+* use `cloudflare-pages` ([7a18468](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/7a1846879069433cbab5a2a322223beae2876bdc))
+* use geocentric sun position for globe starfield rendering ([c94e0c0](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/c94e0c0700296ca93d6cbe7270ce8ae693321458))
+
+
+### Bug Fixes
+
+* add permissions to workflow ([cfcf28c](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/cfcf28c4cb4a4b21be1fe2d0e0ebd28b3c315e77))
+* allow bun i ([1753498](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/1753498d41c32e07a11294577974707c7b2ef696))
+* **cd:** add nodejs_compat flag for Cloudflare Pages ([df2d745](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/df2d745a7b04dc3094fde5582d18dbccefbd7d98))
+* **cd:** deploy from dist instead of .output/public ([9b5f4ea](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/9b5f4eaad140878b45a9a41f4484727d800ed847))
+* cloudflare:sockets bug ([56f6430](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/56f643079a4b769a88a6481dd41b36db0c5b40ce))
+* dependabot changes ([4af03c2](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/4af03c2edbee1bb01757a2c7af04aa88ffc4de9b))
+* **deps:** Bump @nuxt/icon from 1.11.0 to 1.12.0 ([c912342](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/c9123424c47fa65ecfd4f2c2b8e6df9f633490fd))
+* **deps:** Bump @nuxtjs/html-validator from 1.5.2 to 1.6.0 ([825f586](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/825f586b8bec475578a7fe7adf4f06f01e6a79f5))
+* **deps:** Bump @nuxtjs/html-validator from 1.5.2 to 1.6.0 ([0beab89](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/0beab8967910b31de131ddb6aca1154a92b71fa8))
+* **deps:** Bump @nuxtjs/html-validator from 1.6.0 to 1.8.2 ([fa6b955](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/fa6b955fd91e71f8e8c7711d10b222c3e8d2acc7))
+* **deps:** Bump @unocss/postcss from 0.57.6 to 0.57.7 ([fffd970](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/fffd970d1b02cccc85deaca703b06b4e5974cd96))
+* **deps:** Bump @unocss/postcss from 0.57.7 to 0.58.0 ([58671f0](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/58671f0e61b5e681a88d9883aaf31fa499d458b8))
+* **deps:** Bump @unocss/postcss from 0.57.7 to 0.58.0 ([cbd1df3](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/cbd1df3c8758ceaab4cff43a3d066c178e6d9378))
+* **deps:** Bump @unocss/postcss from 0.58.0 to 0.58.1 ([2d01166](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/2d011665d40b15b9563ae58c7eeacf3e3ed3ac9a))
+* **deps:** Bump @unocss/postcss from 0.58.0 to 0.58.1 ([41a344a](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/41a344aa898846530cdd5db145d41ab5135f150b))
+* **deps:** Bump @unocss/postcss from 0.58.1 to 0.58.2 ([cc652f5](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/cc652f5dfcbfd1e869d96930dcfba4ddd2ddc96d))
+* **deps:** Bump @unocss/postcss from 0.58.1 to 0.58.2 ([62e963c](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/62e963c26295dc30a8c68973e83cc1af1faab893))
+* **deps:** Bump @unocss/postcss from 0.58.2 to 0.58.3 ([39f9434](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/39f9434f2eeb8e9cd3fd43069d9d86153886a02c))
+* **deps:** Bump @unocss/postcss from 0.58.2 to 0.58.3 ([eeaac27](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/eeaac277cc8fcf3b63f154c4bcc5c3773e216775))
+* **deps:** Bump @unocss/postcss from 0.58.5 to 0.60.4 ([8150145](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/81501458304d28ddbfd8a45748c393cf7bccda56))
+* **deps:** Bump @unocss/postcss from 0.60.4 to 0.61.0 ([722c9a7](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/722c9a79a01d0c81919ab3d279a0ed5528fbbe11))
+* **deps:** Bump amannn/action-semantic-pull-request ([cdcb771](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/cdcb771195ccd16f16741fc3fb703845c48b2d74))
+* **deps:** Bump amannn/action-semantic-pull-request ([fd9afee](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/fd9afee0d989a161b8a029118694ce8fc15f6161))
+* **deps:** Bump amannn/action-semantic-pull-request from 5.5.2 to 5.5.3 in the actions-minor group ([debbbcd](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/debbbcd2929cc52b6f1d6e6311b7415c64cc3abb))
+* **deps:** Bump arctic from 1.2.0 to 1.9.1 ([624468a](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/624468ab1747b88c99dd70d0cd41b327da618b5a))
+* **deps:** Bump dependabot/fetch-metadata in the actions-minor group ([175f18f](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/175f18f8539dae6662ff13fc43ae42b0e15ad0e9))
+* **deps:** Bump drizzle-orm from 0.33.0 to 0.38.1 ([7336381](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/73363813a39133f7e1acceaa0fd3d25e9bd455b1))
+* **deps:** Bump drizzle-orm from 0.41.0 to 0.44.3 ([5af4714](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/5af471449bd593f8f1b98a04e2bcd3ad2aa4b864))
+* **deps:** Bump github/codeql-action from 2 to 3 ([2ed657b](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/2ed657b351f0fe8ae13f601ea3fd4951c2f16414))
+* **deps:** Bump lucia from 3.0.1 to 3.2.0 ([1b7e660](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/1b7e6602c77b2d24f7f2c593bef0af217c242fc8))
+* **deps:** Bump lucia from 3.2.0 to 3.2.1 in the npm-production group ([bb45524](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/bb4552442e75d99517799528ef771f54fd862bad))
+* **deps:** Bump lucia from 3.2.1 to 3.2.2 in the npm-production group ([816c76c](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/816c76ce3e027858561f715ea33ec1fc1cc61085))
+* **deps:** bump micromatch from 4.0.7 to 4.0.8 in the npm_and_yarn group ([20890f8](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/20890f83256cfbbe8bb09fee78c7d19ade68fb81))
+* **deps:** bump nuxt from 3.11.2 to 3.12.4 in the npm_and_yarn group ([dd81d0d](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/dd81d0d92ffd4df801afa2b478ec4bbe03577c83))
+* **deps:** Bump nuxt from 3.8.1 to 3.8.2 ([c326d0e](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/c326d0e10f64f7b1c578fd0da80709d61b1c423c))
+* **deps:** Bump nuxt from 3.8.1 to 3.8.2 ([0ec6085](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/0ec60853a082eb2307e2cf860ead180d6b473003))
+* **deps:** Bump nuxt from 3.8.2 to 3.9.0 ([4de4401](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/4de440133f5dd6a3a5d00367cd46700d5691da7f))
+* **deps:** Bump nuxt from 3.8.2 to 3.9.0 ([1c82687](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/1c82687b1b9279deb235d55dcdea1a2b4a850b23))
+* **deps:** Bump nuxt-auth-utils from 0.0.10 to 0.0.13 ([a5f2876](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/a5f287609c7abd702a610ea49101670cfa64b7e8))
+* **deps:** Bump nuxt-auth-utils from 0.0.10 to 0.0.13 ([6dbedb1](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/6dbedb184c70d8e36d12aec7535fb4e571db886e))
+* **deps:** Bump nuxt-auth-utils from 0.0.6 to 0.0.7 ([dda633d](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/dda633d7b9ebcb8d56358bbda0979440ae9bb0a9))
+* **deps:** Bump nuxt-auth-utils from 0.0.7 to 0.0.8 ([594be91](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/594be91f230fa1aebb1574edc330f9d5c41438b3))
+* **deps:** Bump nuxt-auth-utils from 0.0.8 to 0.0.9 ([7dd1c5f](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/7dd1c5f63ae18e98a04dd9cfa7e5c6e908961e85))
+* **deps:** Bump nuxt-auth-utils from 0.0.8 to 0.0.9 ([9a8951c](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/9a8951c8fe19ca649f286e434cc6b0c63376cb5c))
+* **deps:** Bump nuxt-auth-utils from 0.0.9 to 0.0.10 ([bce1680](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/bce168058155bf1fcd0a905cdf3babb8c9e49c7e))
+* **deps:** Bump nuxt-auth-utils from 0.0.9 to 0.0.10 ([a574fea](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/a574feabb1eb4fb59c17e477db1c8513c57d5ad2))
+* **deps:** Bump nuxt-time from 0.1.3 to 1.0.2 ([8533fc0](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/8533fc08373f21bd31a134df1c8b8d41192733e2))
+* **deps:** Bump oslo from 0.26.1 to 0.26.2 ([39d5faf](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/39d5faf9fabbda9318fb3f6ac9ab39d862471884))
+* **deps:** Bump oslo from 0.26.1 to 0.26.2 ([5fc6a39](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/5fc6a3998c742aebced78c11a1411f96e46dc602))
+* **deps:** Bump oslo from 0.26.2 to 0.27.0 ([e78ee77](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/e78ee772ee9cafdf0345292c67baeed71155f89f))
+* **deps:** Bump oslo from 0.26.2 to 0.27.0 ([0489d8e](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/0489d8e957d6760086c63e632e4224f80dff58c8))
+* **deps:** Bump oslo from 1.1.2 to 1.2.0 ([c200e91](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/c200e91e128e88ba317662c163142266aaba09c7))
+* **deps:** Bump postcss-nesting from 12.0.1 to 12.0.2 ([6508076](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/65080767f648eb9201ad2e972eaf6f62d9a3ea1a))
+* **deps:** Bump postcss-nesting from 12.0.1 to 12.0.2 ([8729e22](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/8729e229e4dd6e7a6ccd0b0231ed1d1908cbc1cf))
+* **deps:** Bump postcss-nesting from 12.0.3 to 12.1.5 ([db58fca](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/db58fca36ee5a8004fd4f3de3e661871d6f20c1f))
+* **deps:** bump postcss-nesting from 12.1.5 to 13.0.0 ([533c7c8](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/533c7c8c4e75d2dfcf72519c842b8ddec00af30b))
+* **deps:** Bump the npm_and_yarn group across 1 directory with 3 updates ([429bf94](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/429bf94283966256899fda865b6e079ebbc44797))
+* **deps:** bump the npm-production group across 1 directory with 2 updates ([aac80d3](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/aac80d3ec1c34d3fddb4ef616f54c92bccdc6da9))
+* **deps:** Bump the npm-production group across 1 directory with 2 updates ([b1f2f75](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/b1f2f751d3eb17b35d4cef77ab079749ea95c355))
+* **deps:** Bump the npm-production group across 1 directory with 2 updates ([f355277](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/f35527717ba24726b3a018df3bc1c9a44d8815ce))
+* **deps:** Bump the npm-production group with 5 updates ([d8a2061](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/d8a206140f28df5ec5249899ed51b03a8c3de671))
+* **deps:** Bump the npm-production group with 5 updates ([fb0fe6e](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/fb0fe6efc922d6a091aad2a035a734dde1cc771a))
+* **deps:** Bump v-spotlight from 2.0.1 to 2.1.0 ([f483735](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/f48373544357d2cb421ae2239ccc3f1ba7b54d8a))
+* **deps:** Bump vite from 4.5.0 to 4.5.1 ([e029871](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/e029871e9b6f64d72631c2add078c004d05bc3d1))
+* **deps:** Bump vite from 4.5.0 to 4.5.1 ([da20323](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/da20323bc561196c35d47bcedd2dea00b35847b5))
+* **deps:** Bump vite from 6.2.5 to 6.2.6 in the npm_and_yarn group ([207215b](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/207215b7eec03587c2c6d1182d53290a8583ae62))
+* **deps:** Bump vue from 3.3.10 to 3.3.11 ([75b4521](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/75b45216125de7901f264c5bb3f0f93c32abf355))
+* **deps:** Bump vue from 3.3.10 to 3.3.11 ([6227bf8](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/6227bf8f0cbf796344ef3059fa1dc7961aba82e4))
+* **deps:** Bump vue from 3.3.11 to 3.3.12 ([02aa232](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/02aa232298b136ae792be1fd33c315b9987f1f53))
+* **deps:** Bump vue from 3.3.11 to 3.3.12 ([ad64c3e](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/ad64c3e1a6a8552da7e81ef5f48c6fc3101b2e7f))
+* **deps:** Bump vue from 3.3.12 to 3.3.13 ([2fef5e2](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/2fef5e212e06769889325b3df24476b8fe8a1ae9))
+* **deps:** Bump vue from 3.3.12 to 3.3.13 ([a3c9206](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/a3c92061875dee5dec67c8b61a1abdedd489c694))
+* **deps:** Bump vue from 3.3.13 to 3.4.3 ([0dd3dba](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/0dd3dbaea2b3fa425c5c1fcb1680434a18351017))
+* **deps:** Bump vue from 3.3.13 to 3.4.3 ([e855619](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/e855619203ef4299a9cf3cce71d54a2c1c3df835))
+* **deps:** Bump vue from 3.3.8 to 3.3.9 ([bdec516](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/bdec5165807e1a1c72eeb425edefa8f60b9c42a4))
+* **deps:** Bump vue from 3.3.9 to 3.3.10 ([622c321](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/622c321a09c7e39f106cc8850af99628a213d4ac))
+* **deps:** Bump vue from 3.3.9 to 3.3.10 ([e942d54](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/e942d54df310fe1b8b6ab8cbf86d1a3ddf150e04))
+* **deps:** Bump vue from 3.4.3 to 3.4.4 ([50f7006](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/50f700612d73ee0f7848139568fcd3279e08decb))
+* **deps:** Bump vue from 3.4.3 to 3.4.4 ([924e9f9](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/924e9f90aa1e4a702d3c8a4c9e8a9b0f98fece86))
+* **deps:** Bump vue from 3.4.4 to 3.4.5 ([18d97df](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/18d97df51e8786632e8c33034c7adbae75922da2))
+* **deps:** Bump vue from 3.4.4 to 3.4.5 ([faed456](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/faed4563b47b7da67707dd81edfa77ac6db61ff6))
+* **deps:** bump vue in the npm-production group across 1 directory ([694b468](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/694b468dcc668d71c3a4a5617391041f3673e066))
+* **deps:** update @nuxtjs/device requirement from ^3.2.2 to ^3.2.4 ([c4abbdd](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/c4abbdd9295c3d75207868e2694702def53ea02f))
+* **deps:** Update vue requirement from ^3.5.6 to ^3.5.12 ([ddbe828](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/ddbe828c216982b7eb5a243f41db3b3e67729c79))
+* do not fail on error for validating html ([85feaba](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/85feaba6efc9ef23d0e1fbf5fa22c2e1f1b68a5e))
+* don't toggle dark on logo click ([766e5a8](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/766e5a8832a9b79b538f4830ff3a8287af70504b))
+* lockfile maintenance ([b9c9a1d](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/b9c9a1d7cd09c02c357db22e061f8f9ec4bdbce2))
+* name of the project on denoland 🕺 ([7a9cbdf](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/7a9cbdf368bc315a4a7862c578455685393d086b))
+* network cache articles ([4a833c5](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/4a833c561d012646295e364d145c5a47abe0fd2f))
+* polyfills for webcrypto ([42953de](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/42953de1e84934eb4ae7963b8d467ac2d68a8a49))
+* remove `inlineDynamicImports` 🚀 ([94ea195](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/94ea19515b5293283614db25fd5470959c9da03f))
+* rename css to stylelint ([995f642](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/995f6424c3357a7175accfe838c03e7b8fa6e9cb))
+* table names in db ([da6bf73](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/da6bf7344e17624dd90cb3d9e74d430768ef6169))
+* **ui:** improve GlassSurface fallback for iOS Safari ([928e012](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/928e0120067f16d7bddaa80af8006533e5b60555))
+* update dev, debug & devTools ([7200038](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/7200038a81fc87e2bc479d264cd83a950f39b375))
+* use 100dvh ([23b1ad2](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/23b1ad24b29fac84a036cb3b02c477b7f022b2e2))
+
+
+### Reverts
+
+* use pwa module ([1785787](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/1785787556f2622fd87eaae42ae8380e5de1cce6))
+
+
+### Code Refactoring
+
+* migrate to Nuxt 4 ([2030316](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/2030316207c6d3f3b3ec6202ba9f4d6c6e4e062c))
+* use deno-deploy instead of CF ✨ ([9873996](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/9873996e46fc54c571e6d1110005d97732487461))
+* use lucia auth ([c1a90a8](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/c1a90a8aa01cf77c0af4222e63dfd6b41facc5ea))
+* use postgres for storing data ([6f2120b](https://github.com/vinayakkulkarni/vinayakkulkarni.dev/commit/6f2120bc765627f902ac7ec9dd47748649256ef7))
+
+## 0.1.0 (2022-07-04)
 
 ### Bug Fixes
 
