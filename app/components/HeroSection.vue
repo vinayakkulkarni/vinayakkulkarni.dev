@@ -4,7 +4,8 @@
 
   const mapContainer = useTemplateRef<HTMLDivElement>('mapContainer');
   const map = shallowRef<maplibregl.Map | null>(null);
-  const { sunAzimuth, sunAltitude, localSunAltitude, skyMode } = useSunPosition();
+  const { sunAzimuth, sunAltitude, localSunAltitude, skyMode } =
+    useSunPosition();
 
   const taglines = [
     'GIS Engineer',
