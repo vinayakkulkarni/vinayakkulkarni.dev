@@ -41,7 +41,7 @@ importers:
         version: 1.2.14
       '@iconify-json/lucide':
         specifier: latest
-        version: 1.2.93
+        version: 1.2.94
       '@iconify-json/simple-icons':
         specifier: ^1.2.71
         version: 1.2.71
@@ -62,7 +62,7 @@ importers:
         version: 4.0.0(magicast@0.5.2)
       '@nuxtjs/plausible':
         specifier: latest
-        version: 3.0.1(magicast@0.5.2)
+        version: 3.0.2(magicast@0.5.2)
       '@nuxtjs/tailwindcss':
         specifier: 7.0.0-beta.1
         version: 7.0.0-beta.1(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))
@@ -566,8 +566,8 @@ packages:
   '@iconify-json/line-md@1.2.14':
     resolution: {integrity: sha512-ZlgQyMcptcni3wEua+ij9hXEuYmlHKlf38/fZT4Qhds07naE9NeEmE0tqWMHAtkir+r9VRTTz3jXzwXWkLZiCg==}
 
-  '@iconify-json/lucide@1.2.93':
-    resolution: {integrity: sha512-xMbNHP3uS0c/jkgmj6k/9DcuqW7Ey88R0bM2hV5rOJ8wDARql6kM0UC/WCHOyfjh+7OIJnRuDqUvvStx2NHbNw==}
+  '@iconify-json/lucide@1.2.94':
+    resolution: {integrity: sha512-P54R7gqZs3t1GZQmzW2WkXIkGb9RPCq77iCb7IDU94IIsVegzuSQg52hSTjhvDKRXGUDc1HdwOBIuqg3iLIluw==}
 
   '@iconify-json/simple-icons@1.2.71':
     resolution: {integrity: sha512-rNoDFbq1fAYiEexBvrw613/xiUOPEu5MKVV/X8lI64AgdTzLQUUemr9f9fplxUMPoxCBP2rWzlhOEeTHk/Sf0Q==}
@@ -939,8 +939,8 @@ packages:
   '@nuxtjs/mdc@0.20.1':
     resolution: {integrity: sha512-fGmtLDQAmmDHF5Z37Apfc3k806rb2XWDOQFhb5xlDSL7+HiiUjyFy3ctx3qWdlC08dRzfAetmsGOYbfDqYsB/w==}
 
-  '@nuxtjs/plausible@3.0.1':
-    resolution: {integrity: sha512-T+F5EDI9t9ribHyhCaAt4mfetualCGuHu71mghjyOQAufBeGtxNdfjT/g4QcJnpG+pqfm4Lpe+hWBZhtoF4bkw==}
+  '@nuxtjs/plausible@3.0.2':
+    resolution: {integrity: sha512-6z01a7XbggSmI4CTWCkDDmLHQNm7wob2dx1QnvpIoo+YEV19298+GsuvlBclXVxXSk7op8r8qJpw25xKo8mzQQ==}
 
   '@nuxtjs/tailwindcss@7.0.0-beta.1':
     resolution: {integrity: sha512-oaILm+parts21JuGwntiIwyjJAqfumfeZk9/SXsBhss5Pqfn1gSA6Msxe7cd+QLXZtpXfj4mgv5DhFUcMmSJiA==}
@@ -5925,7 +5925,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.2.93':
+  '@iconify-json/lucide@1.2.94':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -6658,7 +6658,7 @@ snapshots:
       - magicast
       - supports-color
 
-  '@nuxtjs/plausible@3.0.1(magicast@0.5.2)':
+  '@nuxtjs/plausible@3.0.2(magicast@0.5.2)':
     dependencies:
       '@nuxt/kit': 4.3.1(magicast@0.5.2)
       '@plausible-analytics/tracker': 0.4.4
