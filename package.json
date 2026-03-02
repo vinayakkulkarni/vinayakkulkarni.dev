@@ -44,7 +44,7 @@
     "@iconify-json/carbon": "latest",
     "@iconify-json/line-md": "latest",
     "@iconify-json/lucide": "latest",
-    "@iconify-json/simple-icons": "^1.2.71",
+    "@iconify-json/simple-icons": "^1.2.72",
     "@nuxt/content": "latest",
     "@nuxt/fonts": "latest",
     "@nuxt/icon": "latest",
