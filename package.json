@@ -39,8 +39,8 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.3",
-    "@commitlint/config-conventional": "^20.4.3",
+    "@commitlint/cli": "^20.4.4",
+    "@commitlint/config-conventional": "^20.4.4",
     "@iconify-json/carbon": "latest",
     "@iconify-json/line-md": "latest",
     "@iconify-json/lucide": "latest",
