@@ -62,7 +62,7 @@
     "oxfmt": "latest",
     "oxlint": "latest",
     "tailwind-merge": "latest",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.2",
     "typescript": "latest",
     "wrangler": "^4.75.0"
   },
