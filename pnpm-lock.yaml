@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@geoql/maplibre-gl-starfield':
         specifier: ^0.1.1
-        version: 0.1.1(maplibre-gl@5.20.2)(three@0.183.1)
+        version: 0.1.1(maplibre-gl@5.21.0)(three@0.183.1)
       better-sqlite3:
         specifier: ^12.8.0
         version: 12.8.0
       maplibre-gl:
         specifier: latest
-        version: 5.20.2
+        version: 5.21.0
       nuxt:
         specifier: latest
         version: 4.4.2(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.5.0)(@vue/compiler-sfc@3.5.30)(better-sqlite3@12.8.0)(cac@6.7.14)(db0@0.3.4(better-sqlite3@12.8.0))(ioredis@5.10.0)(lightningcss@1.31.1)(magicast@0.5.2)(meow@13.2.0)(oxlint@1.56.0)(rollup-plugin-visualizer@6.0.11(rollup@4.59.0))(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(yaml@2.8.2)
@@ -85,8 +85,8 @@ importers:
         specifier: ^16.4.0
         version: 16.4.0
       motion-v:
-        specifier: 2.0.1
-        version: 2.0.1(@vueuse/core@14.2.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
+        specifier: 2.1.0
+        version: 2.1.0(@vueuse/core@14.2.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
       oxfmt:
         specifier: latest
         version: 0.41.0
@@ -103,8 +103,8 @@ importers:
         specifier: latest
         version: 5.9.3
       wrangler:
-        specifier: ^4.75.0
-        version: 4.75.0
+        specifier: ^4.76.0
+        version: 4.76.0
 
 packages:
 
@@ -265,8 +265,8 @@ packages:
     resolution: {integrity: sha512-SIOD2DxrRRwQ+jgzlXCqoEFiKOFqaPjhnNTGKXSRLvp1HiOvapLaFG2kEr9dYQTYe8rKrd9uvDUzmAITeNyaHQ==}
     engines: {node: '>=18.0.0'}
 
-  '@cloudflare/unenv-preset@2.15.0':
-    resolution: {integrity: sha512-EGYmJaGZKWl+X8tXxcnx4v2bOZSjQeNI5dWFeXivgX9+YCT69AkzHHwlNbVpqtEUTbew8eQurpyOpeN8fg00nw==}
+  '@cloudflare/unenv-preset@2.16.0':
+    resolution: {integrity: sha512-8ovsRpwzPoEqPUzoErAYVv8l3FMZNeBVQfJTvtzP4AgLSRGZISRfuChFxHWUQd3n6cnrwkuTGxT+2cGo8EsyYg==}
     peerDependencies:
       unenv: 2.0.0-rc.24
       workerd: 1.20260301.1 || ~1.20260302.1 || ~1.20260303.1 || ~1.20260304.1 || >1.20260305.0 <2.0.0-0
@@ -402,6 +402,9 @@ packages:
 
   '@emnapi/runtime@1.9.0':
     resolution: {integrity: sha512-QN75eB0IH2ywSpRpNddCRfQIhmJYBCJ1x5Lb3IscKAL8bMnVAKnRg8dCoXbHzVLLH7P38N2Z3mtulB7W0J0FKw==}
+
+  '@emnapi/runtime@1.9.1':
+    resolution: {integrity: sha512-VYi5+ZVLhpgK4hQ0TAjiQiZ6ol0oe4mBx7mVv7IflsiEp0OWoVsp/+f9Vc1hOhE0TtkORVrI1GvzyreqpgWtkA==}
 
   '@emnapi/wasi-threads@1.2.0':
     resolution: {integrity: sha512-N10dEJNSsUx41Z6pZsXU8FjPjpBEplgH24sfkmITrBED1/U2Esum9F3lfLrMjKHHjmi557zQn7kR9R+XWXu5Rg==}
@@ -977,15 +980,15 @@ packages:
   '@maplibre/geojson-vt@5.0.4':
     resolution: {integrity: sha512-KGg9sma45S+stfH9vPCJk1J0lSDLWZgCT9Y8u8qWZJyjFlP8MNP1WGTxIMYJZjDvVT3PDn05kN1C95Sut1HpgQ==}
 
-  '@maplibre/geojson-vt@6.0.3':
-    resolution: {integrity: sha512-tJ8df2SAIacER7pWTiSlDjIULBBAfZnzAURvWb1d8kVzx/pmSJcG0L2p0DTAB6nEu8Lmsx5zAc8JFDcs2DTwaw==}
+  '@maplibre/geojson-vt@6.0.4':
+    resolution: {integrity: sha512-HYv3POhMRCdhP3UPPATM/hfcy6/WuVIf5FKboH8u/ZuFMTnAIcSVlq5nfOqroLokd925w2QtE7YwquFOIacwVQ==}
 
   '@maplibre/maplibre-gl-style-spec@24.7.0':
     resolution: {integrity: sha512-Ed7rcKYU5iELfablg9Mj+TVCsXsPBgdMyXPRAxb2v7oWg9YJnpQdZ5msDs1LESu/mtXy3Z48Vdppv2t/x5kAhw==}
     hasBin: true
 
-  '@maplibre/mlt@1.1.7':
-    resolution: {integrity: sha512-HZSsXrgn2V6T3o0qklMwKERfKaAxjO8shmiFnVygCtXTg4SPKWVX+U99RkvxUfCsjYBEcT4ltor8lSlBSCca7Q==}
+  '@maplibre/mlt@1.1.8':
+    resolution: {integrity: sha512-8vtfYGidr1rNkv5IwIoU2lfe3Oy+Wa8HluzQYcQi9cveU9K3pweAal/poQj4GJ0K/EW4bTQp2wVAs09g2yDRZg==}
 
   '@maplibre/vt-pbf@4.3.0':
     resolution: {integrity: sha512-jIvp8F5hQCcreqOOpEt42TJMUlsrEcpf/kI1T2v85YrQRV6PPXUcEXUg5karKtH6oh47XJZ4kHu56pUkOuqA7w==}
@@ -2187,6 +2190,9 @@ packages:
   '@speed-highlight/core@1.2.14':
     resolution: {integrity: sha512-G4ewlBNhUtlLvrJTb88d2mdy2KRijzs4UhnlrOSRT4bmjh/IqNElZa3zkrZ+TC47TwtlDWzVLFADljF1Ijp5hA==}
 
+  '@speed-highlight/core@1.2.15':
+    resolution: {integrity: sha512-BMq1K3DsElxDWawkX6eLg9+CKJrTVGCBAWVuHXVUV2u0s2711qiChLSId6ikYPfxhdYocLNt3wWwSvDiTvFabw==}
+
   '@sqlite.org/sqlite-wasm@3.50.4-build1':
     resolution: {integrity: sha512-Qig2Wso7gPkU1PtXwFzndh+CTRzrIFxVGqv6eCetjU7YqxlHItj+GvQYwYTppCRgAPawtRN/4AJcEgB9xDHGug==}
     hasBin: true
@@ -3321,8 +3327,8 @@ packages:
   fraction.js@5.3.4:
     resolution: {integrity: sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==}
 
-  framer-motion@12.36.0:
-    resolution: {integrity: sha512-4PqYHAT7gev0ke0wos+PyrcFxI0HScjm3asgU8nSYa8YzJFuwgIvdj3/s3ZaxLq0bUSboIn19A2WS/MHwLCvfw==}
+  framer-motion@12.38.0:
+    resolution: {integrity: sha512-rFYkY/pigbcswl1XQSb7q424kSTQ8q6eAC+YUsSKooHQYuLdzdHjrt6uxUC+PRAO++q5IS7+TamgIw1AphxR+g==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -3955,8 +3961,8 @@ packages:
   magicast@0.5.2:
     resolution: {integrity: sha512-E3ZJh4J3S9KfwdjZhe2afj6R9lGIN5Pher1pF39UGrXRqq/VDaGVIGN13BjHd2u8B61hArAGOnso7nBOouW3TQ==}
 
-  maplibre-gl@5.20.2:
-    resolution: {integrity: sha512-0UzMWOe+GZmIUmOA99yTI1vRh15YcGnHxADVB2s+JF3etpjj2/MBCqbPEuu4BP9mLsJWJcpHH0Nzr9uuimmbuQ==}
+  maplibre-gl@5.21.0:
+    resolution: {integrity: sha512-n0v4J/Ge0EG8ix/z3TY3ragtJYMqzbtSnj1riOC0OwQbzwp0lUF2maS1ve1z8HhitQCKtZZiZJhb8to36aMMfQ==}
     engines: {node: '>=16.14.0', npm: '>=8.1.0'}
 
   markdown-table@3.0.4:
@@ -4135,8 +4141,8 @@ packages:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
     engines: {node: '>=10'}
 
-  miniflare@4.20260317.0:
-    resolution: {integrity: sha512-xuwk5Kjv+shi5iUBAdCrRl9IaWSGnTU8WuTQzsUS2GlSDIMCJuu8DiF/d9ExjMXYiQG5ml+k9SVKnMj8cRkq0w==}
+  miniflare@4.20260317.1:
+    resolution: {integrity: sha512-A3csI1HXEIfqe3oscgpoRMHdYlkReQKPH/g5JE53vFSjoM6YIAOGAzyDNeYffwd9oQkPWDj9xER8+vpxei8klA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4181,14 +4187,14 @@ packages:
   mocked-exports@0.1.1:
     resolution: {integrity: sha512-aF7yRQr/Q0O2/4pIXm6PZ5G+jAd7QS4Yu8m+WEeEHGnbo+7mE36CbLSDQiXYV8bVL3NfmdeqPJct0tUlnjVSnA==}
 
-  motion-dom@12.36.0:
-    resolution: {integrity: sha512-Ep1pq8P88rGJ75om8lTCA13zqd7ywPGwCqwuWwin6BKc0hMLkVfcS6qKlRqEo2+t0DwoUcgGJfXwaiFn4AOcQA==}
+  motion-dom@12.38.0:
+    resolution: {integrity: sha512-pdkHLD8QYRp8VfiNLb8xIBJis1byQ9gPT3Jnh2jqfFtAsWUA3dEepDlsWe/xMpO8McV+VdpKVcp+E+TGJEtOoA==}
 
   motion-utils@12.36.0:
     resolution: {integrity: sha512-eHWisygbiwVvf6PZ1vhaHCLamvkSbPIeAYxWUuL3a2PD/TROgE7FvfHWTIH4vMl798QLfMw15nRqIaRDXTlYRg==}
 
-  motion-v@2.0.1:
-    resolution: {integrity: sha512-oTzIRROq01knJLnCV4BqQQ7jdonrp29AIdYE1tJar/ls7b5rEZnexWGhuilVmZUl+ulI+6a7HXEFe1YV/FEPBA==}
+  motion-v@2.1.0:
+    resolution: {integrity: sha512-ESYNbbyjdpiINjd8vhEKi1snHz2TebVoa18DFl9uS5g/6XsobA6MckUbJE1SB1D13aqgzI9jCkSCnBS68GPPog==}
     peerDependencies:
       '@vueuse/core': '>=10.0.0'
       vue: '>=3.0.0'
@@ -5610,8 +5616,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.75.0:
-    resolution: {integrity: sha512-Efk1tcnm4eduBYpH1sSjMYydXMnIFPns/qABI3+fsbDrUk5GksNYX8nYGVP4sFygvGPO7kJc36YJKB5ooA7JAg==}
+  wrangler@4.76.0:
+    resolution: {integrity: sha512-Wan+CU5a0tu4HIxGOrzjNbkmxCT27HUmzrMj6kc7aoAnjSLv50Ggcn2Ant7wNQrD6xW3g31phKupZJgTZ8wZfQ==}
     engines: {node: '>=20.0.0'}
     hasBin: true
     peerDependencies:
@@ -5934,7 +5940,7 @@ snapshots:
 
   '@cloudflare/kv-asset-handler@0.4.2': {}
 
-  '@cloudflare/unenv-preset@2.15.0(unenv@2.0.0-rc.24)(workerd@1.20260317.1)':
+  '@cloudflare/unenv-preset@2.16.0(unenv@2.0.0-rc.24)(workerd@1.20260317.1)':
     dependencies:
       unenv: 2.0.0-rc.24
     optionalDependencies:
@@ -6105,6 +6111,11 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  '@emnapi/runtime@1.9.1':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
   '@emnapi/wasi-threads@1.2.0':
     dependencies:
       tslib: 2.8.1
@@ -6269,9 +6280,9 @@ snapshots:
   '@fastify/accept-negotiator@2.0.1':
     optional: true
 
-  '@geoql/maplibre-gl-starfield@0.1.1(maplibre-gl@5.20.2)(three@0.183.1)':
+  '@geoql/maplibre-gl-starfield@0.1.1(maplibre-gl@5.21.0)(three@0.183.1)':
     dependencies:
-      maplibre-gl: 5.20.2
+      maplibre-gl: 5.21.0
       three: 0.183.1
 
   '@iconify-json/carbon@1.2.19':
@@ -6391,7 +6402,7 @@ snapshots:
 
   '@img/sharp-wasm32@0.34.5':
     dependencies:
-      '@emnapi/runtime': 1.9.0
+      '@emnapi/runtime': 1.9.1
     optional: true
 
   '@img/sharp-win32-arm64@0.34.5':
@@ -6488,7 +6499,7 @@ snapshots:
 
   '@maplibre/geojson-vt@5.0.4': {}
 
-  '@maplibre/geojson-vt@6.0.3':
+  '@maplibre/geojson-vt@6.0.4':
     dependencies:
       kdbush: 4.0.2
 
@@ -6502,7 +6513,7 @@ snapshots:
       rw: 1.3.3
       tinyqueue: 3.0.0
 
-  '@maplibre/mlt@1.1.7':
+  '@maplibre/mlt@1.1.8':
     dependencies:
       '@mapbox/point-geometry': 1.1.0
 
@@ -7717,6 +7728,8 @@ snapshots:
 
   '@speed-highlight/core@1.2.14': {}
 
+  '@speed-highlight/core@1.2.15': {}
+
   '@sqlite.org/sqlite-wasm@3.50.4-build1': {}
 
   '@standard-schema/spec@1.1.0': {}
@@ -8918,9 +8931,9 @@ snapshots:
 
   fraction.js@5.3.4: {}
 
-  framer-motion@12.36.0:
+  framer-motion@12.38.0:
     dependencies:
-      motion-dom: 12.36.0
+      motion-dom: 12.38.0
       motion-utils: 12.36.0
       tslib: 2.8.1
 
@@ -9660,7 +9673,7 @@ snapshots:
       '@babel/types': 7.29.0
       source-map-js: 1.2.1
 
-  maplibre-gl@5.20.2:
+  maplibre-gl@5.21.0:
     dependencies:
       '@mapbox/jsonlint-lines-primitives': 2.0.2
       '@mapbox/point-geometry': 1.1.0
@@ -9668,9 +9681,9 @@ snapshots:
       '@mapbox/unitbezier': 0.0.1
       '@mapbox/vector-tile': 2.0.4
       '@mapbox/whoots-js': 3.1.0
-      '@maplibre/geojson-vt': 6.0.3
+      '@maplibre/geojson-vt': 6.0.4
       '@maplibre/maplibre-gl-style-spec': 24.7.0
-      '@maplibre/mlt': 1.1.7
+      '@maplibre/mlt': 1.1.8
       '@maplibre/vt-pbf': 4.3.0
       '@types/geojson': 7946.0.16
       earcut: 3.0.2
@@ -10022,7 +10035,7 @@ snapshots:
 
   mimic-response@3.1.0: {}
 
-  miniflare@4.20260317.0:
+  miniflare@4.20260317.1:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       sharp: 0.34.5
@@ -10078,18 +10091,18 @@ snapshots:
 
   mocked-exports@0.1.1: {}
 
-  motion-dom@12.36.0:
+  motion-dom@12.38.0:
     dependencies:
       motion-utils: 12.36.0
 
   motion-utils@12.36.0: {}
 
-  motion-v@2.0.1(@vueuse/core@14.2.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
+  motion-v@2.1.0(@vueuse/core@14.2.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       '@vueuse/core': 14.2.1(vue@3.5.30(typescript@5.9.3))
-      framer-motion: 12.36.0
+      framer-motion: 12.38.0
       hey-listen: 1.0.8
-      motion-dom: 12.36.0
+      motion-dom: 12.38.0
       motion-utils: 12.36.0
       vue: 3.5.30(typescript@5.9.3)
     transitivePeerDependencies:
@@ -11971,13 +11984,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260317.1
       '@cloudflare/workerd-windows-64': 1.20260317.1
 
-  wrangler@4.75.0:
+  wrangler@4.76.0:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.2
-      '@cloudflare/unenv-preset': 2.15.0(unenv@2.0.0-rc.24)(workerd@1.20260317.1)
+      '@cloudflare/unenv-preset': 2.16.0(unenv@2.0.0-rc.24)(workerd@1.20260317.1)
       blake3-wasm: 2.1.5
       esbuild: 0.27.3
-      miniflare: 4.20260317.0
+      miniflare: 4.20260317.1
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20260317.1
@@ -12062,7 +12075,7 @@ snapshots:
     dependencies:
       '@poppinss/colors': 4.1.6
       '@poppinss/dumper': 0.6.5
-      '@speed-highlight/core': 1.2.14
+      '@speed-highlight/core': 1.2.15
       cookie: 1.1.1
       youch-core: 0.3.3
 
