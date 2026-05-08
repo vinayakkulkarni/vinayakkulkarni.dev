@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@geoql/maplibre-gl-starfield": "^0.1.1",
-    "better-sqlite3": "^12.8.0",
+    "better-sqlite3": "^12.9.0",
     "maplibre-gl": "latest",
     "nuxt": "latest",
     "ogl": "^1.0.11",
