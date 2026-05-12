@@ -39,12 +39,12 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.0.0",
-    "@commitlint/config-conventional": "^21.0.0",
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
     "@iconify-json/carbon": "latest",
     "@iconify-json/line-md": "latest",
     "@iconify-json/lucide": "latest",
-    "@iconify-json/simple-icons": "^1.2.81",
+    "@iconify-json/simple-icons": "^1.2.82",
     "@nuxt/content": "latest",
     "@nuxt/fonts": "latest",
     "@nuxt/icon": "latest",
@@ -64,7 +64,7 @@
     "tailwind-merge": "latest",
     "tailwindcss": "^4.3.0",
     "typescript": "latest",
-    "wrangler": "^4.90.0"
+    "wrangler": "^4.90.1"
   },
   "packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a",
   "pnpm": {
