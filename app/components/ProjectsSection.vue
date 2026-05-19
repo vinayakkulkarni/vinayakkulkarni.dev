@@ -3,8 +3,15 @@
 
   const colorMode = useColorMode();
 
-  const { data, status } = await useFetch<GitHubResponse>('/api/github', {
-    key: 'github-repos',
+  const { data, status, refresh } = await useFetch<GitHubResponse>(
+    '/api/github',
+    {
+      key: 'github-repos',
+    },
+  );
+
+  onMounted(() => {
+    refresh();
   });
 
   const FEATURED_REPOS = ['tileserver-rs', 'v-maplibre'];
