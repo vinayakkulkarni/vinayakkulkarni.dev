@@ -39,7 +39,6 @@ jobs:
     needs:
       - extract-branch
       - ci
-      - doctor
     if: ${{ github.event_name == 'push' && needs.extract-branch.outputs.current_branch == 'main' }}
     uses: ./.github/workflows/cd.yml
     with:
