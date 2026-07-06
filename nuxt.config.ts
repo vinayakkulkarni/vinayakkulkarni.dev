@@ -14,10 +14,21 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/color-mode',
     '@nuxtjs/plausible',
+    '@nuxtjs/sitemap',
     '@vueuse/nuxt',
     'motion-v/nuxt',
     '@nuxtjs/tailwindcss',
   ],
+
+  site: {
+    url: 'https://vinayakkulkarni.dev',
+    name: 'Vinayak Kulkarni',
+  },
+
+  sitemap: {
+    // Static personal site — precompute the sitemap at build, no runtime cost.
+    zeroRuntime: true,
+  },
 
   components: [
     {
@@ -112,13 +123,39 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'cloudflare-pages',
+    preset: 'cloudflare_module',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/about', '/projects', '/open-source', '/articles'],
     },
     cloudflare: {
       nodeCompat: true,
+      deployConfig: true,
+      wrangler: {
+        name: 'vinayakkulkarni-dev',
+        compatibility_date: '2025-07-18',
+        compatibility_flags: ['nodejs_compat'],
+        workers_dev: false,
+        d1_databases: [
+          {
+            binding: 'DB',
+            database_name: 'vinayakkulkarni-dev-db',
+            database_id: '4e5afc7d-61a8-44d5-9a9b-a3fbd6cb7277',
+          },
+        ],
+        // Workers Cache API — nitro passes arbitrary wrangler keys through its
+        // defu merge (no allowlist); Pages rejected this key, Workers accepts it.
+        // Needs wrangler >=4.89.0 for the base block.
+        cache: {
+          enabled: true,
+        },
+        observability: {
+          enabled: true,
+        },
+        placement: {
+          mode: 'smart',
+        },
+      },
     },
     experimental: {
       wasm: true,

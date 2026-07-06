@@ -10,7 +10,7 @@ on:
         type: string
     secrets:
       CLOUDFLARE_API_TOKEN:
-        description: 'Cloudflare API token for Pages deployment'
+        description: 'Cloudflare API token for Workers deployment'
         required: true
       CLOUDFLARE_ACCOUNT_ID:
         description: 'Cloudflare account ID'
@@ -21,13 +21,13 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: 'Deploy to Cloudflare Pages'
+    name: 'Deploy to Cloudflare Workers'
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -35,7 +35,7 @@ jobs:
           node-version: 24
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
 
       - name: Get pnpm store directory
         shell: bash
@@ -54,8 +54,10 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Deploy to Cloudflare Pages
-        run: pnpm exec wrangler pages deploy dist --project-name=vinayakkulkarni-dev
+      # nitro writes the merged wrangler config to .output/server/wrangler.json via
+      # deployConfig (see nuxt.config.ts) — point --config at it.
+      - name: Deploy to Cloudflare Workers
+        run: pnpm exec wrangler deploy --config .output/server/wrangler.json
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
