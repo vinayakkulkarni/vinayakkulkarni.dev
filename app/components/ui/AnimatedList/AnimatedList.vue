@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
-  import { useIntersectionObserver, useEventListener } from '@vueuse/core';
   import { cn } from '~/lib/utils';
 
   const props = withDefaults(
@@ -73,6 +71,17 @@
     emit('select', item, index);
   }
 
+  const scrollbarHidden = computed(() => props.displayScrollbar === false);
+
+  function itemStyle(index: number) {
+    const visible = itemVisible.value[index];
+    return {
+      transform: visible ? 'scale(1)' : 'scale(0.7)',
+      opacity: visible ? 1 : 0,
+      transitionDelay: '100ms',
+    };
+  }
+
   // Keyboard navigation
   useEventListener('keydown', (e: KeyboardEvent) => {
     if (!props.enableArrowNavigation) return;
@@ -138,24 +147,20 @@
 </script>
 
 <template>
-  <div :class="cn('relative w-[500px]', $props.class)">
+  <div :class="cn('animated-list relative', $props.class)">
     <div
       ref="listRef"
-      class="max-h-[400px] overflow-y-auto p-4"
-      :class="{ 'scrollbar-none': !displayScrollbar }"
+      class="animated-list-scroll overflow-y-auto p-4"
+      :class="{ 'scrollbar-none': scrollbarHidden }"
       @scroll="handleScroll"
     >
       <div
         v-for="(item, index) in items"
-        :key="index"
+        :key="`${item}-${index}`"
         :ref="(el) => setItemRef(el as HTMLElement, index)"
         :data-index="index"
         class="mb-4 cursor-pointer transition-all duration-200"
-        :style="{
-          transform: itemVisible[index] ? 'scale(1)' : 'scale(0.7)',
-          opacity: itemVisible[index] ? 1 : 0,
-          transitionDelay: '100ms',
-        }"
+        :style="itemStyle(index)"
         @mouseenter="selectedIndex = index"
         @click="handleItemClick(item, index)"
       >
@@ -171,11 +176,11 @@
     </div>
     <template v-if="showGradients">
       <div
-        class="pointer-events-none absolute left-0 right-0 top-0 h-[50px] bg-gradient-to-b from-background to-transparent transition-opacity duration-300"
+        class="animated-list-gradient-top pointer-events-none absolute left-0 right-0 top-0 bg-gradient-to-b from-background to-transparent transition-opacity duration-300"
         :style="{ opacity: topGradientOpacity }"
       ></div>
       <div
-        class="pointer-events-none absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-background to-transparent transition-opacity duration-300"
+        class="animated-list-gradient-bottom pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent transition-opacity duration-300"
         :style="{ opacity: bottomGradientOpacity }"
       ></div>
     </template>
@@ -183,3 +188,21 @@
     <span v-if="scrollIntoView" class="hidden"></span>
   </div>
 </template>
+
+<style scoped>
+  .animated-list {
+    width: 500px;
+  }
+
+  .animated-list-scroll {
+    max-height: 400px;
+  }
+
+  .animated-list-gradient-top {
+    height: 50px;
+  }
+
+  .animated-list-gradient-bottom {
+    height: 100px;
+  }
+</style>

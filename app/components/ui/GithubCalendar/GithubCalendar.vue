@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
   import type {
     GithubContributionData,
     GithubCalendarColorSchema,
@@ -57,13 +56,13 @@
     <!-- Loading skeleton -->
     <div
       v-if="loading"
-      class="w-full h-32 animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-xl"
+      class="w-full h-32 animate-pulse bg-muted rounded-xl"
     ></div>
 
     <!-- Error state -->
     <div
       v-else-if="error"
-      class="p-4 rounded-lg border border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-800 text-red-500 text-sm"
+      class="p-4 rounded-lg border border-destructive/30 bg-destructive/10 text-destructive text-sm"
     >
       Error: {{ error }}
     </div>

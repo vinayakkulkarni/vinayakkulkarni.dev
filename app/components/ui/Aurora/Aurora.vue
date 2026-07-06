@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
-  import { useResizeObserver } from '@vueuse/core';
   import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
   import { cn } from '~/lib/utils';
 

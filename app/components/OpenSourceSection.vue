@@ -1,11 +1,11 @@
 <script setup lang="ts">
   const stats = [
-    { label: 'GitHub Stars', value: 1200, icon: 'lucide:star' },
-    { label: 'Open Source Packages', value: 45, icon: 'lucide:package' },
-    { label: 'npm Downloads', value: 737000, icon: 'lucide:download' },
+    { label: 'GitHub Stars', count: 1200, icon: 'lucide:star' },
+    { label: 'Open Source Packages', count: 45, icon: 'lucide:package' },
+    { label: 'npm Downloads', count: 737000, icon: 'lucide:download' },
     {
       label: 'Contributions',
-      value: 8378,
+      count: 8378,
       icon: 'lucide:git-commit-horizontal',
     },
   ];
@@ -67,7 +67,7 @@
               class="mx-auto mb-3 size-6 text-muted-foreground"
             />
             <CountUp
-              :to="stat.value"
+              :to="stat.count"
               :duration="2.5"
               separator=","
               class="text-3xl font-bold text-foreground"

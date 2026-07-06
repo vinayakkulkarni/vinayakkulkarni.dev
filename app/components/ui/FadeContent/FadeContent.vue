@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import { useIntersectionObserver } from '@vueuse/core';
   import { cn } from '~/lib/utils';
 
   const props = withDefaults(

@@ -52,7 +52,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'Vinayak Kulkarni — GIS Engineer & Co-Founder',
+      title: 'Vinayak Kulkarni - GIS Engineer & Co-Founder',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

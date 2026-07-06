@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import { cn } from '~/lib/utils';
 
   const props = withDefaults(
@@ -28,12 +27,7 @@
 
 <template>
   <span
-    :class="
-      cn(
-        'inline-block animate-[gradient-flow_var(--speed)_linear_infinite]',
-        props.class,
-      )
-    "
+    :class="cn('gradient-text inline-block', props.class)"
     :style="{ ...gradientStyle, '--speed': `${speed}s` }"
   >
     {{ text }}
@@ -51,5 +45,9 @@
     100% {
       background-position: 0% 50%;
     }
+  }
+
+  .gradient-text {
+    animation: gradient-flow var(--speed) linear infinite;
   }
 </style>

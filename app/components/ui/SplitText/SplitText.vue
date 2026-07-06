@@ -54,29 +54,37 @@
   function getDelay(globalIndex: number): number {
     return (globalIndex * props.delay) / 1000;
   }
+
+  function getCharTransition(wi: number, ci: number) {
+    return {
+      duration: props.duration,
+      delay: getDelay(
+        words.value
+          .slice(0, wi)
+          .reduce((sum, w) => sum + w.characters.length, 0) + ci,
+      ),
+      type: 'spring' as const,
+      damping: 25,
+      stiffness: 300,
+    };
+  }
 </script>
 
 <template>
   <p ref="el" :class="cn('flex flex-wrap whitespace-pre-wrap', props.class)">
-    <span v-for="(word, wi) in words" :key="wi" class="inline-flex">
+    <span
+      v-for="(word, wi) in words"
+      :key="`${word.characters.join('')}-${wi}`"
+      class="inline-flex"
+    >
       <component
         :is="motion.span"
         v-for="(char, ci) in word.characters"
-        :key="`${wi}-${ci}`"
+        :key="`${char}-${ci}`"
         class="inline-block"
         :initial="from"
         :animate="isInView ? to : from"
-        :transition="{
-          duration,
-          delay: getDelay(
-            words
-              .slice(0, wi)
-              .reduce((sum, w) => sum + w.characters.length, 0) + ci,
-          ),
-          type: 'spring',
-          damping: 25,
-          stiffness: 300,
-        }"
+        :transition="getCharTransition(wi, ci)"
         style="will-change: transform, opacity"
       >
         {{ char }}

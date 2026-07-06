@@ -23,6 +23,18 @@
   const hoveredCount = ref<number | null>(null);
   const mousePos = ref({ x: 0, y: 0 });
 
+  const cellInitial = { opacity: 0, scale: 0 };
+  const cellAnimate = { opacity: 1, scale: 1 };
+
+  function getCellTransition(weekIndex: number, dayIndex: number) {
+    return {
+      delay: weekIndex * 0.01 + dayIndex * 0.01,
+      type: 'spring',
+      stiffness: 260,
+      damping: 20,
+    };
+  }
+
   function handleCellHover(day: GithubContributionDay, e: MouseEvent) {
     hoveredDate.value = day.date;
     hoveredCount.value = day.contributionCount;
@@ -51,7 +63,7 @@
 
 <template>
   <div
-    class="relative flex flex-nowrap gap-[3px] w-max max-w-full"
+    class="contribution-grid relative flex flex-nowrap w-max max-w-full"
     @mouseleave="clearHover"
   >
     <AnimatePresence>
@@ -62,7 +74,7 @@
         :animate="{ opacity: 1, y: 0, scale: 1 }"
         :exit="{ opacity: 0, y: 5, scale: 0.9 }"
         :transition="{ duration: 0.2 }"
-        class="absolute z-50 pointer-events-none px-3 py-1.5 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-xs rounded-md shadow-xl whitespace-nowrap"
+        class="absolute z-50 pointer-events-none px-3 py-1.5 bg-foreground text-background text-xs rounded-md shadow-xl whitespace-nowrap"
         :style="{
           left: `${mousePos.x}px`,
           top: `${mousePos.y - 40}px`,
@@ -70,28 +82,23 @@
         }"
       >
         <span class="font-bold mr-1">{{ hoveredCount }}</span>
-        <span class="text-zinc-400 dark:text-zinc-500"
+        <span class="text-background/70"
           >contributions on {{ hoveredDate }}</span
         >
       </component>
     </AnimatePresence>
     <div
       v-for="(week, weekIndex) in weeks"
-      :key="weekIndex"
-      class="flex flex-col gap-[3px] w-[14px]"
+      :key="week[0]?.date ?? weekIndex"
+      class="contribution-week flex flex-col w-3.5"
     >
       <component
         :is="motion.div"
         v-for="(day, dayIndex) in week"
         :key="day.date"
-        :initial="{ opacity: 0, scale: 0 }"
-        :animate="{ opacity: 1, scale: 1 }"
-        :transition="{
-          delay: weekIndex * 0.01 + dayIndex * 0.01,
-          type: 'spring',
-          stiffness: 260,
-          damping: 20,
-        }"
+        :initial="cellInitial"
+        :animate="cellAnimate"
+        :transition="getCellTransition(weekIndex, dayIndex)"
         :class="
           cn(
             'w-full aspect-square transition-colors duration-200',
@@ -107,3 +114,13 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+  .contribution-grid {
+    gap: 3px;
+  }
+
+  .contribution-week {
+    gap: 3px;
+  }
+</style>

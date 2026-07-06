@@ -84,10 +84,10 @@
     :class="
       cn(
         'relative overflow-hidden',
-        'bg-white dark:bg-neutral-950',
-        'border border-neutral-200 dark:border-neutral-800',
-        'transition-[border-color] duration-500',
-        isHovered && 'border-neutral-300 dark:border-neutral-700',
+        'bg-card',
+        'border border-border',
+        'transition-colors duration-500',
+        isHovered && 'border-ring',
         props.class,
       )
     "

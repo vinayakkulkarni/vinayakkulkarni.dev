@@ -48,6 +48,12 @@
     return isHovered.value || isTriggered.value;
   });
 
+  function charClass(i: number): string | undefined {
+    const revealed =
+      revealedIndices.value.has(i) || isScrambling.value === false;
+    return revealed ? undefined : props.encryptedClass;
+  }
+
   function getNextIndex(revealed: Set<number>): number {
     const len = props.text.length;
     if (props.revealDirection === 'end') return len - 1 - revealed.size;
@@ -137,8 +143,8 @@
     <span aria-hidden="true">
       <span
         v-for="(char, i) in displayText"
-        :key="i"
-        :class="revealedIndices.has(i) || !isScrambling ? '' : encryptedClass"
+        :key="`${char}-${i}`"
+        :class="charClass(i)"
         >{{ char }}</span
       >
     </span>

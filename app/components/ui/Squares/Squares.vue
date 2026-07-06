@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
-  import { useResizeObserver, useEventListener } from '@vueuse/core';
   import { cn } from '~/lib/utils';
 
   const props = withDefaults(

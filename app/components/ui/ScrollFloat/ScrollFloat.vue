@@ -83,14 +83,25 @@
 
 <template>
   <h2 ref="el" :class="cn('my-5 overflow-hidden', props.class)">
-    <span class="inline-block text-[clamp(1.6rem,4vw,3rem)] leading-[1.5]">
+    <span class="scroll-float-line inline-block">
       <span
         v-for="(char, i) in chars"
-        :key="i"
-        class="inline-block will-change-[transform,opacity]"
+        :key="`${char}-${i}`"
+        class="scroll-float-char inline-block"
         :style="getCharStyle(i)"
         >{{ char === ' ' ? '\u00A0' : char }}</span
       >
     </span>
   </h2>
 </template>
+
+<style scoped>
+  .scroll-float-line {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    line-height: 1.5;
+  }
+
+  .scroll-float-char {
+    will-change: transform, opacity;
+  }
+</style>

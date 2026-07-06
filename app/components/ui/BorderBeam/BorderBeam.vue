@@ -29,13 +29,7 @@
 <template>
   <div
     :style="{ '--border-width': `${borderWidth}px` }"
-    :class="
-      cn(
-        'pointer-events-none absolute inset-0 rounded-[inherit] [border:var(--border-width)_solid_transparent]',
-        '![mask-clip:padding-box,border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]',
-        props.class,
-      )
-    "
+    :class="cn('border-beam pointer-events-none absolute inset-0', props.class)"
   >
     <component
       :is="motion.div"
@@ -58,3 +52,14 @@
     />
   </div>
 </template>
+
+<style scoped>
+  .border-beam {
+    border-radius: inherit;
+    border: var(--border-width) solid transparent;
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    mask:
+      linear-gradient(transparent, transparent), linear-gradient(white, white);
+  }
+</style>

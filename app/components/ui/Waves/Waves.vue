@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
-  import { useResizeObserver, useEventListener } from '@vueuse/core';
   import { cn } from '~/lib/utils';
 
   const props = withDefaults(
@@ -281,21 +279,29 @@
     setLines();
   });
 
-  useEventListener(window, 'mousemove', (e: MouseEvent) => {
-    if (!containerRef.value) return;
-    const rect = containerRef.value.getBoundingClientRect();
-    boundingRect.left = rect.left;
-    boundingRect.top = rect.top;
-    updateMouse(e.clientX, e.clientY);
-  });
+  useEventListener(
+    () => window,
+    'mousemove',
+    (e: MouseEvent) => {
+      if (!containerRef.value) return;
+      const rect = containerRef.value.getBoundingClientRect();
+      boundingRect.left = rect.left;
+      boundingRect.top = rect.top;
+      updateMouse(e.clientX, e.clientY);
+    },
+  );
 
-  useEventListener(window, 'touchmove', (e: TouchEvent) => {
-    if (!containerRef.value || !e.touches[0]) return;
-    const rect = containerRef.value.getBoundingClientRect();
-    boundingRect.left = rect.left;
-    boundingRect.top = rect.top;
-    updateMouse(e.touches[0].clientX, e.touches[0].clientY);
-  });
+  useEventListener(
+    () => window,
+    'touchmove',
+    (e: TouchEvent) => {
+      if (!containerRef.value || !e.touches[0]) return;
+      const rect = containerRef.value.getBoundingClientRect();
+      boundingRect.left = rect.left;
+      boundingRect.top = rect.top;
+      updateMouse(e.touches[0].clientX, e.touches[0].clientY);
+    },
+  );
 
   onMounted(() => {
     const canvas = canvasRef.value;

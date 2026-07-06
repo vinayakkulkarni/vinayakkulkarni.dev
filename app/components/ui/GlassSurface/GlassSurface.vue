@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { ref, computed, watch, onMounted, useId } from 'vue';
-  import { useResizeObserver } from '@vueuse/core';
   import { cn } from '~/lib/utils';
 
   const props = withDefaults(
@@ -137,22 +135,22 @@
   );
 
   watch(
-    () => [
-      props.width,
-      props.height,
-      props.borderRadius,
-      props.borderWidth,
-      props.brightness,
-      props.opacity,
-      props.blur,
-      props.displace,
-      props.distortionScale,
-      props.redOffset,
-      props.greenOffset,
-      props.blueOffset,
-      props.xChannel,
-      props.yChannel,
-      props.mixBlendMode,
+    [
+      () => props.width,
+      () => props.height,
+      () => props.borderRadius,
+      () => props.borderWidth,
+      () => props.brightness,
+      () => props.opacity,
+      () => props.blur,
+      () => props.displace,
+      () => props.distortionScale,
+      () => props.redOffset,
+      () => props.greenOffset,
+      () => props.blueOffset,
+      () => props.xChannel,
+      () => props.yChannel,
+      () => props.mixBlendMode,
     ],
     () => {
       updateDisplacementMap();

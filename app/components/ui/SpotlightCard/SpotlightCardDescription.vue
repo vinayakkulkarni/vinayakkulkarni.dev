@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <p :class="cn('text-sm text-neutral-600 dark:text-neutral-400', props.class)">
+  <p :class="cn('text-sm text-muted-foreground', props.class)">
     <slot></slot>
   </p>
 </template>

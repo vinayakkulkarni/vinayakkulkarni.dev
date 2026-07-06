@@ -51,8 +51,8 @@
     :class="
       cn(
         'relative overflow-hidden',
-        'bg-white dark:bg-neutral-950',
-        'border border-neutral-200 dark:border-neutral-800',
+        'bg-card',
+        'border border-border',
         'transition-all duration-500',
         props.class,
       )

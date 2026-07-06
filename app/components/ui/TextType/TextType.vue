@@ -95,10 +95,7 @@
 <template>
   <span ref="el" :class="cn('inline-block whitespace-pre-wrap', props.class)">
     <span>{{ displayedText }}</span>
-    <span
-      v-if="showCursor"
-      class="ml-0.5 inline-block animate-[cursor-blink_1s_steps(2)_infinite]"
-    >
+    <span v-if="showCursor" class="text-type-cursor ml-0.5 inline-block">
       {{ cursorCharacter }}
     </span>
   </span>
@@ -113,5 +110,9 @@
     50% {
       opacity: 0;
     }
+  }
+
+  .text-type-cursor {
+    animation: cursor-blink 1s steps(2) infinite;
   }
 </style>

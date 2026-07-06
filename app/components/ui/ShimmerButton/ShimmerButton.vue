@@ -38,7 +38,7 @@
   <button
     :class="
       cn(
-        'group relative z-0 inline-flex h-11 cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 py-3 text-sm font-medium text-white [background:var(--bg)] [border-radius:var(--radius)] transition-transform duration-300 ease-in-out active:translate-y-px dark:border-black/10 dark:text-black',
+        'shimmer-button group relative z-0 inline-flex h-11 cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 py-3 text-sm font-medium text-white transition-transform duration-300 ease-in-out active:translate-y-px dark:border-black/10 dark:text-black',
         $props.class,
       )
     "
@@ -52,16 +52,12 @@
     }"
   >
     <!-- spark container -->
-    <span
-      class="absolute inset-0 -z-30 overflow-visible blur-[2px] [container-type:size]"
-    >
+    <span class="shimmer-spark-container absolute inset-0 -z-30">
       <!-- spark -->
-      <span
-        class="absolute inset-0 h-[100cqh] animate-shimmer-slide [aspect-ratio:1] [border-radius:0] [mask:none]"
-      >
+      <span class="shimmer-spark absolute inset-0 animate-shimmer-slide">
         <!-- spark gradient -->
         <span
-          class="absolute -inset-full w-auto rotate-0 animate-spin-around [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))]"
+          class="shimmer-spark-gradient absolute -inset-full w-auto rotate-0 animate-spin-around"
         ></span>
       </span>
     </span>
@@ -73,12 +69,69 @@
 
     <!-- highlight -->
     <span
-      class="absolute inset-0 size-full rounded-2xl px-4 py-1.5 shadow-[inset_0_-8px_10px_#ffffff1f] transition-all duration-300 ease-in-out group-hover:shadow-[inset_0_-6px_10px_#ffffff3f] group-active:shadow-[inset_0_-10px_10px_#ffffff3f] dark:shadow-[inset_0_-8px_10px_#0000000d] dark:group-hover:shadow-[inset_0_-6px_10px_#00000014] dark:group-active:shadow-[inset_0_-10px_10px_#00000014]"
+      class="shimmer-highlight absolute inset-0 size-full rounded-2xl px-4 py-1.5 transition-all duration-300 ease-in-out"
     ></span>
 
     <!-- backdrop -->
-    <span
-      class="absolute -z-20 [background:var(--bg)] [border-radius:var(--radius)] [inset:var(--cut)]"
-    ></span>
+    <span class="shimmer-backdrop absolute -z-20"></span>
   </button>
 </template>
+
+<style scoped>
+  .shimmer-button {
+    background: var(--bg);
+    border-radius: var(--radius);
+  }
+
+  .shimmer-spark-container {
+    overflow: visible;
+    filter: blur(2px);
+    container-type: size;
+  }
+
+  .shimmer-spark {
+    height: 100cqh;
+    aspect-ratio: 1;
+    border-radius: 0;
+    mask: none;
+  }
+
+  .shimmer-spark-gradient {
+    background: conic-gradient(
+      from calc(270deg - (var(--spread) * 0.5)),
+      transparent 0,
+      var(--shimmer-color) var(--spread),
+      transparent var(--spread)
+    );
+  }
+
+  .shimmer-highlight {
+    box-shadow: inset 0 -8px 10px oklch(1 0 0 / 0.122);
+  }
+
+  .group:hover .shimmer-highlight {
+    box-shadow: inset 0 -6px 10px oklch(1 0 0 / 0.247);
+  }
+
+  .group:active .shimmer-highlight {
+    box-shadow: inset 0 -10px 10px oklch(1 0 0 / 0.247);
+  }
+
+  :global(.dark) .shimmer-highlight {
+    box-shadow: inset 0 -8px 10px oklch(0 0 0 / 0.051);
+  }
+
+  :global(.dark) .group:hover .shimmer-highlight {
+    box-shadow: inset 0 -6px 10px oklch(0 0 0 / 0.078);
+  }
+
+  :global(.dark) .group:active .shimmer-highlight {
+    box-shadow: inset 0 -10px 10px oklch(0 0 0 / 0.078);
+  }
+
+  .shimmer-backdrop {
+    background: var(--bg);
+    border-radius: var(--radius);
+    inset: var(--cut);
+  }
+</style>

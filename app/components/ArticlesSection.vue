@@ -8,14 +8,14 @@
   <section id="articles" class="relative overflow-hidden pt-40 pb-16">
     <!-- Threads Background — capped height to prevent bleed into footer -->
     <div
-      class="pointer-events-none absolute inset-x-0 top-0 max-h-[600px] opacity-25"
+      class="threads-wrap pointer-events-none absolute inset-x-0 top-0 opacity-25"
     >
       <ClientOnly>
         <Threads
           :color="[0.25, 0.47, 1]"
           :amplitude="0.8"
           :distance="0.3"
-          class="h-[600px]"
+          class="threads-canvas"
         />
       </ClientOnly>
     </div>
@@ -79,3 +79,13 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+  .threads-wrap {
+    max-height: 600px;
+  }
+
+  .threads-canvas {
+    height: 600px;
+  }
+</style>

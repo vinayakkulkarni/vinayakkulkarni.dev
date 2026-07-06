@@ -63,6 +63,24 @@
     }
     return index * props.staggerDuration;
   }
+
+  const charInitial = { y: '100%', opacity: 0 };
+  const charAnimate = { y: 0, opacity: 1 };
+  const charExit = { y: '-120%', opacity: 0 };
+
+  function getCharTransition(wi: number, ci: number) {
+    return {
+      type: 'spring' as const,
+      damping: 25,
+      stiffness: 300,
+      delay: getStaggerDelay(
+        elements.value
+          .slice(0, wi)
+          .reduce((s, w) => s + w.characters.length, 0) + ci,
+        elements.value.reduce((s, w) => s + w.characters.length, 0),
+      ),
+    };
+  }
 </script>
 
 <template>
@@ -82,26 +100,20 @@
         class="flex flex-wrap whitespace-pre-wrap relative"
         aria-hidden="true"
       >
-        <span v-for="(word, wi) in elements" :key="wi" class="inline-flex">
+        <span
+          v-for="(word, wi) in elements"
+          :key="`${word.characters.join('')}-${wi}`"
+          class="inline-flex"
+        >
           <component
             :is="motion.span"
             v-for="(char, ci) in word.characters"
-            :key="ci"
+            :key="`${char}-${ci}`"
             class="inline-block"
-            :initial="{ y: '100%', opacity: 0 }"
-            :animate="{ y: 0, opacity: 1 }"
-            :exit="{ y: '-120%', opacity: 0 }"
-            :transition="{
-              type: 'spring',
-              damping: 25,
-              stiffness: 300,
-              delay: getStaggerDelay(
-                elements
-                  .slice(0, wi)
-                  .reduce((s, w) => s + w.characters.length, 0) + ci,
-                elements.reduce((s, w) => s + w.characters.length, 0),
-              ),
-            }"
+            :initial="charInitial"
+            :animate="charAnimate"
+            :exit="charExit"
+            :transition="getCharTransition(wi, ci)"
           >
             {{ char }}
           </component>

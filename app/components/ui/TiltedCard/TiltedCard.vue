@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { ref, computed } from 'vue';
-  import { useMediaQuery } from '@vueuse/core';
   import { cn } from '~/lib/utils';
 
   const props = withDefaults(
@@ -133,7 +131,7 @@
       <img
         :src="imageSrc"
         :alt="altText"
-        class="absolute inset-0 size-full rounded-[15px] object-cover"
+        class="tilted-card-img absolute inset-0 size-full object-cover"
         :style="{ width: imageWidth, height: imageHeight }"
       />
       <slot></slot>
@@ -141,10 +139,22 @@
 
     <figcaption
       v-if="showTooltip && captionText && !isMobile"
-      class="pointer-events-none absolute z-10 rounded bg-white px-2.5 py-1 text-[10px] text-zinc-800"
+      class="tilted-card-caption pointer-events-none absolute z-10 rounded px-2.5 py-1"
       :style="captionStyle"
     >
       {{ captionText }}
     </figcaption>
   </figure>
 </template>
+
+<style scoped>
+  .tilted-card-img {
+    border-radius: 15px;
+  }
+
+  .tilted-card-caption {
+    font-size: 10px;
+    background-color: #fff;
+    color: #27272a;
+  }
+</style>

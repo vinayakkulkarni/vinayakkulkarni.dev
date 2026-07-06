@@ -31,6 +31,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@cf-wasm/og": "^0.4.0",
     "@geoql/maplibre-gl-starfield": "^0.1.1",
     "better-sqlite3": "^12.9.0",
     "maplibre-gl": "latest",
@@ -41,8 +42,6 @@
   "devDependencies": {
     "@commitlint/cli": "^21.0.1",
     "@commitlint/config-conventional": "^21.0.1",
-    "@iconify-json/carbon": "latest",
-    "@iconify-json/line-md": "latest",
     "@iconify-json/lucide": "latest",
     "@iconify-json/simple-icons": "^1.2.82",
     "@nuxt/content": "latest",

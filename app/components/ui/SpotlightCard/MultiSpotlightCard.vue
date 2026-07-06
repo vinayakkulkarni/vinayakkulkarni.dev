@@ -37,8 +37,8 @@
     :class="
       cn(
         'relative overflow-hidden',
-        'bg-white dark:bg-neutral-950',
-        'border border-neutral-200 dark:border-neutral-800',
+        'bg-card',
+        'border border-border',
         'transition-all duration-500',
         props.class,
       )
@@ -47,7 +47,7 @@
   >
     <div
       v-for="(color, index) in colors"
-      :key="index"
+      :key="color"
       class="absolute pointer-events-none transition-opacity duration-500"
       :style="getSpotlightStyle(color, index)"
     ></div>

@@ -18,6 +18,21 @@
 
   const springTransition = { type: 'spring', stiffness: 400, damping: 15 };
 
+  const mobileNavHover = { scale: 1.15, rotate: 8 };
+  const mobileNavTap = { scale: 0.9 };
+  const desktopNavHover = { scale: 1.05 };
+  const desktopNavTap = { scale: 0.95 };
+  const desktopNavTransition = { duration: 0.2 };
+
+  function navLinkClass(href: string, base: string): (string | false)[] {
+    return [
+      base,
+      isActiveLink(href)
+        ? 'bg-accent text-foreground'
+        : 'text-muted-foreground',
+    ];
+  }
+
   function toggleColorMode() {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
   }
@@ -65,18 +80,18 @@
             v-for="link in navLinks"
             :key="link.href"
             class="inline-flex"
-            :while-hover="{ scale: 1.15, rotate: 8 }"
-            :while-tap="{ scale: 0.9 }"
+            :while-hover="mobileNavHover"
+            :while-tap="mobileNavTap"
             :transition="springTransition"
           >
             <NuxtLink
               :to="link.href"
-              :class="[
-                'rounded-full p-2 transition-colors hover:bg-accent/80 hover:text-foreground',
-                isActiveLink(link.href)
-                  ? 'bg-accent text-foreground'
-                  : 'text-muted-foreground',
-              ]"
+              :class="
+                navLinkClass(
+                  link.href,
+                  'rounded-full p-2 transition-colors hover:bg-accent/80 hover:text-foreground',
+                )
+              "
               :aria-label="link.label"
             >
               <Icon :name="link.icon" class="size-4" />
@@ -90,18 +105,18 @@
             v-for="link in navLinks"
             :key="link.href"
             class="inline-flex"
-            :while-hover="{ scale: 1.05 }"
-            :while-tap="{ scale: 0.95 }"
-            :transition="{ duration: 0.2 }"
+            :while-hover="desktopNavHover"
+            :while-tap="desktopNavTap"
+            :transition="desktopNavTransition"
           >
             <NuxtLink
               :to="link.href"
-              :class="[
-                'rounded-full px-3 py-1.5 text-sm transition-colors hover:bg-accent/80 hover:text-foreground',
-                isActiveLink(link.href)
-                  ? 'bg-accent text-foreground'
-                  : 'text-muted-foreground',
-              ]"
+              :class="
+                navLinkClass(
+                  link.href,
+                  'rounded-full px-3 py-1.5 text-sm transition-colors hover:bg-accent/80 hover:text-foreground',
+                )
+              "
             >
               {{ link.label }}
             </NuxtLink>

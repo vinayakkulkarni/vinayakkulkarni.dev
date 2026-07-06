@@ -59,7 +59,7 @@
       :style="gradientStyle"
     ></div>
     <div
-      class="absolute inset-0 bg-white/90 dark:bg-neutral-950/90"
+      class="absolute inset-0 bg-card/90"
       :style="{ borderRadius: `${borderRadius}px` }"
     ></div>
     <div

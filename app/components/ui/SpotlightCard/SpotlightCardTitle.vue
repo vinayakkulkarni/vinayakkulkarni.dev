@@ -8,7 +8,7 @@
   <h3
     :class="
       cn(
-        'text-xl font-semibold leading-none tracking-tight text-neutral-900 dark:text-white',
+        'text-xl font-semibold leading-none tracking-tight text-foreground',
         props.class,
       )
     "

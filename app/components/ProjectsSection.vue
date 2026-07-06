@@ -1,5 +1,7 @@
 <script setup lang="ts">
-  import type { GitHubResponse } from '~/types/github';
+  import type { GitHubResponse, GitHubRepo } from '~/types/github';
+
+  const EMPTY_REPOS: GitHubRepo[] = [];
 
   const colorMode = useColorMode();
 
@@ -17,14 +19,18 @@
   const FEATURED_REPOS = ['tileserver-rs', 'v-maplibre'];
 
   const pinnedRepos = computed(() => {
-    if (!data.value?.pinned) return [];
+    if (!data.value?.pinned) return EMPTY_REPOS;
     const pinned = [...data.value.pinned];
     const featured = pinned.filter((r) => FEATURED_REPOS.includes(r.name));
     const rest = pinned.filter((r) => !FEATURED_REPOS.includes(r.name));
     return [...featured, ...rest];
   });
 
-  const repos = computed(() => data.value?.repos ?? []);
+  const repos = computed(() => data.value?.repos ?? EMPTY_REPOS);
+
+  function langDotStyle(repo: GitHubRepo): { backgroundColor: string } {
+    return { backgroundColor: repo.languageColor ?? 'var(--muted)' };
+  }
 
   function formatDate(dateStr: string): string {
     const date = new Date(dateStr);
@@ -61,7 +67,7 @@
             :y-gap="36"
           />
         </div>
-        <div v-else class="size-full opacity-[0.06]">
+        <div v-else class="squares-layer size-full">
           <Squares
             direction="diagonal"
             :speed="0.3"
@@ -147,9 +153,7 @@
                     >
                       <span
                         class="size-2.5 rounded-full"
-                        :style="{
-                          backgroundColor: repo.languageColor ?? 'var(--muted)',
-                        }"
+                        :style="langDotStyle(repo)"
                       />
                       {{ repo.language }}
                     </span>
@@ -192,9 +196,7 @@
             >
               <span
                 class="size-2.5 shrink-0 rounded-full"
-                :style="{
-                  backgroundColor: repo.languageColor ?? 'var(--muted)',
-                }"
+                :style="langDotStyle(repo)"
               />
 
               <span
@@ -241,3 +243,9 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+  .squares-layer {
+    opacity: 0.06;
+  }
+</style>

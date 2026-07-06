@@ -1,12 +1,4 @@
 <script setup lang="ts">
-  import {
-    type ComponentPublicInstance,
-    ref,
-    computed,
-    onMounted,
-    onBeforeUnmount,
-  } from 'vue';
-  import { useEventListener, useMediaQuery } from '@vueuse/core';
   import { cn } from '~/lib/utils';
 
   interface MagicBentoItem {
@@ -82,6 +74,19 @@
   const cardEls = ref<HTMLElement[]>([]);
   const isMobile = useMediaQuery('(max-width: 768px)');
   const disabled = computed(() => isMobile.value);
+
+  const cardClass = computed(() => [
+    'magic-bento-card',
+    props.textAutoHide && 'magic-bento-card--text-autohide',
+    props.enableBorderGlow && 'magic-bento-card--border-glow',
+  ]);
+
+  function cardStyle(item: MagicBentoItem) {
+    return {
+      backgroundColor: item.color ?? '#060010',
+      '--glow-color': props.glowColor,
+    };
+  }
 
   /* ── Spotlight ─────────────────────────────────────────── */
   const spotlightEl = ref<HTMLElement | null>(null);
@@ -175,8 +180,8 @@
     cardEls.value.forEach((c) => c?.style.setProperty('--glow-intensity', '0'));
   }
 
-  useEventListener(document, 'mousemove', updateSpotlight);
-  useEventListener(document, 'mouseleave', hideSpotlight);
+  useEventListener(() => document, 'mousemove', updateSpotlight);
+  useEventListener(() => document, 'mouseleave', hideSpotlight);
 
   /* ── Particles ─────────────────────────────────────────── */
   const hoveredIdx = ref<number | null>(null);
@@ -335,17 +340,10 @@
   <div ref="gridRef" :class="cn('magic-bento-grid', $props.class)">
     <div
       v-for="(item, index) in items"
-      :key="index"
+      :key="`${item.title}-${index}`"
       :ref="(el) => setRef(el, index)"
-      :class="[
-        'magic-bento-card',
-        textAutoHide && 'magic-bento-card--text-autohide',
-        enableBorderGlow && 'magic-bento-card--border-glow',
-      ]"
-      :style="{
-        backgroundColor: item.color ?? '#060010',
-        '--glow-color': glowColor,
-      }"
+      :class="cardClass"
+      :style="cardStyle(item)"
       @mouseenter="onEnter(index)"
       @mouseleave="onLeave(index)"
       @mousemove="onMove(index, $event)"
