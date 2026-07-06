@@ -23,6 +23,11 @@
       url: 'https://www.linkedin.com/in/kulkarnivinayak/',
     },
     {
+      label: 'Reddit',
+      icon: 'simple-icons:reddit',
+      url: 'https://www.reddit.com/user/vinayak-kulkarni/',
+    },
+    {
       label: 'Website',
       icon: 'lucide:globe',
       url: 'https://vinayakkulkarni.dev',
