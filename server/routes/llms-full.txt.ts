@@ -1,4 +1,3 @@
-import type { H3Event } from 'h3';
 const PRIORITY_ROUTES = [
   '/',
   '/about',
@@ -27,7 +26,7 @@ function htmlToPlaintext(html: string): string {
     .trim();
 }
 
-export default defineEventHandler(async (event: H3Event) => {
+export default defineEventHandler(async (event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 

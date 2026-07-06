@@ -1,4 +1,3 @@
-import type { H3Event } from 'h3';
 // Conservative AI crawlers (Google-Extended, Applebot-Extended) need an explicit
 // allow separate from `User-agent: *`, or they skip the site for AI answers.
 const aiCrawlers = [
@@ -18,7 +17,7 @@ const aiCrawlers = [
   'cohere-ai',
 ];
 
-export default defineEventHandler((event: H3Event) => {
+export default defineEventHandler((event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 
