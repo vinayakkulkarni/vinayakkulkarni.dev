@@ -26,7 +26,7 @@ function htmlToPlaintext(html: string): string {
     .trim();
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event: H3Event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 

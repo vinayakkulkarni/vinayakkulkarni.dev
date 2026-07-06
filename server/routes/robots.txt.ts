@@ -17,7 +17,7 @@ const aiCrawlers = [
   'cohere-ai',
 ];
 
-export default defineEventHandler((event) => {
+export default defineEventHandler((event: H3Event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 
