@@ -1,4 +1,12 @@
 <script setup lang="ts">
+  // Site-wide Open Graph defaults — every page inherits these; pages can still
+  // override ogTitle/ogDescription/ogImage/ogUrl in their own useSeoMeta.
+  useSeoMeta({
+    ogType: 'website',
+    ogSiteName: 'Vinayak Kulkarni',
+    twitterSite: '@_vinayak_k',
+  });
+
   useHead({
     script: [
       {
