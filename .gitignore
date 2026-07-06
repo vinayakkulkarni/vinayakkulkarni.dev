@@ -109,3 +109,4 @@ tunnel.yml
 *.local
 tmp/*.*
 .sisyphus
+.omo

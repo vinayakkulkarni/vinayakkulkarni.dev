@@ -1,0 +1,21 @@
+allowBuilds:
+  '@parcel/watcher': true
+  better-sqlite3: true
+  esbuild: true
+  sharp: true
+  workerd: true
+overrides:
+  vite: ^8.1.3
+minimumReleaseAgeExclude:
+  - '@nuxt/*'
+  - nuxt
+  - '@vue/*'
+  - vue
+  - reka-ui
+  - wrangler
+  - workerd
+  - '@cloudflare/*'
+  - '@typescript/*'
+  - '@types/*'
+  - '@lucide/*'
+  - '@commitlint/*'
