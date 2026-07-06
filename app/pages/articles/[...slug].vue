@@ -13,9 +13,23 @@
     throw createError({ statusCode: 404, message: 'Article not found' });
   }
 
+  const ogImageUrl = computed(() => {
+    const title = encodeURIComponent(article.value?.title ?? 'Articles');
+    const description = encodeURIComponent(article.value?.description ?? '');
+    return `https://vinayakkulkarni.dev/og/articles/${slug.value}.png?title=${title}&description=${description}`;
+  });
+
   useSeoMeta({
     title: article.value?.title,
     description: article.value?.description,
+    ogTitle: article.value?.title,
+    ogDescription: article.value?.description,
+    ogUrl: () => `https://vinayakkulkarni.dev/articles/${slug.value}`,
+    ogImage: ogImageUrl,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    twitterCard: 'summary_large_image',
+    twitterImage: ogImageUrl,
   });
 </script>
 

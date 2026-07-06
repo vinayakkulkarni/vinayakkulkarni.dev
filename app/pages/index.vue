@@ -1,13 +1,19 @@
 <script setup lang="ts">
   useSeoMeta({
-    title: 'Vinayak Kulkarni — GIS Engineer & Co-Founder',
+    title: 'Vinayak Kulkarni - GIS Engineer & Co-Founder',
     description:
       'Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js. Open source cartographer.',
-    ogTitle: 'Vinayak Kulkarni — GIS Engineer & Co-Founder',
+    ogTitle: 'Vinayak Kulkarni - GIS Engineer & Co-Founder',
     ogDescription:
       'Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js.',
     ogUrl: 'https://vinayakkulkarni.dev',
+    ogImage:
+      'https://vinayakkulkarni.dev/og/index.png?title=Vinayak%20Kulkarni&description=GIS%20Engineer%20%26%20Co-Founder%20building%20geospatial%20infrastructure.',
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
     twitterCard: 'summary_large_image',
+    twitterImage:
+      'https://vinayakkulkarni.dev/og/index.png?title=Vinayak%20Kulkarni&description=GIS%20Engineer%20%26%20Co-Founder%20building%20geospatial%20infrastructure.',
   });
 
   const teasers = [
@@ -21,7 +27,7 @@
     {
       title: 'Projects',
       description:
-        'From tile servers to map SDKs — tools powering millions of map views.',
+        'From tile servers to map SDKs: tools powering millions of map views.',
       href: '/projects',
       icon: 'lucide:folder-open',
     },
