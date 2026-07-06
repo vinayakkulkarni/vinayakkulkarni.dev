@@ -43,6 +43,7 @@ jobs:
         uses: geoql/doctor-action@v2
         with:
           framework: nuxt
+          preset: recommended
           threshold: ${{ vars.DOCTOR_THRESHOLD || '0' }}
           fail-on: error
           api-key: ${{ secrets.DOCTOR_API_KEY }}
