@@ -57,9 +57,16 @@
   .border-beam {
     border-radius: inherit;
     border: var(--border-width) solid transparent;
-    mask-clip: padding-box, border-box;
-    mask-composite: intersect;
     mask:
       linear-gradient(transparent, transparent), linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    /* WebKit engines (Chrome/Safari) ignore the unprefixed mask props above,
+       so the beam mask never clips to the border and the full gradient shows.
+       The prefixed pair clips it to the border edge. */
+    -webkit-mask:
+      linear-gradient(transparent, transparent), linear-gradient(white, white);
+    -webkit-mask-clip: padding-box, border-box;
+    -webkit-mask-composite: source-in;
   }
 </style>
