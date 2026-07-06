@@ -1,8 +1,19 @@
+import { queryCollection } from '@nuxt/content/server';
+
 const BASE_URL = 'https://vinayakkulkarni.dev';
 
-export default defineEventHandler((event: H3Event) => {
+export default defineEventHandler(async (event: H3Event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
+
+  const articles = await queryCollection(event, 'articles')
+    .where('status', '=', 'published')
+    .order('date', 'DESC')
+    .all();
+
+  const articleLines = articles
+    .map((a) => `- [${a.title}](${BASE_URL}${a.path}): ${a.description}`)
+    .join('\n');
 
   return `# Vinayak Kulkarni
 
@@ -16,6 +27,10 @@ Vinayak Kulkarni is a GIS engineer and co-founder at Invarya Technologies, where
 - [Projects](${BASE_URL}/projects): Selected work across web mapping, vector tiling, and geospatial platforms, including maps.guru.
 - [Open Source](${BASE_URL}/open-source): Vue and MapLibre open-source packages Vinayak maintains, such as v-maplibre and maplibre-gl-starfield.
 - [Articles](${BASE_URL}/articles): Writing on GIS, MapLibre, vector tiles, PMTiles, and building with Vue.js.
+
+## Articles
+
+${articleLines || '- No articles published yet.'}
 
 ## Optional
 

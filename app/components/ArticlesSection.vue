@@ -1,12 +1,9 @@
 <script setup lang="ts">
-  const { data: articles } = await useAsyncData('articles', () =>
-    queryCollection('articles').order('date', 'DESC').limit(6).all(),
-  );
+  const { data: articles } = await useArticles(4);
 </script>
 
 <template>
   <section id="articles" class="relative overflow-hidden pt-40 pb-16">
-    <!-- Threads Background — capped height to prevent bleed into footer -->
     <div
       class="threads-wrap pointer-events-none absolute inset-x-0 top-0 opacity-25"
     >
@@ -20,7 +17,7 @@
       </ClientOnly>
     </div>
 
-    <div class="relative mx-auto max-w-6xl px-6">
+    <div class="relative mx-auto max-w-4xl px-6">
       <FadeContent :duration="0.8" blur>
         <GradientText
           text="Articles"
@@ -35,46 +32,36 @@
         by="words"
         :delay="80"
         :duration="0.5"
-        class="mb-16 text-3xl font-bold tracking-tight text-foreground md:text-5xl"
+        class="mb-12 font-display text-3xl font-bold tracking-tight text-foreground md:text-5xl"
       />
 
-      <div v-if="articles?.length" class="space-y-6">
+      <div v-if="articles?.length">
         <FadeContent
           v-for="(article, index) in articles"
           :key="article.path"
-          :delay="index * 0.1"
-          :duration="0.8"
+          :delay="index * 0.08"
+          :duration="0.7"
           blur
         >
+          <ArticleCard :article="article" />
+        </FadeContent>
+
+        <FadeContent :delay="0.3" :duration="0.7" blur>
           <NuxtLink
-            :to="article.path"
-            class="group block rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:bg-accent/50"
+            to="/articles"
+            class="mt-10 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-primary"
           >
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <h3
-                  class="mb-2 text-lg font-semibold text-foreground group-hover:text-primary"
-                >
-                  {{ article.title }}
-                </h3>
-                <p
-                  v-if="article.description"
-                  class="text-sm text-muted-foreground"
-                >
-                  {{ article.description }}
-                </p>
-              </div>
-              <Icon
-                name="lucide:arrow-right"
-                class="mt-1 size-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary"
-              />
-            </div>
+            Read all articles
+            <Icon
+              name="lucide:arrow-right"
+              class="size-4 transition-transform group-hover:translate-x-1"
+            />
           </NuxtLink>
         </FadeContent>
       </div>
 
       <FadeContent v-else :duration="0.8" blur>
-        <p class="text-center text-muted-foreground">Articles coming soon.</p>
+        <p class="text-muted-foreground">Articles coming soon.</p>
       </FadeContent>
     </div>
   </section>

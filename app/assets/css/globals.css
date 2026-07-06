@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -70,6 +71,12 @@
   --ring: oklch(0.439 0 0);
 }
 
+@theme inline {
+  --font-display:
+    'Geist', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+}
+
 html {
   font-family:
     Inter,
@@ -80,6 +87,26 @@ html {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Shiki multi-theme mode switches token colours via html.light/html.dark on
+   the token vars, but never defines the code-block background (--shiki-*-bg is
+   emitted empty). Without this the <pre> keeps one background in both modes, so
+   light-theme dark tokens land on a dark block. Drive the container from our own
+   oklch tokens per mode. */
+.prose pre.shiki {
+  background-color: oklch(0.96 0 0);
+  color: var(--foreground);
+}
+
+.dark .prose pre.shiki {
+  background-color: oklch(0.205 0 0);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: 'ss01' 1;
+  letter-spacing: -0.02em;
 }
 
 body {
@@ -93,12 +120,14 @@ body {
   border-color: var(--border);
 }
 
-/* Hide scrollbar globally while keeping scroll functionality */
-html {
+/* Hide scrollbar on every scroll container (html + nested, e.g. prose <pre>)
+   while keeping scroll functionality. Scoping to html alone leaves nested
+   overflow containers showing a raw scrollbar. */
+* {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-html::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }

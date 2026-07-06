@@ -25,6 +25,14 @@ export default defineNuxtConfig({
     name: 'Vinayak Kulkarni',
   },
 
+  fonts: {
+    families: [
+      // Inter is the established brand body/UI face (loaded via CSS stack).
+      // Geist is the editorial display companion for article + section headings.
+      { name: 'Geist', provider: 'google', weights: [400, 500, 600, 700, 800] },
+    ],
+  },
+
   sitemap: {
     // Static personal site — precompute the sitemap at build, no runtime cost.
     zeroRuntime: true,
@@ -46,6 +54,13 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: ['maplibre-gl', '@geoql/maplibre-gl-starfield'],
+    },
+    // Vite 8.1.3 (latest) crashes with "handleUpgrade() called more than once"
+    // when a second WebSocket upgrade races Nitro's dev server on the shared
+    // HTTP socket (any browser-automation connection triggers it). Pinning HMR
+    // to its own client port routes the HMR upgrade off the shared listener.
+    server: {
+      hmr: { protocol: 'ws', host: 'localhost', clientPort: 24678 },
     },
   },
 
