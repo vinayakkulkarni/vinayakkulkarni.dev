@@ -24,11 +24,28 @@
       delay: 0,
     },
   );
+
+  // Inline styles bypass the CSS build pipeline entirely. lightningcss (the
+  // minifier behind the Tailwind v4 toolchain) rewrites the scoped-CSS mask
+  // shorthand + longhand combo in a way that reorders -webkit-mask-composite
+  // and merges the shorthand, breaking the border clip in WebKit browsers —
+  // the beam gradient then paints as a solid block. Inline declarations reach
+  // the browser byte-for-byte, so the intersect/source-in pair survives.
+  const maskStyle = computed(() => ({
+    '--border-width': `${props.borderWidth}px`,
+    mask: 'linear-gradient(transparent, transparent), linear-gradient(white, white)',
+    maskClip: 'padding-box, border-box',
+    maskComposite: 'intersect',
+    '-webkit-mask':
+      'linear-gradient(transparent, transparent), linear-gradient(white, white)',
+    '-webkit-mask-clip': 'padding-box, border-box',
+    '-webkit-mask-composite': 'source-in',
+  }));
 </script>
 
 <template>
   <div
-    :style="{ '--border-width': `${borderWidth}px` }"
+    :style="maskStyle"
     :class="cn('border-beam pointer-events-none absolute inset-0', props.class)"
   >
     <component
@@ -57,16 +74,5 @@
   .border-beam {
     border-radius: inherit;
     border: var(--border-width) solid transparent;
-    mask:
-      linear-gradient(transparent, transparent), linear-gradient(white, white);
-    mask-clip: padding-box, border-box;
-    mask-composite: intersect;
-    /* WebKit engines (Chrome/Safari) ignore the unprefixed mask props above,
-       so the beam mask never clips to the border and the full gradient shows.
-       The prefixed pair clips it to the border edge. */
-    -webkit-mask:
-      linear-gradient(transparent, transparent), linear-gradient(white, white);
-    -webkit-mask-clip: padding-box, border-box;
-    -webkit-mask-composite: source-in;
   }
 </style>
