@@ -19,3 +19,4 @@ minimumReleaseAgeExclude:
   - '@types/*'
   - '@lucide/*'
   - '@commitlint/*'
+  - miniflare

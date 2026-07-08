@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "nuxt-agent-ready-best-practices": {
+      "source": "vinayakkulkarni/vue-nuxt-best-practices",
+      "sourceType": "github",
+      "skillPath": "skills/nuxt-agent-ready-best-practices/SKILL.md",
+      "computedHash": "6fd81986259638531e14f227dd1cc1a6378ae55489457a0c141bfc2fb9c0af2c"
+    },
     "nuxt-best-practices": {
       "source": "vinayakkulkarni/vue-nuxt-best-practices",
       "sourceType": "github",

@@ -65,7 +65,7 @@
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.2",
     "typescript": "^6.0.3",
-    "wrangler": "^4.107.1"
+    "wrangler": "^4.108.0"
   },
   "devEngines": {
     "runtime": {
