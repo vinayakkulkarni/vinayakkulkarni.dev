@@ -46,7 +46,10 @@ export default defineNuxtPlugin(() => {
     description: 'Run the free Google Business Profile audit for a brand.',
     inputSchema: {
       type: 'object',
-      properties: { brand: { type: 'string' }, email: { type: 'string', format: 'email' } },
+      properties: {
+        brand: { type: 'string' },
+        email: { type: 'string', format: 'email' },
+      },
       required: ['brand', 'email'],
     },
     execute: async (input) =>

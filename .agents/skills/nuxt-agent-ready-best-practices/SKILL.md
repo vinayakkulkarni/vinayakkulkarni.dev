@@ -1,25 +1,25 @@
 ---
 name: nuxt-agent-ready-best-practices
-description: "Nuxt agent-readiness guidelines for making a site operable by autonomous AI agents — not just cited by them. Covers the isitagentready.com standards: Markdown content negotiation, RFC 8288 Link headers, RFC 9727 API catalogs, Agent Skills discovery indexes, WebMCP browser tools, MCP Server Cards, OAuth/OIDC agent auth discovery, and DNS-AID. Triggers on tasks involving agent-ready, isitagentready, MCP, WebMCP, model context protocol, agent skills, API catalog, well-known discovery, agent auth, DNS-AID, A2A, or agentic commerce."
+description: 'Nuxt agent-readiness guidelines for making a site operable by autonomous AI agents — not just cited by them. Covers the isitagentready.com standards: Markdown content negotiation, RFC 8288 Link headers, RFC 9727 API catalogs, Agent Skills discovery indexes, WebMCP browser tools, MCP Server Cards, OAuth/OIDC agent auth discovery, and DNS-AID. Triggers on tasks involving agent-ready, isitagentready, MCP, WebMCP, model context protocol, agent skills, API catalog, well-known discovery, agent auth, DNS-AID, A2A, or agentic commerce.'
 license: MIT
 metadata:
   author: vinayakkulkarni
-  version: "1.0.0"
+  version: '1.0.0'
 ---
 
 # Nuxt Agent-Ready Best Practices
 
-Guidelines for making a Nuxt 4 site **operable by autonomous AI agents** — measured by the [isitagentready.com](https://isitagentready.com) scanner (Cloudflare's "Is Your Site Agent-Ready?"). This is a different axis from GEO: GEO is about being *cited* in AI answers; agent-readiness is about being *operated* — an agent authenticating, discovering your API, calling your tools, and taking action.
+Guidelines for making a Nuxt 4 site **operable by autonomous AI agents** — measured by the [isitagentready.com](https://isitagentready.com) scanner (Cloudflare's "Is Your Site Agent-Ready?"). This is a different axis from GEO: GEO is about being _cited_ in AI answers; agent-readiness is about being _operated_ — an agent authenticating, discovering your API, calling your tools, and taking action.
 
 Proven on a production Nuxt 4 + Nitro `cloudflare_module` Worker: score **21 → 50+ (Level 1 → Level 4 "Agent-Integrated")**.
 
 ## GEO vs Agent-Readiness (know the difference)
 
-| | GEO (`nuxt-geo-best-practices`) | Agent-Readiness (this skill) |
-|---|---|---|
-| Goal | Be **cited** in AI answers | Be **operated** by agents |
-| Question | "Will ChatGPT mention me?" | "Can an agent call my tools and act?" |
-| Levers | llms.txt, crawler allowlist, RAG content, JSON-LD entities | MCP/WebMCP, API/skill discovery, agent auth, DNS-AID, agentic commerce |
+|          | GEO (`nuxt-geo-best-practices`)                            | Agent-Readiness (this skill)                                           |
+| -------- | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Goal     | Be **cited** in AI answers                                 | Be **operated** by agents                                              |
+| Question | "Will ChatGPT mention me?"                                 | "Can an agent call my tools and act?"                                  |
+| Levers   | llms.txt, crawler allowlist, RAG content, JSON-LD entities | MCP/WebMCP, API/skill discovery, agent auth, DNS-AID, agentic commerce |
 
 **Shared primitives live in the GEO skill.** `robots.txt` AI-crawler allowlisting, `llms.txt`/`llms-full.txt`, and the XML sitemap are covered by `nuxt-geo-best-practices` (rules `ai-robots-allowlist`, `ai-llms-txt`, `ai-sitemap`). The isitagentready scanner scores those too — set them up via the GEO skill first, then apply this skill for the agent-operation layer on top.
 

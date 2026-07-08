@@ -16,7 +16,7 @@ isitagentready checks for OAuth/OIDC discovery so agents can authenticate with p
 
 ### HONESTY GATE — do not publish these on a site with no auth server
 
-These are only legitimate when a **real authorization server** issues tokens. A marketing site whose `/api/v1/*` endpoints are public has no `authorization_endpoint`/`token_endpoint` — publishing this discovery points agents at nothing and they fail on first token request. **Skip it.** If you want the score, put it on the domain that actually runs auth (e.g. your app/console with Better Auth), mapping the *real* endpoints.
+These are only legitimate when a **real authorization server** issues tokens. A marketing site whose `/api/v1/*` endpoints are public has no `authorization_endpoint`/`token_endpoint` — publishing this discovery points agents at nothing and they fail on first token request. **Skip it.** If you want the score, put it on the domain that actually runs auth (e.g. your app/console with Better Auth), mapping the _real_ endpoints.
 
 **Correct (only where a real OIDC/OAuth server exists — e.g. the console app):**
 
@@ -31,8 +31,8 @@ export default defineEventHandler((event: H3Event) => {
   return {
     issuer: ISSUER,
     authorization_endpoint: `${ISSUER}/api/v1/auth/authorize`, // must be REAL
-    token_endpoint: `${ISSUER}/api/v1/auth/token`,             // must be REAL
-    jwks_uri: `${ISSUER}/api/v1/auth/jwks`,                    // must be REAL
+    token_endpoint: `${ISSUER}/api/v1/auth/token`, // must be REAL
+    jwks_uri: `${ISSUER}/api/v1/auth/jwks`, // must be REAL
     grant_types_supported: ['authorization_code', 'refresh_token'],
     response_types_supported: ['code'],
     scopes_supported: ['openid', 'email', 'profile'],

@@ -5,17 +5,17 @@
 
 # Nuxt Agent-Ready Best Practices
 
-Guidelines for making a Nuxt 4 site **operable by autonomous AI agents** — measured by the [isitagentready.com](https://isitagentready.com) scanner (Cloudflare's "Is Your Site Agent-Ready?"). This is a different axis from GEO: GEO is about being *cited* in AI answers; agent-readiness is about being *operated* — an agent authenticating, discovering your API, calling your tools, and taking action.
+Guidelines for making a Nuxt 4 site **operable by autonomous AI agents** — measured by the [isitagentready.com](https://isitagentready.com) scanner (Cloudflare's "Is Your Site Agent-Ready?"). This is a different axis from GEO: GEO is about being _cited_ in AI answers; agent-readiness is about being _operated_ — an agent authenticating, discovering your API, calling your tools, and taking action.
 
 Proven on a production Nuxt 4 + Nitro `cloudflare_module` Worker: score **21 → 50+ (Level 1 → Level 4 "Agent-Integrated")**.
 
 ## GEO vs Agent-Readiness (know the difference)
 
-| | GEO (`nuxt-geo-best-practices`) | Agent-Readiness (this skill) |
-|---|---|---|
-| Goal | Be **cited** in AI answers | Be **operated** by agents |
-| Question | "Will ChatGPT mention me?" | "Can an agent call my tools and act?" |
-| Levers | llms.txt, crawler allowlist, RAG content, JSON-LD entities | MCP/WebMCP, API/skill discovery, agent auth, DNS-AID, agentic commerce |
+|          | GEO (`nuxt-geo-best-practices`)                            | Agent-Readiness (this skill)                                           |
+| -------- | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Goal     | Be **cited** in AI answers                                 | Be **operated** by agents                                              |
+| Question | "Will ChatGPT mention me?"                                 | "Can an agent call my tools and act?"                                  |
+| Levers   | llms.txt, crawler allowlist, RAG content, JSON-LD entities | MCP/WebMCP, API/skill discovery, agent auth, DNS-AID, agentic commerce |
 
 **Shared primitives live in the GEO skill.** `robots.txt` AI-crawler allowlisting, `llms.txt`/`llms-full.txt`, and the XML sitemap are covered by `nuxt-geo-best-practices` (rules `ai-robots-allowlist`, `ai-llms-txt`, `ai-sitemap`). The isitagentready scanner scores those too — set them up via the GEO skill first, then apply this skill for the agent-operation layer on top.
 
@@ -78,7 +78,7 @@ isitagentready checks for OAuth/OIDC discovery so agents can authenticate with p
 
 ### HONESTY GATE — do not publish these on a site with no auth server
 
-These are only legitimate when a **real authorization server** issues tokens. A marketing site whose `/api/v1/*` endpoints are public has no `authorization_endpoint`/`token_endpoint` — publishing this discovery points agents at nothing and they fail on first token request. **Skip it.** If you want the score, put it on the domain that actually runs auth (e.g. your app/console with Better Auth), mapping the *real* endpoints.
+These are only legitimate when a **real authorization server** issues tokens. A marketing site whose `/api/v1/*` endpoints are public has no `authorization_endpoint`/`token_endpoint` — publishing this discovery points agents at nothing and they fail on first token request. **Skip it.** If you want the score, put it on the domain that actually runs auth (e.g. your app/console with Better Auth), mapping the _real_ endpoints.
 
 **Correct (only where a real OIDC/OAuth server exists — e.g. the console app):**
 
@@ -93,8 +93,8 @@ export default defineEventHandler((event: H3Event) => {
   return {
     issuer: ISSUER,
     authorization_endpoint: `${ISSUER}/api/v1/auth/authorize`, // must be REAL
-    token_endpoint: `${ISSUER}/api/v1/auth/token`,             // must be REAL
-    jwks_uri: `${ISSUER}/api/v1/auth/jwks`,                    // must be REAL
+    token_endpoint: `${ISSUER}/api/v1/auth/token`, // must be REAL
+    jwks_uri: `${ISSUER}/api/v1/auth/jwks`, // must be REAL
     grant_types_supported: ['authorization_code', 'refresh_token'],
     response_types_supported: ['code'],
     scopes_supported: ['openid', 'email', 'profile'],
@@ -212,14 +212,15 @@ Each skill entry includes `digest: "sha256:<hex>"` of the SKILL.md artifact. If 
       "type": "skill-md",
       "description": "Run the free Google Business Profile audit and get a scorecard.",
       "url": "https://your-site.com/.well-known/agent-skills/free-audit/SKILL.md",
-      "digest": "sha256:0b7afdf087ec3becec2a535ec3561db3ef2b230626060250323526613d8db38a"
-    }
-  ]
+      "digest": "sha256:0b7afdf087ec3becec2a535ec3561db3ef2b230626060250323526613d8db38a",
+    },
+  ],
 }
 ```
 
 ```md
 <!-- public/.well-known/agent-skills/free-audit/SKILL.md -->
+
 # Run a free audit
 
 POST https://your-site.com/api/v1/free-audit with { brand, email, consent:true }.
@@ -308,7 +309,7 @@ Reference: [RFC 9727 (API Catalog)](https://www.rfc-editor.org/rfc/rfc9727) — 
 
 ## Advertise Resources with RFC 8288 `Link` Headers
 
-The isitagentready scanner checks for [RFC 8288](https://www.rfc-editor.org/rfc/rfc8288) `Link` response headers on your homepage. They let an agent discover your machine-readable resources (`llms.txt`, sitemap, API catalog) from *any* response, instead of probing well-known paths one by one.
+The isitagentready scanner checks for [RFC 8288](https://www.rfc-editor.org/rfc/rfc8288) `Link` response headers on your homepage. They let an agent discover your machine-readable resources (`llms.txt`, sitemap, API catalog) from _any_ response, instead of probing well-known paths one by one.
 
 Implement once in a Nitro **server middleware** so every response carries them.
 
@@ -373,7 +374,10 @@ export default defineEventHandler((event: H3Event) => {
   setHeader(event, 'Content-Type', 'application/json');
   return {
     serverInfo: { name: 'your-app-mcp', version: '1.0.0' },
-    transport: { type: 'streamable-http', endpoint: 'https://your-site.com/mcp' }, // must be REAL
+    transport: {
+      type: 'streamable-http',
+      endpoint: 'https://your-site.com/mcp',
+    }, // must be REAL
     capabilities: { tools: {}, resources: {} },
   };
 });
@@ -438,7 +442,10 @@ export default defineNuxtPlugin(() => {
     description: 'Run the free Google Business Profile audit for a brand.',
     inputSchema: {
       type: 'object',
-      properties: { brand: { type: 'string' }, email: { type: 'string', format: 'email' } },
+      properties: {
+        brand: { type: 'string' },
+        email: { type: 'string', format: 'email' },
+      },
       required: ['brand', 'email'],
     },
     execute: async (input) =>
@@ -502,7 +509,7 @@ Reference: [WebMCP spec](https://webmachinelearning.github.io/webmcp/) · [Chrom
 
 ### The DNSSEC requirement (the real blocker)
 
-DNS-AID draft-01 requires the discovery zone be **DNSSEC-signed** — the scanner needs `AD=true` (Authenticated Data) from a validating resolver. Publishing the record is not enough; without DNSSEC the check stays red with *"records found but DNSSEC was not validated"*.
+DNS-AID draft-01 requires the discovery zone be **DNSSEC-signed** — the scanner needs `AD=true` (Authenticated Data) from a validating resolver. Publishing the record is not enough; without DNSSEC the check stays red with _"records found but DNSSEC was not validated"_.
 
 Enabling DNSSEC is two steps and often **user-gated** (a default API token usually lacks the DNSSEC scope — error 10000):
 
