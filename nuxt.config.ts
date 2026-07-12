@@ -127,6 +127,8 @@ export default defineNuxtConfig({
             'shell',
             'md',
             'yaml',
+            'rust',
+            'toml',
           ],
         },
       },
