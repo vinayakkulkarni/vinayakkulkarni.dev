@@ -103,6 +103,21 @@ html {
   background-color: oklch(0.205 0 0);
 }
 
+/* @tailwindcss/typography decorates inline <code> with literal backtick
+   pseudo-elements by default. Suppress them and style inline code as a
+   subtle chip instead. */
+.prose :where(code):not(:where(pre code))::before,
+.prose :where(code):not(:where(pre code))::after {
+  content: none;
+}
+
+.prose :where(code):not(:where(pre code)) {
+  background-color: var(--secondary);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-weight: 500;
+}
+
 .font-display {
   font-family: var(--font-display);
   font-feature-settings: 'ss01' 1;
