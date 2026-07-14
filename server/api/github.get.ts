@@ -4,13 +4,16 @@ const GITHUB_USERNAME = 'vinayakkulkarni';
 const GITHUB_API = 'https://api.github.com';
 const GITHUB_GRAPHQL = 'https://api.github.com/graphql';
 
-const FALLBACK_PINNED_NAMES = ['tileserver-rs', 'vue-nuxt-best-practices'];
+const FALLBACK_PINNED_NAMES = [
+  'nxui',
+  'tileserver-rs',
+  'vue-nuxt-best-practices',
+];
 
 const FALLBACK_GEOQL_REPOS = [
   'geoql/v-maplibre',
-  'geoql/maplibre-gl-interpolate-heatmap',
+  'geoql/v-mapkit',
   'geoql/maplibre-gl-compare',
-  'geoql/maplibre-gl-wind',
 ];
 
 interface GraphQLPinnedNode {
