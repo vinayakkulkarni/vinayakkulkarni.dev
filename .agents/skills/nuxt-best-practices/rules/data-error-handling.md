@@ -13,8 +13,8 @@ Data fetching can fail or take time. Always handle `error` and `status`/`pending
 
 ```vue
 <script setup>
-  // BAD: No handling of errors or loading states
-  const { data: users } = await useFetch('/api/users');
+// BAD: No handling of errors or loading states
+const { data: users } = await useFetch('/api/users')
 </script>
 
 <template>
@@ -29,14 +29,9 @@ Data fetching can fail or take time. Always handle `error` and `status`/`pending
 
 ```vue
 <script setup>
-  const {
-    data: users,
-    status,
-    error,
-    refresh,
-  } = await useFetch('/api/users', {
-    default: () => [],
-  });
+const { data: users, status, error, refresh } = await useFetch('/api/users', {
+  default: () => []
+})
 </script>
 
 <template>
@@ -45,18 +40,18 @@ Data fetching can fail or take time. Always handle `error` and `status`/`pending
     <Spinner />
     <p>Loading users...</p>
   </div>
-
+  
   <!-- Error state with retry -->
   <div v-else-if="error" class="error">
     <p>Failed to load users: {{ error.message }}</p>
     <button @click="refresh()">Try Again</button>
   </div>
-
+  
   <!-- Empty state -->
   <div v-else-if="users.length === 0" class="empty">
     <p>No users found</p>
   </div>
-
+  
   <!-- Success state -->
   <ul v-else>
     <li v-for="user in users" :key="user.id">{{ user.name }}</li>
@@ -66,12 +61,12 @@ Data fetching can fail or take time. Always handle `error` and `status`/`pending
 
 **Status values:**
 
-| Status    | Description                    |
-| --------- | ------------------------------ |
-| `idle`    | No request made yet            |
-| `pending` | Request in progress            |
+| Status | Description |
+|--------|-------------|
+| `idle` | No request made yet |
+| `pending` | Request in progress |
 | `success` | Request completed successfully |
-| `error`   | Request failed                 |
+| `error` | Request failed |
 
 **Using NuxtErrorBoundary for global error handling:**
 
@@ -96,15 +91,15 @@ Data fetching can fail or take time. Always handle `error` and `status`/`pending
 
 ```vue
 <script setup>
-  // Lazy fetch - doesn't block navigation
-  const { data: stats, status } = useLazyFetch('/api/stats');
+// Lazy fetch - doesn't block navigation
+const { data: stats, status } = useLazyFetch('/api/stats')
 </script>
 
 <template>
   <main>
     <!-- Main content renders immediately -->
     <h1>Dashboard</h1>
-
+    
     <!-- Stats load asynchronously -->
     <aside>
       <Skeleton v-if="status === 'pending'" />
@@ -120,19 +115,19 @@ Data fetching can fail or take time. Always handle `error` and `status`/`pending
 // composables/useFetchWithNotification.ts
 export function useFetchWithNotification<T>(
   url: string,
-  options?: UseFetchOptions<T>,
+  options?: UseFetchOptions<T>
 ) {
-  const toast = useToast();
-
+  const toast = useToast()
+  
   const result = useFetch(url, {
     ...options,
     onResponseError: ({ response }) => {
-      toast.error(response._data?.message || 'Request failed');
-      options?.onResponseError?.({ response });
-    },
-  });
-
-  return result;
+      toast.error(response._data?.message || 'Request failed')
+      options?.onResponseError?.({ response })
+    }
+  })
+  
+  return result
 }
 ```
 

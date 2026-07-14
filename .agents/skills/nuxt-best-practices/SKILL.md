@@ -4,7 +4,7 @@ description: Nuxt 3/4 performance optimization and architecture guidelines for b
 license: MIT
 metadata:
   author: vinayakkulkarni
-  version: '1.0.0'
+  version: "1.0.0"
 ---
 
 # Nuxt Best Practices
@@ -14,7 +14,6 @@ Comprehensive performance optimization guide for Nuxt 3/4 applications. Contains
 ## When to Apply
 
 Reference these guidelines when:
-
 - Writing new Nuxt pages, components, or composables
 - Implementing data fetching (useFetch, useAsyncData)
 - Creating server routes and API endpoints
@@ -24,16 +23,16 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category                    | Impact      | Prefix       |
-| -------- | --------------------------- | ----------- | ------------ |
-| 1        | Data Fetching               | CRITICAL    | `data-`      |
-| 2        | Auto-Imports & Organization | CRITICAL    | `imports-`   |
-| 3        | Server & API Routes         | HIGH        | `server-`    |
-| 4        | Rendering Modes             | HIGH        | `rendering-` |
-| 5        | State Management            | MEDIUM-HIGH | `state-`     |
-| 6        | Type Safety                 | MEDIUM      | `types-`     |
-| 7        | Modules & Plugins           | LOW-MEDIUM  | `modules-`   |
-| 8        | Performance & Deployment    | LOW         | `perf-`      |
+| Priority | Category | Impact | Prefix |
+|----------|----------|--------|--------|
+| 1 | Data Fetching | CRITICAL | `data-` |
+| 2 | Auto-Imports & Organization | CRITICAL | `imports-` |
+| 3 | Server & API Routes | HIGH | `server-` |
+| 4 | Rendering Modes | HIGH | `rendering-` |
+| 5 | State Management | MEDIUM-HIGH | `state-` |
+| 6 | Type Safety | MEDIUM | `types-` |
+| 7 | Modules & Plugins | LOW-MEDIUM | `modules-` |
+| 8 | Performance & Deployment | LOW | `perf-` |
 
 ## Quick Reference
 
@@ -109,7 +108,6 @@ rules/_sections.md
 ```
 
 Each rule file contains:
-
 - Brief explanation of why it matters
 - Incorrect code example with explanation
 - Correct code example with explanation
