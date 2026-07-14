@@ -13,11 +13,13 @@ Unlike Googlebot (which renders JS), most AI crawlers — GPTBot, ClaudeBot, Per
 <!-- What an AI crawler sees on a CSR Nuxt build -->
 <!DOCTYPE html>
 <html>
-<head><title>My App</title></head>
-<body>
-  <div id="__nuxt"></div>
-  <script src="/_nuxt/entry.js"></script>
-</body>
+  <head>
+    <title>My App</title>
+  </head>
+  <body>
+    <div id="__nuxt"></div>
+    <script src="/_nuxt/entry.js"></script>
+  </body>
 </html>
 ```
 
@@ -62,12 +64,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: [
-        '/',
-        '/docs',
-        '/pricing',
-        '/blog',
-      ],
+      routes: ['/', '/docs', '/pricing', '/blog'],
     },
   },
 
@@ -144,15 +141,15 @@ A subtle bug: if you use `useFetch` with `{ server: false }`, the data is only f
 ```vue
 <!-- ❌ WRONG — { server: false } means SSR has no data → empty page for AI -->
 <script setup lang="ts">
-const { data } = await useFetch('/api/posts', { server: false });
+  const { data } = await useFetch('/api/posts', { server: false });
 </script>
 ```
 
 ```vue
 <!-- ✅ CORRECT — default behavior fetches on server, hydrates on client -->
 <script setup lang="ts">
-const { data: posts } = await useFetch('/api/posts');
-// posts is populated server-side → AI crawler sees the rendered list
+  const { data: posts } = await useFetch('/api/posts');
+  // posts is populated server-side → AI crawler sees the rendered list
 </script>
 
 <template>
@@ -166,14 +163,14 @@ const { data: posts } = await useFetch('/api/posts');
 
 ### `<ClientOnly>` is fine for widgets — bad for content
 
-| Component type | `<ClientOnly>` OK? |
-|----------------|--------------------|
-| Article body, product description, FAQ | **No** — must be SSR'd |
-| Headings, navigation, footer links | **No** — must be SSR'd |
-| Pricing tables, feature comparisons | **No** — must be SSR'd |
-| Comment widget, live chat, analytics | **Yes** — AI doesn't need these |
-| Date/time pickers, charts that need `window` | **Yes** |
-| Auth-gated dashboard widgets | **Yes** |
+| Component type                               | `<ClientOnly>` OK?              |
+| -------------------------------------------- | ------------------------------- |
+| Article body, product description, FAQ       | **No** — must be SSR'd          |
+| Headings, navigation, footer links           | **No** — must be SSR'd          |
+| Pricing tables, feature comparisons          | **No** — must be SSR'd          |
+| Comment widget, live chat, analytics         | **Yes** — AI doesn't need these |
+| Date/time pickers, charts that need `window` | **Yes**                         |
+| Auth-gated dashboard widgets                 | **Yes**                         |
 
 ### What about prerender + ISR?
 

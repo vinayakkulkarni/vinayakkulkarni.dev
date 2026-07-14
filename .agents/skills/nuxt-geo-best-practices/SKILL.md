@@ -4,7 +4,7 @@ description: Nuxt GEO (Generative Engine Optimization) guidelines for getting ci
 license: MIT
 metadata:
   author: vinayakkulkarni
-  version: "1.0.0"
+  version: '1.0.0'
 ---
 
 # Nuxt GEO Best Practices
@@ -56,12 +56,12 @@ These rules synthesize:
 
 ## Rule Categories by Priority
 
-| Priority | Category | Impact | Prefix |
-|----------|----------|--------|--------|
-| 1 | Content Extractability (the +40% levers) | CRITICAL | `content-` |
-| 2 | AI Crawler & Discovery | CRITICAL | `ai-` |
-| 3 | Entity Clarity | HIGH | `entity-` |
-| 4 | Page-Level GEO | HIGH | `page-` |
+| Priority | Category                                 | Impact   | Prefix     |
+| -------- | ---------------------------------------- | -------- | ---------- |
+| 1        | Content Extractability (the +40% levers) | CRITICAL | `content-` |
+| 2        | AI Crawler & Discovery                   | CRITICAL | `ai-`      |
+| 3        | Entity Clarity                           | HIGH     | `entity-`  |
+| 4        | Page-Level GEO                           | HIGH     | `page-`    |
 
 ## Quick Reference
 
@@ -108,6 +108,7 @@ rules/_sections.md
 ```
 
 Each rule file contains:
+
 - Brief explanation of why it matters (with arxiv evidence where applicable)
 - Incorrect code example with explanation
 - Correct Nuxt-specific code example
