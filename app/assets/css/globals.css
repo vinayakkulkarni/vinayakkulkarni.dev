@@ -29,6 +29,10 @@
 }
 
 :root {
+  /* Bumping any real declaration rotates the entry.css content hash. Used to
+     escape a CDN-cached 404 on the old asset URL (edge cached the asset path
+     during a deploy race with immutable headers). */
+  --asset-rev: 2;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
