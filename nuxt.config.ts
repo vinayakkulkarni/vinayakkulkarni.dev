@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url';
+
 export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
@@ -14,7 +16,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/color-mode',
     '@nuxtjs/plausible',
-    '@nuxtjs/sitemap',
     '@vueuse/nuxt',
     'motion-v/nuxt',
     '@nuxtjs/tailwindcss',
@@ -141,9 +142,23 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
+    alias: {
+      'nitropack/runtime': '~~/server/utils/nitropack-runtime-shim',
+      '@takumi-rs/wasm/auto': fileURLToPath(
+        new URL('./server/utils/takumi-wasm-auto.ts', import.meta.url),
+      ),
+    },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/about', '/projects', '/open-source', '/articles'],
+      routes: [
+        '/',
+        '/about',
+        '/projects',
+        '/open-source',
+        '/articles',
+        '/rss.xml',
+        '/llms.txt',
+      ],
     },
     cloudflare: {
       nodeCompat: true,
