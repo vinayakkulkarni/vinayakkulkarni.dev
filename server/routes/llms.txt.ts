@@ -1,4 +1,4 @@
-import { queryCollection } from '@nuxt/content/server';
+import { readArticlesFromDisk } from '~~/server/utils/articles-from-disk';
 
 const BASE_URL = 'https://vinayakkulkarni.dev';
 
@@ -6,10 +6,7 @@ export default defineEventHandler(async (event: H3Event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 
-  const articles = await queryCollection(event, 'articles')
-    .where('status', '=', 'published')
-    .order('date', 'DESC')
-    .all();
+  const articles = await readArticlesFromDisk();
 
   const articleLines = articles
     .map((a) => `- [${a.title}](${BASE_URL}${a.path}): ${a.description}`)

@@ -1,4 +1,4 @@
-import { queryCollection } from '@nuxt/content/server';
+import { readArticlesFromDisk } from '~~/server/utils/articles-from-disk';
 
 const BASE_URL = 'https://vinayakkulkarni.dev';
 const AUTHOR_NAME = 'Vinayak Kulkarni';
@@ -16,10 +16,7 @@ export default defineEventHandler(async (event: H3Event) => {
   setHeader(event, 'Content-Type', 'application/rss+xml; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 
-  const articles = await queryCollection(event, 'articles')
-    .where('status', '=', 'published')
-    .order('date', 'DESC')
-    .all();
+  const articles = await readArticlesFromDisk();
 
   const items = articles
     .map((a) => {
@@ -28,10 +25,10 @@ export default defineEventHandler(async (event: H3Event) => {
       <title>${escapeXml(a.title)}</title>
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
-      <description>${escapeXml(a.description ?? '')}</description>
+      <description>${escapeXml(a.description)}</description>
       <pubDate>${new Date(a.date).toUTCString()}</pubDate>
       <dc:creator>${escapeXml(AUTHOR_NAME)}</dc:creator>
-${(a.tags ?? []).map((t) => `      <category>${escapeXml(t)}</category>`).join('\n')}
+${a.tags.map((t) => `      <category>${escapeXml(t)}</category>`).join('\n')}
     </item>`;
     })
     .join('\n');
