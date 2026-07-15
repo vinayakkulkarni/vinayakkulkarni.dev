@@ -33,10 +33,12 @@
   "dependencies": {
     "@cf-wasm/og": "^0.4.0",
     "@geoql/maplibre-gl-starfield": "^0.1.1",
+    "@takumi-rs/wasm": "2.1.1",
     "better-sqlite3": "^12.11.1",
     "maplibre-gl": "^5.24.0",
-    "nuxt": "^4.4.8",
+    "nuxt": "npm:nuxt-nightly@5.0.0-29732666.43a63f0c",
     "ogl": "^1.0.11",
+    "takumi-js": "2.1.1",
     "vue": "^3.5.39"
   },
   "devDependencies": {
@@ -57,9 +59,12 @@
     "@vueuse/core": "^14.3.0",
     "@vueuse/nuxt": "^14.3.0",
     "clsx": "^2.1.1",
+    "h3": "2.0.1-rc.22",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.8",
     "motion-v": "2.3.0",
+    "nitro": "3.0.260610-beta",
+    "ofetch": "^1.5.1",
     "oxfmt": "^0.58.0",
     "oxlint": "^1.73.0",
     "tailwind-merge": "^3.6.0",

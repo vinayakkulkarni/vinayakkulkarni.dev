@@ -21,3 +21,4 @@ minimumReleaseAgeExclude:
   - '@commitlint/*'
   - miniflare
   - '@iconify-json/*'
+  - nuxt-nightly@5.0.0-29732666.43a63f0c
