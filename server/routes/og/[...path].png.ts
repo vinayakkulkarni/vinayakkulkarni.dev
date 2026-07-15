@@ -1,8 +1,9 @@
 // Dynamic OG image generation for vinayakkulkarni.dev
-// Uses @cf-wasm/og/workerd — only works on Cloudflare Workers, not Node.js dev
+// Uses takumi-js — its #backend import condition picks the WASM backend on
+// workerd and the native napi backend on Node, so the same code runs in both.
 
-// Satori element helper — plain JS objects, no React.
-// Satori requires display:flex on divs with 2+ children, and chokes on children:[].
+// Element helper — plain JS objects shaped like React elements, which
+// takumi's fromJsx transform consumes directly.
 function el(
   type: string,
   style: Record<string, unknown>,
@@ -223,20 +224,19 @@ export default defineEventHandler(async (event: H3Event) => {
   );
 
   try {
-    const { ImageResponse } = await import('@cf-wasm/og/workerd');
-    const response = await ImageResponse.async(element, {
+    const { render } = await import('takumi-js');
+    const image = await render(element, {
       width: 1200,
       height: 630,
+      format: 'png',
     });
-
-    const buffer = await response.arrayBuffer();
 
     setResponseHeaders(event, {
       'Content-Type': 'image/png',
       'Cache-Control': 'public, max-age=31536000, s-maxage=31536000, immutable',
     });
 
-    return Buffer.from(buffer);
+    return image;
   } catch (err) {
     throw createError({
       statusCode: 500,
