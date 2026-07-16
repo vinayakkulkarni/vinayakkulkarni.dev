@@ -34,11 +34,6 @@ export default defineNuxtConfig({
     ],
   },
 
-  sitemap: {
-    // Static personal site — precompute the sitemap at build, no runtime cost.
-    zeroRuntime: true,
-  },
-
   components: [
     {
       path: '~/components/ui',
@@ -158,6 +153,7 @@ export default defineNuxtConfig({
         '/articles',
         '/rss.xml',
         '/llms.txt',
+        '/sitemap.xml',
       ],
     },
     cloudflare: {
