@@ -31,13 +31,13 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@cf-wasm/og": "^0.4.0",
+    "@cf-wasm/og": "^0.4.1",
     "@geoql/maplibre-gl-starfield": "^0.1.1",
     "better-sqlite3": "^12.11.1",
     "maplibre-gl": "^5.24.0",
     "nuxt": "^4.4.8",
     "ogl": "^1.0.11",
-    "vue": "^3.5.39"
+    "vue": "^3.5.40"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
