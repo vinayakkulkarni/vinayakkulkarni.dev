@@ -7,6 +7,12 @@
   const { sunAzimuth, sunAltitude, localSunAltitude, skyMode } =
     useSunPosition();
 
+  // Headless scanners (isitagentready's WebMCP check) wait for networkidle in
+  // a no-GPU browser with an 8s timeout; live MapLibre tile streaming never
+  // reaches idle and the check times out. Bots get the static gradient, humans
+  // get the globe.
+  const isAutomated = import.meta.client && navigator.webdriver === true;
+
   const taglines = [
     'GIS Engineer',
     'Co-Founder',
@@ -104,7 +110,11 @@
   >
     <div class="absolute inset-0">
       <ClientOnly>
-        <div ref="mapContainer" class="size-full" />
+        <div
+          v-if="isAutomated"
+          class="size-full bg-gradient-to-b from-black via-[#0a0e1a] to-[#060810]"
+        />
+        <div v-else ref="mapContainer" class="size-full" />
         <template #fallback>
           <div class="size-full bg-black" />
         </template>
