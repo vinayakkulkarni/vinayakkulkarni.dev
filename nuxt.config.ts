@@ -173,6 +173,25 @@ export default defineNuxtConfig({
         placement: {
           mode: 'smart',
         },
+        // Route the markdown-negotiable pages through the Worker so the
+        // agent-ready middleware can serve Accept: text/markdown. Static
+        // assets bypass middleware by default; run_worker_first opts these
+        // paths back into the Worker (markdown hits are rare, browsers still
+        // get the cached prerendered HTML variant via Vary: Accept).
+        assets: {
+          run_worker_first: [
+            '/',
+            '/about',
+            '/about/',
+            '/projects',
+            '/projects/',
+            '/open-source',
+            '/open-source/',
+            '/articles',
+            '/articles/',
+            '/articles/*',
+          ],
+        },
       },
     },
     experimental: {

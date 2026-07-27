@@ -1,0 +1,22 @@
+# Cloudflare Workers Static Assets headers (prerendered pages bypass nitro
+# server middleware, so RFC 8288 Link headers must come from this file).
+
+/
+  Link: <https://vinayakkulkarni.dev/llms.txt>; rel="llms"; type="text/plain", <https://vinayakkulkarni.dev/sitemap.xml>; rel="sitemap"; type="application/xml", <https://vinayakkulkarni.dev/.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/about/
+  Link: <https://vinayakkulkarni.dev/llms.txt>; rel="llms"; type="text/plain", <https://vinayakkulkarni.dev/sitemap.xml>; rel="sitemap"; type="application/xml", <https://vinayakkulkarni.dev/.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/projects/
+  Link: <https://vinayakkulkarni.dev/llms.txt>; rel="llms"; type="text/plain", <https://vinayakkulkarni.dev/sitemap.xml>; rel="sitemap"; type="application/xml", <https://vinayakkulkarni.dev/.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/open-source/
+  Link: <https://vinayakkulkarni.dev/llms.txt>; rel="llms"; type="text/plain", <https://vinayakkulkarni.dev/sitemap.xml>; rel="sitemap"; type="application/xml", <https://vinayakkulkarni.dev/.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/articles/
+  Link: <https://vinayakkulkarni.dev/llms.txt>; rel="llms"; type="text/plain", <https://vinayakkulkarni.dev/sitemap.xml>; rel="sitemap"; type="application/xml", <https://vinayakkulkarni.dev/.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
