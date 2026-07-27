@@ -24,3 +24,7 @@ minimumReleaseAgeExclude:
   - '@commitlint/*'
   - miniflare
   - '@iconify-json/*'
+  - '@oxlint/*'
+  - '@oxfmt/*'
+  - oxlint
+  - oxfmt
