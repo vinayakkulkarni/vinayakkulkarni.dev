@@ -10,8 +10,8 @@
   // Headless scanners (isitagentready's WebMCP check) wait for networkidle in
   // a no-GPU browser with an 8s timeout; live MapLibre tile streaming never
   // reaches idle and the check times out. Bots get the static gradient, humans
-  // get the globe.
-  const isAutomated = import.meta.client && navigator.webdriver === true;
+  // get the globe. navigator is browser-only, so the check runs onMounted.
+  const isAutomated = ref(false);
 
   const taglines = [
     'GIS Engineer',
@@ -80,11 +80,14 @@
   }
 
   watch(mapContainer, (el) => {
-    if (el) initMap(el);
+    if (el && !isAutomated.value) initMap(el);
   });
 
   onMounted(() => {
-    if (mapContainer.value) initMap(mapContainer.value);
+    isAutomated.value = navigator.webdriver === true;
+    if (!isAutomated.value && mapContainer.value) {
+      initMap(mapContainer.value);
+    }
   });
 
   watch([sunAzimuth, sunAltitude, localSunAltitude], ([az, alt, fadeAlt]) => {
