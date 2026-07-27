@@ -17,9 +17,10 @@ const searchArticles: WebMcpTool = {
     required: ['query'],
   },
   execute: async (input) => {
-    const articles = await $fetch<
-      { title: string; description: string; tags: string[] }[]
-    >('/api/articles');
+    const articles =
+      await $fetch<{ title: string; description: string; tags: string[] }[]>(
+        '/api/articles',
+      );
     const q = String(input.query ?? '').toLowerCase();
     if (!q) return articles;
     return articles.filter(

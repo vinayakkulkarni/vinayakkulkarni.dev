@@ -34,11 +34,15 @@ export default defineEventHandler(async (event: H3Event) => {
       // Worker. An absolute `$fetch(origin)` is a real edge loopback that
       // Cloudflare answers with an empty body — this file served 83 bytes in
       // prod for weeks before anyone noticed.
-      const html = await event.$fetch<string>(path, {
-        headers: { Accept: 'text/html' },
-      }).catch(() => '');
+      const html = await event
+        .$fetch<string>(path, {
+          headers: { Accept: 'text/html' },
+        })
+        .catch(() => '');
       const plain = htmlToPlaintext(html);
-      return plain ? `# ${getRequestURL(event).origin}${path}\n\n${plain}\n` : '';
+      return plain
+        ? `# ${getRequestURL(event).origin}${path}\n\n${plain}\n`
+        : '';
     }),
   );
 

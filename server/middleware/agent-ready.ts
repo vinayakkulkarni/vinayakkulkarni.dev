@@ -50,7 +50,11 @@ export default defineEventHandler(async (event: H3Event) => {
       const dir = join(process.cwd(), 'content/articles');
       const { readdir } = await import('node:fs/promises');
       const files = await readdir(dir);
-      const file = files.find((f) => f.endsWith('.md') && f.replace(/^\d+\./, '').replace(/\.md$/, '') === slug);
+      const file = files.find(
+        (f) =>
+          f.endsWith('.md') &&
+          f.replace(/^\d+\./, '').replace(/\.md$/, '') === slug,
+      );
       if (!file) return;
       const raw = await readFile(join(dir, file), 'utf-8');
       setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8');
