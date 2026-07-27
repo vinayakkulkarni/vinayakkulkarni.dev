@@ -187,8 +187,6 @@ export default defineNuxtConfig({
             '/projects/',
             '/open-source',
             '/open-source/',
-            '/articles',
-            '/articles/',
             '/articles/*',
           ],
         },
