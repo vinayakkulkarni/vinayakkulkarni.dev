@@ -5,31 +5,31 @@
       "source": "vinayakkulkarni/vue-nuxt-best-practices",
       "sourceType": "github",
       "skillPath": "skills/nuxt-agent-ready-best-practices/SKILL.md",
-      "computedHash": "00e5c9af11c40671f34183d2384f1a489e16de63008aeb1f704b4e805c746e32"
+      "computedHash": "2b2db51045900898a8718a629a69d6ec06af63baab7da2641ce14a60a792695f"
     },
     "nuxt-best-practices": {
       "source": "vinayakkulkarni/vue-nuxt-best-practices",
       "sourceType": "github",
       "skillPath": "skills/nuxt-best-practices/SKILL.md",
-      "computedHash": "d4987bf10b52f3aa467c6de1533a5cbd725f8523cd69c72662b6d42d02fabba1"
+      "computedHash": "47ac0b355716a231f165d7af2077535abefd65d87018cdcde85f8662199130fd"
     },
     "nuxt-geo-best-practices": {
       "source": "vinayakkulkarni/vue-nuxt-best-practices",
       "sourceType": "github",
       "skillPath": "skills/nuxt-geo-best-practices/SKILL.md",
-      "computedHash": "dca3d8ef6f6bef851eaee95ff03d8f6150a8ff6a5b2f1b512c97e432698b1f87"
+      "computedHash": "e5500611cbdef1918de22c296023b87e61ae60d33ca6e33deffa3e8bec56d85d"
     },
     "nuxt-seo-best-practices": {
       "source": "vinayakkulkarni/vue-nuxt-best-practices",
       "sourceType": "github",
       "skillPath": "skills/nuxt-seo-best-practices/SKILL.md",
-      "computedHash": "697e41ead79c9dfff8f6c8230cf7ecb15217679042a22eb8b5543c5ba0acbabf"
+      "computedHash": "3a8147200d259084d8bc552d5a416143fc3d2227a57ab1e5260a8ac13af35caf"
     },
     "vue-best-practices": {
       "source": "vinayakkulkarni/vue-nuxt-best-practices",
       "sourceType": "github",
       "skillPath": "skills/vue-best-practices/SKILL.md",
-      "computedHash": "4cd0f3d1b46a0673b93c1ce32fb608083b18d49f6893b99a8987713edba8e512"
+      "computedHash": "192c3399dde8fe586b9d041b56a2e113156f88b4313d4459eae8b12b15b1046a"
     }
   }
 }

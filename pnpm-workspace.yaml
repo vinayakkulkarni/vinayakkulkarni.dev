@@ -5,7 +5,10 @@ allowBuilds:
   sharp: true
   workerd: true
 overrides:
-  vite: ^8.1.4
+  # Nuxt 4.5 moved to unhead v3; older copies (unhead@2.x) break @unhead/vue
+  # hoisting across nuxtseo-shared/@nuxtjs/sitemap — pin everything to v3.
+  unhead: ^3.2.3
+  '@unhead/vue': ^3.2.3
 minimumReleaseAgeExclude:
   - '@nuxt/*'
   - nuxt

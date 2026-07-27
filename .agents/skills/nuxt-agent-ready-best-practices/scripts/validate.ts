@@ -1,8 +1,9 @@
-import { readdir, readFile } from 'fs/promises';
-import { join } from 'path';
+import { readdir, readFile } from 'node:fs/promises';
+import { parse as parseYaml } from 'yaml';
+import { join } from 'node:path';
 
-const RULES_DIR = join(import.meta.dir, '..', 'rules');
-const SKILL_FILE = join(import.meta.dir, '..', 'SKILL.md');
+const RULES_DIR = join(import.meta.dirname, '..', 'rules');
+const SKILL_FILE = join(import.meta.dirname, '..', 'SKILL.md');
 
 interface ValidationError {
   file: string;
@@ -34,7 +35,7 @@ function validateYamlFrontmatter(
 
   const frontmatter = content.slice(4, endIndex);
   try {
-    Bun.YAML.parse(frontmatter);
+    parseYaml(frontmatter);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     errors.push({

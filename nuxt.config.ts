@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   future: {
-    compatibilityVersion: 4,
+    compatibilityVersion: 5,
   },
 
   compatibilityDate: '2026-06-16',
@@ -59,8 +59,9 @@ export default defineNuxtConfig({
     // when a second WebSocket upgrade races Nitro's dev server on the shared
     // HTTP socket (any browser-automation connection triggers it). Pinning HMR
     // to its own client port routes the HMR upgrade off the shared listener.
+    // Vite 8.1.4+ renamed server.hmr.* to server.ws.* (same semantics).
     server: {
-      hmr: { protocol: 'ws', host: 'localhost', clientPort: 24678 },
+      ws: { host: 'localhost', port: 24678 },
     },
   },
 
