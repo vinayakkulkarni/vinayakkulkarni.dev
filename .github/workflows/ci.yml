@@ -49,5 +49,8 @@ jobs:
       - name: Check formatting
         run: pnpm run fmt:check
 
+      - name: Verify agent-skills digests
+        run: node scripts/verify-agent-skills.mjs
+
       - name: Run build
         run: pnpm run build
