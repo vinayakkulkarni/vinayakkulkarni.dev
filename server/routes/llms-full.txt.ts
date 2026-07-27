@@ -20,8 +20,6 @@ function htmlToPlaintext(html: string): string {
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
-    .replace(/&#39;/g, "'")
-    .replace(/&quot;/g, '"')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -30,14 +28,17 @@ export default defineEventHandler(async (event: H3Event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 
-  const origin = getRequestURL(event).origin;
   const sections = await Promise.all(
     PRIORITY_ROUTES.map(async (path) => {
-      const html = await $fetch<string>(`${origin}${path}`, {
+      // event.$fetch (relative) resolves prerendered HTML in-process on the
+      // Worker. An absolute `$fetch(origin)` is a real edge loopback that
+      // Cloudflare answers with an empty body — this file served 83 bytes in
+      // prod for weeks before anyone noticed.
+      const html = await event.$fetch<string>(path, {
         headers: { Accept: 'text/html' },
       }).catch(() => '');
       const plain = htmlToPlaintext(html);
-      return plain ? `# ${origin}${path}\n\n${plain}\n` : '';
+      return plain ? `# ${getRequestURL(event).origin}${path}\n\n${plain}\n` : '';
     }),
   );
 
