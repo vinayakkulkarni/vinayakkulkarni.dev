@@ -50,12 +50,12 @@
     "@nuxt/image": "^2.1.0",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/plausible": "^3.0.2",
-    "@nuxtjs/sitemap": "^8.3.0",
+    "@nuxtjs/sitemap": "^8.3.1",
     "@nuxtjs/tailwindcss": "7.0.0-beta.1",
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^26.1.2",
-    "@vueuse/core": "^14.3.0",
-    "@vueuse/nuxt": "^14.3.0",
+    "@vueuse/core": "^14.4.0",
+    "@vueuse/nuxt": "^14.4.0",
     "clsx": "^2.1.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.2.0",
@@ -65,7 +65,7 @@
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
-    "wrangler": "^4.114.0"
+    "wrangler": "^4.115.0"
   },
   "devEngines": {
     "runtime": {
