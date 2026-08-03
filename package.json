@@ -42,7 +42,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.2.0",
-    "@iconify-json/lucide": "^1.2.120",
+    "@iconify-json/lucide": "^1.2.121",
     "@iconify-json/simple-icons": "^1.2.92",
     "@nuxt/content": "^3.15.2",
     "@nuxt/fonts": "^0.14.0",
@@ -58,14 +58,14 @@
     "@vueuse/nuxt": "^14.4.0",
     "clsx": "^2.1.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.2.0",
+    "lint-staged": "^17.3.0",
     "motion-v": "2.3.0",
     "oxfmt": "^0.61.0",
     "oxlint": "^1.76.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
-    "wrangler": "^4.116.0"
+    "wrangler": "^4.118.0"
   },
   "devEngines": {
     "runtime": {
