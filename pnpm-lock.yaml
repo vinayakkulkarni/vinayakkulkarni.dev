@@ -41,11 +41,11 @@ importers:
         specifier: ^21.2.2
         version: 21.2.2
       '@iconify-json/lucide':
-        specifier: ^1.2.126
-        version: 1.2.126
+        specifier: ^1.2.127
+        version: 1.2.127
       '@iconify-json/simple-icons':
-        specifier: ^1.2.93
-        version: 1.2.93
+        specifier: ^1.2.94
+        version: 1.2.94
       '@nuxt/content':
         specifier: ^3.16.0
         version: 3.16.0(@oxc-project/types@0.140.0)(@valibot/to-json-schema@1.7.1(valibot@1.4.2(typescript@7.0.2)))(better-sqlite3@13.0.2)(esbuild@0.28.1)(magic-string@1.1.0)(magicast@0.5.3)(oxc-parser@0.140.0)(rolldown@1.2.0)(rollup@4.62.3)(supports-color@10.2.2)(valibot@1.4.2(typescript@7.0.2))(vite@8.1.5(@types/node@26.4.0)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))
@@ -813,11 +813,11 @@ packages:
     peerDependencies:
       react: '>=16.0'
 
-  '@iconify-json/lucide@1.2.126':
-    resolution: {integrity: sha512-Fl3OfR71yeWLrlTLp6C4W5W3rJJDWH9/e70mjtq9VAldYDxvHh149JMNPz7foTeLLTE2Paynnp2aYKVL9rgF5Q==}
+  '@iconify-json/lucide@1.2.127':
+    resolution: {integrity: sha512-7KuCCpkly00kefna4wEnCr8l2HFRkbn4mD4zRib8wCSbrBmnR/l57ExpU6j5jv/Bo+qHpWuHpDtcqceQ0ptArw==}
 
-  '@iconify-json/simple-icons@1.2.93':
-    resolution: {integrity: sha512-/XhANjfGYOuqvSR3TmUnkQkINvQ4GVjVuukvymRbxtVFBvIq/yiXJqCDycKcQPT401OYT9H2vIY6ihAlz1QIAw==}
+  '@iconify-json/simple-icons@1.2.94':
+    resolution: {integrity: sha512-l8UWzVxKaqZd9ABsE/M/9p6NyGkQnmCnOoZyhQmjlXCtY5PuL2rcWxOFk2l9pk7ux3ERMPkTLE4jl6kQpTkwxA==}
 
   '@iconify/collections@1.0.728':
     resolution: {integrity: sha512-vzRn5TOgHv5cp/gpXQ42FfywPxa2htotIypQfSVt7GXiMHeYzmawMDii2IYHFYNmpWyamuMzvMci/JlNz9epkw==}
@@ -7013,11 +7013,11 @@ snapshots:
       htmlparser2: 9.1.0
       react: 19.2.8
 
-  '@iconify-json/lucide@1.2.126':
+  '@iconify-json/lucide@1.2.127':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.93':
+  '@iconify-json/simple-icons@1.2.94':
     dependencies:
       '@iconify/types': 2.0.0
 
