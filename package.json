@@ -42,8 +42,8 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
-    "@iconify-json/lucide": "^1.2.131",
-    "@iconify-json/simple-icons": "^1.2.95",
+    "@iconify-json/lucide": "^1.2.132",
+    "@iconify-json/simple-icons": "^1.2.96",
     "@nuxt/content": "^3.16.0",
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/icon": "^2.5.1",
@@ -62,7 +62,7 @@
     "motion-v": "2.4.2",
     "oxfmt": "^0.67.0",
     "oxlint": "^1.82.0",
-    "tailwind-merge": "^3.6.0",
+    "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "wrangler": "^4.131.1"
