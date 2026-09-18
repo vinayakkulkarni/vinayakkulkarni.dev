@@ -62,16 +62,14 @@ Static site with prerendered routes, deployed on Cloudflare Pages.
 
 ### MapLibre GL JS
 
-- Use `maplibre-gl` directly -- do NOT use `@geoql/v-maplibre` npm package (published version lacks required exports and causes crashes)
-- `@geoql/maplibre-gl-starfield` for globe starfield + sun rendering
+- Use `@geoql/v-maplibre` v3.x for map components -- v3 supports MapLibre GL v6. Do NOT use v2.x (it lacked required exports and crashed).
+- MapLibre GL v6 requires two extra steps in this app:
+  - `setWorkerUrl('/maplibre/maplibre-gl-worker.mjs')` plus `scripts/sync-maplibre-worker.mjs` (run via `predev`/`prebuild`/`prepare`). MapLibre 6 resolves its worker from a runtime-computed URL, and the worker imports `./maplibre-gl-shared.mjs` by relative path, so a hashed bundle asset breaks it. `public/maplibre/` is generated and gitignored.
+  - Keep `@cf-wasm/og` on 0.4.1 and do not treat lint/typecheck/build as proof an edge route works -- fetch it on workerd.
+- `VLayerStarfield` from `@geoql/v-maplibre/starfield` for globe starfield + sun rendering (requires `@geoql/maplibre-gl-starfield`)
 - Map components MUST be wrapped in `<ClientOnly>` -- MapLibre requires browser APIs
-- Use the dual init pattern for maps inside ClientOnly:
-  ```
-  watch(mapContainer, (el) => { if (el) initMap(el) })
-  onMounted(() => { if (mapContainer.value) initMap(mapContainer.value) })
-  ```
-- Store map instance in `shallowRef` (not `ref`) to avoid deep reactivity on the map object
-- Always call `map.remove()` in `onBeforeUnmount`
+- `VMap` renders its own container div and slots children after `loaded`; pass the container id through `options.container` instead of a template ref
+- Use the `@loaded` event to attach controls to the map instance
 
 ### Nuxt Conventions
 

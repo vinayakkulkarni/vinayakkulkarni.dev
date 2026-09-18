@@ -1,9 +1,21 @@
 <script setup lang="ts">
-  import maplibregl from 'maplibre-gl';
-  import { MaplibreStarfieldLayer } from '@geoql/maplibre-gl-starfield';
+  import {
+    Map as MaplibreMap,
+    NavigationControl,
+    setWorkerUrl,
+  } from 'maplibre-gl';
+  import 'maplibre-gl/dist/maplibre-gl.css';
+  // MapLibre resolves its worker from a runtime-computed URL, which the bundler
+  // cannot see, and the worker imports a sibling chunk by relative path, so a
+  // plain hashed copy breaks it. `?worker&url` makes Vite bundle the worker and
+  // its dependency into one file and hand back that file's URL.
+  import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
+  import { VMap } from '@geoql/v-maplibre';
+  import '@geoql/v-maplibre/dist/v-maplibre.css';
+  import { VLayerStarfield } from '@geoql/v-maplibre/starfield';
 
-  const mapContainer = useTemplateRef<HTMLDivElement>('mapContainer');
-  const map = shallowRef<maplibregl.Map | null>(null);
+  setWorkerUrl(maplibreWorkerUrl);
+
   const { sunAzimuth, sunAltitude, localSunAltitude, skyMode } =
     useSunPosition();
 
@@ -21,88 +33,48 @@
     'Geospatial Architect',
   ];
 
-  function initMap(el: HTMLDivElement) {
-    if (map.value) return;
-
-    const m = new maplibregl.Map({
-      container: el,
-      style: {
-        version: 8,
-        projection: { type: 'globe' },
-        sources: {
-          satellite: {
-            type: 'raster',
-            tiles: [
-              'https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg',
-            ],
-            tileSize: 256,
-          },
-        },
-        layers: [{ id: 'satellite', type: 'raster', source: 'satellite' }],
-        sky: {
-          'atmosphere-blend': [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
-            0,
-            0.15,
-            5,
-            0.3,
-            7,
-            0,
+  const mapOptions = {
+    container: 'hero-map',
+    style: {
+      version: 8 as const,
+      projection: { type: 'globe' as const },
+      sources: {
+        satellite: {
+          type: 'raster' as const,
+          tiles: [
+            'https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg',
           ],
+          tileSize: 256,
         },
       },
-      center: [73.85, 18.52],
-      zoom: 1.8,
-      attributionControl: false,
-    });
+      layers: [
+        { id: 'satellite', type: 'raster' as const, source: 'satellite' },
+      ],
+      sky: {
+        'atmosphere-blend': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          0,
+          0.15,
+          5,
+          0.3,
+          7,
+          0,
+        ],
+      },
+    },
+    center: [73.85, 18.52] as [number, number],
+    zoom: 1.8,
+    attributionControl: false,
+  };
 
-    m.addControl(new maplibregl.NavigationControl(), 'top-right');
-
-    m.on('style.load', () => {
-      const starfield = new MaplibreStarfieldLayer({
-        galaxyTextureUrl: '/milkyway.jpg',
-        starCount: 5000,
-        starSize: 2.5,
-        sunEnabled: true,
-        sunAzimuth: sunAzimuth.value,
-        sunAltitude: sunAltitude.value,
-        fadeAltitude: localSunAltitude.value,
-      });
-      m.addLayer(
-        starfield as unknown as maplibregl.LayerSpecification,
-        'satellite',
-      );
-    });
-
-    map.value = m;
+  function onMapLoaded(map: MaplibreMap) {
+    map.addControl(new NavigationControl(), 'top-right');
   }
-
-  watch(mapContainer, (el) => {
-    if (el && !isAutomated.value) initMap(el);
-  });
 
   onMounted(() => {
     isAutomated.value = navigator.webdriver === true;
-    if (!isAutomated.value && mapContainer.value) {
-      initMap(mapContainer.value);
-    }
-  });
-
-  watch([sunAzimuth, sunAltitude, localSunAltitude], ([az, alt, fadeAlt]) => {
-    const m = map.value;
-    if (!m) return;
-    const layer = m.getLayer('maplibre-starfield');
-    if (layer && 'implementation' in layer) {
-      const impl = layer.implementation as MaplibreStarfieldLayer;
-      impl.setSunPosition?.(az, alt, fadeAlt);
-    }
-  });
-
-  onBeforeUnmount(() => {
-    map.value?.remove();
-    map.value = null;
   });
 </script>
 
@@ -117,7 +89,25 @@
           v-if="isAutomated"
           class="size-full bg-gradient-to-b from-black via-[#0a0e1a] to-[#060810]"
         />
-        <div v-else ref="mapContainer" class="size-full" />
+        <VMap
+          v-else
+          :options="mapOptions"
+          projection="globe"
+          class="size-full"
+          @loaded="onMapLoaded"
+        >
+          <VLayerStarfield
+            id="hero-starfield"
+            :star-count="5000"
+            :star-size="2.5"
+            galaxy-texture-url="/milkyway.jpg"
+            :before="'satellite'"
+            sun-enabled
+            :sun-azimuth="sunAzimuth"
+            :sun-altitude="sunAltitude"
+            :fade-altitude="localSunAltitude"
+          />
+        </VMap>
         <template #fallback>
           <div class="size-full bg-black" />
         </template>
