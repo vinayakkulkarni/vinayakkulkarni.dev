@@ -92,20 +92,18 @@ async function fetchPinnedRepos(token?: string): Promise<GitHubRepo[]> {
     body: { query },
   });
 
-  return response.data.user.pinnedItems.nodes.map(
-    (node): GitHubRepo => ({
-      name: node.name,
-      description: node.description,
-      url: node.url,
-      stars: node.stargazerCount,
-      forks: node.forkCount,
-      language: node.primaryLanguage?.name ?? null,
-      languageColor: node.primaryLanguage?.color ?? null,
-      updatedAt: node.updatedAt,
-      topics: node.repositoryTopics.nodes.map((t) => t.topic.name),
-      pinned: true,
-    }),
-  );
+  return response.data.user.pinnedItems.nodes.map((node): GitHubRepo => ({
+    name: node.name,
+    description: node.description,
+    url: node.url,
+    stars: node.stargazerCount,
+    forks: node.forkCount,
+    language: node.primaryLanguage?.name ?? null,
+    languageColor: node.primaryLanguage?.color ?? null,
+    updatedAt: node.updatedAt,
+    topics: node.repositoryTopics.nodes.map((t) => t.topic.name),
+    pinned: true,
+  }));
 }
 
 async function fetchAllRepos(token?: string): Promise<GitHubRepo[]> {
@@ -129,22 +127,20 @@ async function fetchAllRepos(token?: string): Promise<GitHubRepo[]> {
 
   return data
     .filter((repo) => !repo.fork)
-    .map(
-      (repo): GitHubRepo => ({
-        name: repo.name,
-        description: repo.description,
-        url: repo.html_url,
-        stars: repo.stargazers_count,
-        forks: repo.forks_count,
-        language: repo.language,
-        languageColor: repo.language
-          ? (LANGUAGE_COLORS[repo.language] ?? null)
-          : null,
-        updatedAt: repo.updated_at,
-        topics: repo.topics ?? [],
-        pinned: false,
-      }),
-    );
+    .map((repo): GitHubRepo => ({
+      name: repo.name,
+      description: repo.description,
+      url: repo.html_url,
+      stars: repo.stargazers_count,
+      forks: repo.forks_count,
+      language: repo.language,
+      languageColor: repo.language
+        ? (LANGUAGE_COLORS[repo.language] ?? null)
+        : null,
+      updatedAt: repo.updated_at,
+      topics: repo.topics ?? [],
+      pinned: false,
+    }));
 }
 
 export default defineCachedEventHandler(

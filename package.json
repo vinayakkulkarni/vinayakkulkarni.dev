@@ -32,17 +32,17 @@
   },
   "dependencies": {
     "@cf-wasm/og": "^0.4.1",
-    "@geoql/maplibre-gl-starfield": "^0.1.1",
-    "better-sqlite3": "^13.0.2",
+    "@geoql/maplibre-gl-starfield": "^0.1.2",
+    "better-sqlite3": "^13.0.3",
     "maplibre-gl": "^5.24.0",
-    "nuxt": "^4.5.1",
+    "nuxt": "^4.5.2",
     "ogl": "^1.0.11",
-    "vue": "^3.5.40"
+    "vue": "^3.5.43"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
-    "@iconify-json/lucide": "^1.2.132",
+    "@iconify-json/lucide": "^1.2.134",
     "@iconify-json/simple-icons": "^1.2.96",
     "@nuxt/content": "^3.16.0",
     "@nuxt/fonts": "^0.14.0",
@@ -53,7 +53,7 @@
     "@nuxtjs/sitemap": "^8.5.1",
     "@nuxtjs/tailwindcss": "7.0.0-beta.1",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/node": "^26.5.1",
+    "@types/node": "^26.6.1",
     "@vueuse/core": "^14.4.0",
     "@vueuse/nuxt": "^14.4.0",
     "clsx": "^2.1.1",
@@ -65,7 +65,7 @@
     "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
-    "wrangler": "^4.131.2"
+    "wrangler": "^4.135.0"
   },
   "devEngines": {
     "runtime": {
@@ -73,5 +73,5 @@
       "version": ">=24.11.0"
     }
   },
-  "packageManager": "pnpm@11.17.0+sha512.cca3cea332ad254bb84145f966d19f4879615210346fc92c79a047f23a0d7b3cca3c3792f0076ba1f1831d277efbcf0a9119b31a9a60eca7fb3d6231f331ef72"
+  "packageManager": "pnpm@12.4.1+sha512.2e81e399d73fe8390dab25e06aa788ab7a5908248d2f5a370f82b481147a6a7a367bf8048f9a6fdb6460f21a66f0542dedb8b94ca2c8723596741920b1656d4c"
 }
