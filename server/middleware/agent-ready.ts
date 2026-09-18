@@ -30,6 +30,26 @@ function stripFrontmatter(md: string): string {
   return m ? md.slice(m[0].length) : md;
 }
 
+// Node fs is unavailable on workerd, so a miss returns null and the caller
+// falls back to converting the prerendered HTML.
+async function readArticleSource(slug: string): Promise<string | null> {
+  try {
+    const dir = join(process.cwd(), 'content/articles');
+    const { readdir } = await import('node:fs/promises');
+    const files = await readdir(dir);
+    const file = files.find(
+      (f) =>
+        f.endsWith('.md') &&
+        f.replace(/^\d+\./, '').replace(/\.md$/, '') === slug,
+    );
+    if (!file) return null;
+    const raw = await readFile(join(dir, file), 'utf-8');
+    return stripFrontmatter(raw).trim();
+  } catch {
+    return null;
+  }
+}
+
 export default defineEventHandler(async (event: H3Event) => {
   const path = getRequestURL(event).pathname;
 
@@ -42,31 +62,30 @@ export default defineEventHandler(async (event: H3Event) => {
   const accept = getHeader(event, 'accept') ?? '';
   if (!accept.includes('text/markdown')) return;
 
+  // Prerendered routes are served with a trailing slash; the route list omits
+  // it, so normalise before the lookup.
+  const routePath =
+    path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
+
   // Articles: serve the source markdown from disk (code blocks stay intact).
   const articleMatch = path.match(/^\/articles\/([a-z0-9-]+)\/?$/);
   if (articleMatch) {
-    const slug = articleMatch[1];
-    try {
-      const dir = join(process.cwd(), 'content/articles');
-      const { readdir } = await import('node:fs/promises');
-      const files = await readdir(dir);
-      const file = files.find(
-        (f) =>
-          f.endsWith('.md') &&
-          f.replace(/^\d+\./, '').replace(/\.md$/, '') === slug,
-      );
-      if (!file) return;
-      const raw = await readFile(join(dir, file), 'utf-8');
+    const source = await readArticleSource(articleMatch[1]);
+    if (source) {
       setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8');
       setHeader(event, 'Vary', 'Accept');
-      return stripFrontmatter(raw).trim();
-    } catch {
-      return;
+      return source;
     }
   }
 
-  // Static pages: convert prerendered HTML.
-  if (!STATIC_MARKDOWN_ROUTES.has(path)) return;
+  // Static pages, plus articles whose source was unavailable: convert the
+  // prerendered HTML.
+  if (
+    !path.startsWith('/articles/') &&
+    !STATIC_MARKDOWN_ROUTES.has(routePath)
+  ) {
+    return;
+  }
 
   const html = await event
     .$fetch<string>(path, { headers: { Accept: 'text/html' } })
