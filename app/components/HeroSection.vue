@@ -1,9 +1,5 @@
 <script setup lang="ts">
-  import {
-    Map as MaplibreMap,
-    NavigationControl,
-    setWorkerUrl,
-  } from 'maplibre-gl';
+  import { setWorkerUrl } from 'maplibre-gl';
   import 'maplibre-gl/dist/maplibre-gl.css';
   // MapLibre resolves its worker from a runtime-computed URL, which the bundler
   // cannot see, and the worker imports a sibling chunk by relative path, so a
@@ -69,10 +65,6 @@
     attributionControl: false,
   };
 
-  function onMapLoaded(map: MaplibreMap) {
-    map.addControl(new NavigationControl(), 'top-right');
-  }
-
   onMounted(() => {
     isAutomated.value = navigator.webdriver === true;
   });
@@ -89,13 +81,7 @@
           v-if="isAutomated"
           class="size-full bg-gradient-to-b from-black via-[#0a0e1a] to-[#060810]"
         />
-        <VMap
-          v-else
-          :options="mapOptions"
-          projection="globe"
-          class="size-full"
-          @loaded="onMapLoaded"
-        >
+        <VMap v-else :options="mapOptions" projection="globe" class="size-full">
           <VLayerStarfield
             id="hero-starfield"
             :star-count="5000"
