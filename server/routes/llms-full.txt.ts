@@ -1,3 +1,5 @@
+import { queryCollection } from '@nuxt/content/server';
+
 const PRIORITY_ROUTES = [
   '/',
   '/about',
@@ -28,21 +30,29 @@ export default defineEventHandler(async (event: H3Event) => {
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=3600');
 
+  const origin = getRequestURL(event).origin;
+
+  // Articles carry the actual writing, so "full content" has to include them.
+  // Listing them needs queryCollection; the static routes are fixed.
+  const articles = await queryCollection(event, 'articles')
+    .where('status', '=', 'published')
+    .order('date', 'DESC')
+    .all();
+
+  const paths = [...PRIORITY_ROUTES, ...articles.map((a) => a.path)];
+
   const sections = await Promise.all(
-    PRIORITY_ROUTES.map(async (path) => {
+    paths.map(async (path) => {
       // event.$fetch (relative) resolves prerendered HTML in-process on the
       // Worker. An absolute `$fetch(origin)` is a real edge loopback that
-      // Cloudflare answers with an empty body — this file served 83 bytes in
-      // prod for weeks before anyone noticed.
+      // Cloudflare answers with an empty body.
       const html = await event
         .$fetch<string>(path, {
           headers: { Accept: 'text/html' },
         })
         .catch(() => '');
       const plain = htmlToPlaintext(html);
-      return plain
-        ? `# ${getRequestURL(event).origin}${path}\n\n${plain}\n`
-        : '';
+      return plain ? `# ${origin}${path}\n\n${plain}\n` : '';
     }),
   );
 
