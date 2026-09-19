@@ -20,3 +20,9 @@
 /articles/
   Link: <https://vinayakkulkarni.dev/llms.txt>; rel="llms"; type="text/plain", <https://vinayakkulkarni.dev/sitemap.xml>; rel="sitemap"; type="application/xml", <https://vinayakkulkarni.dev/.well-known/api-catalog>; rel="api-catalog"
   Vary: Accept
+
+# Individual posts. Without this every article is cached as HTML and served
+# for Accept: text/markdown too, so the markdown variant never reaches anyone.
+/articles/*
+  Link: <https://vinayakkulkarni.dev/llms.txt>; rel="llms"; type="text/plain", <https://vinayakkulkarni.dev/sitemap.xml>; rel="sitemap"; type="application/xml", <https://vinayakkulkarni.dev/.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept

@@ -55,6 +55,9 @@ export default defineEventHandler(async (event: H3Event) => {
 
   if (!path.startsWith('/api/')) {
     appendHeader(event, 'Link', LINK_HEADER);
+    // Without Vary the CDN caches whichever variant it sees first and serves
+    // it for every Accept value, so the markdown response never reaches anyone.
+    appendHeader(event, 'Vary', 'Accept');
   }
 
   if (event.method !== 'GET') return;
