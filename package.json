@@ -41,8 +41,8 @@
     "vue": "^3.5.43"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.2",
-    "@commitlint/config-conventional": "^21.2.2",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
     "@iconify-json/lucide": "^1.2.134",
     "@iconify-json/simple-icons": "^1.2.96",
     "@nuxt/content": "^3.16.0",
@@ -54,7 +54,7 @@
     "@nuxtjs/sitemap": "^8.5.1",
     "@nuxtjs/tailwindcss": "7.0.0-beta.1",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/node": "^26.6.1",
+    "@types/node": "^26.6.2",
     "@vueuse/core": "^15.0.0",
     "@vueuse/nuxt": "^15.0.0",
     "clsx": "^2.1.1",
