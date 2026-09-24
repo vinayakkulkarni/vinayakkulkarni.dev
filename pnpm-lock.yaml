@@ -177,8 +177,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2(maplibre-gl@6.10.0)(three@0.185.1)
       '@geoql/v-maplibre':
-        specifier: ^3.0.0
-        version: 3.0.0(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.10.0)(three@0.185.1))(three@0.185.1)(vue@3.5.43(typescript@7.0.2))
+        specifier: ^3.0.1
+        version: 3.0.1(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.10.0)(three@0.185.1))(three@0.185.1)(vue@3.5.43(typescript@7.0.2))
       better-sqlite3:
         specifier: ^13.0.3
         version: 13.0.3
@@ -953,8 +953,8 @@ packages:
       maplibre-gl: '>=3.0.0'
       three: '>=0.135.0'
 
-  '@geoql/v-maplibre@3.0.0':
-    resolution: {integrity: sha512-YYN/28qyps66HykC8dXABBrtnnDUkvXWPgnVKHZwi4tFuM1UVJWofPzBIoVsO/hSDIjq/4a4JOX9i9evTNvBTg==}
+  '@geoql/v-maplibre@3.0.1':
+    resolution: {integrity: sha512-SPo1fE99Abi17cbaDqD+Q+pwR0O16Hf2Wgp23ikLs2IX6mrl7MiG6/JCq+ZVwpgmf8E5TJDTSKdjkyJaDpBdYQ==}
     peerDependencies:
       3d-tiles-renderer: ^0.5.0
       3d-tiles-rendererjs-3dgs-plugin: ^0.1.15
@@ -7128,7 +7128,7 @@ snapshots:
       maplibre-gl: 6.10.0
       three: 0.185.1
 
-  '@geoql/v-maplibre@3.0.0(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.10.0)(three@0.185.1))(three@0.185.1)(vue@3.5.43(typescript@7.0.2))':
+  '@geoql/v-maplibre@3.0.1(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.10.0)(three@0.185.1))(three@0.185.1)(vue@3.5.43(typescript@7.0.2))':
     dependencies:
       maplibre-gl: 6.10.0
       pmtiles: 4.5.0

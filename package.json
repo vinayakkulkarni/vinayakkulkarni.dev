@@ -33,7 +33,7 @@
   "dependencies": {
     "@cf-wasm/og": "^0.4.1",
     "@geoql/maplibre-gl-starfield": "^0.1.2",
-    "@geoql/v-maplibre": "^3.0.0",
+    "@geoql/v-maplibre": "^3.0.1",
     "better-sqlite3": "^13.0.3",
     "maplibre-gl": "^6.10.0",
     "nuxt": "^4.5.2",
