@@ -202,8 +202,8 @@ importers:
         specifier: ^21.2.3
         version: 21.2.3
       '@iconify-json/lucide':
-        specifier: ^1.2.135
-        version: 1.2.135
+        specifier: ^1.2.136
+        version: 1.2.136
       '@iconify-json/simple-icons':
         specifier: ^1.2.97
         version: 1.2.97
@@ -271,8 +271,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2
       wrangler:
-        specifier: ^4.136.1
-        version: 4.136.1(@types/node@26.6.2)
+        specifier: ^4.138.0
+        version: 4.138.0(@types/node@26.6.2)
 
 packages:
 
@@ -1028,8 +1028,8 @@ packages:
     peerDependencies:
       react: '>=16.0'
 
-  '@iconify-json/lucide@1.2.135':
-    resolution: {integrity: sha512-M2RbCJMe/ZwRzGBxNGbqP3kEQ74iJjQyJsw5FgVQw+Kp8eJPQF1S19fiGJChG4yYLg73c8Z/fMnm07GTXUxmQA==}
+  '@iconify-json/lucide@1.2.136':
+    resolution: {integrity: sha512-Wk+OeDVKkw+1LELZqRR3gXWIy5jNx5XjNMvVc9KoygJYmGqclv36FYqseRuJuxBIKDggdoZWNBxNRrOkiRbtwQ==}
 
   '@iconify-json/simple-icons@1.2.97':
     resolution: {integrity: sha512-Z6PmM6jvWVU7rmLzqbxCLJA7SeqCnK6lMHXtjyzHPLZebwuoojBEcHHycppahDzEeN9xujRkrV5J8QpOhMyNrg==}
@@ -4727,8 +4727,8 @@ packages:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
     engines: {node: '>=10'}
 
-  miniflare@5.20260921.0-alpha:
-    resolution: {integrity: sha512-vHH/unOYvV2jA1Q9SdkmzrQhhMoksdwg5jegu6ZeKaaRzgxZhVbt1NdTpQjHF2VTgiBjgP8SiUlUMfruB3N3SQ==}
+  miniflare@5.20260921.1-alpha:
+    resolution: {integrity: sha512-nvw7bDhUCMTKbpZWJ/WHQFn1FDopseuMQQGxkO3/f0r9eXeizux0ZxV3sZnEHnS0lDWb3Je0bIO2MJcFK4O8GQ==}
     engines: {node: '>=22.0.0'}
 
   minimark@0.2.0:
@@ -6412,8 +6412,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.136.1:
-    resolution: {integrity: sha512-xGdBeGMbdFJ7KgndpFyXsncg+kSQ46pD378LTFvyEGUnVvHGAF5ka1shqMpQIrg8n5AFmqajoTxi4E7w7FfEwQ==}
+  wrangler@4.138.0:
+    resolution: {integrity: sha512-jxNlOfssgyMo+eUcWBX+BxAuU6/AZAn8mNimicLv4igxbRH40OFRBMtGJT8z4kJwXPJriy1O4TB7A8lYjKb82w==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -7171,7 +7171,7 @@ snapshots:
       htmlparser2: 9.1.0
       react: 19.2.8
 
-  '@iconify-json/lucide@1.2.135':
+  '@iconify-json/lucide@1.2.136':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -11355,7 +11355,7 @@ snapshots:
 
   mimic-response@3.1.0: {}
 
-  miniflare@5.20260921.0-alpha(@types/node@26.6.2):
+  miniflare@5.20260921.1-alpha(@types/node@26.6.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       sharp: 0.35.4(@types/node@26.6.2)
@@ -13518,13 +13518,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260921.1
       '@cloudflare/workerd-windows-64': 1.20260921.1
 
-  wrangler@4.136.1(@types/node@26.6.2):
+  wrangler@4.138.0(@types/node@26.6.2):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20260921.1)
       blake3-wasm: 2.1.5
       esbuild: 0.28.1
-      miniflare: 5.20260921.0-alpha(@types/node@26.6.2)
+      miniflare: 5.20260921.1-alpha(@types/node@26.6.2)
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20260921.1
