@@ -15,6 +15,9 @@ on:
       CLOUDFLARE_ACCOUNT_ID:
         description: 'Cloudflare account ID'
         required: true
+      NUXT_PUBLIC_OPENPANEL_CLIENT_ID:
+        description: 'Public OpenPanel client ID baked into the production bundle'
+        required: false
 
 jobs:
   deploy:
@@ -53,6 +56,11 @@ jobs:
 
       - name: Build
         run: pnpm run build
+        env:
+          NUXT_PUBLIC_OPENPANEL_CLIENT_ID: ${{ secrets.NUXT_PUBLIC_OPENPANEL_CLIENT_ID }}
+
+      # NUXT_OPENPANEL_CLIENT_SECRET is a Worker secret read at runtime; it is
+      # intentionally not supplied here so deploys never overwrite it.
 
       # nitro writes the merged wrangler config to .output/server/wrangler.json via
       # deployConfig (see nuxt.config.ts) — point --config at it.

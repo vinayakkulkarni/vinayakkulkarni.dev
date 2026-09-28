@@ -8,6 +8,7 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { htmlToMarkdown } from '~~/server/utils/html-to-markdown';
+import { trackOpenPanelEvent } from '~~/server/utils/openpanel';
 
 const ORIGIN = 'https://vinayakkulkarni.dev';
 
@@ -75,6 +76,13 @@ export default defineEventHandler(async (event: H3Event) => {
   if (articleMatch) {
     const source = await readArticleSource(articleMatch[1]);
     if (source) {
+      event.waitUntil(
+        trackOpenPanelEvent(event, 'markdown_request', {
+          path,
+          source: 'article',
+          user_agent: getHeader(event, 'user-agent') ?? '',
+        }),
+      );
       setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8');
       setHeader(event, 'Vary', 'Accept');
       return source;
@@ -96,6 +104,13 @@ export default defineEventHandler(async (event: H3Event) => {
   const markdown = htmlToMarkdown(html);
   if (!markdown) return;
 
+  event.waitUntil(
+    trackOpenPanelEvent(event, 'markdown_request', {
+      path,
+      source: 'html',
+      user_agent: getHeader(event, 'user-agent') ?? '',
+    }),
+  );
   setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8');
   setHeader(event, 'Vary', 'Accept');
   return `# ${path}\n\n${markdown}\n`;

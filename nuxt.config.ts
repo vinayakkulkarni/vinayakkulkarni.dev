@@ -14,6 +14,11 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/color-mode',
     '@nuxtjs/plausible',
+    // OpenPanel product analytics (self-hosted at events.geoql.in), alongside
+    // Plausible. The module copies every `openpanel` option below into
+    // runtimeConfig.public (browser-exposed), so the client secret lives in the
+    // private runtimeConfig.openpanel block instead.
+    '@openpanel/nuxt',
     '@nuxtjs/sitemap',
     '@vueuse/nuxt',
     'motion-v/nuxt',
@@ -104,6 +109,18 @@ export default defineNuxtConfig({
     autoOutboundTracking: true,
   },
 
+  openpanel: {
+    // Baked in at build time: prerendered pages embed runtimeConfig.public.
+    clientId: process.env.NUXT_PUBLIC_OPENPANEL_CLIENT_ID ?? '',
+    apiUrl: 'https://events.geoql.in/api',
+    trackScreenViews: true,
+    trackOutgoingLinks: true,
+    trackAttributes: true,
+    // The proxy handler hardcodes api.openpanel.dev and would bypass the
+    // self-hosted apiUrl; the browser POSTs to events.geoql.in directly.
+    proxy: false,
+  },
+
   content: {
     database: {
       type: 'd1',
@@ -138,6 +155,13 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     githubToken: '',
+    // Server-only. clientSecret authenticates server-side track calls
+    // (server/utils/openpanel.ts); on the Worker it comes from the
+    // NUXT_OPENPANEL_CLIENT_SECRET secret at runtime.
+    openpanel: {
+      clientId: process.env.NUXT_PUBLIC_OPENPANEL_CLIENT_ID ?? '',
+      clientSecret: '',
+    },
   },
 
   nitro: {
