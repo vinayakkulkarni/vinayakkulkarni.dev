@@ -56,19 +56,19 @@
     "@nuxtjs/tailwindcss": "7.0.0-beta.1",
     "@openpanel/nuxt": "^0.4.1",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.4",
     "@vueuse/core": "^15.0.0",
     "@vueuse/nuxt": "^15.0.0",
     "clsx": "^2.1.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
-    "motion-v": "2.5.1",
+    "motion-v": "2.5.2",
     "oxfmt": "^0.71.0",
     "oxlint": "^1.86.0",
     "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
-    "wrangler": "^4.146.0"
+    "wrangler": "^4.147.0"
   },
   "devEngines": {
     "runtime": {
