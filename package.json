@@ -62,7 +62,7 @@
     "clsx": "^2.1.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
-    "motion-v": "2.5.2",
+    "motion-v": "2.6.0",
     "oxfmt": "^0.72.0",
     "oxlint": "^1.87.0",
     "tailwind-merge": "^3.7.0",
