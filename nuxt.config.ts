@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 5,
   },
 
-  compatibilityDate: '2026-06-16',
+  compatibilityDate: '2026-10-01',
 
   devtools: { enabled: true },
 
@@ -175,7 +175,7 @@ export default defineNuxtConfig({
       deployConfig: true,
       wrangler: {
         name: 'vinayakkulkarni-dev',
-        compatibility_date: '2026-06-16',
+        compatibility_date: '2026-10-01',
         compatibility_flags: ['nodejs_compat'],
         workers_dev: false,
         d1_databases: [
