@@ -5,16 +5,23 @@
 
   const colorMode = useColorMode();
 
-  const { data, status, refresh } = await useFetch<GitHubResponse>(
+  // Build-time list, embedded in the prerendered payload.
+  const { data: prerendered, status } = await useFetch<GitHubResponse>(
     '/api/github',
     {
       key: 'github-repos',
     },
   );
 
-  onMounted(() => {
-    refresh();
+  // Fresh list after hydration. A separate key, so a failed GitHub call
+  // (the API returns 502) leaves the prerendered list on screen instead of
+  // replacing it with an empty one.
+  const { data: live } = useFetch<GitHubResponse>('/api/github', {
+    key: 'github-repos-live',
+    server: false,
   });
+
+  const data = computed(() => live.value ?? prerendered.value);
 
   const FEATURED_REPOS = ['tileserver-rs', 'v-maplibre'];
 

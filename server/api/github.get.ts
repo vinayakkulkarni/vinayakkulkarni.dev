@@ -192,6 +192,16 @@ export default defineCachedEventHandler(
       }
     }
 
+    // Both GitHub calls failed (no token, or the anonymous rate limit on the
+    // Worker's shared egress IPs). Fail loudly: a thrown error is not cached,
+    // and the client keeps its prerendered list instead of an empty one.
+    if (pinned.length === 0 && repos.length === 0) {
+      throw createError({
+        statusCode: 502,
+        statusMessage: 'GitHub API unavailable',
+      });
+    }
+
     const pinnedNames = new Set(pinned.map((r) => r.name));
     const filteredRepos = repos.filter((r) => !pinnedNames.has(r.name));
 
