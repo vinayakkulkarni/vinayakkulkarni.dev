@@ -205,8 +205,8 @@ importers:
         specifier: ^21.2.3
         version: 21.2.3
       '@iconify-json/lucide':
-        specifier: ^1.2.144
-        version: 1.2.144
+        specifier: ^1.2.145
+        version: 1.2.145
       '@iconify-json/simple-icons':
         specifier: ^1.2.100
         version: 1.2.100
@@ -259,8 +259,8 @@ importers:
         specifier: ^17.6.0
         version: 17.6.0
       motion-v:
-        specifier: 2.7.0
-        version: 2.7.0(@vueuse/core@15.0.0(vue@3.5.43(typescript@7.0.2)))(react@19.2.8)(vue@3.5.43(typescript@7.0.2))
+        specifier: 2.8.0
+        version: 2.8.0(@vueuse/core@15.0.0(vue@3.5.43(typescript@7.0.2)))(react@19.2.8)(vue@3.5.43(typescript@7.0.2))
       oxfmt:
         specifier: ^0.73.0
         version: 0.73.0
@@ -277,8 +277,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2
       wrangler:
-        specifier: ^4.151.0
-        version: 4.151.0(@types/node@26.6.5)
+        specifier: ^4.151.1
+        version: 4.151.1(@types/node@26.6.5)
 
 packages:
 
@@ -1033,8 +1033,8 @@ packages:
     peerDependencies:
       react: '>=16.0'
 
-  '@iconify-json/lucide@1.2.144':
-    resolution: {integrity: sha512-b1+e91RGPd4lLck6nTXeoQFiu8z/G3pXNl/tbsqfleTSzDdI9hUzKYQSGiA6T86NmaI0FtrCDM9MjMhoCwtTMg==}
+  '@iconify-json/lucide@1.2.145':
+    resolution: {integrity: sha512-eYBZipY6g4bbJNyKBAEq1wBy3mJ2jKtI4O2K30ArO2lMpVDOEuQfu5aDZhiimj1+Q/mIrn3ZxnDeX1BbILxkwQ==}
 
   '@iconify-json/simple-icons@1.2.100':
     resolution: {integrity: sha512-536pN2RCEQyy5bYwzayrs4e9egr8cmtVcbdSHLaQl/ULUsihzn1eZ0+Hhn50zgz9cbEotiynKsKQSEjFJ7qKmw==}
@@ -4166,8 +4166,8 @@ packages:
   fraction.js@5.3.4:
     resolution: {integrity: sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==}
 
-  framer-motion@14.1.0:
-    resolution: {integrity: sha512-QsdZSdWoyQfUmgi+GZfow8Du5COG6VRYEo9FlgKUPgH87/Le/fYekHCAKwLdYKHdCZcZfWHg4iOxlD6RoqXciQ==}
+  framer-motion@14.3.0:
+    resolution: {integrity: sha512-d8WCrU0ZQn7ukKMykCsDyIOwb/taZeDqqrDBK0du5GO0AO/ynz8fdR/LIIz9Pyy3n3tGwrneR+n0egyrrLa3fw==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
@@ -5035,8 +5035,8 @@ packages:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
     engines: {node: '>=10'}
 
-  miniflare@5.20261012.0-beta:
-    resolution: {integrity: sha512-Cjrs+vHHQ7krLO4HYELYpYBJBuMhcnNZD/Z5z/UcQSnFqWSQY3DhtTCFalXgI1/yO1iK+YrRKK8EYkumrEopxg==}
+  miniflare@5.20261012.1-beta:
+    resolution: {integrity: sha512-8Canhy6g9+vAhqMc0o80YphqYIwpiA3aAp8aX+uDXU7J/qbUeoZzcII9c2V1P4uT/eHD4SB93qet1o1bRY3BuQ==}
     engines: {node: '>=22.0.0'}
 
   minimark@0.2.0:
@@ -5077,14 +5077,14 @@ packages:
   mocked-exports@0.1.1:
     resolution: {integrity: sha512-aF7yRQr/Q0O2/4pIXm6PZ5G+jAd7QS4Yu8m+WEeEHGnbo+7mE36CbLSDQiXYV8bVL3NfmdeqPJct0tUlnjVSnA==}
 
-  motion-dom@14.1.0:
-    resolution: {integrity: sha512-FyFLkNUAAETzCvf851mZcl+v+kaZrKq+UM+XmkY4G8n+ny/WYfiWh9j0fhSQ1KOKVQrM9/cLO11THO2k71HJlg==}
+  motion-dom@14.3.0:
+    resolution: {integrity: sha512-rcKO4aEJzAqDEsrH6qFzhLZxs7bNqZpiUEuEATz9LaRwt6dG7hZEbcFUSHNR8NECaKYM0Iuw6Iv6NpWEGXDI+w==}
 
-  motion-utils@14.1.0:
-    resolution: {integrity: sha512-xd4FeWOnnXsJHmAaRCLNbOS7mEaNOangjMt3Pl241H07f1kxW48fADQ/8O5hLLNhf1qdlozgY3PPAHBdOoU7AA==}
+  motion-utils@14.1.1:
+    resolution: {integrity: sha512-3VvN5Uvf8B6qG+OfOui6Nht5EWp+vLuU3IqcAj7ItZGKqtmTjCebl5sGZF7/08gEHRnEl1AP/fIwbcEyVrcQGQ==}
 
-  motion-v@2.7.0:
-    resolution: {integrity: sha512-/14UHEVFe+ms0As46tArqhVjB4r6cFgIxmvx0qsYwhRoXWeCcvP/KKlLBC6MX0uUJqS73sDa3Jt/DbC/S+nUvg==}
+  motion-v@2.8.0:
+    resolution: {integrity: sha512-kCwxm+EUbXW/lUdhTyozTKCX2WmQ5aDrjrPtFnUKByw99cz6mQAJyqtIubGdecnDM4VvNz8JOhWy2upp3m5b3w==}
     peerDependencies:
       '@vueuse/core': '>=10.0.0'
       vue: '>=3.0.0'
@@ -6750,8 +6750,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.151.0:
-    resolution: {integrity: sha512-ra8MpzSR+ClkbGofu9S+AmAKjytS60MqSuayXKpa1CAYIzP+NIc8q6EiF55Gz5PS3lxT4qcvMuPHihCNhTPpDg==}
+  wrangler@4.151.1:
+    resolution: {integrity: sha512-OAsa9UAHZshM6mq2PXcVoyxXgWThAanZMBc/IirtqEWd/BauRtmUKzAniOu/pU0pd3pxKuMZ2vsbF4eo6RiNDA==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -7517,7 +7517,7 @@ snapshots:
       htmlparser2: 9.1.0
       react: 19.2.8
 
-  '@iconify-json/lucide@1.2.144':
+  '@iconify-json/lucide@1.2.145':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -10746,10 +10746,10 @@ snapshots:
 
   fraction.js@5.3.4: {}
 
-  framer-motion@14.1.0(react@19.2.8):
+  framer-motion@14.3.0(react@19.2.8):
     dependencies:
-      motion-dom: 14.1.0
-      motion-utils: 14.1.0
+      motion-dom: 14.3.0
+      motion-utils: 14.1.1
       tslib: 2.8.1
     optionalDependencies:
       react: 19.2.8
@@ -11865,7 +11865,7 @@ snapshots:
 
   mimic-response@3.1.0: {}
 
-  miniflare@5.20261012.0-beta(@types/node@26.6.5):
+  miniflare@5.20261012.1-beta(@types/node@26.6.5):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       sharp: 0.35.5(@types/node@26.6.5)
@@ -11915,19 +11915,19 @@ snapshots:
 
   mocked-exports@0.1.1: {}
 
-  motion-dom@14.1.0:
+  motion-dom@14.3.0:
     dependencies:
-      motion-utils: 14.1.0
+      motion-utils: 14.1.1
 
-  motion-utils@14.1.0: {}
+  motion-utils@14.1.1: {}
 
-  motion-v@2.7.0(@vueuse/core@15.0.0(vue@3.5.43(typescript@7.0.2)))(react@19.2.8)(vue@3.5.43(typescript@7.0.2)):
+  motion-v@2.8.0(@vueuse/core@15.0.0(vue@3.5.43(typescript@7.0.2)))(react@19.2.8)(vue@3.5.43(typescript@7.0.2)):
     dependencies:
       '@vueuse/core': 15.0.0(vue@3.5.43(typescript@7.0.2))
-      framer-motion: 14.1.0(react@19.2.8)
+      framer-motion: 14.3.0(react@19.2.8)
       hey-listen: 1.0.8
-      motion-dom: 14.1.0
-      motion-utils: 14.1.0
+      motion-dom: 14.3.0
+      motion-utils: 14.1.1
       vue: 3.5.43(typescript@7.0.2)
     transitivePeerDependencies:
       - react
@@ -14119,13 +14119,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261012.1
       '@cloudflare/workerd-windows-64': 1.20261012.1
 
-  wrangler@4.151.0(@types/node@26.6.5):
+  wrangler@4.151.1(@types/node@26.6.5):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261012.1)
       blake3-wasm: 2.1.5
       esbuild: 0.28.2
-      miniflare: 5.20261012.0-beta(@types/node@26.6.5)
+      miniflare: 5.20261012.1-beta(@types/node@26.6.5)
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20261012.1
