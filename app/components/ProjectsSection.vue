@@ -3,6 +3,8 @@
 
   const EMPTY_REPOS: GitHubRepo[] = [];
 
+  const { track } = useAnalytics();
+
   const colorMode = useColorMode();
 
   // Build-time list, embedded in the prerendered payload.
@@ -126,6 +128,9 @@
               target="_blank"
               rel="noopener noreferrer"
               class="block h-full"
+              @click="
+                track('project_click', { repo: repo.name, section: 'pinned' })
+              "
             >
               <SpotlightCard
                 spotlight-color="rgba(120, 119, 198, 0.3)"
@@ -199,6 +204,9 @@
               :href="repo.url"
               target="_blank"
               rel="noopener noreferrer"
+              @click="
+                track('project_click', { repo: repo.name, section: 'all' })
+              "
               class="group flex items-center gap-4 rounded-xl px-4 py-3 transition-colors hover:bg-accent/50"
             >
               <span

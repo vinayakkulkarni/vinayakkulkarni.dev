@@ -28,12 +28,14 @@
     "lint:fix": "oxlint . --fix",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest run"
   },
   "dependencies": {
     "@cf-wasm/og": "^0.4.1",
     "@geoql/maplibre-gl-starfield": "^0.1.2",
     "@geoql/v-maplibre": "^3.0.1",
+    "@nuxt/scripts": "^1.3.12",
     "@openpanel/sdk": "^1.3.1",
     "better-sqlite3": "^13.0.3",
     "maplibre-gl": "^6.13.0",
@@ -51,7 +53,6 @@
     "@nuxt/icon": "^2.5.1",
     "@nuxt/image": "^2.2.0",
     "@nuxtjs/color-mode": "^4.0.1",
-    "@nuxtjs/plausible": "^4.0.0",
     "@nuxtjs/sitemap": "^8.6.1",
     "@nuxtjs/tailwindcss": "7.0.0-beta.1",
     "@openpanel/nuxt": "^0.4.1",
@@ -68,6 +69,7 @@
     "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
+    "vitest": "^5.0.5",
     "wrangler": "^4.151.2"
   },
   "devEngines": {

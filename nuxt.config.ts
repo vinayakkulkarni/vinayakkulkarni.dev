@@ -13,11 +13,12 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
     '@nuxtjs/color-mode',
-    '@nuxtjs/plausible',
-    // OpenPanel product analytics (self-hosted at events.geoql.in), alongside
-    // Plausible. The module copies every `openpanel` option below into
-    // runtimeConfig.public (browser-exposed), so the client secret lives in the
-    // private runtimeConfig.openpanel block instead.
+    // Analytics fan out to three trackers via app/composables/use-analytics.ts:
+    // GA4 (@nuxt/scripts, plugins/5), OpenPanel (this module) and Plausible
+    // (official pa-*.js snippet, plugins/7). The OpenPanel module copies every
+    // `openpanel` option below into runtimeConfig.public (browser-exposed), so
+    // the client secret lives in the private runtimeConfig.openpanel block.
+    '@nuxt/scripts',
     '@openpanel/nuxt',
     '@nuxtjs/sitemap',
     '@vueuse/nuxt',
@@ -103,15 +104,12 @@ export default defineNuxtConfig({
     ],
   },
 
-  plausible: {
-    domain: 'vinayakkulkarni.dev',
-    apiHost: 'https://analytics.geoql.in',
-    autoOutboundTracking: true,
-  },
-
   openpanel: {
     // Baked in at build time: prerendered pages embed runtimeConfig.public.
-    clientId: process.env.NUXT_PUBLIC_OPENPANEL_CLIENT_ID ?? '',
+    // Public ID (ships in the HTML), production project vinayakkulkarnidev.
+    clientId:
+      process.env.NUXT_PUBLIC_OPENPANEL_CLIENT_ID ??
+      'cb66da23-5300-4331-9cc6-538f4c078c44',
     apiUrl: 'https://events.geoql.in/api',
     trackScreenViews: true,
     trackOutgoingLinks: true,
@@ -159,8 +157,21 @@ export default defineNuxtConfig({
     // (server/utils/openpanel.ts); on the Worker it comes from the
     // NUXT_OPENPANEL_CLIENT_SECRET secret at runtime.
     openpanel: {
-      clientId: process.env.NUXT_PUBLIC_OPENPANEL_CLIENT_ID ?? '',
+      clientId:
+        process.env.NUXT_PUBLIC_OPENPANEL_CLIENT_ID ??
+        'cb66da23-5300-4331-9cc6-538f4c078c44',
       clientSecret: '',
+    },
+    // Public tracker IDs (they ship in the HTML). Production defaults,
+    // overridable via NUXT_PUBLIC_GTAG_ID / NUXT_PUBLIC_PLAUSIBLE_SCRIPT_ID /
+    // NUXT_PUBLIC_PLAUSIBLE_API_HOST / NUXT_PUBLIC_OPENPANEL_CLIENT_ID.
+    public: {
+      gtagId: 'G-T7XYEZ3ZXM',
+      // Loaded as `${plausibleApiHost}/js/pa-${plausibleScriptId}.js`.
+      plausibleScriptId: 'WBom9BCe9ftyS8jGOKOsy',
+      plausibleApiHost: 'https://analytics.geoql.in',
+      // OpenPanel's public clientId lives in runtimeConfig.public.openpanel
+      // (set by the `openpanel` block above), where @openpanel/nuxt reads it.
     },
   },
 
