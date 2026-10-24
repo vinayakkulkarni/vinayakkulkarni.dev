@@ -1,3 +1,4 @@
+import type { H3Event } from 'h3';
 const ORIGIN = 'https://vinayakkulkarni.dev';
 
 export default defineEventHandler((event: H3Event) => {

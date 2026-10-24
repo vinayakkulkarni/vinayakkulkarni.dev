@@ -1,3 +1,5 @@
+import type { H3Event } from 'h3';
+
 // Conservative AI crawlers (Google-Extended, Applebot-Extended) need an explicit
 // allow separate from `User-agent: *`, or they skip the site for AI answers.
 const aiCrawlers = [

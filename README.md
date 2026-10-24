@@ -27,6 +27,10 @@ pnpm dev
 pnpm lint
 pnpm fmt
 
+# typecheck & test
+pnpm typecheck
+pnpm test
+
 # build for production
 pnpm build
 

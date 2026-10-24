@@ -28,7 +28,7 @@ Static site with prerendered routes, deployed on Cloudflare Pages.
 | Fonts      | @nuxt/fonts                                                                   | Inter                 |
 | Images     | @nuxt/image                                                                   | Optimization          |
 | Animation  | motion-v                                                                      | Vue motion library    |
-| Analytics  | @nuxtjs/plausible                                                             | Self-hosted           |
+| Analytics  | Plausible snippet, @openpanel/nuxt, GA4 via @nuxt/scripts                     | `useAnalytics()`      |
 | Utilities  | @vueuse/core, @vueuse/nuxt, clsx, tailwind-merge                              | Composables + cn()    |
 | Dev        | oxlint, oxfmt, typescript                                                     | Linting + formatting  |
 
@@ -65,7 +65,7 @@ Static site with prerendered routes, deployed on Cloudflare Pages.
 - Use `@geoql/v-maplibre` v3.x for map components -- v3 supports MapLibre GL v6. Do NOT use v2.x (it lacked required exports and crashed).
 - MapLibre GL v6 requires two extra steps in this app:
   - `setWorkerUrl('/maplibre/maplibre-gl-worker.mjs')` plus `scripts/sync-maplibre-worker.mjs` (run via `predev`/`prebuild`/`prepare`). MapLibre 6 resolves its worker from a runtime-computed URL, and the worker imports `./maplibre-gl-shared.mjs` by relative path, so a hashed bundle asset breaks it. `public/maplibre/` is generated and gitignored.
-  - Keep `@cf-wasm/og` on 0.4.1 and do not treat lint/typecheck/build as proof an edge route works -- fetch it on workerd.
+  - Do not treat lint/typecheck/build as proof that an edge route works. After any `@cf-wasm/og` bump, fetch `/og/*.png` on workerd (`wrangler dev` on the build). 0.5.0 was verified this way.
 - `VLayerStarfield` from `@geoql/v-maplibre/starfield` for globe starfield + sun rendering (requires `@geoql/maplibre-gl-starfield`)
 - Map components MUST be wrapped in `<ClientOnly>` -- MapLibre requires browser APIs
 - `VMap` renders its own container div and slots children after `loaded`; pass the container id through `options.container` instead of a template ref
@@ -226,18 +226,21 @@ Push to `main` or PR triggers: extract-branch -> CI -> CD (main only).
 ### Continuous Integration (ci.yml)
 
 1. Checkout
-2. Setup Node.js 24 + pnpm
+2. Setup Node.js 26 + pnpm (`pnpm/action-setup`, version from `packageManager`)
 3. Cache pnpm store
 4. `pnpm install --frozen-lockfile`
 5. `pnpm run lint` (oxlint)
 6. `pnpm run fmt:check` (oxfmt)
-7. `pnpm run build` (nuxt build)
+7. `pnpm run typecheck` (tsc on the four `.nuxt/tsconfig.*.json` projects; `.vue` files are not covered because vue-tsc cannot load TypeScript 7)
+8. `pnpm run test` (vitest)
+9. `node scripts/verify-agent-skills.mjs`
+10. `pnpm run build` (nuxt build)
 
 ### Continuous Deployment (cd.yml)
 
 1. Same setup as CI
-2. `pnpm run build` with `NITRO_PRESET=cloudflare-pages`
-3. Deploy via `cloudflare/wrangler-action@v3` to Cloudflare Pages
+2. `pnpm run build`
+3. `pnpm exec wrangler deploy --config .output/server/wrangler.json` to Cloudflare Workers
 
 ### Releases (release-please.yml)
 

@@ -1,5 +1,6 @@
 // Dynamic OG image generation for vinayakkulkarni.dev
 // Uses @cf-wasm/og/workerd — only works on Cloudflare Workers, not Node.js dev
+import type { H3Event } from 'h3';
 
 // Satori element helper — plain JS objects, no React.
 // Satori requires display:flex on divs with 2+ children, and chokes on children:[].

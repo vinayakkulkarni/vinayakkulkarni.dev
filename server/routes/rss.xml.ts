@@ -1,3 +1,4 @@
+import type { H3Event } from 'h3';
 import { queryCollection } from '@nuxt/content/server';
 
 const BASE_URL = 'https://vinayakkulkarni.dev';
