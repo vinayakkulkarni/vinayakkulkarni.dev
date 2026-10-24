@@ -5,6 +5,7 @@
 //   static pages convert prerendered HTML via html-to-markdown.
 // The Accept: text/html subrequest re-enters this middleware but skips the
 // markdown branch — that guard is load-bearing (prevents a self-fetch loop).
+import type { H3Event } from 'h3';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { htmlToMarkdown } from '~~/server/utils/html-to-markdown';
@@ -72,9 +73,9 @@ export default defineEventHandler(async (event: H3Event) => {
     path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
 
   // Articles: serve the source markdown from disk (code blocks stay intact).
-  const articleMatch = path.match(/^\/articles\/([a-z0-9-]+)\/?$/);
-  if (articleMatch) {
-    const source = await readArticleSource(articleMatch[1]);
+  const articleSlug = path.match(/^\/articles\/([a-z0-9-]+)\/?$/)?.[1];
+  if (articleSlug) {
+    const source = await readArticleSource(articleSlug);
     if (source) {
       event.waitUntil(
         trackOpenPanelEvent(event, 'markdown_request', {

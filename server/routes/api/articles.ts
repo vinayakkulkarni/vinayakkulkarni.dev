@@ -1,3 +1,4 @@
+import type { H3Event } from 'h3';
 import { queryCollection } from '@nuxt/content/server';
 
 export default defineEventHandler(async (event: H3Event) => {

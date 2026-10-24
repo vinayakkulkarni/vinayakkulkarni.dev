@@ -44,6 +44,20 @@ interface CalendarDay {
   date: string;
 }
 
+interface TopContribution {
+  repo: string;
+  count: number;
+  owner: string;
+}
+
+// Annotated: typed `$fetch` reads this route's return type from the generated
+// server-route types, so an inferred return type would reference itself.
+interface GithubContributionsResponse {
+  contributions: CalendarDay[][];
+  totalContributions: number;
+  topContributions: TopContribution[];
+}
+
 function isUpstreamPayload(value: unknown): value is UpstreamPayload {
   if (!value || typeof value !== 'object') return false;
   const record = value as Record<string, unknown>;
@@ -92,7 +106,7 @@ function toWeeks(days: UpstreamDay[]): CalendarDay[][] {
 async function fetchTopContributions(
   username: string,
   token?: string,
-): Promise<{ repo: string; count: number; owner: string }[]> {
+): Promise<TopContribution[]> {
   try {
     const headers: Record<string, string> = {
       accept: 'application/vnd.github+json',
@@ -130,7 +144,7 @@ async function fetchTopContributions(
 }
 
 export default defineCachedEventHandler(
-  async (event) => {
+  async (event): Promise<GithubContributionsResponse> => {
     const username = getRouterParam(event, 'username');
 
     if (!username || !USERNAME_PATTERN.test(username)) {
@@ -140,7 +154,7 @@ export default defineCachedEventHandler(
       });
     }
 
-    const payload = await $fetch<unknown>(`${UPSTREAM}/${username}`, {
+    const payload: unknown = await $fetch<unknown>(`${UPSTREAM}/${username}`, {
       headers: { accept: 'application/json' },
       query: { y: 'last' },
     });

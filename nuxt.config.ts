@@ -1,6 +1,61 @@
+// wrangler.json keys passed through Nitro's defu merge. Kept out of the
+// config literal because nitropack's wrangler type predates `cache`, which
+// wrangler's own config-schema.json (RawConfig.cache -> CacheOptions) accepts.
+const wranglerConfig = {
+  name: 'vinayakkulkarni-dev',
+  compatibility_date: '2026-10-01',
+  compatibility_flags: ['nodejs_compat'],
+  workers_dev: false,
+  d1_databases: [
+    {
+      binding: 'DB',
+      database_name: 'vinayakkulkarni-dev-db',
+      database_id: '4e5afc7d-61a8-44d5-9a9b-a3fbd6cb7277',
+    },
+  ],
+  // Workers Cache API — nitro passes arbitrary wrangler keys through its
+  // defu merge (no allowlist); Pages rejected this key, Workers accepts it.
+  // Needs wrangler >=4.89.0 for the base block.
+  cache: {
+    enabled: true,
+  },
+  observability: {
+    enabled: true,
+  },
+  placement: {
+    mode: 'smart' as const,
+  },
+  // Route the markdown-negotiable pages through the Worker so the
+  // agent-ready middleware can serve Accept: text/markdown. Static
+  // assets bypass middleware by default; run_worker_first opts these
+  // paths back into the Worker (markdown hits are rare, browsers still
+  // get the cached prerendered HTML variant via Vary: Accept).
+  assets: {
+    run_worker_first: [
+      '/',
+      '/about',
+      '/about/',
+      '/projects',
+      '/projects/',
+      '/open-source',
+      '/open-source/',
+      '/articles/*',
+    ],
+  },
+};
+
 export default defineNuxtConfig({
   future: {
     compatibilityVersion: 5,
+  },
+
+  experimental: {
+    // compatibilityVersion 5 turns Nitro auto-imports off from Nuxt 4.6.2.
+    // @nuxt/content 3.16.2 (latest) imports `useRuntimeConfig` from `#imports`
+    // in its server runtime and needs `H3Event` for `queryCollection`, so the
+    // build fails without this layer. Remove when @nuxt/content imports from
+    // `nuxt/server`; see https://nuxt.com/docs/5.x/getting-started/upgrade
+    nitroAutoImports: true,
   },
 
   compatibilityDate: '2026-10-01',
@@ -96,6 +151,13 @@ export default defineNuxtConfig({
   icon: {
     provider: 'iconify',
     mode: 'svg',
+    // Bundle every icon the app uses from the installed @iconify-json/*
+    // collections. Without it, prerender fetches each icon from the Iconify
+    // API with a 1.5 s timeout, and on a slow network the icons drop out of
+    // the prerendered HTML.
+    clientBundle: {
+      scan: true,
+    },
     customCollections: [
       {
         prefix: 'base',
@@ -184,48 +246,7 @@ export default defineNuxtConfig({
     cloudflare: {
       nodeCompat: true,
       deployConfig: true,
-      wrangler: {
-        name: 'vinayakkulkarni-dev',
-        compatibility_date: '2026-10-01',
-        compatibility_flags: ['nodejs_compat'],
-        workers_dev: false,
-        d1_databases: [
-          {
-            binding: 'DB',
-            database_name: 'vinayakkulkarni-dev-db',
-            database_id: '4e5afc7d-61a8-44d5-9a9b-a3fbd6cb7277',
-          },
-        ],
-        // Workers Cache API — nitro passes arbitrary wrangler keys through its
-        // defu merge (no allowlist); Pages rejected this key, Workers accepts it.
-        // Needs wrangler >=4.89.0 for the base block.
-        cache: {
-          enabled: true,
-        },
-        observability: {
-          enabled: true,
-        },
-        placement: {
-          mode: 'smart',
-        },
-        // Route the markdown-negotiable pages through the Worker so the
-        // agent-ready middleware can serve Accept: text/markdown. Static
-        // assets bypass middleware by default; run_worker_first opts these
-        // paths back into the Worker (markdown hits are rare, browsers still
-        // get the cached prerendered HTML variant via Vary: Accept).
-        assets: {
-          run_worker_first: [
-            '/',
-            '/about',
-            '/about/',
-            '/projects',
-            '/projects/',
-            '/open-source',
-            '/open-source/',
-            '/articles/*',
-          ],
-        },
-      },
+      wrangler: wranglerConfig,
     },
     experimental: {
       wasm: true,
