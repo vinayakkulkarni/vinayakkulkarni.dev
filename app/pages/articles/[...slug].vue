@@ -9,6 +9,10 @@
     return Array.isArray(parts) ? parts.join('/') : parts;
   });
 
+  const readingMinutes = ref(1);
+  const endMarker = useTemplateRef<HTMLElement>('article-end');
+  useArticleReadTracking(endMarker, slug, readingMinutes);
+
   const { data: article } = await useAsyncData(`article-${slug.value}`, () =>
     queryCollection('articles').path(`/articles/${slug.value}`).first(),
   );
@@ -29,6 +33,9 @@
 
   const bodyText = computed(() => extractText(article.value?.body));
   const reading = useReadingTime(bodyText);
+  watchEffect(() => {
+    readingMinutes.value = reading.value.minutes;
+  });
   const publishedDate = computed(() =>
     article.value ? formatDate(article.value.date) : '',
   );
@@ -116,6 +123,7 @@
         :value="article"
         class="prose prose-neutral max-w-none dark:prose-invert prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-pre:rounded-xl prose-pre:border prose-pre:border-border"
       />
+      <div ref="article-end" aria-hidden="true" class="h-px" />
 
       <div
         v-if="article.tags?.length"

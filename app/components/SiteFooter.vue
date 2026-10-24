@@ -1,4 +1,9 @@
 <script setup lang="ts">
+  import type { SocialTarget } from '~/types/analytics';
+  import type { SocialLink } from '~/types/social';
+
+  const { track } = useAnalytics();
+
   const quotes = [
     'Never stop learning, cause life never stops teaching.',
     'The best maps are the ones people can build on.',
@@ -6,33 +11,46 @@
     'Ship fast, iterate faster.',
   ];
 
-  const socials = [
+  const socials: SocialLink[] = [
     {
       label: 'GitHub',
       icon: 'lucide:github',
       url: 'https://github.com/vinayakkulkarni',
+      target: 'github',
     },
     {
       label: 'Twitter',
       icon: 'lucide:twitter',
       url: 'https://x.com/_vinayak_k',
+      target: 'x',
     },
     {
       label: 'LinkedIn',
       icon: 'lucide:linkedin',
       url: 'https://www.linkedin.com/in/kulkarnivinayak/',
+      target: 'linkedin',
     },
     {
       label: 'Reddit',
       icon: 'simple-icons:reddit',
       url: 'https://www.reddit.com/user/vinayak-kulkarni/',
+      target: 'reddit',
     },
     {
       label: 'Website',
       icon: 'lucide:globe',
       url: 'https://vinayakkulkarni.dev',
+      target: null,
     },
   ];
+
+  // The footer social row is the site's contact block: a click is both an
+  // outbound profile click and a contact intent. The self-link sends nothing.
+  function onSocialClick(target: SocialTarget | null) {
+    if (!target) return;
+    track('outbound_click', { target, location: 'footer' });
+    track('contact_click', { channel: target, location: 'footer' });
+  }
 </script>
 
 <template>
@@ -70,6 +88,7 @@
           target="_blank"
           rel="noopener noreferrer"
           :aria-label="social.label"
+          @click="onSocialClick(social.target)"
           class="rounded-full border border-border p-3 text-muted-foreground transition-all hover:border-primary/50 hover:bg-accent hover:text-foreground"
         >
           <Icon :name="social.icon" class="size-5" />

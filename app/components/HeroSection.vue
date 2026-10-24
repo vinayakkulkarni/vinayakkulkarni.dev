@@ -12,6 +12,14 @@
 
   setWorkerUrl(maplibreWorkerUrl);
 
+  const { track } = useAnalytics();
+  const router = useRouter();
+
+  function onViewProjects() {
+    track('cta_click', { location: 'hero', target: 'projects' });
+    router.push('/projects');
+  }
+
   const { sunAzimuth, sunAltitude, localSunAltitude, skyMode } =
     useSunPosition();
 
@@ -145,7 +153,7 @@
           shimmer-color="rgba(120, 119, 198, 0.5)"
           background="rgba(0, 0, 0, 0.7)"
           class="px-8 py-3"
-          @click="$router.push('/projects')"
+          @click="onViewProjects"
         >
           <span class="text-sm font-medium text-white">View Projects</span>
         </ShimmerButton>
@@ -154,6 +162,9 @@
           href="https://github.com/vinayakkulkarni"
           target="_blank"
           rel="noopener noreferrer"
+          @click="
+            track('outbound_click', { target: 'github', location: 'hero' })
+          "
           class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
         >
           <Icon name="lucide:github" class="size-4" />
