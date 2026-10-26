@@ -56,4 +56,11 @@ describe.each([
   it('carries an ItemList JSON-LD with each live URL', () => {
     expect(itemListUrls(html)).toEqual(projects.map((p) => p.url));
   });
+
+  // Unreleased products (see tests/unit/projects.test.ts) must not leak.
+  it('names no unreleased product', () => {
+    for (const host of ['ourkosh.com', 'geolith.app']) {
+      expect(html).not.toContain(host);
+    }
+  });
 });
