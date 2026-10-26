@@ -7,6 +7,8 @@
     twitterSite: '@_vinayak_k',
   });
 
+  useCanonicalLink();
+
   useHead({
     script: [
       {
