@@ -21,7 +21,7 @@ export type SocialTarget = 'github' | 'linkedin' | 'x' | 'reddit';
 
 export type OutboundLocation = 'hero' | 'footer';
 
-export type ProjectSection = 'pinned' | 'all';
+export type ProjectSection = 'pinned' | 'all' | 'live';
 
 export type AnalyticsProps = Record<string, string | number | boolean>;
 

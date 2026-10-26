@@ -30,7 +30,8 @@
     "fmt:check": "oxfmt --check",
     "typecheck": "nuxt prepare && tsc --noEmit -p .nuxt/tsconfig.app.json && tsc --noEmit -p .nuxt/tsconfig.server.json && tsc --noEmit -p .nuxt/tsconfig.shared.json && tsc --noEmit -p .nuxt/tsconfig.node.json",
     "prepare": "husky",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:ssr": "vitest run --config vitest.ssr.config.ts"
   },
   "dependencies": {
     "@cf-wasm/og": "^0.5.0",

@@ -1,5 +1,8 @@
 <script setup lang="ts">
   import type { GitHubResponse, GitHubRepo } from '~/types/github';
+  import { PRODUCT_GROUPS, projectsIn } from '~/data/projects';
+
+  const products = projectsIn(PRODUCT_GROUPS);
 
   const EMPTY_REPOS: GitHubRepo[] = [];
 
@@ -104,6 +107,14 @@
         :delay="80"
         :duration="0.5"
         class="mb-16 text-3xl font-bold tracking-tight text-foreground md:text-5xl"
+      />
+
+      <!-- Live products: plain SSR links, independent of the GitHub fetch -->
+      <LiveProjects
+        id="live"
+        class="mb-16"
+        :groups="PRODUCT_GROUPS"
+        :projects="products"
       />
 
       <div v-if="status === 'pending'" class="flex justify-center py-20">

@@ -1,4 +1,11 @@
 <script setup lang="ts">
+  import { PRODUCT_GROUPS, projectsIn } from '~/data/projects';
+
+  useProjectListSchema(
+    'Products and sites by Vinayak Kulkarni',
+    projectsIn(PRODUCT_GROUPS),
+  );
+
   useSeoMeta({
     title: 'Projects - Vinayak Kulkarni',
     description:
