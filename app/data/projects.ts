@@ -19,28 +19,6 @@ export const LIVE_PROJECTS: readonly LiveProject[] = [
     group: 'Products and sites',
   },
   {
-    name: 'Kosh',
-    description: 'Family finance plan tracker.',
-    url: 'https://ourkosh.com',
-    tag: 'Product',
-    group: 'Products and sites',
-  },
-  {
-    name: 'geolith cloud',
-    description: 'Metered geocoding and vector tile API.',
-    url: 'https://console.geolith.app',
-    tag: 'Product',
-    group: 'Products and sites',
-  },
-  {
-    name: 'geolith',
-    description:
-      'Planet-scale geospatial build engine in Rust: OpenStreetMap and Overture Maps to vector tiles, routing files and geocoding indexes.',
-    url: 'https://geolith.app',
-    tag: 'Product',
-    group: 'Products and sites',
-  },
-  {
     name: 'tileserver-rs',
     description:
       'High-performance Rust tile server for PMTiles, MBTiles, PostGIS, and Cloud Optimized GeoTIFFs.',

@@ -16,6 +16,10 @@ const PRIVATE_HOSTS = [
   'vault',
 ];
 
+// Products still being built must not be listed until the owner launches
+// them. Remove a host from this list only on the owner's word.
+const UNRELEASED_HOSTS = ['ourkosh.com', 'geolith.app'];
+
 describe('app/data/projects.ts', () => {
   it.each(LIVE_PROJECTS.map((p) => [p.name, p] as const))(
     '%s has a live https URL and https repo/npm links',
@@ -37,13 +41,20 @@ describe('app/data/projects.ts', () => {
     },
   );
 
+  it('lists no unreleased product (live URL, repo or text)', () => {
+    const text = JSON.stringify(LIVE_PROJECTS);
+    for (const host of UNRELEASED_HOSTS) {
+      expect(text).not.toContain(host);
+    }
+  });
+
   it('has no duplicate live URLs', () => {
     const urls = LIVE_PROJECTS.map((p) => p.url);
     expect(new Set(urls).size).toBe(urls.length);
   });
 
-  it('splits into 8 products and 26 open-source demos', () => {
-    expect(projectsIn(PRODUCT_GROUPS)).toHaveLength(8);
+  it('splits into 5 products and 26 open-source demos', () => {
+    expect(projectsIn(PRODUCT_GROUPS)).toHaveLength(5);
     expect(projectsIn(OPEN_SOURCE_GROUPS)).toHaveLength(26);
   });
 
