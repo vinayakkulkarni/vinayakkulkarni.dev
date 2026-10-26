@@ -30,15 +30,21 @@ const wranglerConfig = {
   // assets bypass middleware by default; run_worker_first opts these
   // paths back into the Worker (markdown hits are rare, browsers still
   // get the cached prerendered HTML variant via Vary: Accept).
+  //
+  // One URL style (no trailing slash, as in the sitemap). The asset
+  // layer can only redirect with a 307, so every `/x/` request runs the
+  // Worker first ('/*/'), where server/middleware/0.trailing-slash.ts
+  // answers 308 → `/x`. drop-trailing-slash serves folder indexes such
+  // as articles/index.html at `/articles` instead of 307 → `/articles/`.
   assets: {
+    html_handling: 'drop-trailing-slash' as const,
     run_worker_first: [
       '/',
+      '/*/',
       '/about',
-      '/about/',
       '/projects',
-      '/projects/',
       '/open-source',
-      '/open-source/',
+      '/articles',
       '/articles/*',
     ],
   },

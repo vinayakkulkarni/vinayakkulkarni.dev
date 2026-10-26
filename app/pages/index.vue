@@ -6,7 +6,7 @@
     ogTitle: 'Vinayak Kulkarni - GIS Engineer & Co-Founder',
     ogDescription:
       'Co-Founder building geospatial infrastructure. Specializing in MapLibre, Planetiler, PMTiles, and Vue.js.',
-    ogUrl: 'https://vinayakkulkarni.dev',
+    ogUrl: 'https://vinayakkulkarni.dev/',
     ogImage:
       'https://vinayakkulkarni.dev/og/index.png?title=Vinayak%20Kulkarni&description=GIS%20Engineer%20%26%20Co-Founder%20building%20geospatial%20infrastructure.',
     ogImageWidth: 1200,

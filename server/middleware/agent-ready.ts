@@ -67,10 +67,8 @@ export default defineEventHandler(async (event: H3Event) => {
   const accept = getHeader(event, 'accept') ?? '';
   if (!accept.includes('text/markdown')) return;
 
-  // Prerendered routes are served with a trailing slash; the route list omits
-  // it, so normalise before the lookup.
-  const routePath =
-    path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
+  // 0.trailing-slash.ts already 308s `/x/` to `/x`, so the path is canonical.
+  const routePath = path;
 
   // Articles: serve the source markdown from disk (code blocks stay intact).
   const articleSlug = path.match(/^\/articles\/([a-z0-9-]+)\/?$/)?.[1];
