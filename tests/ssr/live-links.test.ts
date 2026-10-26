@@ -15,9 +15,12 @@ function ssrHtml(route: string): string {
   );
 }
 
-function anchorHrefs(html: string): Set<string> {
-  return new Set(
-    [...html.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/g)].map((m) => m[1]!),
+// href -> opening <a> tag, for every anchor in the page.
+function anchors(html: string): Map<string, string> {
+  return new Map(
+    [...html.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/g)].map(
+      (m) => [m[1]!, m[0]] as const,
+    ),
   );
 }
 
@@ -36,17 +39,15 @@ describe.each([
   ['/projects', projectsIn(PRODUCT_GROUPS)],
 ])('SSR HTML of %s', (route, projects) => {
   const html = ssrHtml(route);
-  const hrefs = anchorHrefs(html);
+  const tags = anchors(html);
 
   it.each(projects.map((p) => p.url))('links %s with <a href>', (url) => {
-    expect(hrefs.has(url)).toBe(true);
+    expect(tags.has(url)).toBe(true);
   });
 
   it('owned links are followable (no nofollow)', () => {
     for (const p of projects) {
-      const tag = html.match(
-        new RegExp(`<a\\b[^>]*href="${p.url.replace(/[.?]/g, '\\$&')}"[^>]*>`),
-      )![0];
+      const tag = tags.get(p.url) ?? '';
       expect(tag).not.toContain('nofollow');
       expect(tag).toContain('rel="noopener"');
     }
