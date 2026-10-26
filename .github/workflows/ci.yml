@@ -60,3 +60,6 @@ jobs:
 
       - name: Run build
         run: pnpm run build
+
+      - name: Check SSR HTML links
+        run: pnpm run test:ssr

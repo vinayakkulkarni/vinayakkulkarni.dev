@@ -1,4 +1,8 @@
 <script setup lang="ts">
+  import { OPEN_SOURCE_GROUPS, projectsIn } from '~/data/projects';
+
+  const demos = projectsIn(OPEN_SOURCE_GROUPS);
+
   const stats = [
     { label: 'GitHub Stars', count: 1200, icon: 'lucide:star' },
     { label: 'Open Source Packages', count: 45, icon: 'lucide:package' },
@@ -77,6 +81,16 @@
             </p>
           </div>
         </FadeContent>
+      </div>
+
+      <!-- Live demos: plain SSR links so visitors and crawlers reach them -->
+      <div id="demos" class="mb-16">
+        <h2
+          class="mb-8 text-2xl font-bold tracking-tight text-foreground md:text-3xl"
+        >
+          Live demos
+        </h2>
+        <LiveProjects :groups="OPEN_SOURCE_GROUPS" :projects="demos" />
       </div>
 
       <!-- GitHub Calendar -->

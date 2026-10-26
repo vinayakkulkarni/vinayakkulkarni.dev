@@ -1,4 +1,11 @@
 <script setup lang="ts">
+  import { OPEN_SOURCE_GROUPS, projectsIn } from '~/data/projects';
+
+  useProjectListSchema(
+    'Open source live demos by Vinayak Kulkarni',
+    projectsIn(OPEN_SOURCE_GROUPS),
+  );
+
   useSeoMeta({
     title: 'Open Source - Vinayak Kulkarni',
     description:
