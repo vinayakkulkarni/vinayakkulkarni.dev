@@ -6,6 +6,7 @@ import {
   projectsIn,
 } from '~/data/projects';
 import { buildProjectListSchema } from '~/composables/use-project-list-schema';
+import { forbiddenNameDigests } from '../forbidden-names';
 
 // Private infrastructure must never be linked from the portfolio.
 const PRIVATE_HOSTS = [
@@ -15,10 +16,6 @@ const PRIVATE_HOSTS = [
   'wakapi',
   'vault',
 ];
-
-// Products still being built must not be listed until the owner launches
-// them. Remove a host from this list only on the owner's word.
-const UNRELEASED_HOSTS = ['ourkosh.com', 'geolith.app'];
 
 describe('app/data/projects.ts', () => {
   it.each(LIVE_PROJECTS.map((p) => [p.name, p] as const))(
@@ -42,10 +39,7 @@ describe('app/data/projects.ts', () => {
   );
 
   it('lists no unreleased product (live URL, repo or text)', () => {
-    const text = JSON.stringify(LIVE_PROJECTS);
-    for (const host of UNRELEASED_HOSTS) {
-      expect(text).not.toContain(host);
-    }
+    expect(forbiddenNameDigests(JSON.stringify(LIVE_PROJECTS))).toEqual([]);
   });
 
   it('has no duplicate live URLs', () => {

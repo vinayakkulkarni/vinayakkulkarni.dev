@@ -7,6 +7,7 @@ import {
   PRODUCT_GROUPS,
   projectsIn,
 } from '~/data/projects';
+import { forbiddenNameDigests } from '../forbidden-names';
 
 function ssrHtml(route: string): string {
   return readFileSync(
@@ -57,10 +58,8 @@ describe.each([
     expect(itemListUrls(html)).toEqual(projects.map((p) => p.url));
   });
 
-  // Unreleased products (see tests/unit/projects.test.ts) must not leak.
+  // Unreleased and private products (tests/forbidden-names.ts) must not leak.
   it('names no unreleased product', () => {
-    for (const host of ['ourkosh.com', 'geolith.app']) {
-      expect(html).not.toContain(host);
-    }
+    expect(forbiddenNameDigests(html)).toEqual([]);
   });
 });
