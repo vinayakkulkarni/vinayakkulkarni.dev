@@ -49,7 +49,7 @@
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@iconify-json/lucide": "^1.2.147",
-    "@iconify-json/simple-icons": "^1.2.100",
+    "@iconify-json/simple-icons": "^1.2.101",
     "@nuxt/content": "^3.16.2",
     "@nuxt/fonts": "^1.2.0",
     "@nuxt/icon": "^2.6.1",
@@ -72,7 +72,7 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vitest": "^5.0.5",
-    "wrangler": "^4.152.0"
+    "wrangler": "^4.153.0"
   },
   "devEngines": {
     "runtime": {
