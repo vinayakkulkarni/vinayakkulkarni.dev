@@ -177,8 +177,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2(maplibre-gl@6.15.0)(three@0.186.1)
       '@geoql/v-maplibre':
-        specifier: ^3.0.1
-        version: 3.0.1(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.15.0)(three@0.186.1))(three@0.186.1)(vue@3.5.44(typescript@7.0.2))
+        specifier: ^3.1.0
+        version: 3.1.0(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.15.0)(three@0.186.1))(three@0.186.1)(vue@3.5.44(typescript@7.0.2))
       '@nuxt/scripts':
         specifier: ^1.3.12
         version: 1.3.12(@nuxt/schema@4.6.2)(@oxc-project/types@0.155.0)(@unhead/vue@3.4.3(@oxc-project/types@0.155.0)(esbuild@0.28.2)(lightningcss@1.33.0)(oxc-parser@0.140.0)(rolldown@1.2.15)(rollup@4.65.0)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue@3.5.44(typescript@7.0.2)))(confbox@0.3.1)(db0@0.3.4(better-sqlite3@13.0.3))(dotenv@17.4.2)(esbuild@0.28.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(mlly@1.8.2)(rolldown@1.2.15)(rollup@4.65.0)(typescript@7.0.2)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue@3.5.44(typescript@7.0.2))
@@ -783,29 +783,30 @@ packages:
       maplibre-gl: '>=3.0.0'
       three: '>=0.135.0'
 
-  '@geoql/v-maplibre@3.0.1':
-    resolution: {integrity: sha512-SPo1fE99Abi17cbaDqD+Q+pwR0O16Hf2Wgp23ikLs2IX6mrl7MiG6/JCq+ZVwpgmf8E5TJDTSKdjkyJaDpBdYQ==}
+  '@geoql/v-maplibre@3.1.0':
+    resolution: {integrity: sha512-T9BNceAWbyMJmDylXgVZVHTDj6Vrq7L5TK/yy1H1pP0JN2TmYqd1TkLcxP+qw3DtkTnCmYdhqtk8fJC1rhyWVw==}
     peerDependencies:
       3d-tiles-renderer: ^0.5.0
-      3d-tiles-rendererjs-3dgs-plugin: ^0.1.15
+      3d-tiles-rendererjs-3dgs-plugin: ^0.3.0
       '@deck.gl/aggregation-layers': ^9.3.0
       '@deck.gl/core': ^9.3.0
       '@deck.gl/geo-layers': ^9.3.0
       '@deck.gl/layers': ^9.3.0
       '@deck.gl/mapbox': ^9.3.0
       '@deck.gl/mesh-layers': ^9.3.0
-      '@developmentseed/deck.gl-geotiff': ^0.7.0
-      '@developmentseed/deck.gl-raster': ^0.7.0
-      '@developmentseed/deck.gl-zarr': ^0.7.0
-      '@developmentseed/geotiff': ^0.7.0
-      '@developmentseed/proj': ^0.7.0
+      '@developmentseed/deck.gl-geotiff': ^0.7.0 || ^0.8.0 || ^0.9.0
+      '@developmentseed/deck.gl-raster': ^0.7.0 || ^0.8.0 || ^0.9.0
+      '@developmentseed/deck.gl-zarr': ^0.7.0 || ^0.8.0 || ^0.9.0
+      '@developmentseed/geotiff': ^0.7.0 || ^0.8.0 || ^0.9.0
+      '@developmentseed/proj': ^0.7.0 || ^0.8.0 || ^0.9.0
       '@dvt3d/maplibre-three-plugin': ^1.7.0
       '@geoql/maplibre-gl-starfield': ^0.1.0
-      '@sparkjsdev/spark': ^2.1.0
+      '@sparkjsdev/spark': ^2.3.0
       apache-arrow: ^17.0.0
-      maplibre-gl-lidar: ^0.16.0
+      gaussian-splat-lite: ^1.0.0
+      maplibre-gl-lidar: ^0.21.0
       maplibre-gl-wind: ^0.2.0
-      three: '>=0.176.0'
+      three: '>=0.186.0'
       vue: ^3.5.0
       zarrita: ^0.7.0
     peerDependenciesMeta:
@@ -842,6 +843,8 @@ packages:
       '@sparkjsdev/spark':
         optional: true
       apache-arrow:
+        optional: true
+      gaussian-splat-lite:
         optional: true
       maplibre-gl-lidar:
         optional: true
@@ -6777,7 +6780,7 @@ snapshots:
       maplibre-gl: 6.15.0
       three: 0.186.1
 
-  '@geoql/v-maplibre@3.0.1(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.15.0)(three@0.186.1))(three@0.186.1)(vue@3.5.44(typescript@7.0.2))':
+  '@geoql/v-maplibre@3.1.0(@geoql/maplibre-gl-starfield@0.1.2(maplibre-gl@6.15.0)(three@0.186.1))(three@0.186.1)(vue@3.5.44(typescript@7.0.2))':
     dependencies:
       maplibre-gl: 6.15.0
       pmtiles: 4.5.0
